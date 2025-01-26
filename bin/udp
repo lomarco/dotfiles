@@ -1,0 +1,20 @@
+#!/bin/env bash
+
+echo "System upgrade..."
+sudo pacman -Syyu --noconfirm
+
+echo "Clear cache..."
+sudo paccache -rk3
+
+echo "Remove unused packages..."
+orphaned_packages=$(pacman -Qdtq)
+if [ -n "$orphaned_packages" ]; then
+    sudo pacman -Rns $orphaned_packages --noconfirm
+else
+    echo "No unused packages to remove."
+fi
+
+echo "Clear cache pacman..."
+sudo pacman -Sc --noconfirm
+
+echo "________________END________________"

@@ -1,0 +1,47 @@
+#!/bin/env bash
+
+set -e
+
+if [ -z "$1" ]; then
+  echo "Ошибка: Не указан целевой каталог."
+  echo "Использование: $0 /путь/к/целевому/каталогу"
+  exit 1
+fi
+
+if [ ! -d "$1" ]; then
+  echo "Ошибка: Целевой каталог '$1' не существует."
+  exit 1
+fi
+
+LOG_FILE="$1/backup_$(date +%Y%m%d_%H%M%S).log"
+echo "Начало резервного копирования: $(date)" | tee -a "$LOG_FILE"
+
+run_rsync() {
+  local src=$1
+  local dest=$2
+  echo "Копирование $src в $dest..." | tee -a "$LOG_FILE"
+  rsync -aAXv "$src" "$dest" >> "$LOG_FILE" 2>&1
+  if [ $? -eq 0 ]; then
+    echo "Успешно: $src скопирован в $dest" | tee -a "$LOG_FILE"
+  else
+    echo "Ошибка: Не удалось скопировать $src в $dest" | tee -a "$LOG_FILE"
+    #exit 1
+  fi
+}
+
+run_rsync /home/opop/ "$1"/home
+run_rsync /data/ "$1"/data
+run_rsync /etc/ "$1"/etc/
+run_rsync /usr/local/bin/ "$1"/bin
+
+echo "Синхронизация файловых систем..." | tee -a "$LOG_FILE"
+sync >> "$LOG_FILE" 2>&1
+if [ $? -eq 0 ]; then
+  echo "Успешно: Файловые системы синхронизированы." | tee -a "$LOG_FILE"
+else
+  echo "Ошибка: Не удалось синхронизировать файловые системы." | tee -a "$LOG_FILE"
+  exit 1
+fi
+
+echo "Резервное копирование завершено: $(date)" | tee -a "$LOG_FILE"
+

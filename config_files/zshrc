@@ -1,0 +1,28 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh/zsh-snap
+source ~/.config/zsh/zsh-snap/znap.zsh
+
+
+# znap source marlonrichert/zsh-autocomplete
+# znap source ohmyzsh/ohmyzsh
+znap source zsh-users/zsh-autosuggestions
+znap source zsh-users/zsh-syntax-highlighting
+znap prompt romkatv/powerlevel10k
+
+HISTFILE=~/.zsh_history
+HISTSIZE=300
+SAVEHIST=100
+setopt appendhistory
+
+autoload -Uz compinit
+compinit
+
+# aliases:
+alias ls='ls --color=auto'
+alias btw='neofetch'
+alias /="cd /"
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
