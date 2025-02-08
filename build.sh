@@ -20,4 +20,4 @@ cp -r $HOME/.config/foot/foot.ini $scripts_dir
 cp -r $HOME/.config/sway/config $scripts_dir
 cp -r $HOME/.config/waybar/ $scripts_dir
 cp -r $HOME/.zshrc $scripts_dir/zshrc
-cp -r $HOME/.config/nvim/ $scripts_dir
+cp -r $HOME/.config/nvim/init.lua $scripts_dir

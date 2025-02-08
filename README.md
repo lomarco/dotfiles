@@ -16,17 +16,6 @@
 <img src="docs/2.png" align="2" width="px">
 <img src="docs/3.png" align="3" width="1000px">
 
-# Disk Partitions
-#### 1 - 940M - /efi
-
-#### 2 - 16G - [SWAP]
-
-#### 3 - 100G - /
-
-#### 4 - 240G - /data
-
-#### 5 - 120G - /home
-
 # About files
 #### [bin](bin) - Самописные скрипты, из /usr/local/bin/
 
@@ -38,6 +27,6 @@
 
 #### [foot](config_files/foot.ini) - Конфигурация foot emul
 
-#### [nvim](config_files/nvim) - Конфигурация Neo vim (Немного изменёный nvchad)
+#### [nvim](config_files/init.lua) - Конфигурация Neo vim (Немного изменёный nvchad)
 
 #### [zshrc](config_files/zshrc) - Конфигурация Zsh & Znap.
