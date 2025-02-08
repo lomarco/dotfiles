@@ -27,6 +27,6 @@
 
 #### [foot](config_files/foot.ini) - Конфигурация foot emul
 
-#### [nvim](config_files/init.lua) - Конфигурация Neo vim (Немного изменёный nvchad)
+#### [nvim](config_files/init.lua) - Конфигурация Neo vim (Своя конфигурация, будет изменяться)
 
 #### [zshrc](config_files/zshrc) - Конфигурация Zsh & Znap.
