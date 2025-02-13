@@ -35,15 +35,13 @@ vim.opt.colorcolumn = "100"
 vim.opt.fillchars = { eob = " " }
 vim.opt.shortmess:append("I")
 vim.opt.clipboard = "unnamedplus"
-
-
+vim.api.nvim_set_keymap('n', '<Esc>', ':noh<CR><Esc>', { noremap = true, silent = true })
 ------------ KEYMAPS:
 vim.g.mapleader = " "
 
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
-vim.keymap.set('v', '<leader>/', ':CommentToggle<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>f', ':lua vim.lsp.buf.formatting()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>f', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('v', '<leader>"', 'c""<Esc>P', { noremap = true, silent = true })
@@ -53,9 +51,9 @@ vim.keymap.set('v', '<leader>{', 'c{}<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>[', 'c[]<Esc>P', { noremap = true, silent = true })
 
 -- Buffers
-vim.keymap.set('n', '>', ':bnext<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<', ':bprevious<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-x>', ':bdelete<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '>', ':bnext<CR>', { noremap = true, silent = true })       -- gn
+vim.keymap.set('n', '<', ':bprevious<CR>', { noremap = true, silent = true })   -- gp
+vim.keymap.set('n', '<C-x>', ':bdelete<CR>', { noremap = true, silent = true }) -- gw
 vim.keymap.set('n', '<leader>be', ':enew<CR>', { noremap = true, silent = true })
 
 -- moving between windows
@@ -96,7 +94,7 @@ require('lazy').setup({
   { -- LSP
     'neovim/nvim-lspconfig',
     config = function()
-      require'lspconfig'.ts_ls.setup{}
+      require 'lspconfig'.ts_ls.setup {}
     end
   },
 
@@ -106,7 +104,7 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-cmdline', ---------
     },
     config = function()
       require('cmp').setup({
@@ -154,11 +152,13 @@ require('lazy').setup({
     end
   },
 
-  { -- Bugger bar
+  { -- Buffers bar
     'romgrk/barbar.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      require('barbar').setup()
+      require('barbar').setup({
+        animation = false
+      })
     end
   },
 
@@ -185,9 +185,16 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme('PaperColor') -- desert, yellow-moon,challenger_deep , industry, gruvbox, nord, onedark, pablo, darkblue, blue, PaperColor
+      vim.cmd.colorscheme('yellow-moon') -- desert, yellow-moon, challenger_deep , industry, gruvbox, nord, onedark, pablo, darkblue, blue, PaperColor
       vim.o.termguicolors = true
       vim.o.background = 'dark'
+    end
+  },
+
+  { -- Char rain
+    'eandrju/cellular-automaton.nvim',
+    config = function()
+
     end
   }
 })
@@ -197,7 +204,7 @@ require('lazy').setup({
 local lspconfig = require('lspconfig')
 
 local on_attach = function(client, bufnr)
-  local opts = { noremap=true, silent=true, buffer=bufnr }
+  local opts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)

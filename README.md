@@ -30,3 +30,5 @@
 #### [nvim](config_files/init.lua) - Конфигурация Neo vim (Своя конфигурация, будет изменяться)
 
 #### [zshrc](config_files/zshrc) - Конфигурация Zsh & Znap.
+
+#### [vimrc](config_files/vimrc) - Конфигурация vim (Нужен в роли блакнота, чтобы не запускать Neo vim).
