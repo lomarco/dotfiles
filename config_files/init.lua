@@ -9,6 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable",
+    "--depth 1",
     lazypath,
   })
 end
@@ -199,6 +200,11 @@ require('lazy').setup({
     config = function()
     end
   }
+}, {
+    git = {
+      depth = 1,
+      filter = "blob:none"
+    },
 })
 
 

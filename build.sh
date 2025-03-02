@@ -1,24 +1,25 @@
 #!/bin/env bash
 
-# set -e
+set -e
 
 bin_scripts="/usr/local/bin/"
-scripts_dir="./config_files/"
+configs_dir="./config_files/"
 
 for arg in "$@"; do
 	if [ "$arg" == "-c" ] || [ "$arg" == "--clean" ] || [ "$arg" == "--clear" ]; then
-		sudo rm -rf $scripts_dir ./bin
+		sudo rm -rf $configs_dir ./bin
 		break
 	fi
 done
 
 
-mkdir -p $scripts_dir 
+mkdir -p $configs_dir 
 
 sudo cp -r $bin_scripts . 
-cp -r $HOME/.config/foot/foot.ini $scripts_dir
-cp -r $HOME/.config/sway/config $scripts_dir
-cp -r $HOME/.config/waybar/ $scripts_dir
-cp -r $HOME/.zshrc $scripts_dir/zshrc
-cp -r $HOME/.config/nvim/init.lua $scripts_dir
-cp -r $HOME/.vimrc $scripts_dir/vimrc
+cp -r $HOME/.config/foot/foot.ini $configs_dir
+cp -r $HOME/.config/sway/config $configs_dir
+cp -r $HOME/.config/waybar/ $configs_dir
+cp -r $HOME/.zshrc $configs_dir/zshrc
+cp -r $HOME/.config/nvim/init.lua $configs_dir
+cp -r $HOME/.vimrc $configs_dir/vimrc
+cp -r $HOME/.config/qutebrowser/autoconfig.yml $configs_dir

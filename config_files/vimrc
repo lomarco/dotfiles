@@ -10,6 +10,7 @@ colorscheme evening
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set timeoutlen=100
 
 syntax enable
 
