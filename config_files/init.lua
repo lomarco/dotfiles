@@ -36,6 +36,9 @@ vim.opt.fillchars = { eob = " " }
 vim.opt.shortmess:append("I")
 vim.opt.clipboard = "unnamedplus"
 vim.api.nvim_set_keymap('n', '<Esc>', ':noh<CR><Esc>', { noremap = true, silent = true })
+vim.o.timeoutlen = 100
+
+
 ------------ KEYMAPS:
 vim.g.mapleader = " "
 
@@ -77,7 +80,7 @@ require('lazy').setup({
     build = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup({
-        ensure_installed = { 'c', 'cpp', 'python', 'html', 'css', 'lua' },
+        ensure_installed = { 'c', 'cpp', 'python', 'html', 'css', 'lua', 'asm' },
         highlight = { enable = true },
         indent = { enable = true },
       })
@@ -104,12 +107,12 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline', ---------
+      'hrsh7th/cmp-cmdline',
     },
     config = function()
       require('cmp').setup({
         sources = {
-          { name = 'nvim-lsp' }, ------------------------------------------------------------------
+          { name = 'nvim-lsp' },
           { name = 'buffer' },
           { name = 'path' },
         },
@@ -185,7 +188,7 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme('yellow-moon') -- desert, yellow-moon, challenger_deep , industry, gruvbox, nord, onedark, pablo, darkblue, blue, PaperColor
+      vim.cmd.colorscheme('onedark') -- desert, yellow-moon, challenger_deep , industry, gruvbox, nord, onedark, pablo, darkblue, blue, PaperColor
       vim.o.termguicolors = true
       vim.o.background = 'dark'
     end
@@ -194,7 +197,6 @@ require('lazy').setup({
   { -- Char rain
     'eandrju/cellular-automaton.nvim',
     config = function()
-
     end
   }
 })
@@ -217,3 +219,21 @@ for _, lsp in ipairs(servers) do
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
   }
 end
+
+
+------------ CUSTOM:
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'asm',
+  callback = function()
+    vim.keymap.set('n', '<C-b>', ':!nasm -f elf64 % && ld -o %:r %:r.o && rm %:r.o<CR>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<C-r>', ':!./%:r<CR>', { noremap = true, silent = true })
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'c',
+  callback = function()
+    vim.keymap.set('n', '<C-b>', ':!clang % -o %:r<CR>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<C-r>', ':!./%:r<CR>', { noremap = true, silent = true })
+  end,
+})

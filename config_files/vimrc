@@ -5,7 +5,7 @@ set scrolloff=8
 
 inoremap jk <ESC>
 
-colorscheme desert
+colorscheme evening
 
 set tabstop=2
 set shiftwidth=2
@@ -43,13 +43,10 @@ nnoremap <C-l> <C-w>l
 nnoremap <silent> > :bnext<CR>
 nnoremap <silent> < :bprev<CR>
 
-" Удалить текущий буфер
 nnoremap <C-x> :bd<CR>
 
-" Переключение на буфер с автодополнением
 nnoremap <leader>b :buffer<Space>
 
-" Показ номера буфера в строке состояния
 set laststatus=2
 
 set nofoldenable

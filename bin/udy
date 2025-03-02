@@ -1,20 +1,28 @@
 #!/bin/env bash
 
-echo "System upgrade..."
-yay -Syyu --noconfirm
+pm()
+{
+    echo -e "\e[1;32m$1\e[0m"
+}
 
-echo "Clear cache..."
-yay -Scc --noconfirm
+pm "System upgrade..."
+paru -Syu --noconfirm
 
-echo "Remove unused packages..."
-orphaned_packages=$(yay -Qdtq)
+pm "Clear cache..."
+paru -Sc --noconfirm
+
+pm "Remove unused packages..."
+orphaned_packages=$(paru -Qdtq)
 if [ -n "$orphaned_packages" ]; then
-    yay -Rns $orphaned_packages --noconfirm
+    paru -Rns $orphaned_packages --noconfirm
 else
-    echo "No unused packages to remove."
+    echo -e "\e[1;31mNo unused packages to remove.\e[0m"
 fi
 
-echo "Clear cache yay..."
-yay -Yc --noconfirm
+pm "Очистка кеша AUR пакетов..."
+paru -c --noconfirm
 
-echo "________________END________________"
+pm "Clear cache paru..."
+paru -Scc --noconfirm
+
+pm "________________PARU_END________________"

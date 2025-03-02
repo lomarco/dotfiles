@@ -38,9 +38,8 @@
         "tooltip": false
     },
     "battery": {
-        "format": "{capacity}% {icon}",
+        "format": "{capacity}% ",
         "format-plugged": "{capacity} PLUG",
-        "format-icons": ["", "", "", "", ""],
         "on-click": null,
         "tooltip": false
     },
