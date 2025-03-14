@@ -21,7 +21,7 @@
 
 #### [sway](config_files/config) - Конфигурация sway wm
 
-#### [docs](docs) - Дерриктория, со изображениями системы
+#### [docs](docs) - Дерриктория, с изображениями системы
 
 #### [waybar](config_files/waybar) - Конфигурация waybar
 
@@ -32,5 +32,3 @@
 #### [zshrc](config_files/zshrc) - Конфигурация Zsh(Vim mode) & Znap.
 
 #### [vimrc](config_files/vimrc) - Конфигурация vim (Нужен в роли блакнота, чтобы не запускать Neo vim).
-
-#### [autoconfig.yml](config_files/autoconfig.yml) - Конфигурация qutebrowser

@@ -8,8 +8,9 @@ set $right l
 
 set $term foot
 set $browser qutebrowser --loglevel error
+# GDK_BACKEND=wayland MOZ_ENABLE_WAYLAND=1 librewolf
 set $menu wmenu-run
-set $telegram kotatogram-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
+set $telegram telegram-desktop
 
 
 
@@ -109,8 +110,9 @@ bindsym Print exec grim /tmp/screenshot.png && slurp | grim -g - - | tee ~/Downl
 
 
 # Demons:
-exec wlsunset -t 3100 -T 5000 > /dev/null 2>&1
+exec wlsunset -t 4000 -T 5000 > /dev/null 2>&1
 exec waybar
+# exec swaybg -i /data/wallpaper/Images/system/lock_screen.png -m fill
 
 
 

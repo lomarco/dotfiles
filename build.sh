@@ -22,4 +22,3 @@ cp -r $HOME/.config/waybar/ $configs_dir
 cp -r $HOME/.zshrc $configs_dir/zshrc
 cp -r $HOME/.config/nvim/init.lua $configs_dir
 cp -r $HOME/.vimrc $configs_dir/vimrc
-cp -r $HOME/.config/qutebrowser/autoconfig.yml $configs_dir

@@ -1,5 +1,5 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r "${HOME}/.cache/p10k-instant-prompt-${USERNAME}.zsh" ]]; then
+  source "${HOME}/.cache/p10k-instant-prompt-${USERNAME}.zsh"
 fi
 
 # git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh/zsh-snap
@@ -18,7 +18,7 @@ SAVEHIST=100
 setopt appendhistory
 
 autoload -Uz compinit
-compinit
+compinit -i
 
 # aliases:
 alias ls='ls --color=auto'
@@ -31,8 +31,8 @@ bindkey -M viins "jk" vi-cmd-mode
 
 function zle-line-init zle-keymap-select {
     case ${KEYMAP} in
-        vicmd) echo -ne '\e[2 q';; # block cursor for normal mode
-        viins|main) echo -ne '\e[6 q';; # beam cursor for insert mode
+        vicmd) echo -ne '\e[2 q';;
+        viins|main) echo -ne '\e[6 q';;
     esac
 }
 zle -N zle-line-init
