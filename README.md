@@ -1,6 +1,7 @@
 # <center>SWAY CONFIG</center>
 # About 
 <div style="text-align: center;">
+
  - OS: [**`Arch Linux`**](https://archlinux.org/)
  - Kernel: [**`Linux zen`**](https://github.com/zen-kernel/zen-kernel)
  - WM: [**`Sway`**](https://swaywm.org/)
