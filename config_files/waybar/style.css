@@ -1,20 +1,22 @@
 * {
-font-family: "monospace", Cascadia Code;
-font-size: 12px;
-color: #ffffff;
+  font-family: "monospace", Cascadia Code;
+  font-size: 12px;
+  color: #ffffff;
 }
 
 window#waybar {
-background-color: #000000;
+  background-color: #000000;
 }
 
 #workspaces button {
-padding: 0 0px;
-color: #ffffff;
+  padding: 0 0px;
+  color: #ffffff;
 }
 
 #workspaces button.focused {
-background-color: #00FF00;
+  border-bottom: 1px solid #ffffff;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 #custom-disk-root,
@@ -27,5 +29,5 @@ background-color: #00FF00;
 #keyboard-state,
 #language,
 #clock {
-padding: 0 10px;
+  padding: 0 10px;
 }

@@ -33,7 +33,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.shortmess:append("sI")
 vim.opt.fillchars = { eob = " " }
--- vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "80"
 
 
 ------------ KEYMAPS:
@@ -96,7 +96,7 @@ require('lazy').setup({
     'neovim/nvim-lspconfig',
     config = function()
       local lspconfig = require('lspconfig')
-      local on_attach = function(client, bufnr)
+      local on_attach = function(_, bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -107,7 +107,7 @@ require('lazy').setup({
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
         vim.keymap.set('n', '<leader>f', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
-        vim.keymap.set('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
+        vim.keymap.set('n', '<A-r>', ':lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
       end
 
       local servers = { 'clangd', 'pyright', 'html', 'cssls', 'lua_ls' }
@@ -203,6 +203,43 @@ require('lazy').setup({
       vim.cmd.colorscheme('retrobox') -- desert, yellow-moon, challenger_deep, industry, gruvbox, retrobox, nord, onedark, pablo, darkblue, blue, PaperColor
       vim.opt.background = 'dark'
     end
+  },
+  {
+    "folke/trouble.nvim",
+    opts = {},
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>xL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>xQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+    },
   }
 })
 
@@ -222,5 +259,6 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.keymap.set('n', '<C-b>', ':!clang % -o %:r<CR>', { noremap = true, silent = true })
     vim.keymap.set('n', '<C-r>', ':!./%:r<CR>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<A-f>', ':!clang-format --style Mozilla -i %<CR>', { noremap = true, silent = true })
   end,
 })
