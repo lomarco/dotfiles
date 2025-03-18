@@ -19,17 +19,17 @@
 # About files
 #### [bin](bin) - Scripts from /usr/local/bin/
 
-#### [sway](config_files/config) - Sway
+#### [Sway](config_files/config) - config
 
-#### [waybar](config_files/waybar) - Waybar
+#### [Waybar](config_files/waybar)
 
-#### [foot](config_files/foot.ini) - Foot
+#### [foot](config_files/foot.ini)
 
-#### [nvim](config_files/init.lua) - Neo vim
+#### [NeoVim](config_files/init.lua) - init.lua
 
-#### [zshrc](config_files/zshrc) - Zsh(Vim mode) & Znap
+#### [Zsh(Vim mode) & Znap](config_files/zshrc)
 
-#### [vimrc](config_files/vimrc) - Vim
+#### [Vim](config_files/vimrc)
 
 # HotKeys
 - **Open the terminal** - `super + enter`

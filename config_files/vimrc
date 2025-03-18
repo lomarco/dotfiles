@@ -1,3 +1,4 @@
+set clipboard=unnamedplus
 set nobackup
 set noswapfile
 set nowritebackup
@@ -18,9 +19,6 @@ set number
 
 set fillchars=eob:\ 
 highlight EndOfBuffer ctermfg=bg ctermbg=bg
-
-set clipboard=unnamedplus
-
 
 let &t_SI = "\e[6 q" " Insert mode
 let &t_EI = "\e[2 q" " Normal mode
