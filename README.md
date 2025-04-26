@@ -16,7 +16,7 @@
 <img src="docs/2.png" align="2" width="px">
 <img src="docs/3.png" align="3" width="1000px">
 
-## About files
+## All files
 - [Scripts from /usr/local/bin/](bin)
 
 - [Sway](config_files/config)
@@ -31,20 +31,22 @@
 
 - [Vim](config_files/vimrc)
 
-- [Git config](config_files/gitconfig)
+- [Git-config](config_files/gitconfig)
 
 ## HotKeys
-- **Open the terminal** - `super + enter`
-- **Switch the layout** - `super + alt`
-- **Launch browser** - `super + shift + b`
-- **Launch Telegram** - `super + shift + t`
-- **Launch wmenu** - `super + d`
-- **Take a screenshot** - `PtrSc`
-- **Kill window** - `super + shift + q`
-- **Kill sway** - `super + shift + e`
-- **Reload sway** - `super + shift + c`
-- **Moving between workspaces** - `super + {1, 2..0}`
-- **Moving between windows** - `super + {h, j, k, l}`
-- **Fullscreen window mode** - `super + f`
+| Action                     | Shortcut             |
+|----------------------------|---------------------|
+| **Open the terminal**       | `super + enter`     |
+| **Switch the layout**       | `super + alt`       |
+| **Launch browser**          | `super + shift + b` |
+| **Launch Telegram**         | `super + shift + t` |
+| **Launch wmenu**            | `super + d`         |
+| **Take a screenshot**       | `PtrSc`             |
+| **Kill window**             | `super + shift + q` |
+| **Kill sway**               | `super + shift + e` |
+| **Reload sway**             | `super + shift + c` |
+| **Moving between workspaces** | `super + {1, 2..0}` |
+| **Moving between windows**  | `super + {h, j, k, l}` |
+| **Fullscreen window mode**  | `super + f`         |
 
 The other hotkeys are in [sway](config_files/config)
