@@ -1,5 +1,6 @@
-# <center>SWAY CONFIG</center>
-# About 
+# Dotfiles
+
+## About system
 <div style="text-align: center;">
 
  - OS: [**`Arch Linux`**](https://archlinux.org/)
@@ -10,28 +11,29 @@
  - Shell: [**`Zsh znap`**](https://github.com/marlonrichert/zsh-snap)
 </div>
 
-# Images Desktop
-
+## Images
 <img src="docs/1.png" align="1" width="px">
 <img src="docs/2.png" align="2" width="px">
 <img src="docs/3.png" align="3" width="1000px">
 
-# About files
-#### [bin](bin) - Scripts from /usr/local/bin/
+## About files
+- [Scripts from /usr/local/bin/](bin)
 
-#### [Sway](config_files/config) - config
+- [Sway](config_files/config)
 
-#### [Waybar](config_files/waybar)
+- [Waybar](config_files/waybar)
 
-#### [foot](config_files/foot.ini)
+- [Foot](config_files/foot.ini)
 
-#### [NeoVim](config_files/init.lua) - init.lua
+- [NeoVim](config_files/init.lua)
 
-#### [Zsh(Vim mode) & Znap](config_files/zshrc)
+- [Zsh(Vim mode) & Znap](config_files/zshrc)
 
-#### [Vim](config_files/vimrc)
+- [Vim](config_files/vimrc)
 
-# HotKeys
+- [Git config](config_files/gitconfig)
+
+## HotKeys
 - **Open the terminal** - `super + enter`
 - **Switch the layout** - `super + alt`
 - **Launch browser** - `super + shift + b`
