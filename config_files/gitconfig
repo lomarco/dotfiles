@@ -1,0 +1,15 @@
+[user]
+  name = VorPijakov23
+  email = kak_y_vas_dela
+
+[init]
+  defaultBranch = master # Yes, I'm an oppressor
+
+[core]
+	editor = vim
+
+[alias]
+  st = status
+  co = checkout
+  br = branch
+  ci = commit

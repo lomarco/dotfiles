@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 ------------ BASE SETTINGS
 vim.opt.number = true
 vim.opt.numberwidth = 1
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
@@ -71,7 +71,7 @@ require('lazy').setup({
     config = function()
       require('nvim-tree').setup({
         view = { width = 26 },
-        filters = { dotfiles = true }
+        filters = { dotfiles = false }
       })
     end
   },
@@ -99,6 +99,7 @@ require('lazy').setup({
       local on_attach = function(_, bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 
@@ -200,7 +201,7 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme('retrobox') -- desert, yellow-moon, challenger_deep, industry, gruvbox, retrobox, nord, onedark, pablo, darkblue, blue, PaperColor
+      vim.cmd.colorscheme('PaperColor') -- desert, yellow-moon, challenger_deep, industry, gruvbox, retrobox, nord, onedark, pablo, darkblue, blue, PaperColor
       vim.opt.background = 'dark'
 
       -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -243,6 +244,12 @@ require('lazy').setup({
         desc = "Quickfix List (Trouble)",
       },
     },
+  },
+  {
+    'tanvirtin/vgit.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
+    event = 'VimEnter',
+    config = function() require("vgit").setup() end,
   }
 })
 
@@ -251,14 +258,14 @@ require('lazy').setup({
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'asm',
   callback = function()
-    vim.keymap.set('n', '<C-b>', ':!nasm -f elf64 % && ld -o %:r %:r.o && rm %:r.o<CR>',
+    vim.keymap.set('n', '<C-b>', ':!fasm %CR>',
       { noremap = true, silent = true })
     vim.keymap.set('n', '<C-r>', ':!./%:r<CR>', { noremap = true, silent = true })
   end,
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'c',
+  pattern = 'c,cpp',
   callback = function()
     vim.keymap.set('n', '<C-b>', ':!clang % -o %:r<CR>', { noremap = true, silent = true })
     vim.keymap.set('n', '<C-r>', ':!./%:r<CR>', { noremap = true, silent = true })

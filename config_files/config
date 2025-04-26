@@ -7,7 +7,7 @@ set $up k
 set $right l
 
 set $term foot
-set $browser qutebrowser --loglevel error
+set $browser waterfox
 # GDK_BACKEND=wayland MOZ_ENABLE_WAYLAND=1 librewolf
 set $menu wmenu-run
 set $telegram telegram-desktop
@@ -111,7 +111,7 @@ bindsym Print exec grim
 
 
 # Demons:
-exec wlsunset -t 4000 -T 5000 > /dev/null 2>&1
+exec wlsunset -t 4500 -T 5000 > /dev/null 2>&1
 exec waybar
 # exec swaybg -i /data/wallpaper/Images/system/lock_screen.png -m fill
 
