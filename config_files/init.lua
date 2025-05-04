@@ -201,7 +201,7 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme('PaperColor') -- desert, yellow-moon, challenger_deep, industry, gruvbox, retrobox, nord, onedark, pablo, darkblue, blue, PaperColor
+      vim.cmd.colorscheme('gruvbox') -- one, elflord, desert, yellow-moon, challenger_deep, industry, gruvbox, retrobox, nord, onedark, pablo, darkblue, blue, PaperColor
       vim.opt.background = 'dark'
 
       -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -267,8 +267,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'c,cpp',
   callback = function()
-    vim.keymap.set('n', '<C-b>', ':!clang % -o %:r<CR>', { noremap = true, silent = true })
-    vim.keymap.set('n', '<C-r>', ':!./%:r<CR>', { noremap = true, silent = true })
-    vim.keymap.set('n', '<A-f>', ':!clang-format --style Mozilla -i %<CR>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<C-b>', ':!make && make clean:r<CR>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<A-f>', ':!clang-format --style Chromium -i %<CR>', { noremap = true, silent = true })
   end,
 })
