@@ -1,3 +1,4 @@
+set nocompatible
 set clipboard=unnamedplus
 set nobackup
 set noswapfile
@@ -6,7 +7,7 @@ set scrolloff=8
 
 inoremap jk <ESC>
 
-colorscheme evening
+colorscheme elflord "evening
 
 set tabstop=2
 set shiftwidth=2
@@ -20,8 +21,8 @@ set number
 set fillchars=eob:\ 
 highlight EndOfBuffer ctermfg=bg ctermbg=bg
 
-let &t_SI = "\e[6 q" " Insert mode
 let &t_EI = "\e[2 q" " Normal mode
+let &t_SI = "\e[6 q" " Insert mode
 
 set nocompatible
 
@@ -52,3 +53,4 @@ set laststatus=2
 set nofoldenable
 set lazyredraw
 set ttyfast
+set shortmess+=I
