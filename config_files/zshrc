@@ -23,7 +23,6 @@ compinit -i
 # aliases:
 alias ls='ls --color=auto'
 alias btw='fastfetch'
-# alias clear='echo "\e[1;31mERROR\e[0m"'
 alias c='clear'
 
 alias gco='git checkout'
