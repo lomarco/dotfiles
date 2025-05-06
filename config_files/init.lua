@@ -295,12 +295,6 @@ require('lazy').setup({
     },
   },
   {
-    'tanvirtin/vgit.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
-    event = 'VimEnter',
-    config = function() require("vgit").setup() end,
-  },
-  {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -356,11 +350,11 @@ require('lazy').setup({
     "preservim/tagbar",
     cmd = "TagbarToggle",
     config = function()
-      vim.g.tagbar_width = 50    -- Ширина окна Tagbar
-      vim.g.tagbar_autofocus = 1 -- Автофокус при открытии
-      vim.g.tagbar_sort = 0      -- Не сортировать теги (по порядку в файле)
-      vim.g.tagbar_compact = 1   -- Компактный режим
-      vim.g.tagbar_autoclose = 0 -- Не закрывать Tagbar при выборе тега
+      vim.g.tagbar_width = 50
+      vim.g.tagbar_autofocus = 1
+      vim.g.tagbar_sort = 0
+      vim.g.tagbar_compact = 1
+      vim.g.tagbar_autoclose = 0
       vim.keymap.set('n', '<leader>t', ':TagbarToggle<CR>', { desc = '[T]agbar [T]oggle' })
     end,
     keys = {
