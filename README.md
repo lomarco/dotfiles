@@ -9,6 +9,7 @@
  - Bar: [**`Waybar`**](https://github.com/Alexays/Waybar)
  - Terminal: [**`Foot`**](https://codeberg.org/dnkl/foot)
  - Shell: [**`Zsh znap`**](https://github.com/marlonrichert/zsh-snap)
+ - IDE: [**`NeoVim`**](https://neovim.io/)
 </div>
 
 ## Images
