@@ -63,6 +63,19 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 vim.keymap.set('n', '<Esc>', ':noh<CR><Esc>', { noremap = true, silent = true })
 vim.keymap.set("t", "<S-Space>", "<Space>", { noremap = true, silent = true })
 
+-- Fast scroll
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
+
+-- Fast find
+vim.keymap.set('n', 'n', 'nzzzv', { noremap = true, silent = true })
+vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true, silent = true })
+
+vim.keymap.set('n', '*', '*zz', { noremap = true, silent = true })
+vim.keymap.set('n', '#', '#zz', { noremap = true, silent = true })
+vim.keymap.set('n', 'g*', 'g*zz', { noremap = true, silent = true })
+vim.keymap.set('n', 'g#', 'g#zz', { noremap = true, silent = true })
+
 
 ------------ PLULINS
 require('lazy').setup({
@@ -89,7 +102,43 @@ require('lazy').setup({
   {
     'lewis6991/gitsigns.nvim',
     config = function()
-      require('gitsigns').setup()
+      require('gitsigns').setup({
+        on_attach = function(bufnr)
+          local gs = package.loaded.gitsigns
+
+          local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+          end
+
+          map('n', ']c', function()
+            if vim.wo.diff then return ']c' end
+            vim.schedule(function() gs.next_hunk() end)
+            return '<Ignore>'
+          end, { expr = true })
+
+          map('n', '[c', function()
+            if vim.wo.diff then return '[c' end
+            vim.schedule(function() gs.prev_hunk() end)
+            return '<Ignore>'
+          end, { expr = true })
+
+          map('n', '<leader>hs', gs.stage_hunk)
+          map('n', '<leader>hr', gs.reset_hunk)
+          map('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+          map('v', '<leader>hr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+          map('n', '<leader>hS', gs.stage_buffer)
+          map('n', '<leader>hu', gs.undo_stage_hunk)
+          map('n', '<leader>hR', gs.reset_buffer)
+          map('n', '<leader>hp', gs.preview_hunk)
+          map('n', '<leader>hb', function() gs.blame_line { full = true } end)
+          map('n', '<leader>tb', gs.toggle_current_line_blame)
+          map('n', '<leader>hd', gs.diffthis)
+          map('n', '<leader>hD', function() gs.diffthis('~') end)
+          map('n', '<leader>td', gs.toggle_deleted)
+        end
+      })
     end
   },
   {
@@ -250,7 +299,74 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
     event = 'VimEnter',
     config = function() require("vgit").setup() end,
-  }
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      local telescope = require('telescope')
+      telescope.setup({
+        defaults = {
+          mappings = {
+            i = {
+              ['<C-u>'] = false,
+              ['<C-d>'] = false,
+            },
+          },
+        },
+      })
+      local builtin = require('telescope.builtin')
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find Files' })
+      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Live Grep' })
+      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffers' })
+      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help Tags' })
+      vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Recent Files' })
+    end
+  },
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {},
+    keys = {
+      { '<leader>ft', '<cmd>TodoTelescope<cr>', desc = 'Find TODOs' }
+    }
+  },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {
+      char = { enabled = false },
+      search = { enabled = false },
+      treesitter = { enabled = false }
+    },
+    keys = {
+      { "S", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    },
+    config = function(_, opts)
+      require("flash").setup(opts)
+      vim.keymap.del({ "n", "o", "x" }, "f")
+      vim.keymap.del({ "n", "o", "x" }, "F")
+      vim.keymap.del({ "n", "o", "x" }, "t")
+      vim.keymap.del({ "n", "o", "x" }, "T")
+      vim.keymap.del({ "n", "o", "x" }, ";")
+    end,
+  },
+  {
+    "preservim/tagbar",
+    cmd = "TagbarToggle",
+    config = function()
+      vim.g.tagbar_width = 50    -- Ширина окна Tagbar
+      vim.g.tagbar_autofocus = 1 -- Автофокус при открытии
+      vim.g.tagbar_sort = 0      -- Не сортировать теги (по порядку в файле)
+      vim.g.tagbar_compact = 1   -- Компактный режим
+      vim.g.tagbar_autoclose = 0 -- Не закрывать Tagbar при выборе тега
+      vim.keymap.set('n', '<leader>t', ':TagbarToggle<CR>', { desc = '[T]agbar [T]oggle' })
+    end,
+    keys = {
+      { '<leader>t', ':TagbarToggle<CR>', desc = '[T]agbar [T]oggle' },
+    }
+  },
 })
 
 
@@ -267,7 +383,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'c,cpp',
   callback = function()
-    vim.keymap.set('n', '<C-b>', ':!make && make clean:r<CR>', { noremap = true, silent = true })
-    vim.keymap.set('n', '<A-f>', ':!clang-format --style Chromium -i %<CR>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<c-b>', ':!make && make clean:r<cr>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<a-f>', ':!clang-format --style chromium -i %<cr>', { noremap = true, silent = true })
   end,
 })
