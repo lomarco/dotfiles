@@ -361,8 +361,18 @@ require('lazy').setup({
       { '<leader>t', ':TagbarToggle<CR>', desc = '[T]agbar [T]oggle' },
     }
   },
+  {
+    "sindrets/diffview.nvim",
+    config = function()
+      vim.g.diffview_use_icons = true;
+    end
+  },
+  {
+    "tpope/vim-fugitive",
+    config = function()
+    end
+  },
 })
-
 
 ------------ CUSTOM:
 vim.api.nvim_create_autocmd('FileType', {
