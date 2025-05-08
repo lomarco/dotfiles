@@ -64,17 +64,17 @@ vim.keymap.set('n', '<Esc>', ':noh<CR><Esc>', { noremap = true, silent = true })
 vim.keymap.set("t", "<S-Space>", "<Space>", { noremap = true, silent = true })
 
 -- Fast scroll
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 
 -- Fast find
-vim.keymap.set('n', 'n', 'nzzzv', { noremap = true, silent = true })
-vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true, silent = true })
+-- vim.keymap.set('n', 'n', 'nzzzv', { noremap = true, silent = true })
+-- vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true, silent = true })
 
-vim.keymap.set('n', '*', '*zz', { noremap = true, silent = true })
-vim.keymap.set('n', '#', '#zz', { noremap = true, silent = true })
-vim.keymap.set('n', 'g*', 'g*zz', { noremap = true, silent = true })
-vim.keymap.set('n', 'g#', 'g#zz', { noremap = true, silent = true })
+-- vim.keymap.set('n', '*', '*zz', { noremap = true, silent = true })
+-- vim.keymap.set('n', '#', '#zz', { noremap = true, silent = true })
+-- vim.keymap.set('n', 'g*', 'g*zz', { noremap = true, silent = true })
+-- vim.keymap.set('n', 'g#', 'g#zz', { noremap = true, silent = true })
 
 
 ------------ PLULINS
@@ -250,7 +250,7 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme('gruvbox') -- one, elflord, desert, yellow-moon, challenger_deep, industry, gruvbox, retrobox, nord, onedark, pablo, darkblue, blue, PaperColor
+      vim.cmd.colorscheme('vscode') -- vscode, molokai, one, elflord, desert, yellow-moon, challenger_deep, industry, gruvbox, retrobox, nord, onedark, pablo, darkblue, blue, PaperColor
       vim.opt.background = 'dark'
 
       -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -344,6 +344,7 @@ require('lazy').setup({
       vim.keymap.del({ "n", "o", "x" }, "t")
       vim.keymap.del({ "n", "o", "x" }, "T")
       vim.keymap.del({ "n", "o", "x" }, ";")
+      vim.keymap.del({ "n", "o", "x" }, ",")
     end,
   },
   {
@@ -386,6 +387,11 @@ require('lazy').setup({
         },
       })
     end
+  },
+  {
+    "mofiqul/vscode.nvim",
+    config = function()
+    end
   }
 })
 
@@ -402,7 +408,8 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'c,cpp',
   callback = function()
-    vim.keymap.set('n', '<c-b>', ':!make && make clean:r<cr>', { noremap = true, silent = true })
+    -- vim.keymap.set('n', '<c-b>', ':!make && make clean:r<cr>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<c-b>', ':!clang %<cr>', { noremap = true, silent = true })
     vim.keymap.set('n', '<a-f>', ':!clang-format --style chromium -i %<cr>', { noremap = true, silent = true })
   end,
 })
