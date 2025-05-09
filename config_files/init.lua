@@ -26,7 +26,7 @@ vim.opt.smartcase = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.cursorline = false
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 4 -- 8
 vim.opt.hlsearch = true
 vim.opt.timeoutlen = 300
 vim.opt.signcolumn = "yes"
@@ -409,7 +409,7 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'c,cpp',
   callback = function()
     -- vim.keymap.set('n', '<c-b>', ':!make && make clean:r<cr>', { noremap = true, silent = true })
-    vim.keymap.set('n', '<c-b>', ':!clang %<cr>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<c-b>', ':!clang % && ./a.out<cr>', { noremap = true, silent = true })
     vim.keymap.set('n', '<a-f>', ':!clang-format --style chromium -i %<cr>', { noremap = true, silent = true })
   end,
 })
