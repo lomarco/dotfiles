@@ -37,6 +37,9 @@ alias gi='git init'
 alias gcl='git clone'
 alias gst='git status'
 
+# export ssh env
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
 # vi mode settings:
 bindkey -v
 export KEYTIMEOUT=10
