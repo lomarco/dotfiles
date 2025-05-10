@@ -35,7 +35,7 @@ alias gl='git log --oneline'
 alias gb='git branch'
 alias gi='git init'
 alias gcl='git clone'
-alias gst='git status'
+alias gst='git status --short'
 
 # export ssh env
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
