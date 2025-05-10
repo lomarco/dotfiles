@@ -83,8 +83,58 @@ require('lazy').setup({
     'nvim-tree/nvim-tree.lua',
     config = function()
       require('nvim-tree').setup({
-        view = { width = 26 },
-        filters = { dotfiles = false }
+        view = {
+          width = 30,
+          side = 'left',
+          preserve_window_proportions = true,
+        },
+        filters = {
+          dotfiles = false,  -- showing dotfiles
+          git_clean = false, -- showing gitignore files
+        },
+        git = {
+          enable = true,  -- enable git status support
+          ignore = false, -- not ignoring git files
+        },
+        renderer = {
+          indent_markers = {
+            enable = true, -- showing lines
+            icons = {
+              corner = "└",
+              edge = "│",
+              item = "│",
+              none = " ",
+            },
+          },
+          -- icons off
+          -- icons = {
+          --   show = {
+          --     file = false,
+          --     folder = false,
+          --     folder_arrow = false,
+          --     git = false,
+          --   },
+          -- },
+        },
+        actions = {
+          open_file = {
+            quit_on_open = true, -- close a tree when opening a file
+            resize_window = true,
+          },
+        },
+        update_focused_file = {
+          enable = true,     -- follow the open file
+          update_cwd = true, -- change work dir under the open file
+        },
+        diagnostics = {
+          enable = true, -- showing errors/wanrs
+          icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+          },
+        },
       })
     end
   },
