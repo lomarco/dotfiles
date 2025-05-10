@@ -112,7 +112,7 @@ bindsym Print exec grim
 # Demons:
 exec wlsunset -t 4000 -T 4500 > /dev/null 2>&1
 exec waybar
-exec $(ssh-agent -s)
+exec ssh-agent sway
 # exec swaybg -i /data/wallpaper/Images/system/lock_screen.png -m fill
 
 
