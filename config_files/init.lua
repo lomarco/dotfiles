@@ -106,15 +106,14 @@ require('lazy').setup({
               none = " ",
             },
           },
-          -- icons off
-          -- icons = {
-          --   show = {
-          --     file = false,
-          --     folder = false,
-          --     folder_arrow = false,
-          --     git = false,
-          --   },
-          -- },
+          icons = {
+            show = {
+              file = false,
+              folder = true,
+              folder_arrow = true,
+              git = true,
+            },
+          },
         },
         actions = {
           open_file = {
