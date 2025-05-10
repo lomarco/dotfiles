@@ -7,7 +7,7 @@ set scrolloff=8
 
 inoremap jk <ESC>
 
-colorscheme elflord "evening
+colorscheme zaibatsu " elflord
 
 set tabstop=2
 set shiftwidth=2
