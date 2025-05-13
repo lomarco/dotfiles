@@ -110,7 +110,7 @@ bindsym Print exec grim
 
 
 # Demons:
-exec wlsunset -t 3500 -T 4000 > /dev/null 2>&1
+exec wlsunset -t 3000 -T 3800 > /dev/null 2>&1
 exec waybar
 # exec swaybg -i /data/wallpaper/Images/system/lock_screen.png -m fill
 
