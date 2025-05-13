@@ -1,9 +1,9 @@
 [user]
-  name = VorPijakov23
+  name = lomarco
   email = ororr069@gmail.com
 
 [init]
-  defaultBranch = master # Yes, I'm an oppressor
+  defaultBranch = master
 
 [core]
 	editor = vim
