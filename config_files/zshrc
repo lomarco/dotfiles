@@ -34,7 +34,7 @@ alias gu='git pull'
 alias gl='git log --oneline'
 alias gb='git branch'
 alias gi='git init'
-alias gcl='git clone'
+alias gcl='git clone --depth 1'
 alias gst='git status --short'
 
 # export ssh env
