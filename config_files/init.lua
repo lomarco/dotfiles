@@ -135,7 +135,7 @@ require('lazy').setup({
     event = 'BufRead',
     config = function()
       require('nvim-treesitter.configs').setup({
-        ensure_installed = { "c", "cpp", "python", "html", "css", "lua", "asm", "rust" },
+        ensure_installed = { "c", "cpp", "python", "lua", "asm", "rust" },
         highlight = { enable = true },
         indent = { enable = true },
         auto_install = true,
