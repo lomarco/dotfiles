@@ -41,7 +41,6 @@ vim.g.mapleader = " "
 
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('v', '<leader>"', 'c""<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', "<leader>'", "c''<Esc>P", { noremap = true, silent = true })
@@ -52,15 +51,16 @@ vim.keymap.set('v', '<leader>[', 'c[]<Esc>P', { noremap = true, silent = true })
 -- Buffers
 vim.keymap.set('n', 'gn', ':bnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'gp', ':bprevious<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', 'gw', ':bdelete<CR>', { noremap = true, silent = true }) -- <C-w>
+vim.keymap.set('n', 'gw', ':bdelete<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>be', ':enew<CR>', { noremap = true, silent = true })
 
--- moving between windows
+-- Moving between windows
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
+-- Fix terminal work
 vim.keymap.set('n', '<Esc>', ':noh<CR><Esc>', { noremap = true, silent = true })
 vim.keymap.set("t", "<S-Space>", "<Space>", { noremap = true, silent = true })
 
@@ -70,6 +70,7 @@ require('lazy').setup({
   {
     'nvim-tree/nvim-tree.lua',
     config = function()
+      vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
       require('nvim-tree').setup({
         view = {
           width = 30,
