@@ -69,10 +69,7 @@ vim.keymap.set("t", "<S-Space>", "<Space>", { noremap = true, silent = true })
 require('lazy').setup({
   {
     'nvim-tree/nvim-tree.lua',
-    -- cmd = { "NvimTreeToggle", "NvimTreeOpen" },
-    keys = {
-      { '<C-n>', ':NvimTreeToggle<CR>', mode = 'n', desc = 'Toggle NvimTree' },
-    },
+    vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true }),
     config = function()
       require('nvim-tree').setup({
         view = {
