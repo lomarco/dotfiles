@@ -69,8 +69,11 @@ vim.keymap.set("t", "<S-Space>", "<Space>", { noremap = true, silent = true })
 require('lazy').setup({
   {
     'nvim-tree/nvim-tree.lua',
+    -- cmd = { "NvimTreeToggle", "NvimTreeOpen" },
+    keys = {
+      { '<C-n>', ':NvimTreeToggle<CR>', mode = 'n', desc = 'Toggle NvimTree' },
+    },
     config = function()
-      vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
       require('nvim-tree').setup({
         view = {
           width = 30,
@@ -129,11 +132,13 @@ require('lazy').setup({
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    event = 'BufRead',
     config = function()
       require('nvim-treesitter.configs').setup({
         ensure_installed = { "c", "cpp", "python", "html", "css", "lua", "asm", "rust" },
         highlight = { enable = true },
         indent = { enable = true },
+        auto_install = true,
       })
     end
   },
@@ -181,6 +186,7 @@ require('lazy').setup({
   },
   {
     'neovim/nvim-lspconfig',
+    event = 'BufReadPre',
     config = function()
       local lspconfig = require('lspconfig')
       local on_attach = function(_, bufnr)
@@ -214,6 +220,7 @@ require('lazy').setup({
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
     },
+    event = 'InsertEnter',
     config = function()
       local cmp = require('cmp')
 
@@ -270,23 +277,9 @@ require('lazy').setup({
     end
   },
   {
-    'akinsho/toggleterm.nvim',
-    version = "*",
-    config = function()
-      require("toggleterm").setup({
-        size = 20,
-        open_mapping = [[<A-h>]],
-        direction = "horizontal",
-        start_in_insert = true,
-        persist_size = true,
-        close_on_exit = true,
-      })
-    end
-  },
-  {
     'rafi/awesome-vim-colorschemes',
-    lazy = false,
-    priority = 1000,
+    -- lazy = false,
+    -- priority = 1000,
     config = function()
       vim.cmd.colorscheme('molokai')
       -- vscode,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
@@ -337,6 +330,13 @@ require('lazy').setup({
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      { '<leader>ff', function() require('telescope.builtin').find_files() end, desc = 'Find Files' },
+      { '<leader>fg', function() require('telescope.builtin').live_grep() end,  desc = 'Live Grep' },
+      { '<leader>fb', function() require('telescope.builtin').buffers() end,    desc = 'Find Buffers' },
+      { '<leader>fh', function() require('telescope.builtin').help_tags() end,  desc = 'Help Tags' },
+      { '<leader>fr', function() require('telescope.builtin').oldfiles() end,   desc = 'Recent Files' },
+    },
     config = function()
       local telescope = require('telescope')
       telescope.setup({
@@ -349,12 +349,6 @@ require('lazy').setup({
           },
         },
       })
-      local builtin = require('telescope.builtin')
-      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find Files' })
-      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Live Grep' })
-      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffers' })
-      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help Tags' })
-      vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Recent Files' })
     end
   },
   {
@@ -402,20 +396,31 @@ require('lazy').setup({
     }
   },
   {
-    "tpope/vim-fugitive",
-    config = function()
-    end
-  },
-  {
     "mofiqul/vscode.nvim",
     config = function()
     end
   },
   {
     "mbbill/undotree",
+    cmd = "UndotreeToggle",
     config = function()
     end
   },
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    keys = { "<A-h>" },
+    config = function()
+      require("toggleterm").setup({
+        size = 20,
+        open_mapping = [[<A-h>]],
+        direction = "horizontal",
+        start_in_insert = true,
+        persist_size = true,
+        close_on_exit = true,
+      })
+    end
+  }
 })
 
 
