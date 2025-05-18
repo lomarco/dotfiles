@@ -40,6 +40,7 @@ vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
+vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('v', '<leader>"', 'c""<Esc>P', { noremap = true, silent = true })
