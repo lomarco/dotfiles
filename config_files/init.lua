@@ -273,7 +273,6 @@ require('lazy').setup({
   },
   {
     'neovim/nvim-lspconfig',
-    event = 'BufReadPre',
     config = function()
       local lspconfig = require('lspconfig')
       local on_attach = function(_, bufnr)
@@ -376,6 +375,16 @@ require('lazy').setup({
       vim.keymap.del({ "n", "o", "x" }, "T")
       vim.keymap.del({ "n", "o", "x" }, ";")
       vim.keymap.del({ "n", "o", "x" }, ",")
+    end,
+  },
+  ---------------- For vim moving ----------------
+  {
+    "matze/vim-move",
+    keys = {
+      { "<A-j>", mode = { "n", "v" } },
+      { "<A-k>", mode = { "n", "v" } },
+    },
+    config = function()
     end,
   },
 
