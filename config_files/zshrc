@@ -44,7 +44,6 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 bindkey -v
 export KEYTIMEOUT=10
 bindkey -M viins "jk" vi-cmd-mode
-bindkey -M viins "kj" vi-cmd-mode
 
 function zle-line-init zle-keymap-select {
     case ${KEYMAP} in
