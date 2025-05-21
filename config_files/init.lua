@@ -205,11 +205,11 @@ require('lazy').setup({
   {
     'akinsho/toggleterm.nvim',
     version = "*",
-    keys = { "<A-h>" },
+    keys = { "<leader>h" },
     config = function()
       require("toggleterm").setup({
         size = 20,
-        open_mapping = [[<A-h>]],
+        open_mapping = [[<leader>h]],
         direction = "horizontal",
         start_in_insert = true,
         persist_size = true,
@@ -469,6 +469,14 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     -- vim.keymap.set('n', '<c-b>', ':!make && make clean:r<cr>', { noremap = true, silent = true })
     vim.keymap.set('n', '<c-b>', ':!clang % && ./a.out<cr>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<a-f>', ':!clang-format --style chromium -i %<cr>', { noremap = true, silent = true })
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'cpp,cxx',
+  callback = function()
+    vim.keymap.set('n', '<c-b>', ':!clang++ % && ./a.out<cr>', { noremap = true, silent = true })
     vim.keymap.set('n', '<a-f>', ':!clang-format --style chromium -i %<cr>', { noremap = true, silent = true })
   end,
 })
