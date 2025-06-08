@@ -465,7 +465,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'c',
+  pattern = 'c,h,ino',
   callback = function()
     -- vim.keymap.set('n', '<c-b>', ':!make && make clean:r<cr>', { noremap = true, silent = true })
     vim.keymap.set('n', '<c-b>', ':!clang % && ./a.out<cr>', { noremap = true, silent = true })
