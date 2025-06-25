@@ -12,7 +12,7 @@ znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 znap prompt romkatv/powerlevel10k
 
-HISTFILE=~/.cache/.zh
+HISTFILE=~/.cache/zh
 HISTSIZE=300
 SAVEHIST=100
 setopt appendhistory
