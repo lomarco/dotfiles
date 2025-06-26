@@ -68,13 +68,18 @@ vim.keymap.set("t", "<S-Space>", "<Space>", { noremap = true, silent = true })
 
 ------------ PLULINS
 require('lazy').setup({
-  -- Caching plugin
+  -- Prevelegios plugins
   {
     "lewis6991/impatient.nvim",
     lazy = false,
     priority = 1000,
     config = function()
       require("impatient")
+    end,
+  },
+  {
+    'github/copilot.vim',
+    config = function()
     end,
   },
 
