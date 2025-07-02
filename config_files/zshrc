@@ -41,6 +41,7 @@ alias btw='fastfetch'
 alias c='clear'
 alias la='ls -la'
 
+# git aliases
 alias gco='git checkout'
 alias gd='git diff'
 alias ga='git add'
