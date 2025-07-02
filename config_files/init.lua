@@ -79,6 +79,7 @@ require('lazy').setup({
   },
   {
     'github/copilot.vim',
+    lazy = true,
     config = function()
       vim.g.copilot_no_tab_map = true
       vim.g.copilot_assume_mapped = true
@@ -460,6 +461,12 @@ require('lazy').setup({
     config = function()
     end
   },
+  {
+    "dundargoc/fakedonalds.nvim",
+    lazy = true,
+    config = function()
+    end
+  }
 })
 
 
