@@ -39,6 +39,7 @@ zle -N zle-keymap-select
 alias ls='ls --color=auto'
 alias btw='fastfetch'
 alias c='clear'
+alias la='ls -la'
 
 alias gco='git checkout'
 alias gd='git diff'
