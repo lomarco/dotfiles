@@ -42,10 +42,10 @@ fi
 
 green "start backup: $(date)" | tee -a "$LOG_FILE"
 
-run_rsync /home/opop/ "$1"/home
-run_rsync /data/ "$1"/data
+run_rsync /home/"$USER"/ "$1"/"$USER"/
+run_rsync /data/ "$1"/data/
 run_rsync /etc/ "$1"/etc/
-run_rsync /usr/local/bin/ "$1"/bin
+run_rsync /usr/local/bin/ "$1"/bin/
 
 echo "Sync file system..." | tee -a "$LOG_FILE"
 sync >> "$LOG_FILE" 2>&1
