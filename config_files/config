@@ -103,8 +103,8 @@ bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-bindsym Print exec grim
-# bindsym Print exec grim /tmp/screenshot.png && slurp | grim -g - - | tee ~/screenshot-$(date +"%Y%m%d-%H%M%S").png | wl-copy
+# bindsym Print exec grim
+bindsym Print exec grim /tmp/screenshot.png && slurp | grim -g - - | tee ~/screenshot-$(date +"%Y%m%d-%H%M%S").png | wl-copy
 # bindsym Print exec grim -g "$(slurp)" ~/Downloads/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
 # wf-recorder -g "$(slurp)" -f output.mp4
 
