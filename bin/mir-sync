@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo reflector --country Russia --latest 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
