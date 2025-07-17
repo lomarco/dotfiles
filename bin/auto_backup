@@ -1,24 +1,19 @@
-#!/bin/env bash
+#!/bin/bash
 
 set -e
 
 LOG_FILE="$1/backup_$(date +%Y%m%d_%H%M%S).log"
-USER_NAME=opop
+USER_NAME=$USER
 
-# --help, -h: usage: $0 path/to/dir
-
-green()
-{
+green() {
   echo -e "\e[1;32m$1\e[0m"
 }
 
-red()
-{
+red() {
   echo -e "\e[1;31m$1\e[0m"
 }
 
-run_rsync()
-{
+run_rsync() {
   local src=$1
   local dest=$2
   echo "Copying $src в $dest..." | tee -a "$LOG_FILE"

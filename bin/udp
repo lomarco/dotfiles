@@ -1,8 +1,7 @@
-#!/bin/env bash
+#!/bin/bash
 
-pm()
-{
-    echo -e "\e[1;32m$1\e[0m"
+pm() {
+  echo -e "\e[1;32m$1\e[0m"
 }
 
 pm "System upgrade..."
@@ -14,9 +13,9 @@ sudo paccache -rk3
 pm "Remove unused packages..."
 orphaned_packages=$(pacman -Qdtq)
 if [ -n "$orphaned_packages" ]; then
-    sudo pacman -Rns $orphaned_packages --noconfirm
+  sudo pacman -Rns $orphaned_packages --noconfirm
 else
-    echo -e "\e[1;31mNo unused packages to remove.\e[0m"
+  echo -e "\e[1;31mNo unused packages to remove.\e[0m"
 fi
 
 pm "Clear cache pacman..."
