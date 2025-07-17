@@ -53,5 +53,6 @@ alias gb='git branch'
 alias gi='git init'
 alias gcl='git clone --depth 1'
 alias gst='git status --short'
+alias gr='git remote'
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
