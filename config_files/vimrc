@@ -1,33 +1,53 @@
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" =====================================
+" Base settings
+" =====================================
 set nocompatible
+filetype plugin indent on
 set clipboard=unnamedplus
 set nobackup
 set noswapfile
 set nowritebackup
+
+" =====================================
+" Appearance
+" =====================================
+set number relativenumber
 set scrolloff=8
+set laststatus=2
+set nofoldenable
+set shortmess+=I
 
-inoremap jk <ESC>
+syntax on
+set background=dark
+"colorscheme zaibatsu
+set fillchars=eob:\ 
+highlight EndOfBuffer ctermfg=0 ctermbg=0
 
-colorscheme zaibatsu " elflord
+" ====================================
+" Cursor settings
+" ===================================
+let &t_EI = "\e[2 q" " Normal mode
+let &t_SI = "\e[6 q" " Insert mode
+let &t_SR = "\e[4 q" " Replays mode
 
+
+" =====================================
+" Tabs and width
+" =====================================
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" =====================================
+" Performance
+" =====================================
+set lazyredraw
 set timeoutlen=100
 
-syntax enable
-
-set number
-
-set fillchars=eob:\ 
-highlight EndOfBuffer ctermfg=bg ctermbg=bg
-
-let &t_EI = "\e[2 q" " Normal mode
-let &t_SI = "\e[6 q" " Insert mode
-
-set nocompatible
-
-filetype plugin indent on
-
+" =====================================
+" Netrw
+" =====================================
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
@@ -35,22 +55,65 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 20
 nnoremap <C-n> :Lexplore<CR>
 
+" =====================================
+" Windows movement
+" =====================================
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-
+" Buffers
 nnoremap <silent> > :bnext<CR>
 nnoremap <silent> < :bprev<CR>
-
 nnoremap <C-x> :bd<CR>
-
 nnoremap <leader>b :buffer<Space>
 
-set laststatus=2
+" =====================================
+" Insert mode
+" =====================================
+inoremap jk <ESC>
 
-set nofoldenable
-set lazyredraw
-set ttyfast
-set shortmess+=I
+" =====================================
+" Cmaps
+" =====================================
+cmap w!! w !sudo tee %
+
+
+
+
+" =====================================
+" Vim-plug
+" =====================================
+" =====================================
+" Plugins
+" =====================================
+call plug#begin('~/.vim/plugged')
+
+" FileManager
+Plug 'preservim/nerdtree'
+
+" Autosug and LSP
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Fast fuzzy
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Fast commenting
+Plug 'preservim/nerdcommenter'
+
+" Ext finder
+Plug 'easymotion/vim-easymotion'
+
+" Work with env
+Plug 'tpope/vim-dotenv'
+
+" Work with tags
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+
+Plug 'morhetz/gruvbox'   " с помощью vim-plug или другого менеджера плагинов
+
+call plug#end()
+
+colorscheme gruvbox
