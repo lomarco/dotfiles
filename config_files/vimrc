@@ -91,6 +91,10 @@ nnoremap <Esc> :noh<CR><Esc>
 
 inoremap jk <ESC>
 
+" nnoremap <C-k> :%!clang-format<CR>
+nnoremap <C-K> :%!clang-format -style=file:$HOME/.config/clang-format/clang-format<CR>
+
+
 " =====================================
 " Vim-plug
 " =====================================
