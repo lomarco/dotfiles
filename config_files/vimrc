@@ -27,9 +27,16 @@ highlight EndOfBuffer ctermfg=0 ctermbg=0
 " ====================================
 " Cursor settings
 " ===================================
-let &t_EI = "\e[2 q" " Normal mode
-let &t_SI = "\e[6 q" " Insert mode
-let &t_SR = "\e[4 q" " Replays mode
+let &t_EI = '\e[2 q' " Normal mode
+let &t_SI = '\e[6 q' " Insert mode
+let &t_SR = '\e[4 q' " Replays mode
+" '\e0 q'	Blinking block
+" '\e1 q'	Blinking block
+" '\e2 q'	Steady block
+" '\e3 q' Blinking underline
+" '\e4 q'	Steady underline
+" '\e5 q'	Blinking bar
+" '\e6 q'	Steady bar
 
 
 " =====================================
