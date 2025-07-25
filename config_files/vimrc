@@ -147,7 +147,7 @@ augroup END
 
 nmap <silent> gd :LspDefinition<CR>         " переход к определению
 nmap <silent> gr :LspReferences<CR>         " ссылки на символ
-nmap <silent> K :LspHover<CR>                " показать документацию
+nmap <silent> g :LspHover<CR>               " показать документацию
 nmap <silent> <leader>rn :LspRename<CR>     " переименование символа
 nmap <silent> <leader>ca :LspCodeAction<CR> " доступные действия
 
