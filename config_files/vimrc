@@ -145,11 +145,11 @@ augroup lsp_mgr
   autocmd!
 augroup END
 
-nmap <silent> gd :LspDefinition<CR>         " переход к определению
-nmap <silent> gr :LspReferences<CR>         " ссылки на символ
-nmap <silent> g :LspHover<CR>               " показать документацию
-nmap <silent> <leader>rn :LspRename<CR>     " переименование символа
-nmap <silent> <leader>ca :LspCodeAction<CR> " доступные действия
+nmap <silent> gd :LspDefinition<CR>
+nmap <silent> gr :LspReferences<CR>
+nmap <silent> g :LspHover<CR>
+nmap <silent> <leader>rn :LspRename<CR>
+nmap <silent> <leader>ca :LspCodeAction<CR>
 
 autocmd BufWritePre * :LspCodeAction sync
 
