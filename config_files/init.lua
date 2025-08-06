@@ -215,11 +215,11 @@ require('lazy').setup({
   {
     'akinsho/toggleterm.nvim',
     version = "*",
-    keys = { "<leader>h" },
+    keys = { "<A-h>" },
     config = function()
       require("toggleterm").setup({
         size = 20,
-        open_mapping = [[<leader>h]],
+        open_mapping = [[<A-h>]],
         direction = "horizontal",
         start_in_insert = true,
         persist_size = true,
