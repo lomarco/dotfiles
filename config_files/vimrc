@@ -18,7 +18,7 @@ set fillchars=eob:\
 set colorcolumn=80
 syntax on
 set background=dark
-colorscheme zaibatsu
+colorscheme unokai " zaibatsu
 highlight EndOfBuffer ctermfg=0 ctermbg=0
 set lazyredraw
 set tabstop=2 shiftwidth=2 expandtab smartindent
@@ -101,58 +101,58 @@ nnoremap <C-K> :%!clang-format -style=file:$HOME/.config/clang-format/clang-form
 " =====================================
 " Plugins
 " =====================================
-call plug#begin('~/.vim/plugged')
-Plug 'preservim/nerdtree'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'preservim/tagbar'
-Plug 'github/copilot.vim'
-Plug 'mbbill/undotree'
-Plug 'matze/vim-move'
-Plug 'voldikss/vim-floaterm'
-Plug 'tpope/vim-commentary'
-Plug 'jiangmiao/auto-pairs'
-Plug 'airblade/vim-gitgutter'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'ycm-core/YouCompleteMe'
-call plug#end()
-
-" =====================================
-" Setting Plugins
-" =====================================
-
-"Nerdtree
-nnoremap <C-n> :NERDTreeToggle<CR>
-
-" Fzf
-nnoremap <leader>f :Files<CR>
-
-" Tagbar
-nnoremap <leader>t :TagbarToggle<CR>
-let g:tagbar_width=50
-let g:tagbar_autofocus=1
-let g:tagbar_sort=0
-let g:tagbar_compact=1
-let g:tagbar_autoclose=0
-
-" vim-floaterm
-nnoremap <silent> <leader>h :FloatermToggle<CR>
-
-" Vim-lsp
-augroup lsp_mgr
-  autocmd!
-augroup END
-
-nmap <silent> gd :LspDefinition<CR>
-nmap <silent> gr :LspReferences<CR>
-nmap <silent> g :LspHover<CR>
-nmap <silent> <leader>rn :LspRename<CR>
-nmap <silent> <leader>ca :LspCodeAction<CR>
-
-autocmd BufWritePre * :LspCodeAction sync
-
-"setlocal omnifunc=lsp#complete
-setlocal omnifunc=vim_lsp#complete
-inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-o>"
+" call plug#begin('~/.vim/plugged')
+" Plug 'preservim/nerdtree'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+" Plug 'easymotion/vim-easymotion'
+" Plug 'preservim/tagbar'
+" Plug 'github/copilot.vim'
+" Plug 'mbbill/undotree'
+" Plug 'matze/vim-move'
+" Plug 'voldikss/vim-floaterm'
+" Plug 'tpope/vim-commentary'
+" Plug 'jiangmiao/auto-pairs'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
+" Plug 'ycm-core/YouCompleteMe'
+" call plug#end()
+"
+" " =====================================
+" " Setting Plugins
+" " =====================================
+"
+" "Nerdtree
+" nnoremap <C-n> :NERDTreeToggle<CR>
+"
+" " Fzf
+" nnoremap <leader>f :Files<CR>
+"
+" " Tagbar
+" nnoremap <leader>t :TagbarToggle<CR>
+" let g:tagbar_width=50
+" let g:tagbar_autofocus=1
+" let g:tagbar_sort=0
+" let g:tagbar_compact=1
+" let g:tagbar_autoclose=0
+"
+" " vim-floaterm
+" nnoremap <silent> <leader>h :FloatermToggle<CR>
+"
+" " Vim-lsp
+" augroup lsp_mgr
+"   autocmd!
+" augroup END
+"
+" nmap <silent> gd :LspDefinition<CR>
+" nmap <silent> gr :LspReferences<CR>
+" nmap <silent> g :LspHover<CR>
+" nmap <silent> <leader>rn :LspRename<CR>
+" nmap <silent> <leader>ca :LspCodeAction<CR>
+"
+" autocmd BufWritePre * :LspCodeAction sync
+"
+" "setlocal omnifunc=lsp#complete
+" setlocal omnifunc=vim_lsp#complete
+" inoremap <expr> <C-Space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-o>"
