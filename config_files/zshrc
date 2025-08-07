@@ -1,45 +1,39 @@
+# git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh/zsh-snap
 if [[ -r "${HOME}/.cache/p10k-instant-prompt-${USERNAME}.zsh" ]]; then
   source "${HOME}/.cache/p10k-instant-prompt-${USERNAME}.zsh"
 fi
 
-# git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh/zsh-snap
 source ~/.config/zsh/zsh-snap/znap.zsh
 
-
-znap source zsh-users/zsh-autosuggestions
-znap source zsh-users/zsh-syntax-highlighting
 znap prompt romkatv/powerlevel10k
+znap source zdharma-continuum/fast-syntax-highlighting
+znap source zsh-users/zsh-autosuggestions
 
 HISTFILE=~/.cache/zh
-HISTSIZE=300
-SAVEHIST=100
+HISTSIZE=100
+SAVEHIST=300
 setopt appendhistory
 
 autoload -Uz compinit
 compinit -i
 
-# export ssh env
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-
 # vi mode settings:
 bindkey -v
-export KEYTIMEOUT=10
+export KEYTIMEOUT=6
 bindkey -M viins "jk" vi-cmd-mode
 
 function zle-line-init zle-keymap-select {
-    case ${KEYMAP} in
-        vicmd) echo -ne '\e[2 q';;
-        viins|main) echo -ne '\e[6 q';;
-    esac
+  case ${KEYMAP} in
+    vicmd) echo -ne '\e[2 q';;
+    viins|main) echo -ne '\e[6 q';;
+  esac
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
 
 # aliases:
 alias ls='ls --color=auto'
-alias btw='fastfetch'
 alias c='clear'
-alias la='ls -la'
 
 # git aliases
 alias gco='git checkout'
@@ -49,10 +43,9 @@ alias gc='git commit'
 alias gp='git push'
 alias gu='git pull'
 alias gl='git log --oneline'
-alias gb='git branch'
-alias gi='git init'
-alias gcl='git clone --depth 1'
 alias gst='git status --short'
+alias gb='git branch'
+alias gcl='git clone --depth 1'
 alias gr='git remote'
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
