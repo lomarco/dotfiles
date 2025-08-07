@@ -273,7 +273,7 @@ require('lazy').setup({
     event = 'BufRead',
     config = function()
       require('nvim-treesitter.configs').setup({
-        ensure_installed = { "c", "cpp", "python", "lua", "asm", "rust" },
+        -- ensure_installed = { "c", "cpp", "python", "lua", "asm", "rust" },
         highlight = { enable = true },
         indent = { enable = true },
         auto_install = true,
@@ -349,6 +349,26 @@ require('lazy').setup({
         max_item_count = 10,
       })
     end
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = {},
+    lazy = false
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "pyright",
+        "clangd",
+        "rust_analyzer",
+        "html",
+        "cssls",
+      },
+      automatic_installation = true,
+    }
   },
 
 
