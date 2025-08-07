@@ -1,4 +1,4 @@
-# Dotfiles
+# dotfiles
 
 ## About system
 <div style="text-align: center;">
@@ -17,7 +17,7 @@
 <img src="docs/2.png" align="2" width="px">
 <img src="docs/3.png" align="3" width="1000px">
 
-## All files
+## Repo guide
 - [Scripts from /usr/local/bin/](bin)
 
 - [Sway](config_files/config)
@@ -38,10 +38,8 @@
 | Action                     | Shortcut             |
 |----------------------------|---------------------|
 | **Open the terminal**       | `super + enter`     |
-| **Switch the layout**       | `super + alt`       |
 | **Launch browser**          | `super + shift + b` |
-| **Launch Telegram**         | `super + shift + t` |
-| **Launch wmenu**            | `super + d`         |
+| **Launch wmenu**            | `super + p`         |
 | **Take a screenshot**       | `PtrSc`             |
 | **Kill window**             | `super + shift + q` |
 | **Kill sway**               | `super + shift + e` |
