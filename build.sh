@@ -14,16 +14,7 @@ success() {
   echo -e "\e[1;32m$script_name: $1\e[0m"
 }
 
-for arg in "$@"; do
-  if [[ "$arg" == "-c" || "$arg" == "--clean" ]]; then
-    if rm -rf "$configs_dir" ./bin; then
-      success "$arg: Successful"
-    else
-      error "$arg: failed to clean directories"
-      exit 1
-    fi
-  fi
-done
+rm -rf "$configs_dir" ./bin
 
 mkdir -p "$configs_dir"
 
