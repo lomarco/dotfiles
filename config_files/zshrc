@@ -37,6 +37,7 @@ alias c='clear'
 
 # git aliases
 alias gco='git checkout'
+alias gw='git switch'
 alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
@@ -47,5 +48,10 @@ alias gst='git status --short'
 alias gb='git branch'
 alias gcl='git clone --depth 1'
 alias gr='git remote'
+
+# make aliases
+alias m='make'
+alias mc='make clean'
+alias mi='make install'
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
