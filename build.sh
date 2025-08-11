@@ -14,8 +14,6 @@ success() {
   echo -e "\e[1;32m$script_name: $1\e[0m"
 }
 
-rm -rf "$configs_dir" ./bin
-
 mkdir -p "$configs_dir"
 
 cp -r "$bin_scripts" .
@@ -23,7 +21,8 @@ cp -r "$bin_scripts" .
 declare -a files=(
   "$HOME/.config/foot/foot.ini|foot.ini"
   "$HOME/.config/sway/config|config"
-  "$HOME/.config/waybar/|waybar"
+  "$HOME/.config/waybar/config|waybar/config"
+  "$HOME/.config/waybar/style.css|waybar/style.css"
   "$HOME/.zshrc|zshrc"
   "$HOME/.config/nvim/init.lua|init.lua"
   "$HOME/.vimrc|vimrc"
