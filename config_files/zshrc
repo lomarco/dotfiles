@@ -19,7 +19,7 @@ compinit -i
 
 # vi mode settings:
 bindkey -v
-export KEYTIMEOUT=6
+export KEYTIMEOUT=10
 bindkey -M viins "jk" vi-cmd-mode
 
 function zle-line-init zle-keymap-select {
