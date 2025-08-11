@@ -299,7 +299,7 @@ require('lazy').setup({
         vim.keymap.set('n', '<A-r>', ':lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
       end
 
-      local servers = { 'clangd', 'pyright', 'html', 'cssls', 'lua_ls', 'rust_analyzer' }
+      local servers = { 'clangd', 'pyright', 'lua_ls', 'rust_analyzer' }
       for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
           on_attach = on_attach,
@@ -363,9 +363,7 @@ require('lazy').setup({
         "lua_ls",
         "pyright",
         "clangd",
-        "rust_analyzer",
-        "html",
-        "cssls",
+        "rust_analyzer"
       },
       automatic_installation = true,
     }
