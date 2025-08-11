@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+#set -e
 
 bin_dir="./bin/"
 configs_dir="./config_files/"
