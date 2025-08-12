@@ -39,11 +39,7 @@
       },
       "battery": {
         "bat": "BAT1",
-        "interval": 2,
         "format": "{capacity}%",
-        "format-charging": "charging {capacity}%",
-        "format-discharging": "discharging {capacity}%",
-        "format-plugged": "plugged {capacity}%",
         "on-click": null,
         "tooltip": false
       },
