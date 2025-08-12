@@ -1,0 +1,8 @@
+# /dev/nvme0n1p3
+UUID=5c4b6a50-d201-439b-9591-bdd7bdc9d45e / ext4    defaults,noatime,discard 0 1
+
+# /dev/nvme0n1p2
+UUID=46788975-7443-4ef1-91da-2435c9ae6ac9 none swap    sw,noauto 0 0
+
+# /dev/tmpfs
+tmpfs /tmp tmpfs    defaults,noatime,mode=1777,size=1G 0 0

@@ -27,6 +27,7 @@ declare -a files=(
   "$HOME/.config/nvim/init.lua|init.lua"
   "$HOME/.vimrc|vimrc"
   "$HOME/.gitconfig|gitconfig"
+  "/etc/fstab|fstab"
 )
 
 for file in "${files[@]}"; do
