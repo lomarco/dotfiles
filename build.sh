@@ -28,6 +28,7 @@ declare -a files=(
   "$HOME/.vimrc|vimrc"
   "$HOME/.gitconfig|gitconfig"
   "/etc/fstab|fstab"
+  "/etc/pacman.conf|pacman.conf"
 )
 
 for file in "${files[@]}"; do
