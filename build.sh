@@ -23,6 +23,7 @@ declare -a files=(
   "$HOME/.config/sway/config|config"
   "$HOME/.config/waybar/config|waybar/config"
   "$HOME/.config/waybar/style.css|waybar/style.css"
+  "$HOME/.config/tmux/.tmux.conf|tmux.conf"
   "$HOME/.zshrc|zshrc"
   "$HOME/.config/nvim/init.lua|init.lua"
   "$HOME/.vimrc|vimrc"
