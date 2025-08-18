@@ -18,23 +18,29 @@
 <img src="docs/3.png" align="3" width="1000px">
 
 ## Repo guide
-- [Scripts from /usr/local/bin/](bin)
+- [scripts from /usr/local/bin/](bin)
 
-- [Sway](config_files/config)
+- [sway](config_files/config)
 
-- [Waybar](config_files/waybar)
+- [waybar](config_files/waybar)
 
-- [Foot](config_files/foot.ini)
+- [foot](config_files/foot.ini)
 
-- [NeoVim](config_files/init.lua)
+- [neovim](config_files/init.lua)
 
-- [Zsh(Vim mode) & Znap](config_files/zshrc)
+- [zsh(with vi mode) & znap](config_files/zshrc)
 
-- [Vim](config_files/vimrc)
+- [vim](config_files/vimrc)
 
-- [Git-config](config_files/gitconfig)
+- [git-config](config_files/gitconfig)
 
-## HotKeys
+- [fstab](config_files/fstab)
+
+- [pacman](config_files/pacman.conf)
+
+- [tmux](config_files/tmux.conf)
+
+## Sway HotKeys
 | Action                     | Shortcut             |
 |----------------------------|---------------------|
 | **Open the terminal**       | `super + enter`     |
