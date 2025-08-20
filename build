@@ -30,8 +30,24 @@ CFGS["$extra_dir/pacman.conf"]="/etc/pacman.conf"
 # scr:
 CFGS["$scr_dir/"]="$bin_dir"
 
+ENABLE_INFO=0
+
+for arg in "$@"; do
+  case "$arg" in
+    --info|-i)
+      ENABLE_INFO=1
+      ;;
+  esac
+done
+
 err() {
   echo -e "\e[1;31m$__NAME__: error: $1\e[0m" >&2
+}
+
+info() {
+  if [[ $ENABLE_INFO -eq 1 ]]; then
+    echo -e "[INFO] $*"
+  fi
 }
 
 copy_config() {
@@ -48,15 +64,15 @@ copy_config() {
     mkdir -p "$dest_abs"
     rm -rf "${dest_abs:?}/"*
     cp -a "$src/"* "$dest_abs/"
-    echo "copied directory contents: $src/ -> $dest_abs/"
+    info "copied directory contents: $src/ -> $dest_abs/"
   elif [[ -d "$src" ]]; then
     rm -rf "$dest_abs"
     cp -a "$src" "$dest_abs"
-    echo "copied directory: $src -> $dest_abs"
+    info "copied directory: $src -> $dest_abs"
   else
     mkdir -p "$(dirname "$dest_abs")"
     cp -a "$src" "$dest_abs"
-    echo "copied file: $src -> $dest_abs"
+    info "copied file: $src -> $dest_abs"
   fi
 }
 
