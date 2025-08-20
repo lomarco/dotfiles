@@ -45,13 +45,13 @@
       },
     "network": {
         "format-wifi": "<span color='#00FF00'>{essid} {ipaddr}</span>",
-        "format-ethernet": "<span color='#00FF00'>ETH {ifname} {ipaddr}</span>",
+        "format-ethernet": "<span color='#00FF00'>eth {ifname} {ipaddr}</span>",
         "format-disconnected": "<span color='#FF0000'>offline</span>",
         "on-click": null,
         "tooltip": false
      },
     "pulseaudio": {
-        "format": "VOL {volume}%",
+        "format": "vol {volume}%",
         "format-muted": "mute",
         "on-click": null,
         "tooltip": false
