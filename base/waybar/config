@@ -1,0 +1,77 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 26,
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["memory", "cpu", "backlight"],
+  "modules-right": ["battery", "custom/sep", "network", "custom/sep", "pulseaudio", "custom/sep", "sway/language", "custom/sep", "clock", "tray"],
+  "sway/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10"
+      },
+      "all-outputs": true,
+      "disable-scroll": true,
+      "on-click": null,
+      "tooltip": false
+      },
+      "memory": {
+        "format": "ram {}%",
+        "tooltip": true
+      },
+      "cpu": {
+        "format": "cpu {}%",
+        "tooltip": true
+      },
+      "backlight": {
+        "format": "lux {}%",
+        "on-click": null,
+        "tooltip": false
+      },
+      "battery": {
+        "bat": "BAT1",
+        "format": "{capacity}%",
+        "on-click": null,
+        "tooltip": false
+      },
+    "network": {
+        "format-wifi": "<span color='#00FF00'>{essid} {ipaddr}</span>",
+        "format-ethernet": "<span color='#00FF00'>eth {ifname} {ipaddr}</span>",
+        "format-disconnected": "<span color='#FF0000'>offline</span>",
+        "on-click": null,
+        "tooltip": false
+     },
+    "pulseaudio": {
+        "format": "vol {volume}%",
+        "format-muted": "mute",
+        "on-click": null,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a %d.%m.%Y %I:%M %p}",
+        "interval": 60,
+        "on-click": null,
+        "tooltip": false
+    },
+    "custom/sep": {
+      "format": "|",
+      "tooltip": false
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "sway/language": {
+      "format": "{}",
+      "tooltip": false
+    }
+}

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+pm() {
+  echo -e "\e[1;32m$1\e[0m"
+}
+
+pm "System upgrade..."
+paru -Syyu --noconfirm
+
+pm "Clear cache..."
+paru -Scc --noconfirm
+
+pm "Remove unused packages..."
+orphaned_packages=$(paru -Qdtq)
+if [ -n "$orphaned_packages" ]; then
+  paru -Rns $orphaned_packages --noconfirm
+else
+  echo -e "\e[1;31mNo unused packages to remove.\e[0m"
+fi
+
+pm "Clear cache AUR packages..."
+paru -c --noconfirm
+
+pm "Clear cache paru..."
+paru -Scc --noconfirm
+
+pm "________________PARU_END________________"

@@ -1,0 +1,54 @@
+#!/bin/bash
+
+set -e
+
+LOG_FILE="$1/backup_$(date +%Y%m%d_%H%M%S).log"
+USER_NAME=$USER
+
+green() {
+  echo -e "\e[1;32m$1\e[0m"
+}
+
+red() {
+  echo -e "\e[1;31m$1\e[0m"
+}
+
+run_rsync() {
+  local src=$1
+  local dest=$2
+  echo "Copying $src в $dest..." | tee -a "$LOG_FILE"
+  rsync -aAXv --chown="$USER_NAME":"$USER_NAME" "$src" "$dest" >> "$LOG_FILE" 2>&1
+  if [ $? -eq 0 ]; then
+    green "Successfully: $src copying in $dest" | tee -a "$LOG_FILE"
+  else
+    red "Error: it was not possible to copy $src in $dest" | tee -a "$LOG_FILE"
+    exit 1
+  fi
+}
+
+if [ -z "$1" ]; then
+  red "Error: the path is not indicated."
+  exit 1
+fi
+
+if [ ! -d "$1" ]; then
+  red "Error: the directory does not exist."
+  exit 1
+fi
+
+green "start backup: $(date)" | tee -a "$LOG_FILE"
+
+run_rsync /home/"$USER_NAME"/ "$1"/"$USER_NAME"/ &
+run_rsync /data/ "$1"/data/ &
+run_rsync /etc/ "$1"/etc/ &
+run_rsync /usr/local/bin/ "$1"/bin/ &
+wait
+
+echo "Sync file system..." | tee -a "$LOG_FILE"
+sync >> "$LOG_FILE" 2>&1
+if [ $? -eq 0 ]; then
+  green "Successfully: file systems is sync." | tee -a "$LOG_FILE"
+else
+  red "Error: file systems if not sync."
+  exit 1
+fi
