@@ -26,7 +26,8 @@ bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-bindsym Print exec grim /tmp/screenshot.png && slurp | grim -g - - | tee ~/screenshot-$(date +"%Y%m%d-%H%M%S").png | wl-copy
+# bindsym Print exec grim /tmp/screenshot.png && slurp | grim -g - - | tee ~/screenshot-$(date +"%Y%m%d-%H%M%S").png | wl-copy
+bindsym Print exec grim ~/screenshot-$(date +"%Y%m%d-%H%M%S").png
 
 
 
@@ -114,6 +115,6 @@ bindsym $mod+r mode "resize"
 
 
 # Demons:
+#exec mako
 exec wlsunset -t 2500 -T 3000 > /dev/null 2>&1
 exec waybar
-exec mako
