@@ -1,0 +1,70 @@
+#!/usr/bin/bash
+set -euo pipefail
+
+__NAME__="${0##*/}"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+base_dir="base"
+extra_dir="extra"
+scr_dir="scr"
+
+bin_dir="/usr/local/bin"
+
+declare -A CFGS
+
+# base
+CFGS["$base_dir/foot.ini"]="$HOME/.config/foot/foot.ini"
+CFGS["$base_dir/config"]="$HOME/.config/sway/config"
+CFGS["$base_dir/waybar/"]="$HOME/.config/waybar"
+CFGS["$base_dir/tmux.conf"]="$HOME/.config/tmux/.tmux.conf"
+CFGS["$base_dir/init.lua"]="$HOME/.config/nvim/init.lua"
+
+CFGS["$base_dir/zshrc"]="$HOME/.zshrc"
+CFGS["$base_dir/vimrc"]="$HOME/.vimrc"
+CFGS["$base_dir/gitconfig"]="$HOME/.gitconfig"
+
+# extra
+CFGS["$extra_dir/fstab"]="/etc/fstab"
+CFGS["$extra_dir/pacman.conf"]="/etc/pacman.conf"
+
+# scr:
+CFGS["$scr_dir/"]="$bin_dir"
+
+err() {
+  echo -e "\e[1;31m$__NAME__: error: $1\e[0m" >&2
+}
+
+copy_config() {
+  local dest_rel="$1"
+  local src="$2"
+  local dest_abs="$REPO_ROOT/$dest_rel"
+
+  if [[ ! -e "$src" ]]; then
+    err "no such file or directory: '$src'"
+    return 1
+  fi
+
+  if [[ -d "$src" ]] && [[ "$dest_rel" == */ ]]; then
+    mkdir -p "$dest_abs"
+    rm -rf "${dest_abs:?}/"*
+    cp -a "$src/"* "$dest_abs/"
+    echo "copied directory contents: $src/ -> $dest_abs/"
+  elif [[ -d "$src" ]]; then
+    rm -rf "$dest_abs"
+    cp -a "$src" "$dest_abs"
+    echo "copied directory: $src -> $dest_abs"
+  else
+    mkdir -p "$(dirname "$dest_abs")"
+    cp -a "$src" "$dest_abs"
+    echo "copied file: $src -> $dest_abs"
+  fi
+}
+
+main() {
+  for rel_path in "${!CFGS[@]}"; do
+    src_path="${CFGS[$rel_path]}"
+    copy_config "$rel_path" "$src_path"
+  done
+}
+
+main "$@"
