@@ -1,6 +1,37 @@
-# dotfiles
+<h1 align="center">Lomarco's Dotfiles</h1>
+IMAGE OR GIF
 
-## About system
+<details open="open">
+<summary>Table of Contents</summary>
+
+- [Toolchain](#toolchain)
+- [Gallery](#gallery)
+- [Repo Guide](#repo-guide)
+  - [base](#base)
+    - [Sway](#sway)
+    - [Waybar](#waybar)
+    - [Foot](#foot)
+    - [Git-config](#gitconfig)
+    - [NeoVim](#neovim)
+    - [Tmux](#tmux)
+    - [Vim](#vimrc)
+    - [Zsh](#zshrc)
+  - [extra](#extra)
+    - [fstab](#fstab)
+    - [Pacman](#pacman.conf)
+  - [scr](#scr)
+    - [auto\_backup]($auto-backup)
+    - [efistub-boot]($efistub-boot)
+    - [mir-sync]($mir-sync)
+    - [udp]($udp)
+    - [udy]($udy)
+    - [wmenu-sonn]($wmenu-conn)
+- [Sway hot keys](#sway-hot-keys)
+...
+- [Copyright](#copyright)
+</details>
+
+# Toolchain
 <div style="text-align: center;">
 
  - OS: [**`Arch Linux`**](https://archlinux.org/)
@@ -9,18 +40,31 @@
  - Bar: [**`Waybar`**](https://github.com/Alexays/Waybar)
  - Terminal: [**`Foot`**](https://codeberg.org/dnkl/foot)
  - Shell: [**`Zsh znap`**](https://github.com/marlonrichert/zsh-snap)
- - IDE: [**`NeoVim`**](https://neovim.io/)
+ - Editor: [**`NeoVim`**](https://neovim.io/)
+ - Multiplexer: [**`Tmux`**](https://archive.kernel.org/oldwiki/iwd.wiki.kernel.org/)
+ - Notify Manager: [**`Mako`**](https://github.com/emersion/mako)
+ - AUR Helper: [**`Paru`**](https://github.com/Morganamilo/paru)
+ - PASS Manager: [**`Pass`**](http://www.passwordstore.org/)
+ - Bootloader: [**`Efi Stub`**](https://wiki.archlinux.org/title/EFI_boot_stub)
+ - WiFi Manager: [**`Iwd`**](https://archive.kernel.org/oldwiki/iwd.wiki.kernel.org/)
+ - File Manager: [**`Lf`**](https://github.com/gokcehan/lf)
 </div>
 
-## Images
+# Gallery
 <img src="docs/1.png" align="1" width="px">
 <img src="docs/2.png" align="2" width="px">
-<img src="docs/3.png" align="3" width="1000px">
+<img src="docs/3.png" align="3" width="px">
 
-## Repo guide
+# Repo Guide
+## base
+
+### [Sway](config_files/config)
+
+## extra
+
+## scr
 - [scripts from /usr/local/bin/](bin)
 
-- [sway](config_files/config)
 
 - [waybar](config_files/waybar)
 
