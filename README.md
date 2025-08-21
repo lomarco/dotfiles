@@ -18,14 +18,14 @@ IMAGE OR GIF
     - [Zsh](#zshrc)
   - [extra](#extra)
     - [fstab](#fstab)
-    - [Pacman](#pacman.conf)
+    - [Pacman](#pacman)
   - [scr](#scr)
     - [auto\_backup]($auto-backup)
     - [efistub-boot]($efistub-boot)
     - [mir-sync]($mir-sync)
     - [udp]($udp)
     - [udy]($udy)
-    - [wmenu-sonn]($wmenu-conn)
+    - [wmenu-conn]($wmenu-conn)
 - [Sway hot keys](#sway-hot-keys)
 ...
 - [Copyright](#copyright)
@@ -57,32 +57,27 @@ IMAGE OR GIF
 
 # Repo Guide
 ## base
-
-### [Sway](config_files/config)
+### [Sway](base/config)
+### [Waybar](base/waybar)
+### [Foot](base/foot.ini)
+### [Git-config](base/gitconfig)
+### [NeoVim](base/init.lua)
+### [Tmux](base/tmux.conf)
+### [Vim](base/vimrc)
+### [Zsh](base/zshrc)
 
 ## extra
+### [Fstab](extra/fstab)
+### [Pacman](extra/pacman.conf)
 
 ## scr
-- [scripts from /usr/local/bin/](bin)
+### [auto\_backup](scr/auto_backup)
+### [efistub-boot](scr/efistub-boot)
+### [mir-sync](scr/mir-sync)
+### [udp](scr/udp)
+### [udy](scr/udy)
+### [wmenu-conn](scr/wmenu-conn)
 
-
-- [waybar](config_files/waybar)
-
-- [foot](config_files/foot.ini)
-
-- [neovim](config_files/init.lua)
-
-- [zsh(with vi mode) & znap](config_files/zshrc)
-
-- [vim](config_files/vimrc)
-
-- [git-config](config_files/gitconfig)
-
-- [fstab](config_files/fstab)
-
-- [pacman](config_files/pacman.conf)
-
-- [tmux](config_files/tmux.conf)
 
 ## Sway HotKeys
 | Action                     | Shortcut             |
