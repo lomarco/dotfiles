@@ -22,6 +22,7 @@ CFGS["$base_dir/zshrc"]="$HOME/.zshrc"
 CFGS["$base_dir/vimrc"]="$HOME/.vimrc"
 CFGS["$base_dir/gitconfig"]="$HOME/.gitconfig"
 CFGS["$base_dir/tmux.conf"]="$HOME/.tmux.conf"
+#lf
 
 # extra
 CFGS["$extra_dir/fstab"]="/etc/fstab"
