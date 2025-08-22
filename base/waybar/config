@@ -1,29 +1,10 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 26,
-  "modules-left": ["sway/workspaces"],
+  "height": 13,
+  "modules-left": ["sway/workspaces"], 
   "modules-center": ["cpu", "backlight"],
   "modules-right": ["battery", "custom/sep", "network", "custom/sep", "pulseaudio", "custom/sep", "sway/language", "custom/sep", "clock", "tray"],
-  "sway/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-      "6": "6",
-      "7": "7",
-      "8": "8",
-      "9": "9",
-      "10": "10"
-      },
-      "all-outputs": true,
-      "disable-scroll": true,
-      "on-click": null,
-      "tooltip": false
-      },
       "cpu": {
         "format": "cpu {}%",
         "tooltip": true
