@@ -1,5 +1,5 @@
 <h1 align="center">Lomarco's Dotfiles</h1>
-IMAGE OR GIF
+<img src="docs/1.png" align="1" width="px">
 
 <details open="open">
 <summary>Table of Contents</summary>
@@ -44,14 +44,13 @@ IMAGE OR GIF
  - Multiplexer: [**`Tmux`**](https://archive.kernel.org/oldwiki/iwd.wiki.kernel.org/)
  - Notify Manager: [**`Mako`**](https://github.com/emersion/mako)
  - AUR Helper: [**`Paru`**](https://github.com/Morganamilo/paru)
- - PASS Manager: [**`Pass`**](http://www.passwordstore.org/)
+ - Password Manager: [**`Pass`**](http://www.passwordstore.org/)
  - Bootloader: [**`Efi Stub`**](https://wiki.archlinux.org/title/EFI_boot_stub)
  - WiFi Manager: [**`Iwd`**](https://archive.kernel.org/oldwiki/iwd.wiki.kernel.org/)
  - File Manager: [**`Lf`**](https://github.com/gokcehan/lf)
 </div>
 
 # Gallery
-<img src="docs/1.png" align="1" width="px">
 <img src="docs/2.png" align="2" width="px">
 <img src="docs/3.png" align="3" width="px">
 
@@ -92,5 +91,6 @@ IMAGE OR GIF
 | **Moving between workspaces** | `super + {1, 2..0}` |
 | **Moving between windows**  | `super + {h, j, k, l}` |
 | **Fullscreen window mode**  | `super + f`         |
+...
 
 The other hotkeys are in [sway](config_files/config)
