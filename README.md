@@ -97,6 +97,5 @@
 | **Moving between workspaces** | `super + {1, 2..0}` |
 | **Moving between windows**  | `super + {h, j, k, l}` |
 | **Fullscreen window mode**  | `super + f`         |
-...
 
 The other hotkeys are in [sway](config_files/config)
