@@ -17,8 +17,11 @@
     - [Vim](#vimrc)
     - [Zsh](#zshrc)
   - [extra](#extra)
-    - [fstab](#fstab)
+    - [Fstab](#fstab)
     - [Pacman](#pacman)
+    - [Iwd](#iwd)
+    - [Mkinitcpio](#mkinitcpio)
+    - [Paru](#paru)
   - [scr](#scr)
     - [auto\_backup](#auto-backup)
     - [efistub-boot](#efistub-boot)
@@ -68,6 +71,9 @@
 ## extra
 ### [Fstab](extra/fstab)
 ### [Pacman](extra/pacman.conf)
+### [Iwd](extra/main.conf)
+### [Mkinitcpio](extra/mkinitcpio.conf)
+### [Paru](extra/paru.conf)
 
 ## scr
 ### [auto\_backup](scr/auto_backup)

@@ -22,13 +22,16 @@ CFGS["$base_dir/zshrc"]="$HOME/.zshrc"
 CFGS["$base_dir/vimrc"]="$HOME/.vimrc"
 CFGS["$base_dir/gitconfig"]="$HOME/.gitconfig"
 CFGS["$base_dir/tmux.conf"]="$HOME/.tmux.conf"
+#mako
 #lf
 
 # extra
 CFGS["$extra_dir/fstab"]="/etc/fstab"
 CFGS["$extra_dir/pacman.conf"]="/etc/pacman.conf"
-#mkinitcpio
-#iwd
+CFGS["$extra_dir/mkinitcpio.conf"]="/etc/mkinitcpio.conf"
+CFGS["$extra_dir/main.conf"]="/etc/iwd/main.conf"
+CFGS["$extra_dir/paru.conf"]="/etc/paru.conf"
+#kernel config
 
 # scr:
 CFGS["$scr_dir/"]="$bin_dir"
