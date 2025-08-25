@@ -3,52 +3,48 @@
   "position": "top",
   "height": 13,
   "modules-left": ["sway/workspaces"], 
-  "modules-center": ["cpu", "backlight"],
-  "modules-right": ["battery", "custom/sep", "network", "custom/sep", "pulseaudio", "custom/sep", "sway/language", "custom/sep", "clock", "tray"],
-      "cpu": {
-        "format": "cpu {}%",
-        "tooltip": true
-      },
-      "backlight": {
-        "format": "lux {}%",
-        "on-click": null,
-        "tooltip": false
-      },
-      "battery": {
-        "bat": "BAT1",
-        "format": "{capacity}%",
-        "on-click": null,
-        "tooltip": false
-      },
-    "network": {
-        "format-wifi": "<span color='#00FF00'>{essid} {ipaddr}</span>",
-        "format-ethernet": "<span color='#00FF00'>eth {ifname} {ipaddr}</span>",
-        "format-disconnected": "<span color='#FF0000'>offline</span>",
-        "on-click": null,
-        "tooltip": false
-     },
-    "pulseaudio": {
-        "format": "vol {volume}%",
-        "format-muted": "mute",
-        "on-click": null,
-        "tooltip": false
-    },
-    "clock": {
-        "format": "{:%a %d.%m.%Y %I:%M %p}",
-        "interval": 60,
-        "on-click": null,
-        "tooltip": false
-    },
-    "custom/sep": {
-      "format": "|",
-      "tooltip": false
-    },
-    "tray": {
-        "icon-size": 16,
-        "spacing": 10
-    },
-    "sway/language": {
-      "format": "{}",
-      "tooltip": false
-    }
+  "modules-center": ["backlight", "custom/sep", "battery"],
+  "modules-right": ["network", "custom/sep", "pulseaudio", "custom/sep", "sway/language", "custom/sep", "clock", "tray"],
+  "backlight": {
+    "format": "lux {}%",
+     "on-click": null,
+     "tooltip": false
+  },
+  "battery": {
+   "bat": "BAT1",
+   "format": "bat {capacity}%",
+   "on-click": null,
+   "tooltip": false
+  },
+  "network": {
+    "format-wifi": "<span color='#00FF00'>{essid} {ipaddr}</span>",
+    "format-ethernet": "<span color='#00FF00'>eth {ifname} {ipaddr}</span>",
+    "format-disconnected": "<span color='#FF0000'>offline</span>",
+    "on-click": null,
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "vol {volume}%",
+    "format-muted": "mute",
+    "on-click": null,
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%a %d.%m.%Y %I:%M %p}",
+    "interval": 60,
+    "on-click": null,
+    "tooltip": false
+  },
+  "custom/sep": {
+    "format": "|",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 16,
+     "spacing": 10
+  },
+  "sway/language": {
+    "format": "{}",
+    "tooltip": false
+  }
 }
