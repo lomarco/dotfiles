@@ -87,6 +87,7 @@ function ToggleTerminal()
     vim.cmd("startinsert")
   end
 end
+
 vim.api.nvim_set_keymap('n', '<leader>h', ':lua ToggleTerminal()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
@@ -385,32 +386,4 @@ require('lazy').setup({
       },
     },
   },
-})
-
-
------------- CUSTOM:
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'asm',
-  callback = function()
-    vim.keymap.set('n', '<C-b>', ':!fasm %CR>',
-      { noremap = true, silent = true })
-    vim.keymap.set('n', '<C-r>', ':!./%:r<CR>', { noremap = true, silent = true })
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'c,h,ino',
-  callback = function()
-    -- vim.keymap.set('n', '<c-b>', ':!make && make clean:r<cr>', { noremap = true, silent = true })
-    vim.keymap.set('n', '<c-b>', ':!clang % && ./a.out<cr>', { noremap = true, silent = true })
-    vim.keymap.set('n', '<a-f>', ':!clang-format --style chromium -i %<cr>', { noremap = true, silent = true })
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'cpp,cxx',
-  callback = function()
-    vim.keymap.set('n', '<c-b>', ':!clang++ % && ./a.out<cr>', { noremap = true, silent = true })
-    vim.keymap.set('n', '<a-f>', ':!clang-format --style chromium -i %<cr>', { noremap = true, silent = true })
-  end,
 })
