@@ -1,4 +1,4 @@
-local vim = vim or {}
+vim = vim or {}
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -28,7 +28,7 @@ vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 4
 vim.opt.hlsearch = true
-vim.opt.timeoutlen = 400
+vim.opt.timeoutlen = 300
 vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.colorcolumn = "80"
@@ -88,12 +88,12 @@ function ToggleTerminal()
   end
 end
 
-vim.api.nvim_set_keymap('n', '<leader>h', ':lua ToggleTerminal()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>h', ':lua ToggleTerminal()<CR>', { noremap = true, silent = true })
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
 
 
------------- PLULINS
+------------ PLUGINS
 require('lazy').setup({
   {
     'github/copilot.vim',
@@ -107,7 +107,7 @@ require('lazy').setup({
   },
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    -- branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
       { '<leader>ff', function() require('telescope.builtin').find_files() end, desc = 'Find Files' },
@@ -330,42 +330,6 @@ require('lazy').setup({
       { "<leader><C-n>", function() require("harpoon"):list():replace_at(3) end,                            desc = "Harpoon Replace At 3" },
       { "<leader><C-s>", function() require("harpoon"):list():replace_at(4) end,                            desc = "Harpoon Replace At 4" },
     },
-  },
-  {
-    'davvid/harpoon-term.nvim',
-    keys = function()
-      local harpoon_term = require('harpoon_term')
-      return {
-        {
-          '<leader>t1',
-          function()
-            harpoon_term.toggle_floating_window(1)
-          end,
-          desc = 'HarpoonTerm Toggle Floating Window with Terminal #1',
-        },
-        {
-          '<leader>t2',
-          function()
-            harpoon_term.toggle_floating_window(2)
-          end,
-          desc = 'HarpoonTerm Toggle Floating Window with Terminal #2',
-        },
-        {
-          '<leader><leader>1',
-          function()
-            harpoon_term.goto_terminal(1)
-          end,
-          desc = 'HarpoonTerm Switch to Terminal #1',
-        },
-        {
-          '<leader><leader>2',
-          function()
-            harpoon_term.goto_terminal(2)
-          end,
-          desc = 'HarpoonTerm Switch to Terminal #2',
-        },
-      }
-    end,
   },
   { -- This plugin
     "Zeioth/compiler.nvim",
