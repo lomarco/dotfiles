@@ -39,7 +39,7 @@
  - OS: [**`Arch Linux`**](https://archlinux.org/)
  - Kernel: [**`Linux zen`**](https://github.com/zen-kernel/zen-kernel)
  - WM: [**`Sway`**](https://swaywm.org/)
- - Bar: [**`I3status`**](https://github.com/Alexays/Waybar)
+ - Bar: [**`I3status`**](https://i3wm.org/docs/i3status.html)
  - Terminal: [**`Foot`**](https://codeberg.org/dnkl/foot)
  - Shell: [**`Zsh znap`**](https://github.com/marlonrichert/zsh-snap)
  - Editor: [**`NeoVim`**](https://neovim.io/)
