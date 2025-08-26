@@ -15,8 +15,8 @@ declare -A CFGS
 # base
 CFGS["$base_dir/foot.ini"]="$HOME/.config/foot/foot.ini"
 CFGS["$base_dir/config"]="$HOME/.config/sway/config"
-CFGS["$base_dir/waybar/"]="$HOME/.config/waybar"
 CFGS["$base_dir/init.lua"]="$HOME/.config/nvim/init.lua"
+CFGS["$base_dir/config_i3status"]="$HOME/.config/i3status/config"
 
 CFGS["$base_dir/zshrc"]="$HOME/.zshrc"
 CFGS["$base_dir/vimrc"]="$HOME/.vimrc"

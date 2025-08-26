@@ -14,7 +14,7 @@ set $menu wmenu-run
 
 # Binds
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+b exec $browser
+bindsym $mod+y exec $browser
 bindsym $mod+p exec $menu
 
 
@@ -114,7 +114,19 @@ bindsym $mod+r mode "resize"
 
 
 
+# Bar
+bar {
+  position top
+  status_command i3status
+  font "monospace 8"
+  colors {
+    background #000000
+    statusline #ffffff
+  }
+}
+
+
+
 # Demons:
 #exec mako
 exec wlsunset -t 2500 -T 3000 > /dev/null 2>&1
-exec waybar

@@ -9,7 +9,7 @@
 - [Repo Guide](#repo-guide)
   - [base](#base)
     - [Sway](#sway)
-    - [Waybar](#waybar)
+    - [I3status](#i3status)
     - [Foot](#foot)
     - [Git-config](#gitconfig)
     - [NeoVim](#neovim)
@@ -39,7 +39,7 @@
  - OS: [**`Arch Linux`**](https://archlinux.org/)
  - Kernel: [**`Linux zen`**](https://github.com/zen-kernel/zen-kernel)
  - WM: [**`Sway`**](https://swaywm.org/)
- - Bar: [**`Waybar`**](https://github.com/Alexays/Waybar)
+ - Bar: [**`I3status`**](https://github.com/Alexays/Waybar)
  - Terminal: [**`Foot`**](https://codeberg.org/dnkl/foot)
  - Shell: [**`Zsh znap`**](https://github.com/marlonrichert/zsh-snap)
  - Editor: [**`NeoVim`**](https://neovim.io/)
@@ -59,7 +59,7 @@
 # Repo Guide
 ## base
 ### [Sway](base/config)
-### [Waybar](base/waybar)
+### [I3status](base/config_i3status)
 ### [Foot](base/foot.ini)
 ### [Git-config](base/gitconfig)
 ### [NeoVim](base/init.lua)
