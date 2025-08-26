@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 
 ------------ BASE SETTINGS
+vim.loader.enable()
 vim.opt.number = true
 vim.opt.numberwidth = 1
 vim.opt.relativenumber = true
@@ -25,22 +26,22 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
-vim.opt.cursorline = false
-vim.opt.scrolloff = 4 -- 8
+vim.opt.scrolloff = 4
 vim.opt.hlsearch = true
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 400
 vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
+vim.opt.colorcolumn = "80"
 vim.opt.shortmess:append("sI")
 vim.opt.fillchars = { eob = " " }
-vim.opt.colorcolumn = "80"
 
 
------------- BASE KEYMAPS:
+------------ KEYMAPS:
 vim.g.mapleader = " "
 
 -- Escape alias
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-c>', '<Esc>', { noremap = true, silent = true })
 
 -- Auto brackets
 vim.keymap.set('v', '<leader>"', 'c""<Esc>P', { noremap = true, silent = true })
@@ -60,10 +61,6 @@ vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
-
--- Fix terminal work (Off ESC and Shift-Space hot-keys)
-vim.keymap.set('n', '<Esc>', ':noh<CR><Esc>', { noremap = true, silent = true })
-vim.keymap.set("t", "<S-Space>", "<Space>", { noremap = true, silent = true })
 
 
 ------------ PLULINS
