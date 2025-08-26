@@ -65,15 +65,6 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
 ------------ PLULINS
 require('lazy').setup({
-  -- Prevelegios plugins
-  {
-    "lewis6991/impatient.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("impatient")
-    end,
-  },
   {
     'github/copilot.vim',
     lazy = true,
@@ -83,77 +74,6 @@ require('lazy').setup({
       vim.keymap.set('i', '<C-j>', 'copilot#Accept("<CR>")', { expr = true, silent = true, noremap = true })
       vim.keymap.set('i', '<C-k>', 'copilot#Dismiss()', { expr = true, silent = true, noremap = true })
     end,
-  },
-
-
-  -- Menus
-  {
-    'nvim-tree/nvim-tree.lua',
-    vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true }),
-    config = function()
-      require('nvim-tree').setup({
-        view = {
-          width = 30,
-          side = 'left',
-          preserve_window_proportions = true,
-        },
-        filters = {
-          dotfiles = false,  -- showing dotfiles
-          git_clean = false, -- showing gitignore files
-        },
-        git = {
-          enable = true,  -- enable git status support
-          ignore = false, -- not ignoring git files
-        },
-        renderer = {
-          indent_markers = {
-            enable = true, -- showing lines
-            icons = {
-              corner = "└",
-              edge = "│",
-              item = "│",
-              none = " ",
-            },
-          },
-          icons = {
-            show = {
-              file = false,
-              folder = true,
-              folder_arrow = true,
-              git = true,
-            },
-          },
-        },
-        actions = {
-          open_file = {
-            quit_on_open = true, -- close a tree when opening a file
-            resize_window = true,
-          },
-        },
-        update_focused_file = {
-          enable = true,     -- follow the open file
-          update_cwd = true, -- change work dir under the open file
-        },
-        diagnostics = {
-          enable = true, -- showing errors/wanrs
-          icons = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = "",
-          },
-        },
-      })
-    end
-  },
-  {
-    'romgrk/barbar.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require('barbar').setup({
-        animation = false
-      })
-    end
   },
   {
     'nvim-telescope/telescope.nvim',
@@ -165,6 +85,7 @@ require('lazy').setup({
       { '<leader>fb', function() require('telescope.builtin').buffers() end,    desc = 'Find Buffers' },
       { '<leader>fh', function() require('telescope.builtin').help_tags() end,  desc = 'Help Tags' },
       { '<leader>fr', function() require('telescope.builtin').oldfiles() end,   desc = 'Recent Files' },
+      { '<C-p>',      function() require('telescope.builtin').git_files() end,  desc = 'Find Files' },
     },
     config = function()
       local telescope = require('telescope')
@@ -181,96 +102,24 @@ require('lazy').setup({
     end
   },
   {
-    'folke/todo-comments.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = {},
-    keys = {
-      { '<leader>ft', '<cmd>TodoTelescope<cr>', desc = 'Find TODOs' }
-    }
-  },
-  {
-    "preservim/tagbar",
-    cmd = "TagbarToggle",
-    config = function()
-      vim.g.tagbar_width = 50
-      vim.g.tagbar_autofocus = 1
-      vim.g.tagbar_sort = 0
-      vim.g.tagbar_compact = 1
-      vim.g.tagbar_autoclose = 0
-      vim.keymap.set('n', '<leader>t', ':TagbarToggle<CR>', { desc = '[T]agbar [T]oggle' })
-    end,
-    keys = {
-      { '<leader>t', ':TagbarToggle<CR>', desc = '[T]agbar [T]oggle' },
-    }
-  },
-  {
-    "mbbill/undotree",
-    cmd = "UndotreeToggle",
-    config = function()
-    end
-  },
-  {
-    'akinsho/toggleterm.nvim',
-    version = "*",
-    keys = { "<A-h>" },
-    config = function()
-      require("toggleterm").setup({
-        size = 20,
-        open_mapping = [[<A-h>]],
-        direction = "horizontal",
-        start_in_insert = true,
-        persist_size = true,
-        close_on_exit = true,
-      })
-    end
-  },
-  {
     "folke/trouble.nvim",
     opts = {},
     cmd = "Trouble",
     keys = {
       {
-        "<leader>xx",
+        "<leader>t",
         "<cmd>Trouble diagnostics toggle<cr>",
         desc = "Diagnostics (Trouble)",
       },
-      {
-        "<leader>xX",
-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "Buffer Diagnostics (Trouble)",
-      },
-      {
-        "<leader>cs",
-        "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "Symbols (Trouble)",
-      },
-      {
-        "<leader>cl",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
-      },
-      {
-        "<leader>xL",
-        "<cmd>Trouble loclist toggle<cr>",
-        desc = "Location List (Trouble)",
-      },
-      {
-        "<leader>xQ",
-        "<cmd>Trouble qflist toggle<cr>",
-        desc = "Quickfix List (Trouble)",
-      },
     },
   },
-
-
-  -- Base text plugins
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     event = 'BufRead',
     config = function()
       require('nvim-treesitter.configs').setup({
-        -- ensure_installed = { "c", "cpp", "python", "lua", "asm", "rust" },
+        ensure_installed = { "c", "cpp", "python", "lua", "asm" },
         highlight = { enable = true },
         indent = { enable = true },
         auto_install = true,
@@ -322,12 +171,11 @@ require('lazy').setup({
         },
         sources = {
           { name = 'nvim_lsp', priority = 100 },
-          { name = 'buffer',   priority = 10 },
           { name = 'path',     priority = 50 },
+          { name = 'buffer',   priority = 10 },
         },
         mapping = {
           ['<C-Space>'] = cmp.mapping.complete(),
-          -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
           ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
@@ -359,55 +207,12 @@ require('lazy').setup({
       automatic_installation = true,
     }
   },
-
-
-  -- Additional text plugins
   {
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
     end
   },
-  {
-    'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup()
-    end
-  },
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    opts = {
-      char = { enabled = false },
-      search = { enabled = false },
-      treesitter = { enabled = false }
-    },
-    keys = {
-      { "S", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-    },
-    config = function(_, opts)
-      require("flash").setup(opts)
-      vim.keymap.del({ "n", "o", "x" }, "f")
-      vim.keymap.del({ "n", "o", "x" }, "F")
-      vim.keymap.del({ "n", "o", "x" }, "t")
-      vim.keymap.del({ "n", "o", "x" }, "T")
-      vim.keymap.del({ "n", "o", "x" }, ";")
-      vim.keymap.del({ "n", "o", "x" }, ",")
-    end,
-  },
-  ---------------- For vim moving ----------------
-  {
-    "matze/vim-move",
-    keys = {
-      { "<A-j>", mode = { "n", "v" } },
-      { "<A-k>", mode = { "n", "v" } },
-    },
-    config = function()
-    end,
-  },
-
-
-  -- Git
   {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -450,32 +255,16 @@ require('lazy').setup({
       })
     end
   },
-
-
-  -- Themes
   {
     'rafi/awesome-vim-colorschemes',
     config = function()
-      vim.cmd.colorscheme('purify')
+      vim.cmd.colorscheme('OceanicNext')
       -- purify,vscode,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
       vim.opt.background = 'dark'
-
       -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
       -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     end
   },
-  {
-    "mofiqul/vscode.nvim",
-    lazy = true,
-    config = function()
-    end
-  },
-  {
-    "dundargoc/fakedonalds.nvim",
-    lazy = true,
-    config = function()
-    end
-  }
 })
 
 
