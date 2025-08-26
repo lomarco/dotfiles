@@ -22,6 +22,7 @@
     - [Iwd](#iwd)
     - [Mkinitcpio](#mkinitcpio)
     - [Paru](#paru)
+    - [Kernel](#Kernel)
   - [scr](#scr)
     - [auto\_backup](#auto-backup)
     - [efistub-boot](#efistub-boot)
@@ -30,7 +31,6 @@
     - [udy](#udy)
     - [wmenu-conn](#wmenu-conn)
 - [Sway hot keys](#sway-hot-keys)
-...
 - [Copyright](#copyright)
 </details>
 
@@ -74,6 +74,7 @@
 ### [Iwd](extra/main.conf)
 ### [Mkinitcpio](extra/mkinitcpio.conf)
 ### [Paru](extra/paru.conf)
+### [Kernel](extra/kernel_config)
 
 ## scr
 ### [auto\_backup](scr/auto_backup)
