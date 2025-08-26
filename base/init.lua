@@ -265,6 +265,97 @@ require('lazy').setup({
       -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     end
   },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
+  },
+
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local harpoon = require("harpoon")
+      harpoon:setup()
+    end,
+    keys = {
+      { "<leader>A",     function() require("harpoon"):list():prepend() end,                                desc = "Harpoon Prepend File" },
+      { "<leader>a",     function() require("harpoon"):list():add() end,                                    desc = "Harpoon Add File" },
+      { "<leader>m",     function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end, desc = "Harpoon Toggle Menu" },
+      { "<C-h>",         function() require("harpoon"):list():select(2) end,                                desc = "Harpoon Select 1" },
+      { "<C-t>",         function() require("harpoon"):list():select(2) end,                                desc = "Harpoon Select 2" },
+      { "<C-n>",         function() require("harpoon"):list():select(3) end,                                desc = "Harpoon Select 3" },
+      { "<C-s>",         function() require("harpoon"):list():select(4) end,                                desc = "Harpoon Select 4" },
+      { "<leader><C-h>", function() require("harpoon"):list():replace_at(1) end,                            desc = "Harpoon Replace At 1" },
+      { "<leader><C-t>", function() require("harpoon"):list():replace_at(2) end,                            desc = "Harpoon Replace At 2" },
+      { "<leader><C-n>", function() require("harpoon"):list():replace_at(3) end,                            desc = "Harpoon Replace At 3" },
+      { "<leader><C-s>", function() require("harpoon"):list():replace_at(4) end,                            desc = "Harpoon Replace At 4" },
+    },
+  },
+  {
+    'davvid/harpoon-term.nvim',
+    keys = function()
+      local harpoon_term = require('harpoon_term')
+      return {
+        {
+          '<leader>t1',
+          function()
+            harpoon_term.toggle_floating_window(1)
+          end,
+          desc = 'HarpoonTerm Toggle Floating Window with Terminal #1',
+        },
+        {
+          '<leader>t2',
+          function()
+            harpoon_term.toggle_floating_window(2)
+          end,
+          desc = 'HarpoonTerm Toggle Floating Window with Terminal #2',
+        },
+        {
+          '<leader><leader>1',
+          function()
+            harpoon_term.goto_terminal(1)
+          end,
+          desc = 'HarpoonTerm Switch to Terminal #1',
+        },
+        {
+          '<leader><leader>2',
+          function()
+            harpoon_term.goto_terminal(2)
+          end,
+          desc = 'HarpoonTerm Switch to Terminal #2',
+        },
+      }
+    end,
+  },
+  { -- This plugin
+    "Zeioth/compiler.nvim",
+    cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+    dependencies = { "stevearc/overseer.nvim", "nvim-telescope/telescope.nvim" },
+    opts = {},
+  },
+  { -- The task runner we use
+    "stevearc/overseer.nvim",
+    commit = "6271cab7ccc4ca840faa93f54440ffae3a3918bd",
+    cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+    opts = {
+      task_list = {
+        direction = "bottom",
+        min_height = 25,
+        max_height = 25,
+        default_detail = 1
+      },
+    },
+  },
 })
 
 
