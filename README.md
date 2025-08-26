@@ -29,7 +29,6 @@
     - [mir-sync](#mir-sync)
     - [udp](#udp)
     - [udy](#udy)
-    - [wmenu-conn](#wmenu-conn)
 - [Sway hot keys](#sway-hot-keys)
 - [Copyright](#copyright)
 </details>
@@ -82,7 +81,6 @@
 ### [mir-sync](scr/mir-sync)
 ### [udp](scr/udp)
 ### [udy](scr/udy)
-### [wmenu-conn](scr/wmenu-conn)
 
 
 ## Sway HotKeys
