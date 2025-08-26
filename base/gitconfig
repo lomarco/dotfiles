@@ -6,4 +6,4 @@
   defaultBranch = master
 
 [core]
-	editor = vim
+  editor = vim
