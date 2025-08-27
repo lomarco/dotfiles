@@ -1,7 +1,7 @@
 # Lomarco's Dotfiles
 
 <p align="center">
-  <img src="docs/1.png" alt="Lomarco's Dotfiles preview" width="600" />
+  <img src="docs/1.png" alt="Lomarco's Dotfiles preview" width="1000" />
 </p>
 
 <details open>
@@ -65,9 +65,9 @@
 ## Gallery
 
 <p align="center">
-  <img src="docs/2.png" alt="Gallery image 1" width="600" />
+  <img src="docs/2.png" alt="Gallery image 1" width="1000" />
   <br />
-  <img src="docs/3.png" alt="Gallery image 2" width="600" />
+  <img src="docs/3.png" alt="Gallery image 2" width="1000" />
 </p>
 
 ---
@@ -78,7 +78,7 @@
 
 - [Sway](base/config)  
 - [I3status](base/config_i3status)  
-- [Foo](base/foot.ini)  
+- [Foot](base/foot.ini)
 - [Git config](base/gitconfig)  
 - [NeoVim](base/init.lua)  
 - [Tmux](base/tmux.conf)  
