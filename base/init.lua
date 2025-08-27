@@ -149,7 +149,7 @@ require('lazy').setup({
     event = 'BufRead',
     config = function()
       require('nvim-treesitter.configs').setup({
-        ensure_installed = { "c", "cpp", "python", "lua", "asm" },
+        ensure_installed = { "c", "cpp", "bash", "lua", "asm" },
         highlight = { enable = true },
         indent = { enable = true },
         auto_install = true,
@@ -235,6 +235,7 @@ require('lazy').setup({
     dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
     opts = {
       automatic_installation = true,
+      ensure_installed = { "lua_ls", "clangd" }
     }
   },
   {
