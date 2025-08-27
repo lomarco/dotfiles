@@ -109,8 +109,8 @@
 | Action                    | Shortcut             |
 |---------------------------|---------------------|
 | **Open terminal**         | `Super + Enter`     |
-| **Launch browser**        | `Super + Shift + B` |
-| **Launch launcher (wmenu)** | `Super + P`         |
+| **Launch browser**        | `Super + Y` |
+| **Launch launcher**       | `Super + P`         |
 | **Take screenshot**       | `PrintScreen`       |
 | **Kill window**           | `Super + Shift + Q` |
 | **Exit sway**             | `Super + Shift + E` |
