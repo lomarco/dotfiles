@@ -76,23 +76,23 @@
 
 ### Base
 
-- [Sway configuration](base/config)  
-- [I3status configuration](base/config_i3status)  
-- [Foot configuration](base/foot.ini)  
+- [Sway](base/config)  
+- [I3status](base/config_i3status)  
+- [Foo](base/foot.ini)  
 - [Git config](base/gitconfig)  
-- [NeoVim config](base/init.lua)  
-- [Tmux config](base/tmux.conf)  
-- [Vim config](base/vimrc)  
-- [Zsh config](base/zshrc)  
+- [NeoVim](base/init.lua)  
+- [Tmux](base/tmux.conf)  
+- [Vim](base/vimrc)  
+- [Zsh](base/zshrc)  
 
 ### Extra
 
 - [Fstab](extra/fstab)  
-- [Pacman config](extra/pacman.conf)  
-- [Iwd config](extra/main.conf)  
-- [Mkinitcpio config](extra/mkinitcpio.conf)  
-- [Paru config](extra/paru.conf)  
-- [Kernel config](extra/kernel_config)  
+- [Pacman](extra/pacman.conf)  
+- [Iwd](extra/main.conf)  
+- [Mkinitcpio](extra/mkinitcpio.conf)  
+- [Paru](extra/paru.conf)  
+- [Kernel](extra/kernel_config)  
 
 ### Scripts
 
