@@ -31,7 +31,7 @@ CFGS["$extra_dir/pacman.conf"]="/etc/pacman.conf"
 CFGS["$extra_dir/mkinitcpio.conf"]="/etc/mkinitcpio.conf"
 CFGS["$extra_dir/main.conf"]="/etc/iwd/main.conf"
 CFGS["$extra_dir/paru.conf"]="/etc/paru.conf"
-CFGS["$extra_dir/kernel_config.gz"]="/proc/config.gz"
+#CFGS["$extra_dir/kernel_config.gz"]="/proc/config.gz"
 
 # scr:
 CFGS["$scr_dir/"]="$bin_dir"
@@ -90,7 +90,3 @@ main() {
 }
 
 main "$@"
-
-
-zcat -d $extra_dir/kernel_config.gz > $extra_dir/kernel_config
-rm -f $extra_dir/kernel_config.gz
