@@ -26,8 +26,9 @@
     - [Mkinitcpio](#mkinitcpio)
     - [Paru](#paru)
     - [Kernel](#kernel)
+    - [Makepkg](#makepkg)
   - [Scripts](#scripts)
-    - [auto_backup](#auto_backup)
+    - [auto\_backup](#auto_backup)
     - [efistub-boot](#efistub-boot)
     - [mir-sync](#mir-sync)
     - [udp](#udp)
@@ -93,10 +94,11 @@
 - [Mkinitcpio](extra/mkinitcpio.conf)  
 - [Paru](extra/paru.conf)  
 - [Kernel](extra/kernel_config)  
+- [Makepkg](extra/makepkg.conf)  
 
 ### Scripts
 
-- [auto_backup](scr/auto_backup)  
+- [auto\_backup](scr/auto_backup)  
 - [efistub-boot](scr/efistub-boot)  
 - [mir-sync](scr/mir-sync)  
 - [udp](scr/udp)  
