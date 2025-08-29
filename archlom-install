@@ -319,12 +319,19 @@ fi
 
 install_paru=$(confirm "Install paru (AUR helper)?" "yes")
 if [[ "$install_paru" == "yes" ]]; then
-    tmp_dir=$(mktemp -d)
-    git clone --depth 1 https://aur.archlinux.org/paru.git "$tmp_dir/paru"
-    pushd "$tmp_dir/paru" > /dev/null
-    makepkg -si --noconfirm
-    popd > /dev/null
-    rm -rf "$tmp_dir"
+    if [[ -n "$username" && "$(id -u "$username" 2>/dev/null || echo "")" != "" ]]; then
+        header "Installing paru as user $username"
+        su - "$username" -c '
+            set -e
+            tmp_dir=$(mktemp -d)
+            git clone --depth 1 https://aur.archlinux.org/paru.git "$tmp_dir/paru"
+            cd "$tmp_dir/paru"
+            makepkg -si --noconfirm
+            rm -rf "$tmp_dir"
+        '
+    else
+        echo -e "${YELLOW}Skipping paru installation: user not created or does not exist.${RESET}"
+    fi
 fi
 
 header "chroot configuration done"
