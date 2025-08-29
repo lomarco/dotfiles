@@ -135,6 +135,8 @@ DEFAULT_PACKAGES=(
   "devtools"
   "nmap"
   "arch-install-scripts"
+  "amdvlk"
+  "vulkan-tools"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
