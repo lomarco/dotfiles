@@ -17,11 +17,6 @@ setopt appendhistory
 autoload -Uz compinit
 compinit -i
 
-# vi mode settings:
-bindkey -v
-export KEYTIMEOUT=10
-bindkey -M viins "jk" vi-cmd-mode
-
 # aliases:
 alias ls='ls --color=auto'
 alias c='clear'
