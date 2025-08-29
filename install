@@ -1,0 +1,122 @@
+#!/usr/bin/bash
+set -euo pipefail
+
+__NAME__="${0##*/}"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+base_dir="base"
+extra_dir="extra"
+scr_dir="scr"
+bin_dir="/usr/local/bin"
+
+declare -A CFGS_ALL
+
+# base
+CFGS_ALL["$base_dir/foot.ini"]="$HOME/.config/foot/foot.ini"
+CFGS_ALL["$base_dir/config"]="$HOME/.config/sway/config"
+CFGS_ALL["$base_dir/init.lua"]="$HOME/.config/nvim/init.lua"
+CFGS_ALL["$base_dir/config_i3status"]="$HOME/.config/i3status/config"
+CFGS_ALL["$base_dir/zshrc"]="$HOME/.zshrc"
+CFGS_ALL["$base_dir/vimrc"]="$HOME/.vimrc"
+CFGS_ALL["$base_dir/gitconfig"]="$HOME/.gitconfig"
+CFGS_ALL["$base_dir/tmux.conf"]="$HOME/.tmux.conf"
+#mako
+#lf
+
+# extra
+CFGS_ALL["$extra_dir/fstab"]="/etc/fstab"
+CFGS_ALL["$extra_dir/pacman.conf"]="/etc/pacman.conf"
+CFGS_ALL["$extra_dir/mkinitcpio.conf"]="/etc/mkinitcpio.conf"
+CFGS_ALL["$extra_dir/main.conf"]="/etc/iwd/main.conf"
+CFGS_ALL["$extra_dir/paru.conf"]="/etc/paru.conf"
+CFGS_ALL["$extra_dir/makepkg.conf"]="/etc/makepkg.conf"
+# scr
+CFGS_ALL["$scr_dir/"]="$bin_dir"
+
+declare -A CFGS_BASE
+for key in "${!CFGS_ALL[@]}"; do
+  if [[ "$key" == "$base_dir"* ]]; then
+    CFGS_BASE[$key]="${CFGS_ALL[$key]}"
+  fi
+done
+
+ENABLE_INFO=0
+BASE_ONLY=0
+
+err() {
+  echo -e "\e[1;31m$__NAME__: error: $1\e[0m" >&2
+}
+
+info() {
+  if [[ $ENABLE_INFO -eq 1 ]]; then
+    echo -e "[INFO] $*"
+  fi
+}
+
+copy_config() {
+  local src_rel="$1"
+  local dest_abs="$2"
+  local src_path="$REPO_ROOT/$src_rel"
+
+  if [[ ! -e "$src_path" ]]; then
+    err "source file or directory not found: '$src_path'"
+    return 1
+  fi
+
+  if [[ -d "$src_path" ]] && [[ "$src_rel" == */ ]]; then
+    sudo mkdir -p "$dest_abs"
+    sudo rm -rf "${dest_abs:?}/"*
+    sudo cp -a "$src_path/"* "$dest_abs/"
+    info "copied directory contents: $src_path/ -> $dest_abs/"
+  elif [[ -d "$src_path" ]]; then
+    sudo rm -rf "$dest_abs"
+    sudo cp -a "$src_path" "$dest_abs"
+    info "copied directory: $src_path -> $dest_abs"
+  else
+    sudo mkdir -p "$(dirname "$dest_abs")"
+    sudo cp -a "$src_path" "$dest_abs"
+    info "copied file: $src_path -> $dest_abs"
+  fi
+}
+
+usage() {
+  echo "Usage: $__NAME__ [--info|-i] [--base-only]"
+  echo "  --info, -i      : Enable info messages"
+  echo "  --base-only     : Install only the 'base/' configs"
+}
+
+main() {
+  local -n CFGS=$1  # pass associative array by name
+
+  for rel_path in "${!CFGS[@]}"; do
+    dest_path="${CFGS[$rel_path]}"
+    copy_config "$rel_path" "$dest_path"
+  done
+}
+
+# parse args
+for arg in "$@"; do
+  case "$arg" in
+    --info|-i)
+      ENABLE_INFO=1
+      ;;
+    --base-only)
+      BASE_ONLY=1
+      ;;
+    --help|-h)
+      usage
+      exit 0
+      ;;
+    *)
+      err "Unknown argument: $arg"
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+if [[ $BASE_ONLY -eq 1 ]]; then
+  main CFGS_BASE
+else
+  main CFGS_ALL
+fi
+
