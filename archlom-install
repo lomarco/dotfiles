@@ -258,8 +258,7 @@ fi
 locale-gen
 
 lang_default="en_US.UTF-8"
-lang_setting=$(ask "Set LANG variable" "$lang_default")
-echo "LANG=$lang_setting" > /etc/locale.conf
+echo "LANG=$lang_default" > /etc/locale.conf
 
 hostname_default="archlinux"
 hostname=$(ask "Enter hostname" "$hostname_default")
