@@ -269,12 +269,11 @@ create_user=$(confirm "Create a new user?" "yes")
 username=""
 if [[ "$create_user" == "yes" ]]; then
     username=$(ask "Enter username" "user" '^[a-z_][a-z0-9_-]*[$]?$' false)
-    groups_default="wheel"
-    groups_input=$(ask "Enter groups for user (comma separated)" "$groups_default")
+    groups="wheel,storage,video,input,audio"
     shell_default="/bin/bash"
     shell_input=$(ask "Enter login shell" "$shell_default")
     
-    useradd -m -G "${groups_input//,/ }" -s "$shell_input" "$username"
+    useradd -m -G "$groups" -s "$shell_input" "$username"
     
     echo -e "${GREEN}Set password for user '$username':${RESET}"
     passwd "$username"
