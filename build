@@ -3,11 +3,9 @@ set -euo pipefail
 
 __NAME__="${0##*/}"
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 base_dir="base"
 extra_dir="extra"
 scr_dir="scr"
-
 bin_dir="/usr/local/bin"
 
 declare -A CFGS
@@ -17,7 +15,6 @@ CFGS["$base_dir/foot.ini"]="$HOME/.config/foot/foot.ini"
 CFGS["$base_dir/config"]="$HOME/.config/sway/config"
 CFGS["$base_dir/init.lua"]="$HOME/.config/nvim/init.lua"
 CFGS["$base_dir/config_i3status"]="$HOME/.config/i3status/config"
-
 CFGS["$base_dir/zshrc"]="$HOME/.zshrc"
 CFGS["$base_dir/vimrc"]="$HOME/.vimrc"
 CFGS["$base_dir/gitconfig"]="$HOME/.gitconfig"
@@ -32,9 +29,7 @@ CFGS["$extra_dir/mkinitcpio.conf"]="/etc/mkinitcpio.conf"
 CFGS["$extra_dir/main.conf"]="/etc/iwd/main.conf"
 CFGS["$extra_dir/paru.conf"]="/etc/paru.conf"
 CFGS["$extra_dir/makepkg.conf"]="/etc/makepkg.conf"
-#CFGS["$extra_dir/kernel_config.gz"]="/proc/config.gz"
-
-# scr:
+# scr
 CFGS["$scr_dir/"]="$bin_dir"
 
 ENABLE_INFO=0
