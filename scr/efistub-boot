@@ -5,10 +5,10 @@ disk="/dev/nvme0n1"
 efi_part_num=1
 swap_part_num=2
 root_part_num=3
-label="Arch"
-kernel_path="\\vmlinuz-linux-zen"
-ucode_path="\\amd-ucode.img" # if ucode is not needed, put ""
-initrd_path="\\initramfs-linux-zen.img"
+label="Linux"
+kernel_path="\\vmlinuz-linux"
+ucode_path="" # if ucode is not needed, put ""
+initrd_path="\\initramfs-linux.img"
 boot_options="rw loglevel=3 quiet"
 other_flags="--remove-dups --verbose"
 
