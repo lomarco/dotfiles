@@ -29,6 +29,7 @@ CFGS_ALL["$extra_dir/mkinitcpio.conf"]="/etc/mkinitcpio.conf"
 CFGS_ALL["$extra_dir/main.conf"]="/etc/iwd/main.conf"
 CFGS_ALL["$extra_dir/paru.conf"]="/etc/paru.conf"
 CFGS_ALL["$extra_dir/makepkg.conf"]="/etc/makepkg.conf"
+
 # scr
 CFGS_ALL["$scr_dir/"]="$bin_dir"
 
@@ -81,7 +82,7 @@ copy_config() {
 usage() {
   echo "Usage: $__NAME__ [--info|-i] [--base-only]"
   echo "  --info, -i      : Enable info messages"
-  echo "  --base-only     : Install only the 'base/' configs"
+  echo "  --base-only, -b     : Install only the 'base/' configs"
 }
 
 main() {
@@ -99,7 +100,7 @@ for arg in "$@"; do
     --info|-i)
       ENABLE_INFO=1
       ;;
-    --base-only)
+    --base-only|-b)
       BASE_ONLY=1
       ;;
     --help|-h)
