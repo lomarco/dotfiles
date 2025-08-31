@@ -1,0 +1,101 @@
+#!/bin/bash
+
+set -euo pipefail
+
+KERNEL_IMAGE=""
+INITRD_IMAGE=""
+HDA_IMAGE=""
+MEMORY="512M"
+CONSOLE="ttyS0"
+QEMU_CMD="qemu-system-x86_64"
+ENABLE_KVM=true
+ADDITIONAL_ARGS=()
+
+print_usage() {
+    cat << EOF
+Usage: $0 -k <kernel> -i <initrd> -h <hda> [options]
+
+Required:
+  -k PATH    Kernel image path
+  -i PATH    Initrd image path
+  -h PATH    Disk image (HDA) path
+
+Optional:
+  -m MEM     Memory size (default $MEMORY)
+  -c CONSOLE Console (default $CONSOLE)
+  -n         Disable KVM
+  -a ARGS    Additional QEMU arguments (quoted)
+  -?         Show this help
+
+Example:
+  $0 -k bzImage -i initrd.img -h disk.img -m 1G -a "-net user -net nic"
+EOF
+}
+
+parse_args() {
+    while getopts ":k:i:h:m:c:na:?" opt; do
+        case "$opt" in
+            k) KERNEL_IMAGE="$OPTARG" ;;
+            i) INITRD_IMAGE="$OPTARG" ;;
+            h) HDA_IMAGE="$OPTARG" ;;
+            m) MEMORY="$OPTARG" ;;
+            c) CONSOLE="$OPTARG" ;;
+            n) ENABLE_KVM=false ;;
+            a) IFS=' ' read -r -a ADDITIONAL_ARGS <<< "$OPTARG" ;;
+            ?) print_usage ; exit 0 ;;
+            *) echo "Unknown option: -$opt" >&2; print_usage; exit 1 ;;
+        esac
+    done
+
+    if [[ -z "$KERNEL_IMAGE" || -z "$INITRD_IMAGE" || -z "$HDA_IMAGE" ]]; then
+        echo "Error: kernel, initrd, and hda are required." >&2
+        print_usage
+        exit 1
+    fi
+}
+
+validate_files() {
+    for f in "$KERNEL_IMAGE" "$INITRD_IMAGE" "$HDA_IMAGE"; do
+        if [[ ! -f "$f" ]]; then
+            echo "Error: File not found - $f" >&2
+            exit 1
+        fi
+    done
+}
+
+build_qemu_command() {
+    local -a cmd=("$QEMU_CMD")
+
+    cmd+=(
+        -kernel "$KERNEL_IMAGE"
+        -initrd "$INITRD_IMAGE"
+        -hda "$HDA_IMAGE"
+        -append "console=$CONSOLE"
+        -nographic
+        -m "$MEMORY"
+    )
+
+    if $ENABLE_KVM; then
+        cmd+=(-enable-kvm)
+    fi
+
+    if [[ ${#ADDITIONAL_ARGS[@]} -gt 0 ]]; then
+        cmd+=("${ADDITIONAL_ARGS[@]}")
+    fi
+
+    echo "${cmd[@]}"
+}
+
+main() {
+    parse_args "$@"
+    validate_files
+
+    local qemu_command
+    qemu_command=$(build_qemu_command)
+
+    echo "Starting QEMU with command:"
+    echo "$qemu_command"
+    exec $qemu_command
+}
+
+main "$@"
