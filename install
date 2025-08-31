@@ -86,7 +86,7 @@ usage() {
 }
 
 main() {
-  local -n CFGS=$1  # pass associative array by name
+  local -n CFGS=$1
 
   for rel_path in "${!CFGS[@]}"; do
     dest_path="${CFGS[$rel_path]}"
@@ -94,7 +94,6 @@ main() {
   done
 }
 
-# parse args
 for arg in "$@"; do
   case "$arg" in
     --info|-i)
@@ -120,4 +119,3 @@ if [[ $BASE_ONLY -eq 1 ]]; then
 else
   main CFGS_ALL
 fi
-
