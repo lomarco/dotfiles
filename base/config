@@ -14,7 +14,7 @@ set $menu wmenu-run
 
 # Binds
 bindsym $mod+Return exec $term
-bindsym $mod+y exec $browser
+bindsym $mod+Shift+b exec $browser
 bindsym $mod+p exec $menu
 
 
