@@ -5,8 +5,8 @@ general {
 
 order += "battery all"
 order += "volume master"
-order += "wireless _first_"
 order += "path_exists VPN"
+order += "wireless _first_"
 order += "read_file uptime"
 order += "disk /"
 order += "load"
