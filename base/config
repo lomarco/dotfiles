@@ -116,7 +116,7 @@ bindsym $mod+r mode "resize"
 
 # Bar
 bar {
-  position bottom
+  position top
   status_command i3status
   font "monospace 8"
   colors {
