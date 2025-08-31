@@ -318,6 +318,7 @@ require('lazy').setup({
   {
     "stevearc/oil.nvim",
     lazy = false,
+    vim.api.nvim_set_keymap('n', '<leader>,', ':Oil<CR>', { noremap = true, silent = true }),
     opts = {
       default_file_explorer = true,
       columns = {
