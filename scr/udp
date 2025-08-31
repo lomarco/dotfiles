@@ -4,9 +4,7 @@ pm() {
   echo -e "\e[1;32m$1\e[0m"
 }
 
-
 pm "Refreshing pacman keys..."
-sudo pacman -Sy archlinux-keyring --noconfirm
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
 #sudo pacman-key --refresh-keys
