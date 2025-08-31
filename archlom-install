@@ -181,7 +181,7 @@ pacstrap "$MOUNT_POINT" "${PACKAGES[@]}"
 
 cat > /tmp/chroot_setup.sh <<"EOF"
 #!/bin/bash
-set -euo pipefail
+#set -euo pipefail
 IFS=$'\n\t'
 
 RED='\033[0;31m'
@@ -324,6 +324,11 @@ if [[ -n "$username" ]]; then
     fi
 else
     echo "User not created. Skipping dotfiles installation."
+fi
+
+update_mandb=$(confirm "Update mandb index?" "yes")
+if [[ "$update_mandb" == "yes" ]]; then
+  mandb
 fi
 
 install_paru=$(confirm "Install paru (AUR helper)?" "yes")
