@@ -72,6 +72,7 @@ MOUNT_POINT="/mnt"
 DEFAULT_PACKAGES=(
   "vim"
   "neovim"
+  "vi"
   "efibootmgr"
   "base"
   "base-devel"
