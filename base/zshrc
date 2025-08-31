@@ -9,10 +9,10 @@ znap prompt romkatv/powerlevel10k
 znap source zdharma-continuum/fast-syntax-highlighting
 znap source zsh-users/zsh-autosuggestions
 
-#HISTFILE=~/.cache/zh
-#HISTSIZE=100
-#SAVEHIST=300
-#setopt appendhistory
+HISTFILE=~/.cache/zh
+HISTSIZE=100
+SAVEHIST=300
+setopt appendhistory
 
 autoload -Uz compinit
 compinit -i
