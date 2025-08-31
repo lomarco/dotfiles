@@ -145,6 +145,7 @@ DEFAULT_PACKAGES=(
   "rustup"
   "parted"
   "dosfstools"
+  "w3m"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
