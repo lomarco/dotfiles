@@ -297,48 +297,12 @@ require('lazy').setup({
     end
   },
   {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    keys = {
-      {
-        "<leader>?",
-        function()
-          require("which-key").show({ global = false })
-        end,
-        desc = "Buffer Local Keymaps (which-key)",
-      },
-    },
-  },
-
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      local harpoon = require("harpoon")
-      harpoon:setup()
-    end,
-    keys = {
-      { "<leader>A",     function() require("harpoon"):list():prepend() end,                                desc = "Harpoon Prepend File" },
-      { "<leader>a",     function() require("harpoon"):list():add() end,                                    desc = "Harpoon Add File" },
-      { "<leader>m",     function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end, desc = "Harpoon Toggle Menu" },
-      { "<C-h>",         function() require("harpoon"):list():select(2) end,                                desc = "Harpoon Select 1" },
-      { "<C-t>",         function() require("harpoon"):list():select(2) end,                                desc = "Harpoon Select 2" },
-      { "<C-n>",         function() require("harpoon"):list():select(3) end,                                desc = "Harpoon Select 3" },
-      { "<C-s>",         function() require("harpoon"):list():select(4) end,                                desc = "Harpoon Select 4" },
-      { "<leader><C-h>", function() require("harpoon"):list():replace_at(1) end,                            desc = "Harpoon Replace At 1" },
-      { "<leader><C-t>", function() require("harpoon"):list():replace_at(2) end,                            desc = "Harpoon Replace At 2" },
-      { "<leader><C-n>", function() require("harpoon"):list():replace_at(3) end,                            desc = "Harpoon Replace At 3" },
-      { "<leader><C-s>", function() require("harpoon"):list():replace_at(4) end,                            desc = "Harpoon Replace At 4" },
-    },
-  },
-  { -- This plugin
     "Zeioth/compiler.nvim",
     cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
     dependencies = { "stevearc/overseer.nvim", "nvim-telescope/telescope.nvim" },
     opts = {},
   },
-  { -- The task runner we use
+  {
     "stevearc/overseer.nvim",
     commit = "6271cab7ccc4ca840faa93f54440ffae3a3918bd",
     cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
@@ -351,4 +315,114 @@ require('lazy').setup({
       },
     },
   },
+  {
+    "stevearc/oil.nvim",
+    lazy = false,
+    opts = {
+      default_file_explorer = true,
+      columns = {
+        "permissions",
+        "size",
+      },
+      buf_options = {
+        buflisted = true,
+        bufhidden = "hide"
+      },
+      win_options = {
+        wrap = false,
+        signcolumn = "yes:2",
+        cursorcolumn = false,
+        spell = false,
+        list = true,
+        conceallevel = 3,
+        concealcursor = "nvic",
+      },
+      skip_confirm_for_simple_edits = false,
+      prompt_save_on_select_new_entry = true,
+
+      lsp_file_methods = {
+        enabled = true,
+        timeout_ms = 1000,
+        autosave_changes = false,
+      },
+      watch_for_changes = true,
+
+      view_options = {
+        show_hidden = true,
+        is_hidden_file = function(name, bufnr)
+          local m = name:match("^%.")
+          return m ~= nil
+        end,
+        is_always_hidden = function(name, bufnr)
+          return false
+        end,
+        natural_order = "fast",
+        case_insensitive = false,
+        sort = {
+          { "type", "asc" },
+          { "name", "asc" },
+        },
+        highlight_filename = function(entry, is_hidden, is_link_target, is_link_orphan)
+          return nil
+        end,
+      },
+      git = {
+        add = function(path)
+          return true
+        end,
+        mv = function(src_path, dest_path)
+          return true
+        end,
+        rm = function(path)
+          return true
+        end,
+      },
+    },
+  },
+  {
+    'refractalize/oil-git-status.nvim',
+    dependencies = { 'stevearc/oil.nvim' },
+    config = function()
+      require('oil-git-status').setup({
+        show_ignored = true,
+        symbols = {
+          index = {
+            ["M"] = "M",
+            ["A"] = "A",
+            ["D"] = "D",
+            ["R"] = "R",
+            ["C"] = "C",
+            ["U"] = "U",
+            ["?"] = "?",
+            ["!"] = "!",
+          },
+          working_tree = {
+            ["M"] = "M",
+            ["A"] = "A",
+            ["D"] = "D",
+            ["R"] = "R",
+            ["C"] = "C",
+            ["U"] = "U",
+            ["?"] = "?",
+            ["!"] = "!",
+          },
+        },
+      })
+    end,
+  },
+  {
+    'nvim-mini/mini.tabline',
+    version = '*',
+    opts = {
+      show_icons = false,
+      format = nil,
+      tabpage_section = 'left'
+    }
+  },
+  {
+    'm4xshen/autoclose.nvim',
+    config = function()
+      require('autoclose').setup()
+    end
+  }
 })
