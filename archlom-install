@@ -100,7 +100,6 @@ DEFAULT_PACKAGES=(
   "gdb"
   "wireguard-tools"
   "translate-shell"
-  "resolvconf"
   "bluez"
   "bluez-utils"
   "pipewire"
@@ -146,6 +145,8 @@ DEFAULT_PACKAGES=(
   "parted"
   "dosfstools"
   "w3m"
+  "qemu"
+  "wayvnc"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
