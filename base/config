@@ -129,4 +129,4 @@ bar {
 
 # Demons:
 #exec mako
-exec wlsunset -t 2500 -T 3000 > /dev/null 2>&1
+exec wlsunset -t 3000 -T 3200 > /dev/null 2>&1
