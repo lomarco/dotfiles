@@ -67,6 +67,7 @@ header "Starting base Arch Linux system installation"
 #waterfox
 #scc
 #paccache
+#man-pages-dev
 MOUNT_POINT="/mnt"
 DEFAULT_PACKAGES=(
   "vim"
@@ -112,7 +113,8 @@ DEFAULT_PACKAGES=(
   "mkinitcpio"
   "htop"
   "bc"
-  "man"
+  "man-pages"
+  "man-db"
   "gnupg"
   "mpv"
   "swayimg"
@@ -122,7 +124,6 @@ DEFAULT_PACKAGES=(
   "unzip"
   "wmenu"
   "less"
-  "man-db"
   "openssh"
   "wl-clipboard"
   "ntfs-3g"
