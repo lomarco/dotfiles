@@ -2,7 +2,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# === Colors for output ===
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -147,6 +146,7 @@ DEFAULT_PACKAGES=(
   "w3m"
   "qemu"
   "wayvnc"
+  "npm"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
