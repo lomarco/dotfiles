@@ -4,7 +4,6 @@ general {
 }
 
 order += "battery all"
-order += "ipv6"
 order += "volume master"
 order += "wireless _first_"
 order += "path_exists VPN"
