@@ -76,18 +76,6 @@ info "Label: $label"
 info "Kernel path: $kernel_path"
 info "Loader params: $unicode_str"
 
-existing_bootnums=$(efibootmgr | grep -i "Boot[0-9]\{4\}.*$label" | awk -F' ' '{print $1}' | sed 's/Boot//;s/\*//')
-
-if [[ -n "$existing_bootnums" ]]; then
-  info "Found existing EFI boot entries with label '$label': $existing_bootnums"
-  for num in $existing_bootnums; do
-    info "Deleting existing boot entry Boot$num"
-    efibootmgr --delete-bootnum --bootnum "$num"
-  done
-else
-  info "No existing EFI boot entries found with label '$label'"
-fi
-
 efibootmgr --create \
   --disk "$disk" --part "$efi_part_num" \
   --label "$label" \
