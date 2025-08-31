@@ -64,6 +64,10 @@ confirm() {
 
 header "Starting base Arch Linux system installation"
 
+#paru:
+#waterfox
+#scc
+#paccache
 MOUNT_POINT="/mnt"
 DEFAULT_PACKAGES=(
   "vim"
@@ -137,6 +141,10 @@ DEFAULT_PACKAGES=(
   "arch-install-scripts"
   "amdvlk"
   "vulkan-tools"
+  "hyperfine"
+  "rustup"
+  "parted"
+  "dosfstools"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
