@@ -3,22 +3,35 @@ general {
   interval = 5
 }
 
-order += "volume master"
 order += "battery all"
+order += "ipv6"
+order += "volume master"
 order += "wireless _first_"
+order += "path_exists VPN"
+order += "read_file uptime"
 order += "disk /"
 order += "load"
 order += "memory"
 order += "tztime local"
 
 wireless _first_ {
-  format_up = "W: (%quality at %essid) %ip"
+  format_up = "W: (%quality at %essid, %bitrate) %ip"
   format_down = "W: down"
 }
 
 battery all {
-  format = "%status %percentage %remaining"
+  format = "%status %percentage %remaining %emptytime"
+  format_down = "No battery"
+  status_chr = "CHR"
+  status_bat = "BAT"
+  status_unk = "UNK"
+  status_full = "FULL"
+  status_idle = "IDLE"
   last_full_capacity = true
+}
+
+path_exists VPN {
+  path = "/proc/sys/net/ipv4/conf/wg0"
 }
 
 disk "/" {
@@ -45,4 +58,7 @@ volume master {
   device = "default"
   mixer = "Master"
   mixer_idx = 0
+}
+read_file uptime {
+  path = /proc/uptime
 }
