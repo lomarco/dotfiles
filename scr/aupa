@@ -1,0 +1,62 @@
+#!/bin/bash
+
+set -e
+
+pm() {
+  echo -e "\e[1;32m____________$1____________\e[0m"
+}
+
+err() {
+  echo -e "\e[1;31merr:$1\e[0m"
+}
+
+clean() {
+  pm "Pacman cache"
+  sudo pacman -Scc --noconfirm
+  sudo pacman -Rns $(pacman -Qtdq) --noconfirm
+  
+  pm "Paru cache"
+  paru -Scc --noconfirm
+  paru -Rns $(paru -Qdtq) --noconfirm
+  paru -c --noconfirm
+
+  pm "Fc-Cache"
+  sudo fc-cache -frv
+
+  pm "END"
+}
+
+print_usage() {
+  echo -e "Usage: $0 <options>
+  Options:
+    -c, --clean Cleaning chache"
+}
+
+for arg in "$@"; do
+  if [[ "$arg" == "--clean" || "$arg" == "-c" ]]; then
+    clean
+    exit 0
+  elif [[ "$arg" == "--help" || "$arg" == "-h" ]]; then
+    print_usage
+    exit 0
+  else
+    err "unknown argument: '$arg'"
+    exit 1
+  fi
+done
+
+pm "Reflector"
+sudo reflector --country Russia --latest 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
+pm "KeyRings"
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+
+pm "Pacman"
+sudo pacman -Syu --noconfirm
+
+pm "Paru"
+sudo paru -Syu --noconfirm
+
+pm "ManDB"
+sudo mandb
