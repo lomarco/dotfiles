@@ -118,7 +118,7 @@ bindsym $mod+r mode "resize"
 bar {
   position top
   status_command i3status
-  font "monospace 8"
+  font "FreeMono 8"
   colors {
     background #000000
     statusline #ffffff
@@ -128,5 +128,4 @@ bar {
 
 
 # Demons:
-#exec mako
 exec wlsunset -t 3000 -T 3200 > /dev/null 2>&1
