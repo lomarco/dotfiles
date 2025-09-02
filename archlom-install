@@ -68,7 +68,6 @@ header "Starting base Arch Linux system installation"
 #paru:
 #waterfox
 #scc
-#paccache
 #man-pages-dev
 MOUNT_POINT="/mnt"
 DEFAULT_PACKAGES=(
@@ -151,6 +150,9 @@ DEFAULT_PACKAGES=(
   "qemu"
   "wayvnc"
   "npm"
+  "arch-audit"
+  "archlinux-keyring"
+  "pacman-contrib"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
