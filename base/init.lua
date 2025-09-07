@@ -55,12 +55,6 @@ vim.keymap.set('n', 'gp', ':bprevious<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'gw', ':bdelete<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>be', ':enew<CR>', { noremap = true, silent = true })
 
--- Windows moving
--- vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
--- vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
--- vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
--- vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
-
 -- Terminal
 function ToggleTerminal()
   local terminal_bufnr = vim.g.terminal_bufnr or nil
