@@ -39,5 +39,6 @@ alias gr='git remote'
 alias m='make'
 alias mc='make clean'
 alias mi='make install'
+alias mr='make rebuild'
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
