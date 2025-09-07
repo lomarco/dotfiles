@@ -156,6 +156,8 @@ DEFAULT_PACKAGES=(
   "ttf-cascadia-code-nerd"
   "ttf-cascadia-code"
   "gnu-free-fonts"
+  "swayidle"
+  "swaylock"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
