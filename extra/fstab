@@ -4,5 +4,8 @@ UUID=27f4b687-0b44-4934-a16a-9716b40b4981 / ext4    defaults,noatime,discard 0 1
 # /dev/nvme0n1p2
 UUID=582cf62d-0e6c-48f5-9669-5707d9379f0a none swap    sw,noauto 0 0
 
+# /dev/nvme0n1p1
+UUID=6A76-DBB1 /boot vfat    rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
 # /dev/tmpfs
 tmpfs /tmp tmpfs    defaults,noatime,mode=1777,size=1G 0 0
