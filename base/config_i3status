@@ -7,7 +7,6 @@ order += "battery all"
 order += "volume master"
 order += "path_exists VPN"
 order += "wireless _first_"
-order += "read_file uptime"
 order += "disk /"
 order += "load"
 order += "memory"
@@ -57,7 +56,4 @@ volume master {
   device = "default"
   mixer = "Master"
   mixer_idx = 0
-}
-read_file uptime {
-  path = /proc/uptime
 }
