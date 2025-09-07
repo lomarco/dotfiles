@@ -128,4 +128,4 @@ bar {
 
 
 # Demons:
-exec wlsunset -t 3000 -T 3200 > /dev/null 2>&1
+exec wlsunset -t 3500 -T 4000 > /dev/null 2>&1
