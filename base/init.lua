@@ -56,10 +56,10 @@ vim.keymap.set('n', 'gw', ':bdelete<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>be', ':enew<CR>', { noremap = true, silent = true })
 
 -- Windows moving
-vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- Terminal
 function ToggleTerminal()
@@ -100,8 +100,8 @@ require('lazy').setup({
     config = function()
       vim.g.copilot_no_tab_map = true
       vim.g.copilot_assume_mapped = true
-      vim.keymap.set('i', '<C-j>', 'copilot#Accept("<CR>")', { expr = true, silent = true, noremap = true })
-      vim.keymap.set('i', '<C-k>', 'copilot#Dismiss()', { expr = true, silent = true, noremap = true })
+      -- vim.keymap.set('i', '<C-j>', 'copilot#Accept("<CR>")', { expr = true, silent = true, noremap = true })
+      -- vim.keymap.set('i', '<C-k>', 'copilot#Dismiss()', { expr = true, silent = true, noremap = true })
     end,
   },
   {
