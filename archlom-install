@@ -153,6 +153,9 @@ DEFAULT_PACKAGES=(
   "arch-audit"
   "archlinux-keyring"
   "pacman-contrib"
+  "ttf-cascadia-code-nerd"
+  "ttf-cascadia-code"
+  "gnu-free-fonts"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
