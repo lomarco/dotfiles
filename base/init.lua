@@ -26,7 +26,6 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
---vim.opt.scrolloff = 4
 vim.opt.hlsearch = true
 vim.opt.timeoutlen = 300
 vim.opt.signcolumn = "yes"
