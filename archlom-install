@@ -159,9 +159,6 @@ DEFAULT_PACKAGES=(
   "gnu-free-fonts"
   "swayidle"
   "swaylock"
-  "mdp"
-  "ncmpcpp"
-  "mpc"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
