@@ -3,8 +3,6 @@ if [[ -r "${HOME}/.cache/p10k-instant-prompt-${USERNAME}.zsh" ]]; then
   source "${HOME}/.cache/p10k-instant-prompt-${USERNAME}.zsh"
 fi
 
-export GPG_TTY=$(tty)
-
 source ~/.config/zsh/zsh-snap/znap.zsh
 
 znap prompt romkatv/powerlevel10k
@@ -42,5 +40,7 @@ alias m='make'
 alias mc='make clean'
 alias mi='make install'
 alias mr='make rebuild'
+
+export GPG_TTY=$TTY
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
