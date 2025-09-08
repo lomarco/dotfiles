@@ -12,7 +12,7 @@ set $menu wmenu-run
 
 
 ### Output configuration
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
+output * bg /data/wallpapper.png fill
 
 
 ### Input configuration
@@ -135,5 +135,7 @@ bar {
 
 
 ### Demons
-exec swayidle -w timeout 120 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
-exec wlsunset -t 3000 -T 3100 > /dev/null 2>&1
+exec swayidle -w \
+  timeout 180 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+  timeout 240 'swaylock -f -c 000000' before-sleep 'swaylock -f -c 000000'
+exec wlsunset -t 3000 -T 3100
