@@ -52,14 +52,23 @@
 **Status Bar:** `I3status`
 
 **Terminal:** `Foot`
+
 **Shell:** `Zsh + znap`
+
 **Editor:** `NeoVim`
+
 **Multiplexer:** `Tmux`
+
 **Notification Manager:** `Mako`
+
 **AUR Helper:** `Paru`
+
 **Password Manager:** `Pass`
+
 **Bootloader:** `EFI Stub`
+
 **WiFi Manager:** `Iwd`
+
 **File Manager:** `Lf`
 
 </div>
