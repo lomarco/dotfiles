@@ -106,7 +106,7 @@
 
 ## Sway Hotkeys
 
-| Action                    | Shortcut             |
+| Action                    | Shortcut            |
 |---------------------------|---------------------|
 | **Open terminal**         | `Super + Enter`     |
 | **Launch browser**        | `Super + Shift + B` |
