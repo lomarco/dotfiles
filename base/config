@@ -119,7 +119,8 @@ bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-bindsym Print exec f=~/screenshot-$(date +"%Y%m%d-%H%M%S").png; grim -g "$(slurp)" "$f" && wl-copy < "$f"
+# bindsym Print exec f=~/screenshot-$(date +"%Y%m%d-%H%M%S").png; grim -g "$(slurp)" "$f" && wl-copy < "$f"
+bindsym Print exec grim
 
 
 # Status Bar:
