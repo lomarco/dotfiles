@@ -119,6 +119,6 @@
 | **Focus window**          | `Super + {H, J, K, L}` |
 | **Fullscreen window**     | `Super + F`         |
 
-Other hotkeys are available in the [sway config](config_files/config).
+Other hotkeys are available in the [sway config](base/config).
 
 ---
