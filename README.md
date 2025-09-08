@@ -30,9 +30,8 @@
   - [Scripts](#scripts)
     - [auto\_backup](#auto_backup)
     - [efistub-boot](#efistub-boot)
-    - [mir-sync](#mir-sync)
-    - [udp](#udp)
-    - [udy](#udy)
+    - [testkernel](#testkernel)
+    - [aupa](#aupa)
 - [Sway Hotkeys](#sway-hotkeys)
 - [License](#license)
 
@@ -77,32 +76,31 @@
 
 ### Base
 
-- [Sway](base/config)  
-- [I3status](base/config_i3status)  
+- [Sway](base/config)
+- [I3status](base/config_i3status)
 - [Foot](base/foot.ini)
-- [Git config](base/gitconfig)  
-- [NeoVim](base/init.lua)  
-- [Tmux](base/tmux.conf)  
-- [Vim](base/vimrc)  
-- [Zsh](base/zshrc)  
+- [Git config](base/gitconfig)
+- [NeoVim](base/init.lua)
+- [Tmux](base/tmux.conf)
+- [Vim](base/vimrc)
+- [Zsh](base/zshrc)
 
 ### Extra
 
-- [Fstab](extra/fstab)  
-- [Pacman](extra/pacman.conf)  
-- [Iwd](extra/main.conf)  
-- [Mkinitcpio](extra/mkinitcpio.conf)  
-- [Paru](extra/paru.conf)  
-- [Kernel](extra/kernel_config)  
-- [Makepkg](extra/makepkg.conf)  
+- [Fstab](extra/fstab)
+- [Pacman](extra/pacman.conf)
+- [Iwd](extra/main.conf)
+- [Mkinitcpio](extra/mkinitcpio.conf)
+- [Paru](extra/paru.conf)
+- [Kernel](extra/kernel_config)
+- [Makepkg](extra/makepkg.conf)
 
 ### Scripts
 
-- [auto\_backup](scr/auto_backup)  
-- [efistub-boot](scr/efistub-boot)  
-- [mir-sync](scr/mir-sync)  
-- [udp](scr/udp)  
-- [udy](scr/udy)  
+- [auto\_backup](scr/auto_backup)
+- [efistub-boot](scr/efistub-boot)
+- [testkernel](scr/testkernel)
+- [aupa](scr/aupa)
 
 ---
 
