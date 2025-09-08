@@ -43,20 +43,20 @@
 
 <div align="center">
 
-- **OS:** `Arch Linux`
-- **Kernel:** `Linux zen`
-- **Window Manager:** `Sway`
-- **Status Bar:** `I3status`
-- **Terminal:** `Foot`
-- **Shell:** `Zsh + znap`
-- **Editor:** `NeoVim`
-- **Multiplexer:** `Tmux`
-- **Notification Manager:** `Mako`
-- **AUR Helper:** `Paru`
-- **Password Manager:** `Pass`
-- **Bootloader:** `EFI Stub`
-- **WiFi Manager:** `Iwd`
-- **File Manager:** `Lf`
+**OS:** `Arch Linux`
+**Kernel:** `Linux zen`
+**Window Manager:** `Sway`
+**Status Bar:** `I3status`
+**Terminal:** `Foot`
+**Shell:** `Zsh + znap`
+**Editor:** `NeoVim`
+**Multiplexer:** `Tmux`
+**Notification Manager:** `Mako`
+**AUR Helper:** `Paru`
+**Password Manager:** `Pass`
+**Bootloader:** `EFI Stub`
+**WiFi Manager:** `Iwd`
+**File Manager:** `Lf`
 
 </div>
 
