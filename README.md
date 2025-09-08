@@ -44,9 +44,13 @@
 <div align="center">
 
 **OS:** `Arch Linux`
+
 **Kernel:** `Linux zen`
+
 **Window Manager:** `Sway`
+
 **Status Bar:** `I3status`
+
 **Terminal:** `Foot`
 **Shell:** `Zsh + znap`
 **Editor:** `NeoVim`
