@@ -338,11 +338,6 @@ else
     echo "User not created. Skipping dotfiles installation."
 fi
 
-update_mandb=$(confirm "Update mandb index?" "yes")
-if [[ "$update_mandb" == "yes" ]]; then
-  mandb
-fi
-
 install_paru=$(confirm "Install paru (AUR helper)?" "yes")
 if [[ "$install_paru" == "yes" ]]; then
     if [[ -n "$username" && "$(id -u "$username" 2>/dev/null || echo "")" != "" ]]; then
