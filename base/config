@@ -12,7 +12,7 @@ set $menu wmenu-run
 
 
 ### Output configuration
-output * bg /data/wallpapper.png fill
+output * bg #000000 solid_color
 
 
 ### Input configuration
