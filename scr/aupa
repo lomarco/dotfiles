@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+# set -e
 
 pm() {
   echo -e "\e[1;32m____________$1____________\e[0m"
@@ -29,7 +29,8 @@ clean() {
 print_usage() {
   echo -e "Usage: $0 <options>
   Options:
-    -c, --clean Cleaning chache"
+    -c, --clean  Cleaning chache
+    -h, --help   Showing this help message"
 }
 
 for arg in "$@"; do
@@ -37,7 +38,7 @@ for arg in "$@"; do
     clean
     exit 0
   elif [[ "$arg" == "--help" || "$arg" == "-h" ]]; then
-    print_usage
+    print_usage $0
     exit 0
   else
     err "unknown argument: '$arg'"
