@@ -139,4 +139,4 @@ bar {
 exec swayidle -w \
   timeout 180 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
   timeout 240 'swaylock -f -c 000000' before-sleep 'swaylock -f -c 000000'
-exec wlsunset -t 3000 -T 3100
+exec wlsunset -t 2600 -T 3000
