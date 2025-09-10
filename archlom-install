@@ -160,6 +160,7 @@ DEFAULT_PACKAGES=(
   "swayidle"
   "swaylock"
   "nmap"
+  "pavucontrol"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
