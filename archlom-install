@@ -162,6 +162,8 @@ DEFAULT_PACKAGES=(
   "nmap"
   "pavucontrol"
   "valgrind"
+  "qemu-system-arm"
+  "qemu-system-arm-firmware"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
