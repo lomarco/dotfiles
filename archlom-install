@@ -161,6 +161,7 @@ DEFAULT_PACKAGES=(
   "swaylock"
   "nmap"
   "pavucontrol"
+  "valgrind"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
