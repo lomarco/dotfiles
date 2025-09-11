@@ -164,6 +164,7 @@ DEFAULT_PACKAGES=(
   "valgrind"
   "qemu-system-arm"
   "qemu-system-arm-firmware"
+  "fzf"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
