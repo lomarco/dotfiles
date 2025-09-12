@@ -165,6 +165,7 @@ DEFAULT_PACKAGES=(
   "qemu-system-arm"
   "qemu-system-arm-firmware"
   "fzf"
+  "xorg-xwayland"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
