@@ -12,11 +12,11 @@ err() {
 
 clean() {
   pm "Pacman cache"
-  sudo pacman -Scc --noconfirm
+  yes | sudo pacman -Scc
   sudo pacman -Rns $(pacman -Qtdq) --noconfirm
   
   pm "Paru cache"
-  paru -Scc --noconfirm
+  yes | paru -Scc
   paru -Rns $(paru -Qdtq) --noconfirm
   paru -c --noconfirm
 
