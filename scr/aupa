@@ -33,31 +33,35 @@ print_usage() {
     -h, --help   Showing this help message"
 }
 
-for arg in "$@"; do
-  if [[ "$arg" == "--clean" || "$arg" == "-c" ]]; then
-    clean
-    exit 0
-  elif [[ "$arg" == "--help" || "$arg" == "-h" ]]; then
-    print_usage $0
-    exit 0
-  else
-    err "unknown argument: '$arg'"
-    exit 1
-  fi
-done
+main() {
+  for arg in "$@"; do
+    if [[ "$arg" == "--clean" || "$arg" == "-c" ]]; then
+      clean
+      exit 0
+    elif [[ "$arg" == "--help" || "$arg" == "-h" ]]; then
+      print_usage $0
+      exit 0
+    else
+      err "unknown argument: '$arg'"
+      exit 1
+    fi
+  done
 
-pm "Reflector"
-sudo reflector --country Russia --latest 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+  pm "Reflector"
+  sudo reflector --country Russia --latest 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
-pm "KeyRings"
-sudo pacman-key --init
-sudo pacman-key --populate archlinux
+  pm "KeyRings"
+  sudo pacman-key --init
+  sudo pacman-key --populate archlinux
 
-pm "Pacman"
-sudo pacman -Syu --noconfirm
+  pm "Pacman"
+  sudo pacman -Syu --noconfirm
 
-pm "Paru"
-sudo paru -Syu --noconfirm
+  pm "Paru"
+  sudo paru -Syu --noconfirm
 
-pm "ManDB"
-sudo mandb
+  pm "ManDB"
+  sudo mandb
+}
+
+main "$@"
