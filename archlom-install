@@ -166,6 +166,7 @@ DEFAULT_PACKAGES=(
   "qemu-system-arm-firmware"
   "fzf"
   "xorg-xwayland"
+  "libnotify"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
