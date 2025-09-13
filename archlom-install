@@ -169,8 +169,14 @@ DEFAULT_PACKAGES=(
   "libnotify"
 )
 
-echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
+EXT_PACKAGES=(
+  "docker"
+  "docker-compose"
+  "nix"
+  "nginx"
+)
 
+echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
 if confirm "Do you want to change the package list?"; then
     while :; do
         read -rp "$(echo -e "${YELLOW}Enter package names separated by space:${RESET} ")" -a PACKAGES
@@ -183,6 +189,11 @@ if confirm "Do you want to change the package list?"; then
 else
     PACKAGES=("${DEFAULT_PACKAGES[@]}")
 fi
+
+if confirm "Do you want to add the ext package list?"; then
+    PACKAGES+=("${EXT_PACKAGES[@]}")
+fi
+
 
 echo -e "${GREEN}Installing packages:${RESET} ${PACKAGES[*]} into $MOUNT_POINT"
 
