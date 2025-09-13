@@ -167,6 +167,7 @@ DEFAULT_PACKAGES=(
   "fzf"
   "xorg-xwayland"
   "libnotify"
+  "traceroute"
 )
 
 EXT_PACKAGES=(
