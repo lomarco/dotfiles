@@ -175,6 +175,7 @@ EXT_PACKAGES=(
   "docker-compose"
   "nix"
   "nginx"
+  "obsidian"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
