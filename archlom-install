@@ -168,6 +168,7 @@ DEFAULT_PACKAGES=(
   "xorg-xwayland"
   "libnotify"
   "traceroute"
+  "apache"
 )
 
 EXT_PACKAGES=(
