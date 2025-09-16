@@ -169,6 +169,8 @@ DEFAULT_PACKAGES=(
   "libnotify"
   "traceroute"
   "apache"
+  "tldr"
+  "qutebrowser"
 )
 
 EXT_PACKAGES=(
