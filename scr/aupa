@@ -23,6 +23,9 @@ clean() {
   pm "Fc-Cache"
   sudo fc-cache -frv
 
+  pm "Tldr cache"
+  sudo tldr --clear-cache
+
   pm "END"
 }
 
@@ -62,6 +65,9 @@ main() {
 
   pm "ManDB"
   sudo mandb
+
+  pm "Tldr"
+  sudo tldr --update
 }
 
 main "$@"
