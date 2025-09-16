@@ -179,6 +179,7 @@ EXT_PACKAGES=(
   "nix"
   "nginx"
   "obsidian"
+  gource
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
