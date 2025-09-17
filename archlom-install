@@ -170,7 +170,9 @@ DEFAULT_PACKAGES=(
   "traceroute"
   "apache"
   "tldr"
-  "qutebrowser"
+  "strace"
+  "hexer"
+  "radare2"
 )
 
 EXT_PACKAGES=(
@@ -179,7 +181,8 @@ EXT_PACKAGES=(
   "nix"
   "nginx"
   "obsidian"
-  gource
+  "qutebrowser"
+  "gource"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
