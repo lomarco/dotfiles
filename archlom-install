@@ -173,6 +173,7 @@ DEFAULT_PACKAGES=(
   "strace"
   "hexer"
   "radare2"
+  "ctags"
 )
 
 EXT_PACKAGES=(
