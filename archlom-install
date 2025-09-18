@@ -180,7 +180,6 @@ EXT_PACKAGES=(
   "docker"
   "docker-compose"
   "nix"
-  "nginx"
   "obsidian"
   "qutebrowser"
   "gource"
