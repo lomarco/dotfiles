@@ -178,6 +178,7 @@ DEFAULT_PACKAGES=(
   "ripgrep"
   "zathura"
   "zathura-pdf-mupdf"
+  "nasm"
 )
 
 EXT_PACKAGES=(
