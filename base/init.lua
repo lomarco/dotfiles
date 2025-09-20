@@ -183,6 +183,9 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
+      "saadparwaiz1/cmp_luasnip",
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
     },
     event = 'InsertEnter',
     config = function()
@@ -193,27 +196,29 @@ require('lazy').setup({
           autocomplete = false,
         },
         sources = {
-          { name = 'nvim_lsp', priority = 100 },
-          { name = 'path',     priority = 50 },
-          { name = 'buffer',   priority = 10 },
+          { name = "nvim_lsp", priority = 1000 },
+          { name = "luasnip",  priority = 900 },
+          { name = "buffer",   priority = 500 },
+          { name = "path",     priority = 250 },
         },
-        mapping = {
+        mapping = cmp.mapping.preset.insert({
           ['<C-Space>'] = cmp.mapping.complete(),
-          ['<Tab>'] = cmp.mapping(function(fallback)
+          ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
             else
               fallback()
             end
-          end, { 'i', 's' }),
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
+          end, { "i", "s" }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
             else
               fallback()
             end
-          end, { 'i', 's' }),
-        },
+          end, { "i", "s" }),
+        }),
         max_item_count = 10,
       })
     end
