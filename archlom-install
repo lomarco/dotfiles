@@ -69,6 +69,7 @@ header "Starting base Arch Linux system installation"
 #waterfox
 #scc
 #man-pages-dev
+#pacgraph
 MOUNT_POINT="/mnt"
 DEFAULT_PACKAGES=(
   "vim"
