@@ -177,6 +177,7 @@ DEFAULT_PACKAGES=(
   "ctags"
   "ripgrep"
   "zathura"
+  "zathura-pdf-mupdf"
 )
 
 EXT_PACKAGES=(
