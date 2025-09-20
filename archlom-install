@@ -175,6 +175,7 @@ DEFAULT_PACKAGES=(
   "hexer"
   "radare2"
   "ctags"
+  "ripgrep"
 )
 
 EXT_PACKAGES=(
