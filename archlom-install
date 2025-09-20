@@ -176,6 +176,7 @@ DEFAULT_PACKAGES=(
   "radare2"
   "ctags"
   "ripgrep"
+  "zathura"
 )
 
 EXT_PACKAGES=(
