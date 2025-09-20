@@ -71,6 +71,8 @@
 
 **File Manager:** `Lf`
 
+**Pdf Reader:** `Zathura`
+
 </div>
 
 ---
