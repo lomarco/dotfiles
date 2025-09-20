@@ -152,7 +152,6 @@ require('lazy').setup({
   {
     'neovim/nvim-lspconfig',
     config = function()
-      local lspconfig = require('lspconfig')
       local on_attach = function(_, bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -169,11 +168,12 @@ require('lazy').setup({
       end
 
       local servers = { 'clangd', 'pyright', 'lua_ls', 'rust_analyzer' }
-      for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup {
+      for _, server in ipairs(servers) do
+        vim.lsp.config[server] = {
           on_attach = on_attach,
           capabilities = require('cmp_nvim_lsp').default_capabilities(),
         }
+        vim.lsp.enable(server)
       end
     end
   },
