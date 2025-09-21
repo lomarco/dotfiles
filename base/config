@@ -6,10 +6,10 @@ set $down j
 set $up k
 set $right l
 
-set $term foot
-set $browser waterfox
-set $menu wmenu-run
-set $obsidian obsidian --ozone-platform-hint=auto
+set $term "foot"
+set $browser "waterfox"
+set $menu "wmenu-run"
+set $obsidian "obsidian --ozone-platform-hint=auto"
 
 
 ### Output configuration
