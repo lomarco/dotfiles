@@ -10,6 +10,7 @@ set $term "foot"
 set $browser "waterfox"
 set $menu "wmenu-run"
 set $obsidian "obsidian --ozone-platform-hint=auto"
+set $zathura "zathura"
 
 
 ### Output configuration
@@ -38,6 +39,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+b exec $browser
 bindsym $mod+Shift+y exec $obsidian
+bindsym $mod+Shift+z exec $zathura
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
