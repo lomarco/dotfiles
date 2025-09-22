@@ -1,18 +1,23 @@
-# git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh/zsh-snap
-if [[ -r "${HOME}/.cache/p10k-instant-prompt-${USERNAME}.zsh" ]]; then
-  source "${HOME}/.cache/p10k-instant-prompt-${USERNAME}.zsh"
-fi
+git_branch() {
+  local branch
+  branch=$(git symbolic-ref --short HEAD 2> /dev/null) || return
+  echo "%F{magenta}(${branch})%f"
+}
 
-source ~/.config/zsh/zsh-snap/znap.zsh
+setopt PROMPT_SUBST
+PROMPT='%F{green}%n@%m%f:%F{blue}%~%f $(git_branch)$( [[ $? == 0 ]] && echo "%F{cyan}✔%f" || echo "%F{red}✘%f") %# '
 
-znap prompt romkatv/powerlevel10k
-znap source zdharma-continuum/fast-syntax-highlighting
-znap source zsh-users/zsh-autosuggestions
-
-HISTFILE=~/.cache/zh
-HISTSIZE=100
-SAVEHIST=300
+HISTFILE="~/.cache/zh"
+HISTSIZE=1000
+SAVEHIST=3000
 setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_dups
+setopt hist_reduce_blanks
+setopt extended_glob
+
+setopt auto_menu
+setopt auto_list
 
 autoload -Uz compinit
 compinit -i
@@ -23,6 +28,7 @@ bindkey '^R' history-incremental-search-backward
 
 alias ls='ls --color=auto'
 alias c='clear'
+alias clear=''
 
 alias gco='git checkout'
 alias gw='git switch'
@@ -31,8 +37,8 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
 alias gu='git pull'
-alias gl='git log --oneline'
-alias gst='git status --short'
+alias gl='git log --oneline --graph --all'
+alias gs='git status --short'
 alias gb='git branch'
 alias gcl='git clone --depth 1'
 alias gr='git remote'
@@ -44,4 +50,4 @@ alias mr='make rebuild'
 
 export GPG_TTY=$TTY
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
