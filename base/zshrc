@@ -1,11 +1,103 @@
+autoload -Uz colors
+colors
+
+# git_branch() {
+#   local branch
+#   branch=$(git symbolic-ref --short HEAD 2> /dev/null) || return
+#   echo "%F{magenta}(${branch})%f"
+# }
+
+
+
+
+
 git_branch() {
   local branch
-  branch=$(git symbolic-ref --short HEAD 2> /dev/null) || return
-  echo "%F{magenta}(${branch})%f"
+  if branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null); then
+    echo "%{$fg[green]%} $branch%{$reset_color%}"
+  fi
 }
 
+git_dirty() {
+  if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
+    echo "%{$fg[red]%}✗%{$reset_color%}"
+  fi
+}
+
+last_status() {
+  if [[ $? -eq 0 ]]; then
+    echo "%{$fg[blue]%}✔%{$reset_color%}"
+  else
+    echo "%{$fg[red]%}✘%{$reset_color%}"
+  fi
+}
+
+# Основной PROMPT
+# setopt PROMPT_SUBST
+# PROMPT='$(last_status) %{$fg_bold[cyan]%}%~%{$reset_color%} $(git_branch)$(git_dirty) %# '
+
+# Для многострочного PROMPT можно добавить:
+# PROMPT=$'%{$fg[yellow]%}%n@%m %{$fg[cyan]%}%~ %#%{$reset_color%}\n'
+
+# Обновлять PROMPT каждую команду
+precmd() {
+  :
+}
+
+
+
+
+# Кол-во измененных файлов (стейдж и рабочее дерево)
+git_changed_files() {
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    local count
+    count=$(git status --porcelain 2>/dev/null | wc -l | tr -d ' ')
+    if (( count > 0 )); then
+      echo "%{$fg[yellow]%}±$count%{$reset_color%}"
+    fi
+  fi
+}
+
+# Кол-во незапушенных коммитов относительно upstream (remote tracking branch)
+git_unpushed_commits() {
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    local upstream=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null)
+    if [[ -n $upstream ]]; then
+      local count=$(git rev-list --count HEAD "^$upstream" 2>/dev/null)
+      if (( count > 0 )); then
+        echo "%{$fg[blue]%}↑$count%{$reset_color%}"
+      fi
+    fi
+  fi
+}
+
+# Текущая ветка git
+git_branch() {
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    local branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+    if [[ -n $branch ]]; then
+      echo "%{$fg[green]%} $branch%{$reset_color%}"
+    fi
+  fi
+}
+
+# Статус последней команды
+last_status() {
+  if [[ $? -eq 0 ]]; then
+    echo "%{$fg[blue]%}✔%{$reset_color%}"
+  else
+    echo "%{$fg[red]%}✘%{$reset_color%}"
+  fi
+}
+
+# Основной prompt
 setopt PROMPT_SUBST
-PROMPT='%F{green}%n@%m%f:%F{blue}%~%f $(git_branch)$( [[ $? == 0 ]] && echo "%F{cyan}✔%f" || echo "%F{red}✘%f") %# '
+PROMPT='$(last_status) %{$fg_bold[cyan]%}%~%{$reset_color%} $(git_branch) $(git_changed_files) $(git_unpushed_commits) %# '
+
+
+
+# setopt PROMPT_SUBST
+# PROMPT='%F{green}%n@%m%f:%F{blue}%~%f $(git_branch)$( [[ $? == 0 ]] && echo "%F{cyan}✔%f" || echo "%F{red}✘%f") %# '
 
 HISTFILE="~/.cache/zh"
 HISTSIZE=1000
