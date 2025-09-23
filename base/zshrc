@@ -39,10 +39,9 @@ last_status() {
 # Для многострочного PROMPT можно добавить:
 # PROMPT=$'%{$fg[yellow]%}%n@%m %{$fg[cyan]%}%~ %#%{$reset_color%}\n'
 
-# Обновлять PROMPT каждую команду
-precmd() {
-  :
-}
+# precmd() {
+#   :
+# }
 
 
 
@@ -99,7 +98,7 @@ PROMPT='$(last_status) %{$fg_bold[cyan]%}%~%{$reset_color%} $(git_branch) $(git_
 # setopt PROMPT_SUBST
 # PROMPT='%F{green}%n@%m%f:%F{blue}%~%f $(git_branch)$( [[ $? == 0 ]] && echo "%F{cyan}✔%f" || echo "%F{red}✘%f") %# '
 
-HISTFILE="~/.cache/zh"
+HISTFILE=~/.cache/zh
 HISTSIZE=1000
 SAVEHIST=3000
 setopt appendhistory
