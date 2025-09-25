@@ -189,6 +189,7 @@ EXT_PACKAGES=(
   "obsidian"
   "qutebrowser"
   "gource"
+  "dosbox"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
