@@ -1,13 +1,13 @@
+############################## https://github.com/woefe/git-prompt.zsh
 autoload -Uz colors
 colors
 
-############################## https://github.com/woefe/git-prompt.zsh
 # Settings
-: "${ZSH_GIT_PROMPT_SHOW_UPSTREAM=""}"
-: "${ZSH_GIT_PROMPT_SHOW_STASH=""}"
+: "${ZSH_GIT_PROMPT_SHOW_UPSTREAM="1"}"
+: "${ZSH_GIT_PROMPT_SHOW_STASH="1"}"
 : "${ZSH_GIT_PROMPT_SHOW_TRACKING_COUNTS="1"}"
 : "${ZSH_GIT_PROMPT_SHOW_LOCAL_COUNTS="1"}"
-: "${ZSH_GIT_PROMPT_ENABLE_SECONDARY=""}"
+: "${ZSH_GIT_PROMPT_ENABLE_SECONDARY="1"}"
 : "${ZSH_GIT_PROMPT_NO_ASYNC=""}"
 : "${ZSH_GIT_PROMPT_FORCE_BLANK=""}"
 : "${ZSH_GIT_PROMPT_AWK_CMD=""}"
