@@ -411,7 +411,6 @@ bindkey '^R' history-incremental-search-backward
 
 alias ls='ls --color=auto'
 alias c='clear'
-alias clear='false'
 
 alias gco='git checkout'
 alias gw='git switch'
