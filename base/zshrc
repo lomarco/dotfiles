@@ -13,9 +13,9 @@ colors
 : "${ZSH_GIT_PROMPT_AWK_CMD=""}"
 
 # Theming
-: "${ZSH_THEME_GIT_PROMPT_PREFIX="["}"
-: "${ZSH_THEME_GIT_PROMPT_SUFFIX="] "}"
-: "${ZSH_THEME_GIT_PROMPT_SEPARATOR="|"}"
+: "${ZSH_THEME_GIT_PROMPT_PREFIX=""}"
+: "${ZSH_THEME_GIT_PROMPT_SUFFIX=" "}"
+: "${ZSH_THEME_GIT_PROMPT_SEPARATOR=""}"
 : "${ZSH_THEME_GIT_PROMPT_DETACHED="%{$fg_bold[cyan]%}:(%{$reset_color%}"}"
 : "${ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"}"
 : "${ZSH_THEME_GIT_PROMPT_UPSTREAM_SYMBOL="%{$fg_bold[yellow]%}*"}"
@@ -29,7 +29,7 @@ colors
 : "${ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}~"}"
 : "${ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}?"}"
 : "${ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}$"}"
-: "${ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✓"}"
+: "${ZSH_THEME_GIT_PROMPT_CLEAN=""}"
 
 : "${ZSH_THEME_GIT_PROMPT_SECONDARY_PREFIX=""}"
 : "${ZSH_THEME_GIT_PROMPT_SECONDARY_SUFFIX=""}"
@@ -47,7 +47,7 @@ setopt PROMPT_SUBST
 # Override PROMPT if it does not use the gitprompt function
 [[ "$PROMPT" != *gitprompt* && "$RPROMPT" != *gitprompt* ]] \
   && PROMPT='%B%40<..<%~ %b$(gitprompt)' \
-  && PROMPT+='%(!.%(?.%F{green}.%F{red}%? )#%f.%(?.%F{green}.%F{red}%? )%%%f) '
+  && PROMPT+='%(!.%(?.%F{green}.%F{red}[%?] )#%f.%(?.%F{green}.%F{red}[%?] )%%%f) '
 
 # Find an awk implementation
 # Prefer nawk over mawk and mawk over awk
