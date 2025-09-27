@@ -187,7 +187,6 @@ EXT_PACKAGES=(
   "docker-compose"
   "nix"
   "obsidian"
-  "qutebrowser"
   "gource"
   "dosbox"
 )
