@@ -53,7 +53,7 @@ vim.keymap.set('v', '<leader>[', 'c[]<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('n', 'gn', ':bnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'gp', ':bprevious<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'gw', ':bdelete<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>be', ':enew<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', 'ge', ':enew<CR>', { noremap = true, silent = true })
 
 -- Terminal
 function ToggleTerminal()
