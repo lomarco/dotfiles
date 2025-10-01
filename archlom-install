@@ -180,6 +180,7 @@ DEFAULT_PACKAGES=(
   "zathura-pdf-mupdf"
   "zathura-djvu"
   "nasm"
+  "nftables"
 )
 
 EXT_PACKAGES=(
