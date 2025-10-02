@@ -18,7 +18,7 @@ set fillchars=eob:\
 set colorcolumn=80
 syntax on
 set background=dark
-colorscheme unokai " zaibatsu
+colorscheme murphy "zaibatsu
 highlight EndOfBuffer ctermfg=0 ctermbg=0
 set lazyredraw
 set tabstop=2 shiftwidth=2 expandtab smartindent
