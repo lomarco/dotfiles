@@ -40,12 +40,11 @@ vim.g.mapleader = " "
 
 -- Escape alias
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-c>', '<Esc>', { noremap = true, silent = true })
 
 -- Auto brackets
 vim.keymap.set('v', '<leader>"', 'c""<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', "<leader>'", "c''<Esc>P", { noremap = true, silent = true })
-vim.keymap.set('v', '<leader>9', 'c()<Esc>P', { noremap = true, silent = true })
+vim.keymap.set('v', '<leader>(', 'c()<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>{', 'c{}<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>[', 'c[]<Esc>P', { noremap = true, silent = true })
 
