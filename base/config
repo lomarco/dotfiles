@@ -13,7 +13,7 @@ set $obsidian "obsidian --ozone-platform-hint=auto"
 set $zathura "zathura"
 set $scr_command "sh -c 'f=\"$HOME/screenshot-$(date +%Y%m%d-%H%M%S).png\"; grim -g \"$(slurp)\" \"$f\" && wl-copy < \"$f\"'"
 
-set $global_font "DejaVuSansMono 9"
+set $global_font "DejaVuSansMono 8"
 
 
 ### Output configuration
