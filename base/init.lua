@@ -402,17 +402,26 @@ require('lazy').setup({
   },
   {
     'rafi/awesome-vim-colorschemes',
-    config = function()
-      -- vim.cmd.colorscheme('purify') -- OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
-      -- vim.opt.background = 'dark'
-      -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-    end
+    lazy = true,
+    -- vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
+    -- vim.opt.background = 'dark'
+    -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
   },
   {
     "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
     config = function()
-      vim.cmd.colorscheme('kanagawa-wave')
+      -- vim.cmd.colorscheme('kanagawa-wave')
+    end
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme('tokyonight')
     end
   }
 })
