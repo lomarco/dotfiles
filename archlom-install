@@ -156,6 +156,7 @@ DEFAULT_PACKAGES=(
   "pacman-contrib"
   "ttf-cascadia-code-nerd"
   "ttf-cascadia-code"
+  "ttf-dejavu-nerd"
   "gnu-free-fonts"
   "swayidle"
   "swaylock"
