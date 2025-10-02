@@ -410,18 +410,12 @@ require('lazy').setup({
     end,
   },
   {
-    'nvim-mini/mini.tabline',
-    version = '*',
-    opts = {
-      show_icons = false,
-      format = nil,
-      tabpage_section = 'left'
-    }
-  },
-  {
-    'm4xshen/autoclose.nvim',
+    'rafi/awesome-vim-colorschemes',
     config = function()
-      require('autoclose').setup()
+      -- vim.cmd.colorscheme('purify') -- OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
+      -- vim.opt.background = 'dark'
+      -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     end
   },
   {
