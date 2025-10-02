@@ -110,7 +110,6 @@ DEFAULT_PACKAGES=(
   "pipewire-alsa"
   "pipewire-jack"
   "pass"
-  "lf"
   "ncdu"
   "rsync"
   "reflector"
@@ -181,6 +180,7 @@ DEFAULT_PACKAGES=(
   "zathura-djvu"
   "nasm"
   "nftables"
+  "yazi"
 )
 
 EXT_PACKAGES=(

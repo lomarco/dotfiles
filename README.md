@@ -69,7 +69,7 @@
 
 **WiFi Manager:** `Iwd`
 
-**File Manager:** `Lf`
+**File Manager:** `yazi`
 
 **Pdf Reader:** `Zathura`
 
