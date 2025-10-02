@@ -237,12 +237,6 @@ require('lazy').setup({
     }
   },
   {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
-  },
-  {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup({
@@ -285,13 +279,9 @@ require('lazy').setup({
     end
   },
   {
-    'rafi/awesome-vim-colorschemes',
+    'numToStr/Comment.nvim',
     config = function()
-      vim.cmd.colorscheme('purify')
-      -- OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
-      vim.opt.background = 'dark'
-      -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+      require('Comment').setup()
     end
   },
   {
