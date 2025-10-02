@@ -425,9 +425,9 @@ require('lazy').setup({
     end
   },
   {
-    "preservim/tagbar",
+    "rebelot/kanagawa.nvim",
     config = function()
-      vim.g.tagbar_autofocus = 1
-    end,
+      vim.cmd.colorscheme('kanagawa-wave')
+    end
   }
 })
