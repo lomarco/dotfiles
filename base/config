@@ -11,7 +11,6 @@ set $browser "waterfox"
 set $menu "wmenu-run"
 set $obsidian "obsidian --ozone-platform-hint=auto"
 set $zathura "zathura"
-set $scr_command "sh -c 'f=\"$HOME/screenshot-$(date +%Y%m%d-%H%M%S).png\"; grim -g \"$(slurp)\" \"$f\" && wl-copy < \"$f\"'"
 
 set $global_font "DejaVuSansMono 8"
 
@@ -38,9 +37,9 @@ input type:keyboard {
 
 ### Key bindings
 # Basics:
+bindsym $mod+c exec 'f="$HOME/screenshot-$(date +%Y%m%d-%H%M%S).png"; grim -g "$(slurp)" "$f" && wl-copy < "$f"'
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
-bindsym $mod+c exec $scr_command
 bindsym $mod+Shift+b exec $browser
 bindsym $mod+Shift+y exec $obsidian
 bindsym $mod+Shift+z exec $zathura
