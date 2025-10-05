@@ -413,7 +413,7 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      -- vim.cmd.colorscheme('kanagawa-wave')
+      vim.cmd.colorscheme('kanagawa-wave')
     end
   },
   {
@@ -421,7 +421,7 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme('tokyonight')
+      -- vim.cmd.colorscheme('tokyonight')
     end
-  }
+  },
 })
