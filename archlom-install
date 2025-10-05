@@ -182,6 +182,7 @@ DEFAULT_PACKAGES=(
   "nasm"
   "nftables"
   "yazi"
+  "tcpdump"
 )
 
 EXT_PACKAGES=(
@@ -191,6 +192,7 @@ EXT_PACKAGES=(
   "obsidian"
   "gource"
   "dosbox"
+  "wireshark-qt"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
