@@ -53,7 +53,7 @@
 
 **Terminal:** `Foot`
 
-**Shell:** `Zsh + znap`
+**Shell:** `Zsh`
 
 **Editor:** `NeoVim`
 
