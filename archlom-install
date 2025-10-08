@@ -141,7 +141,6 @@ DEFAULT_PACKAGES=(
   "devtools"
   "nmap"
   "arch-install-scripts"
-  "amdvlk"
   "vulkan-tools"
   "hyperfine"
   "rustup"
