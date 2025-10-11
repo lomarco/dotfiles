@@ -12,17 +12,17 @@ order += "tztime local"
 battery all {
   format = "%status %percentage"
   format_down = "No battery"
-  status_chr = "CHR"
-  status_bat = "BAT"
-  status_unk = "UNK"
-  status_full = "FULL"
-  status_idle = "IDLE"
+  status_chr = "chr"
+  status_bat = "bat"
+  status_unk = "unk"
+  status_full = "full"
+  status_idle = "idle"
   last_full_capacity = true
 }
 
 volume master {
-  format = "Vol: %volume"
-  format_muted = "Vol: muted"
+  format = "vol: %volume"
+  format_muted = "vol: muted"
   device = "default"
   mixer = "Master"
   mixer_idx = 0
