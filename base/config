@@ -13,6 +13,7 @@ set $obsidian "obsidian --ozone-platform-hint=auto"
 set $zathura "zathura"
 
 set $global_font "DejaVuSansMono 8"
+font $global_font
 
 
 ### Output configuration
@@ -127,8 +128,6 @@ bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ t
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym Print exec grim
-
-font $global_font
 
 # Status Bar:
 bar {
