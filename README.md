@@ -49,7 +49,7 @@
 
 **Window Manager:** `Sway`
 
-**Status Bar:** `I3status`
+**Status Bar:** `Swaybar & I3status`
 
 **Terminal:** `Foot`
 
