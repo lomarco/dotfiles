@@ -134,6 +134,8 @@ bar {
   position bottom
   status_command i3status
   font $global_font
+  separator_symbol " | "
+  tray_output primary
   colors {
     background #000000
     statusline #ffffff
