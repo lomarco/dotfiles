@@ -138,13 +138,13 @@ bar {
   tray_output primary
   colors {
     background #000000
-    statusline #ffffff
+    statusline #bbbbbb
 
-    focused_workspace #ff0000 #005f87 #ffffff
-    active_workspace #444444 #222222 #d0d0d0
+    focused_workspace #444444 #222222 #dddddd
+    active_workspace #333333 #1a1a1a #bbbbbb
     inactive_workspace #222222 #000000 #888888
-    urgent_workspace #ff0000 #660000 #ffffff
-    binding_mode #ffffff #000000 #ff00ff
+    urgent_workspace #550000 #220000 #cc4444
+    binding_mode #660022 #220011 #aa6688
   }
 }
 
