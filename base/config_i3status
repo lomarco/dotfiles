@@ -9,11 +9,6 @@ order += "load"
 order += "wireless _first_"
 order += "tztime local"
 
-wireless _first_ {
-  format_up = "W: (%quality at %essid, %bitrate) %ip"
-  format_down = "W: down"
-}
-
 battery all {
   format = "%status %percentage %remaining %emptytime"
   format_down = "No battery"
@@ -25,18 +20,23 @@ battery all {
   last_full_capacity = true
 }
 
-load {
-  format = "%1min"
-}
-
-tztime local {
-  format = "%a %d.%m.%Y %I:%M:%S %p"
-}
-
 volume master {
   format = "Vol: %volume"
   format_muted = "Vol: muted"
   device = "default"
   mixer = "Master"
   mixer_idx = 0
+}
+
+load {
+  format = "%1min"
+}
+
+wireless _first_ {
+  format_up = "W: (%quality at %essid, %bitrate) %ip"
+  format_down = "W: down"
+}
+
+tztime local {
+  format = "%a %d.%m.%Y %I:%M:%S %p"
 }
