@@ -126,7 +126,10 @@
 | **Open terminal**         | `Super + Enter`     |
 | **Launch browser**        | `Super + Shift + B` |
 | **Launch launcher**       | `Super + D`         |
+| **Launch obsidian**       | `Super + Shift + Y` |
+| **Launch zathura**        | `Super + Shift + Z` |
 | **Take screenshot**       | `PrintScreen`       |
+| **Take a part of screen** | `Super + C`         |
 | **Kill window**           | `Super + Shift + Q` |
 | **Exit sway**             | `Super + Shift + E` |
 | **Reload sway config**    | `Super + Shift + C` |
