@@ -37,8 +37,6 @@
 
 </details>
 
----
-
 ## Toolchain
 
 <div align="center">
@@ -75,8 +73,6 @@
 
 </div>
 
----
-
 ## Gallery
 
 <p align="center">
@@ -84,8 +80,6 @@
   <br />
   <img src="docs/3.png" alt="Gallery image 2" width="1000" />
 </p>
-
----
 
 ## Repository Structure
 
@@ -138,5 +132,3 @@
 | **Fullscreen window**     | `Super + F`         |
 
 Other hotkeys are available in the [sway config](base/config).
-
----
