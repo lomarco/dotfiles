@@ -9,7 +9,6 @@ set clipboard=unnamedplus
 set nobackup noswapfile nowritebackup hidden mouse=a
 set number relativenumber numberwidth=1
 set nowrap termguicolors nocursorline
-set scrolloff=8
 set hlsearch
 set timeoutlen=400
 set signcolumn=yes
