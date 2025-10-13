@@ -92,7 +92,6 @@ DEFAULT_PACKAGES=(
   "links"
   "vulkan-radeon"
   "zsh"
-  "qutebrowser"
   "iwd"
   "wlsunset"
   "grim"
@@ -197,6 +196,7 @@ EXT_PACKAGES=(
   "gource"
   "dosbox"
   "wireshark-qt"
+  "qutebrowser"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
