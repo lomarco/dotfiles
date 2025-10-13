@@ -186,6 +186,7 @@ DEFAULT_PACKAGES=(
   "avr-gcc"
   "avrdude"
   "avr-libc"
+  "pandoc-cli"
 )
 
 EXT_PACKAGES=(
