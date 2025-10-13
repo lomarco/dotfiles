@@ -182,6 +182,11 @@ DEFAULT_PACKAGES=(
   "nftables"
   "yazi"
   "tcpdump"
+  "avr-binutils"
+  "avr-gdb"
+  "avr-gcc"
+  "avrdude"
+  "avr-libc"
 )
 
 EXT_PACKAGES=(
