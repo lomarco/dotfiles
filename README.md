@@ -71,6 +71,8 @@
 
 **Pdf Reader:** `Zathura`
 
+**Task Manager** `TaskWarrior`
+
 </div>
 
 ## Gallery
