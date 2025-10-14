@@ -43,7 +43,7 @@
 
 **OS:** `Arch Linux`
 
-**Kernel:** `Linux zen`
+**Kernel:** `Linux Zen`
 
 **Window Manager:** `Sway`
 
@@ -71,7 +71,7 @@
 
 **Pdf Reader:** `Zathura`
 
-**Task Manager** `TaskWarrior`
+**Task Manager** `Task Warrior`
 
 </div>
 
