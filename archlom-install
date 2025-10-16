@@ -149,8 +149,8 @@ DEFAULT_PACKAGES=(
   "npm" // TODO
   "arch-audit"
   "pacman-contrib"
-  "ttf-cascadia-code-nerd"
-  "ttf-cascadia-code"
+  # "ttf-cascadia-code-nerd"
+  # "ttf-cascadia-code"
   "ttf-dejavu-nerd"
   "gnu-free-fonts"
   "swayidle"
