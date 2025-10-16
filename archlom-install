@@ -143,10 +143,10 @@ DEFAULT_PACKAGES=(
   "hyperfine"
   "rustup"
   "dosfstools"
-  "w3m"
+  "w3m" // TODO
   "qemu"
   "wayvnc"
-  "npm"
+  "npm" // TODO
   "arch-audit"
   "pacman-contrib"
   "ttf-cascadia-code-nerd"
