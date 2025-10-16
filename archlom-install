@@ -190,7 +190,6 @@ EXT_PACKAGES=(
   "docker"
   "docker-compose"
   "nix"
-  "obsidian"
   "gource"
   "dosbox"
   "wireshark-qt"
