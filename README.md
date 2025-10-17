@@ -10,6 +10,7 @@
 - [Toolchain](#toolchain)
 - [Gallery](#gallery)
 - [Sway Hotkeys](#sway-hotkeys)
+- [NeoVim Config](#Neovim-config)
 - [Repository Structure](#repository-structure)
   - [Base](#base)
     - [Sway](#sway)
@@ -102,6 +103,66 @@
 | **Fullscreen window**     | `Super + F`         |
 
 Other hotkeys are available in the [sway config](base/config).
+
+## NeoVim Config
+Neovim config is a minimalistic, single-file configuration for programming in C, ASM, and C++, working with Git, and taking notes in Markdown. It includes essential plugins and sensible defaults for a smooth coding workflow.
+
+#### Included Plugins and Modules
+- lazy.nvim - plugin manager
+
+- copilot.vim - AI code completion
+
+- telescope.nvim - fuzzy finder for files, buffers, grep
+
+- nvim-treesitter - syntax highlighting and indentation
+
+- nvim-lspconfig - language server protocol support
+
+- nvim-cmp - autocompletion framework
+
+- mason.nvim and mason-lspconfig.nvim - LSP installer and manager
+
+- gitsigns.nvim - git integration and signs
+
+- Comment.nvim - easy code commenting
+
+- mini.tabline - tabline for buffers
+
+- autoclose.nvim - automatic closing of brackets and quotes
+
+- tagbar - code structure sidebar
+
+- oil.nvim - file explorer with git status
+
+Color schemes like kanagawa.nvim and tokyonight.nvim
+
+#### Basic Keybindings
+
+    <leader>h — toggle integrated terminal window
+
+    jk (insert mode) — quickly exit insert mode
+
+    Buffer navigation: gn (next), gp (previous), gw (close buffer), ge (open new empty buffer)
+
+    Completion navigation with <Tab> and <Shift-Tab> to select suggestions
+
+    LSP shortcuts:
+
+        gd — go to definition
+
+        gi — go to implementation
+
+        K — show hover information
+
+        <leader>ca — code actions
+
+        <leader>r — rename symbol
+
+        <leader>e — open diagnostics float
+
+        [d and ]d — jump between diagnostics
+
+        <leader>f — format file
 
 ## Repository Structure
 
