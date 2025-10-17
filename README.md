@@ -9,6 +9,7 @@
 
 - [Toolchain](#toolchain)
 - [Gallery](#gallery)
+- [Sway Hotkeys](#sway-hotkeys)
 - [Repository Structure](#repository-structure)
   - [Base](#base)
     - [Sway](#sway)
@@ -32,7 +33,6 @@
     - [efistub-boot](#efistub-boot)
     - [testkernel](#testkernel)
     - [aupa](#aupa)
-- [Sway Hotkeys](#sway-hotkeys)
 - [License](#license)
 
 </details>
@@ -83,6 +83,26 @@
   <img src="docs/3.png" alt="Gallery image 2" width="1000" />
 </p>
 
+## Sway Hotkeys
+
+| Action                    | Shortcut            |
+|---------------------------|---------------------|
+| **Open terminal**         | `Super + Enter`     |
+| **Launch browser**        | `Super + Shift + B` |
+| **Launch launcher**       | `Super + D`         |
+| **Launch obsidian**       | `Super + Shift + Y` |
+| **Launch zathura**        | `Super + Shift + Z` |
+| **Take screenshot**       | `PrintScreen`       |
+| **Take a part of screen** | `Super + C`         |
+| **Kill window**           | `Super + Shift + Q` |
+| **Exit sway**             | `Super + Shift + E` |
+| **Reload sway config**    | `Super + Shift + C` |
+| **Switch workspace**      | `Super + {1..0}`    |
+| **Focus window**          | `Super + {H, J, K, L}` |
+| **Fullscreen window**     | `Super + F`         |
+
+Other hotkeys are available in the [sway config](base/config).
+
 ## Repository Structure
 
 ### Base
@@ -112,23 +132,3 @@
 - [efistub-boot](scr/efistub-boot)
 - [testkernel](scr/testkernel)
 - [aupa](scr/aupa)
-
-## Sway Hotkeys
-
-| Action                    | Shortcut            |
-|---------------------------|---------------------|
-| **Open terminal**         | `Super + Enter`     |
-| **Launch browser**        | `Super + Shift + B` |
-| **Launch launcher**       | `Super + D`         |
-| **Launch obsidian**       | `Super + Shift + Y` |
-| **Launch zathura**        | `Super + Shift + Z` |
-| **Take screenshot**       | `PrintScreen`       |
-| **Take a part of screen** | `Super + C`         |
-| **Kill window**           | `Super + Shift + Q` |
-| **Exit sway**             | `Super + Shift + E` |
-| **Reload sway config**    | `Super + Shift + C` |
-| **Switch workspace**      | `Super + {1..0}`    |
-| **Focus window**          | `Super + {H, J, K, L}` |
-| **Fullscreen window**     | `Super + F`         |
-
-Other hotkeys are available in the [sway config](base/config).
