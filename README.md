@@ -137,33 +137,32 @@ Neovim config is a minimalistic, single-file configuration for programming in C,
 Color schemes like kanagawa.nvim and tokyonight.nvim
 
 #### Basic Keybindings
+```
+<leader>h — toggle integrated terminal window
 
-    <leader>h — toggle integrated terminal window
+jk (insert mode) — quickly exit insert mode
 
-    jk (insert mode) — quickly exit insert mode
+Buffer navigation: gn (next), gp (previous), gw (close buffer), ge (open new empty buffer)
 
-    Buffer navigation: gn (next), gp (previous), gw (close buffer), ge (open new empty buffer)
+Completion navigation with <Tab> and <Shift-Tab> to select suggestions
 
-    Completion navigation with <Tab> and <Shift-Tab> to select suggestions
+LSP shortcuts:
+    gd — go to definition
 
-    LSP shortcuts:
+    gi — go to implementation
 
-        gd — go to definition
+    K — show hover information
 
-        gi — go to implementation
+    <leader>ca — code actions
 
-        K — show hover information
+    <leader>r — rename symbol
 
-        <leader>ca — code actions
+    <leader>e — open diagnostics float
 
-        <leader>r — rename symbol
+    [d and ]d — jump between diagnostics
 
-        <leader>e — open diagnostics float
-
-        [d and ]d — jump between diagnostics
-
-        <leader>f — format file
-
+    <leader>f — format file
+```
 ## Repository Structure
 
 ### Base
