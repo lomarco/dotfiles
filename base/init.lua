@@ -155,6 +155,7 @@ require('lazy').setup({
         local opts = { noremap = true, silent = true, buffer = bufnr }
         -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
         vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, opts)
