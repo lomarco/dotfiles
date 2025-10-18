@@ -107,7 +107,8 @@ require('lazy').setup({
       { '<leader>fb', function() require('telescope.builtin').buffers() end,    desc = 'Find Buffers' },
       { '<leader>fh', function() require('telescope.builtin').help_tags() end,  desc = 'Help Tags' },
       { '<leader>fr', function() require('telescope.builtin').oldfiles() end,   desc = 'Recent Files' },
-      { '<C-p>',      function() require('telescope.builtin').git_files() end,  desc = 'Find Files' },
+      -- { '<C-p>',      function() require('telescope.builtin').git_files() end,  desc = 'Find Files' },
+      -- { '<leader>t', function() require('telescope.builtin').diagnostics() end, desc = 'Show diagnostics' }
     },
     config = function()
       local telescope = require('telescope')
@@ -123,18 +124,18 @@ require('lazy').setup({
       })
     end
   },
-  {
-    "folke/trouble.nvim",
-    opts = {},
-    cmd = "Trouble",
-    keys = {
-      {
-        "<leader>t",
-        "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-    },
-  },
+  -- {
+  --   "folke/trouble.nvim",
+  --   opts = {},
+  --   cmd = "Trouble",
+  --   keys = {
+  --     {
+  --       "<leader>t",
+  --       "<cmd>Trouble diagnostics toggle<cr>",
+  --       desc = "Diagnostics (Trouble)",
+  --     },
+  --   },
+  -- },
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -162,6 +163,9 @@ require('lazy').setup({
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
 
+
+        vim.diagnostic.setloclist({ open = true })
+        vim.keymap.set('n', '<leader>t', function() vim.diagnostic.setloclist({ open = true }) end, { desc = "Diagnostics List" })
         vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
