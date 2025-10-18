@@ -88,44 +88,6 @@ vim.keymap.set('n', '<leader>h', ':lua ToggleTerminal()<CR>', { noremap = true, 
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
 
--- Autoclose
-
-local pair_map = {
-  ['('] = ')',
-  ['['] = ']',
-  ['{'] = '}',
-  ['"'] = '"',
-  ["'"] = "'",
-  ['`'] = '`'
-}
-
-local function feedkeys(keys)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), 'n', true)
-end
-
-local function setup_autoclose()
-  vim.api.nvim_set_keymap('i', '(', 'v:lua.autoclose("(")', { expr = true, noremap = true })
-  vim.api.nvim_set_keymap('i', '[', 'v:lua.autoclose("[")', { expr = true, noremap = true })
-  vim.api.nvim_set_keymap('i', '{', 'v:lua.autoclose("{")', { expr = true, noremap = true })
-  vim.api.nvim_set_keymap('i', '"', 'v:lua.autoclose("\\"")', { expr = true, noremap = true })
-  vim.api.nvim_set_keymap('i', "'", "v:lua.autoclose(\"'\")", { expr = true, noremap = true })
-  vim.api.nvim_set_keymap('i', '`', 'v:lua.autoclose("`")', { expr = true, noremap = true })
-end
-
-function _G.autoclose(char)
-  local close_char = pair_map[char]
-  local col = vim.fn.col('.') - 1
-  local line = vim.fn.getline('.')
-  local next_char = line:sub(col + 1, col + 1)
-
-  if next_char == close_char then
-    return vim.api.nvim_replace_termcodes('<Right>', true, false, true)
-  end
-
-  return char .. close_char .. vim.api.nvim_replace_termcodes('<Left>', true, false, true)
-end
-
-setup_autoclose()
 
 ------------ PLUGINS
 require('lazy').setup({
@@ -310,10 +272,10 @@ require('lazy').setup({
       tabpage_section = 'left'
     }
   },
-  -- {
-  --   'm4xshen/autoclose.nvim',
-  --   opts = {}
-  -- },
+  {
+    'm4xshen/autoclose.nvim',
+    opts = {}
+  },
   {
     "preservim/tagbar",
     -- opts = {
