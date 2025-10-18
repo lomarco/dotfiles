@@ -182,42 +182,44 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
-      "saadparwaiz1/cmp_luasnip",
-      "L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
+      'saadparwaiz1/cmp_luasnip',
+      'L3MON4D3/LuaSnip',
+      'rafamadriz/friendly-snippets',
     },
     event = 'InsertEnter',
-    opts = {
-      completion = {
-        autocomplete = false,
-      },
-      sources = {
-        { name = "nvim_lsp", priority = 1000 },
-        { name = "luasnip",  priority = 900 },
-        { name = "buffer",   priority = 500 },
-        { name = "path",     priority = 250 },
-      },
-
-      -- mapping = cmp.mapping.preset.insert({
-      --   ['<C-Space>'] = cmp.mapping.complete(),
-      --   ["<CR>"] = cmp.mapping.confirm({ select = true }),
-      --   ["<Tab>"] = cmp.mapping(function(fallback)
-      --     if cmp.visible() then
-      --       cmp.select_next_item()
-      --     else
-      --       fallback()
-      --     end
-      --   end, { "i", "s" }),
-      --   ["<S-Tab>"] = cmp.mapping(function(fallback)
-      --     if cmp.visible() then
-      --       cmp.select_prev_item()
-      --     else
-      --       fallback()
-      --     end
-      --   end, { "i", "s" }),
-      -- }),
-      max_item_count = 10,
-    }
+    opts = function()
+      local cmp = require('cmp')
+      return {
+        completion = {
+          autocomplete = false,
+          max_item_count = 10,
+        },
+        sources = {
+          { name = 'nvim_lsp', priority = 1000 },
+          { name = 'luasnip',  priority = 900 },
+          { name = 'buffer',   priority = 500 },
+          { name = 'path',     priority = 250 },
+        },
+        mapping = cmp.mapping.preset.insert({
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+        }),
+      }
+    end,
   },
   {
     "williamboman/mason.nvim",
