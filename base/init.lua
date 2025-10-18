@@ -176,7 +176,6 @@ require('lazy').setup({
       end
     end
   },
-
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
