@@ -122,18 +122,18 @@ require('lazy').setup({
       },
     }
   },
-  -- {
-  --   "folke/trouble.nvim",
-  --   opts = {},
-  --   cmd = "Trouble",
-  --   keys = {
-  --     {
-  --       '<leader>t',
-  --       "<cmd>Trouble diagnostics toggle<cr>",
-  --       desc = "Diagnostics (Trouble)",
-  --     },
-  --   },
-  -- },
+  {
+    "folke/trouble.nvim",
+    opts = {},
+    cmd = "Trouble",
+    -- keys = {
+    --   {
+    --     '<leader>t',
+    --     "<cmd>Trouble diagnostics toggle<cr>",
+    --     desc = "Diagnostics (Trouble)",
+    --   },
+    -- },
+  },
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
