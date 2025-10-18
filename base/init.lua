@@ -111,19 +111,16 @@ require('lazy').setup({
       { '<leader>fh', function() require('telescope.builtin').help_tags() end,  desc = 'Help Tags' },
       { '<leader>fr', function() require('telescope.builtin').oldfiles() end,   desc = 'Recent Files' },
     },
-    config = function()
-      local telescope = require('telescope')
-      telescope.setup({
-        defaults = {
-          mappings = {
-            i = {
-              ['<C-u>'] = false,
-              ['<C-d>'] = false,
-            },
+    opts = {
+      defaults = {
+        mappings = {
+          i = {
+            ['<C-u>'] = false,
+            ['<C-d>'] = false,
           },
         },
-      })
-    end
+      },
+    }
   },
   -- {
   --   "folke/trouble.nvim",
@@ -141,19 +138,17 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     event = 'BufRead',
-    config = function()
-      require('nvim-treesitter.configs').setup({
-        ensure_installed = { "c", "cpp", "bash", "lua", "asm" },
-        highlight = { enable = true },
-        indent = { enable = true },
-        auto_install = true,
-      })
-    end
+    opts = {
+      ensure_installed = { "c", "cpp", "bash", "lua", "asm" },
+      highlight = { enable = true },
+      indent = { enable = true },
+      auto_install = true,
+    },
   },
   {
     'neovim/nvim-lspconfig',
     config = function()
-      local on_attach = function(_, bufnr)
+      local on_attach = function(client, bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
@@ -194,40 +189,37 @@ require('lazy').setup({
       "rafamadriz/friendly-snippets",
     },
     event = 'InsertEnter',
-    config = function()
-      local cmp = require('cmp')
+    opts = {
+      completion = {
+        autocomplete = false,
+      },
+      sources = {
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "luasnip",  priority = 900 },
+        { name = "buffer",   priority = 500 },
+        { name = "path",     priority = 250 },
+      },
 
-      cmp.setup({
-        completion = {
-          autocomplete = false,
-        },
-        sources = {
-          { name = "nvim_lsp", priority = 1000 },
-          { name = "luasnip",  priority = 900 },
-          { name = "buffer",   priority = 500 },
-          { name = "path",     priority = 250 },
-        },
-        -- mapping = cmp.mapping.preset.insert({
-        --   ['<C-Space>'] = cmp.mapping.complete(),
-        --   ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        --   ["<Tab>"] = cmp.mapping(function(fallback)
-        --     if cmp.visible() then
-        --       cmp.select_next_item()
-        --     else
-        --       fallback()
-        --     end
-        --   end, { "i", "s" }),
-        --   ["<S-Tab>"] = cmp.mapping(function(fallback)
-        --     if cmp.visible() then
-        --       cmp.select_prev_item()
-        --     else
-        --       fallback()
-        --     end
-        --   end, { "i", "s" }),
-        -- }),
-        max_item_count = 10,
-      })
-    end
+      -- mapping = cmp.mapping.preset.insert({
+      --   ['<C-Space>'] = cmp.mapping.complete(),
+      --   ["<CR>"] = cmp.mapping.confirm({ select = true }),
+      --   ["<Tab>"] = cmp.mapping(function(fallback)
+      --     if cmp.visible() then
+      --       cmp.select_next_item()
+      --     else
+      --       fallback()
+      --     end
+      --   end, { "i", "s" }),
+      --   ["<S-Tab>"] = cmp.mapping(function(fallback)
+      --     if cmp.visible() then
+      --       cmp.select_prev_item()
+      --     else
+      --       fallback()
+      --     end
+      --   end, { "i", "s" }),
+      -- }),
+      max_item_count = 10,
+    }
   },
   {
     "williamboman/mason.nvim",
@@ -286,9 +278,7 @@ require('lazy').setup({
   },
   {
     'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
+    opts = {}
   },
   {
     'nvim-mini/mini.tabline',
@@ -301,15 +291,13 @@ require('lazy').setup({
   },
   {
     'm4xshen/autoclose.nvim',
-    config = function()
-      require('autoclose').setup()
-    end
+    opts = {}
   },
   {
     "preservim/tagbar",
-    config = function()
-      vim.g.tagbar_autofocus = 1
-    end,
+    -- opts = {
+    --   autofocus = 1
+    -- }
   },
   {
     "stevearc/oil.nvim",
