@@ -83,7 +83,7 @@ end
 
 vim.keymap.set('n', '<leader>h', ':lua ToggleTerminal()<CR>', { noremap = true, silent = true })
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
 
 
 ------------ PLUGINS
@@ -130,7 +130,7 @@ require('lazy').setup({
   --   cmd = "Trouble",
   --   keys = {
   --     {
-  --       "<leader>t",
+  --       '<leader>t',
   --       "<cmd>Trouble diagnostics toggle<cr>",
   --       desc = "Diagnostics (Trouble)",
   --     },
