@@ -164,20 +164,19 @@ require('lazy').setup({
         vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-
-        vim.keymap.set('n', '<leader>f', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
+        vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format() end, opts)
       end
 
       local servers = { 'clangd', 'pyright', 'lua_ls', 'rust_analyzer' }
       for _, server in ipairs(servers) do
-        vim.lsp.config[server] = {
+        vim.lsp.config[server] = vim.tbl_deep_extend("force", vim.lsp.config[server] or {}, {
           on_attach = on_attach,
-          capabilities = require('cmp_nvim_lsp').default_capabilities(),
-        }
+        })
         vim.lsp.enable(server)
       end
     end
   },
+
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
