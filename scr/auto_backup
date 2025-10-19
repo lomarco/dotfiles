@@ -19,7 +19,7 @@ show_help() {
 }
 
 COMPRESS=0
-COMP_ALGO=${COMP_ALGO:-zstd}
+COMP_ALGO=${COMP_ALGO:-xz}
 
 DEST_PATH=""
 while [[ "$#" -gt 0 ]]; do
