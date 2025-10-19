@@ -10,9 +10,9 @@ show_help() {
   echo
   echo "Options:"
   echo "  -h, --help        Show this help message and exit"
-  echo "  -c, --compress    Compress the backup directory into a .tar.gz archive after backup"
+  echo "  -c, --compress    Compress the backup directory into a .tar archive after backup"
   echo "                    Optional: set compression algorithm via COMP_ALGO environment variable:"
-  echo "                      gzip (default), bzip2, xz"
+  echo "                      gzip (default), bzip2, xz, zstd"
   echo
   echo "Example:"
   echo "  $0 /backup/path --compress"
@@ -34,7 +34,6 @@ while [[ "$#" -gt 0 ]]; do
       shift
       ;;
     *)
-      # Первый позиционный аргумент - путь к директории назначения
       if [ -z "$DEST_PATH" ]; then
         DEST_PATH="$1"
         shift
@@ -117,8 +116,12 @@ if [ $COMPRESS -eq 1 ]; then
       ARCHIVE_NAME+=".xz"
       tar cJf "$ARCHIVE_NAME" -C "$DEST_PATH" "backup_$TIMESTAMP"
       ;;
+    zstd)
+      ARCHIVE_NAME+=".zst"
+      tar --zstd -cf "$ARCHIVE_NAME" -C "$DEST_PATH" "backup_$TIMESTAMP"
+      ;;
     *)
-      red "Unknown compression algorithm: $COMP_ALGO. Supported: gzip, bzip2, xz."
+      red "Unknown compression algorithm: $COMP_ALGO. Supported: gzip, bzip2, xz, zstd."
       exit 1
       ;;
   esac
