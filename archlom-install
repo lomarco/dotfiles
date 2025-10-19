@@ -184,7 +184,6 @@ DEFAULT_PACKAGES=(
   "avrdude"
   "avr-libc"
   "pandoc-cli"
-  "task"
 )
 
 EXT_PACKAGES=(
@@ -194,7 +193,7 @@ EXT_PACKAGES=(
   "gource"
   "dosbox"
   "wireshark-qt"
-  "qutebrowser"
+  "task"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
