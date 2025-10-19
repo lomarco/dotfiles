@@ -2,7 +2,36 @@
 
 set -e
 
-LOG_FILE="$1/backup_$(date +%Y%m%d_%H%M%S).log"
+show_help() {
+  echo "Usage: $0 <backup_destination_parent_path>"
+  echo
+  echo "This script backs up /home/\$USER, /data, /etc, and /usr/local/bin"
+  echo "to a timestamped subdirectory inside the specified destination parent directory."
+  echo
+  echo "Options:"
+  echo "  -h, --help    show this help message and exit"
+}
+
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+  show_help
+  exit 0
+fi
+
+if [ -z "$1" ]; then
+  echo -e "\e[1;31mError: destination path not provided.\e[0m"
+  exit 1
+fi
+
+if [ ! -d "$1" ]; then
+  echo -e "\e[1;31mError: destination directory does not exist.\e[0m"
+  exit 1
+fi
+
+TIMESTAMP=$(date +%d.%m.%Y_%H:%M:%S)
+BACKUP_DIR="$1/backup_$TIMESTAMP"
+mkdir -p "$BACKUP_DIR"
+
+LOG_FILE="$BACKUP_DIR/backup.log"
 USER_NAME=$USER
 
 green() {
