@@ -19,9 +19,8 @@ show_help() {
 }
 
 COMPRESS=0
-COMP_ALGO=${COMP_ALGO:-gzip}
+COMP_ALGO=${COMP_ALGO:-zstd}
 
-# Парсим аргументы
 DEST_PATH=""
 while [[ "$#" -gt 0 ]]; do
   case "$1" in
