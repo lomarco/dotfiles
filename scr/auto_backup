@@ -3,32 +3,62 @@
 set -e
 
 show_help() {
-  echo "Usage: $0 <backup_destination_parent_path>"
+  echo "Usage: $0 <backup_destination_parent_path> [options]"
   echo
   echo "This script backs up /home/\$USER, /data, /etc, and /usr/local/bin"
   echo "to a timestamped subdirectory inside the specified destination parent directory."
   echo
   echo "Options:"
-  echo "  -h, --help    show this help message and exit"
+  echo "  -h, --help        Show this help message and exit"
+  echo "  -c, --compress    Compress the backup directory into a .tar.gz archive after backup"
+  echo "                    Optional: set compression algorithm via COMP_ALGO environment variable:"
+  echo "                      gzip (default), bzip2, xz"
+  echo
+  echo "Example:"
+  echo "  $0 /backup/path --compress"
 }
 
-if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-  show_help
-  exit 0
-fi
+COMPRESS=0
+COMP_ALGO=${COMP_ALGO:-gzip}
 
-if [ -z "$1" ]; then
+# Парсим аргументы
+DEST_PATH=""
+while [[ "$#" -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      show_help
+      exit 0
+      ;;
+    -c|--compress)
+      COMPRESS=1
+      shift
+      ;;
+    *)
+      # Первый позиционный аргумент - путь к директории назначения
+      if [ -z "$DEST_PATH" ]; then
+        DEST_PATH="$1"
+        shift
+      else
+        echo "Unexpected argument: $1"
+        show_help
+        exit 1
+      fi
+      ;;
+  esac
+done
+
+if [ -z "$DEST_PATH" ]; then
   echo -e "\e[1;31mError: destination path not provided.\e[0m"
   exit 1
 fi
 
-if [ ! -d "$1" ]; then
+if [ ! -d "$DEST_PATH" ]; then
   echo -e "\e[1;31mError: destination directory does not exist.\e[0m"
   exit 1
 fi
 
 TIMESTAMP=$(date +%d.%m.%Y_%H:%M:%S)
-BACKUP_DIR="$1/backup_$TIMESTAMP"
+BACKUP_DIR="$DEST_PATH/backup_$TIMESTAMP"
 mkdir -p "$BACKUP_DIR"
 
 LOG_FILE="$BACKUP_DIR/backup.log"
@@ -68,6 +98,34 @@ sync >> "$LOG_FILE" 2>&1
 if [ $? -eq 0 ]; then
   green "Success: file system synchronized." | tee -a "$LOG_FILE"
 else
-  red "Error: file system synchronization failed."
+  red "Error: file system synchronization failed." | tee -a "$LOG_FILE"
   exit 1
+fi
+
+if [ $COMPRESS -eq 1 ]; then
+  ARCHIVE_NAME="$DEST_PATH/backup_$TIMESTAMP.tar"
+  case "$COMP_ALGO" in
+    gzip)
+      ARCHIVE_NAME+=".gz"
+      tar czf "$ARCHIVE_NAME" -C "$DEST_PATH" "backup_$TIMESTAMP"
+      ;;
+    bzip2)
+      ARCHIVE_NAME+=".bz2"
+      tar cjf "$ARCHIVE_NAME" -C "$DEST_PATH" "backup_$TIMESTAMP"
+      ;;
+    xz)
+      ARCHIVE_NAME+=".xz"
+      tar cJf "$ARCHIVE_NAME" -C "$DEST_PATH" "backup_$TIMESTAMP"
+      ;;
+    *)
+      red "Unknown compression algorithm: $COMP_ALGO. Supported: gzip, bzip2, xz."
+      exit 1
+      ;;
+  esac
+  if [ $? -eq 0 ]; then
+    green "Backup directory compressed successfully to $ARCHIVE_NAME" | tee -a "$LOG_FILE"
+  else
+    red "Compression failed." | tee -a "$LOG_FILE"
+    exit 1
+  fi
 fi
