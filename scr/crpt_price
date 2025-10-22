@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl -s "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,monero,ethereum&vs_currencies=usd" | jq -r '"BTC: \(.bitcoin.usd)$ | XMR: \(.monero.usd)$ | ETH: \(.ethereum.usd)$"'
