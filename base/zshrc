@@ -390,6 +390,17 @@ else
 fi
 ############################## https://github.com/woefe/git-prompt.zsh
 
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+  eval "$(ssh-agent -s)"
+fi
+export SSH_AUTH_SOCK
+
+if ! pgrep -u "$USER" gpg-agent > /dev/null; then
+  eval "$(gpg-agent --daemon)"
+fi
+export GPG_AGENT_INFO
+
+
 HISTFILE=~/.cache/zh
 HISTSIZE=1000
 SAVEHIST=3000
