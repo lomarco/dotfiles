@@ -124,7 +124,6 @@ DEFAULT_PACKAGES=(
   "swaybg"
   # "distcc"
   "lld"
-  "unzip"
   "wmenu"
   "less"
   "openssh"
@@ -144,10 +143,8 @@ DEFAULT_PACKAGES=(
   "hyperfine"
   "rustup"
   "dosfstools"
-  "w3m" // TODO
   "qemu"
   "wayvnc"
-  "npm" // TODO
   "arch-audit"
   "pacman-contrib"
   # "ttf-cascadia-code-nerd"
