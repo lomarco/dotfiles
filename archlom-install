@@ -182,6 +182,7 @@ DEFAULT_PACKAGES=(
   "avr-libc"
   "pandoc-cli"
   "mat2"
+  "i2pd"
 )
 
 EXT_PACKAGES=(
