@@ -183,6 +183,8 @@ DEFAULT_PACKAGES=(
   "pandoc-cli"
   "mat2"
   "i2pd"
+  "libvirt"
+  "virt-manager"
 )
 
 EXT_PACKAGES=(
