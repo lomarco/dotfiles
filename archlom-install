@@ -185,6 +185,7 @@ DEFAULT_PACKAGES=(
   "i2pd"
   "libvirt"
   "virt-manager"
+  "tigervnc"
 )
 
 EXT_PACKAGES=(
