@@ -196,6 +196,7 @@ EXT_PACKAGES=(
   "dosbox"
   "wireshark-qt"
   "task"
+  "electrum"
 )
 
 echo -e "${CYAN}Packages to install:${RESET} ${DEFAULT_PACKAGES[*]}"
