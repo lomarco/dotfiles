@@ -186,6 +186,7 @@ DEFAULT_PACKAGES=(
   "libvirt"
   "virt-manager"
   "tigervnc"
+  "net-tools"
 )
 
 EXT_PACKAGES=(
