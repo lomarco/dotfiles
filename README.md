@@ -182,7 +182,6 @@ LSP shortcuts:
 - [Pacman](extra/pacman.conf)
 - [Iwd](extra/main.conf)
 - [Mkinitcpio](extra/mkinitcpio.conf)
-- [Paru](extra/paru.conf)
 - [Kernel](extra/kernel_config)
 - [Makepkg](extra/makepkg.conf)
 

@@ -27,7 +27,6 @@ CFGS_ALL["$extra_dir/fstab"]="/etc/fstab"
 CFGS_ALL["$extra_dir/pacman.conf"]="/etc/pacman.conf"
 CFGS_ALL["$extra_dir/mkinitcpio.conf"]="/etc/mkinitcpio.conf"
 CFGS_ALL["$extra_dir/main.conf"]="/etc/iwd/main.conf"
-CFGS_ALL["$extra_dir/paru.conf"]="/etc/paru.conf"
 CFGS_ALL["$extra_dir/makepkg.conf"]="/etc/makepkg.conf"
 
 # scr
