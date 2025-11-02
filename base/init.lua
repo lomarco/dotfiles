@@ -402,4 +402,32 @@ require('lazy').setup({
       -- vim.cmd.colorscheme('tokyonight')
     end
   },
+  {
+    "zk-org/zk-nvim",
+    config = function()
+      vim.keymap.set("n", "<leader>zn", "<cmd>ZkNotes<CR>", { desc = "Open notes list" })
+      vim.keymap.set("n", "<leader>znn", "<cmd>ZkNew<CR>", { desc = "Create a new note" })
+      vim.keymap.set("n", "<leader>zlk", "<cmd>ZkLinks<CR>", { desc = "Show linked notes" })
+      vim.keymap.set("n", "<leader>zbl", "<cmd>ZkBacklinks<CR>", { desc = "Show backlinks" })
+      require("zk").setup({
+        picker = "telescope",
+        lsp = {
+          config = {
+            name = "zk",
+            cmd = { "zk", "lsp" },
+            filetypes = { "markdown" },
+          },
+          auto_attach = {
+            enabled = true,
+          },
+        },
+      })
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  }
 })
