@@ -165,6 +165,8 @@ LSP shortcuts:
 ```
 ## Repository Structure
 
+### [packages\_list.txt](packages_list.txt) - List of all neaded packages for my system.
+
 ### Base
 
 - [Sway](base/config)
