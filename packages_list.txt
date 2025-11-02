@@ -1,4 +1,4 @@
-Paru packages:
+AUR packages:
   "waterfox"
   "scc"
   "man-pages-dev"
