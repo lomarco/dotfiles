@@ -6,7 +6,7 @@ set $down j
 set $up k
 set $right l
 
-set $term "foot tmux attach default || tmux new default"
+set $term "exec foot -e tmux new-session -A -s default_ses"
 set $browser "librewolf"
 set $menu "wmenu-run"
 set $zathura "zathura"
