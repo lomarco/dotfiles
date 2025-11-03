@@ -3,6 +3,7 @@ AUR packages:
   "scc"
   "man-pages-dev"
   "pacgraph"
+  "feather-wallet"
 
 
 
@@ -79,7 +80,7 @@ Base packages:
   "rustup"
   "dosfstools"
   "qemu"
-  "wayvnc"
+  # "wayvnc"
   "arch-audit"
   "pacman-contrib"
   # "ttf-cascadia-code-nerd"
@@ -94,7 +95,7 @@ Base packages:
   # "qemu-system-arm-firmware"
   "fzf"
   "xorg-xwayland"
-  "libnotify"
+  # "libnotify"
   "traceroute"
   "apache"
   "tldr"
