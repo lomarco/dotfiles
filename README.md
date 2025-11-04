@@ -33,6 +33,7 @@
     - [efistub-boot](#efistub-boot)
     - [testkernel](#testkernel)
     - [aupa](#aupa)
+    - [crpt/_price](#crpt_price)
 - [License](#license)
 
 </details>
@@ -191,3 +192,7 @@ LSP shortcuts:
 - [efistub-boot](scr/efistub-boot)
 - [testkernel](scr/testkernel)
 - [aupa](scr/aupa)
+- [crpt/_price](scr/crpt_price)
+
+## License
+Flux is licensed under the Unlicense. See the LICENSE for details.
