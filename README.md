@@ -26,7 +26,6 @@
     - [Pacman](#pacman)
     - [Iwd](#iwd)
     - [Mkinitcpio](#mkinitcpio)
-    - [Paru](#paru)
     - [Kernel](#kernel)
     - [Makepkg](#makepkg)
   - [Scripts](#scripts)
