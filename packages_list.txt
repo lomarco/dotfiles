@@ -125,6 +125,7 @@ Base packages:
   "net-tools"
   "zk"
   "yarn"
+  "glow"
 
 
 
