@@ -124,6 +124,7 @@ Base packages:
   "tigervnc"
   "net-tools"
   "zk"
+  "yarn"
 
 
 
