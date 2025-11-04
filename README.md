@@ -133,6 +133,8 @@ Neovim config is a minimalistic, single-file configuration for programming in C,
 
 - oil.nvim - file explorer with git status
 
+- zk-nvim - integration zk util with neovim
+
 Color schemes like kanagawa.nvim and tokyonight.nvim
 
 #### Basic Keybindings
