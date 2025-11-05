@@ -123,18 +123,6 @@ require('lazy').setup({
     }
   },
   {
-    "folke/trouble.nvim",
-    opts = {},
-    cmd = "Trouble",
-    -- keys = {
-    --   {
-    --     '<leader>t',
-    --     "<cmd>Trouble diagnostics toggle<cr>",
-    --     desc = "Diagnostics (Trouble)",
-    --   },
-    -- },
-  },
-  {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     event = 'BufRead',
@@ -275,12 +263,6 @@ require('lazy').setup({
   {
     'm4xshen/autoclose.nvim',
     opts = {}
-  },
-  {
-    "preservim/tagbar",
-    -- opts = {
-    --   autofocus = 1
-    -- }
   },
   {
     "stevearc/oil.nvim",
