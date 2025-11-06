@@ -7,7 +7,7 @@ set $up k
 set $right l
 
 set $term "foot -e tmux new-session -A -s def"
-set $browser "librewolf"
+set $browser "waterfox"
 set $menu "wmenu-run"
 set $zathura "zathura"
 
