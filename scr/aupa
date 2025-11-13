@@ -22,9 +22,11 @@ clean() {
 
   pm "Fc-Cache"
   sudo fc-cache -frv
+  fc-cache -frv
 
   pm "Tldr cache"
   sudo tldr --clear-cache
+  tldr --clear-cache
 
   pm "END"
 }
