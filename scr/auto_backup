@@ -55,7 +55,7 @@ if [ ! -d "$DEST_PATH" ]; then
   exit 1
 fi
 
-TIMESTAMP=$(date +%d.%m.%Y_%H:%M:%S)
+TIMESTAMP=$(date +%Y-%m-%d)
 BACKUP_DIR="$DEST_PATH/backup_$TIMESTAMP"
 mkdir -p "$BACKUP_DIR"
 
