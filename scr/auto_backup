@@ -88,7 +88,6 @@ green "Starting backup: $(date)" | tee -a "$LOG_FILE"
 run_rsync /home/"$USER_NAME"/ "$BACKUP_DIR/$USER_NAME"/ &
 run_rsync /data/ "$BACKUP_DIR/data/" &
 run_rsync /etc/ "$BACKUP_DIR/etc/" &
-run_rsync /usr/local/bin/ "$BACKUP_DIR/bin/" &
 wait
 
 echo "Synchronizing file system..." | tee -a "$LOG_FILE"
