@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 set -euo pipefail
 
 __NAME__="${0##*/}"
