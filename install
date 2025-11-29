@@ -20,7 +20,6 @@ CFGS_ALL["$base_dir/vimrc"]="$HOME/.vimrc"
 CFGS_ALL["$base_dir/gitconfig"]="$HOME/.gitconfig"
 CFGS_ALL["$base_dir/tmux.conf"]="$HOME/.config/tmux/tmux.conf"
 #mako
-#lf
 
 # extra
 CFGS_ALL["$extra_dir/fstab"]="/etc/fstab"
