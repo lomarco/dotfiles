@@ -18,7 +18,7 @@ CFGS["$base_dir/config_i3status"]="$HOME/.config/i3status/config"
 CFGS["$base_dir/zshrc"]="$HOME/.zshrc"
 CFGS["$base_dir/vimrc"]="$HOME/.vimrc"
 CFGS["$base_dir/gitconfig"]="$HOME/.gitconfig"
-CFGS["$base_dir/tmux.conf"]="$HOME/.tmux.conf"
+CFGS["$base_dir/tmux.conf"]="$HOME/.config/tmux/tmux.conf"
 #mako
 #lf
 
