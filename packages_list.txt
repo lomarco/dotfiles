@@ -126,6 +126,7 @@ Base packages:
   "zk"
   "yarn"
   "glow"
+  "stow"
 
 
 
