@@ -9,6 +9,7 @@
 
 - [Toolchain](#toolchain)
 - [Gallery](#gallery)
+- [Install Guide](#install_guide)
 - [Sway Hotkeys](#sway-hotkeys)
 - [NeoVim Config](#Neovim-config)
 - [Repository Structure](#repository-structure)
@@ -66,6 +67,12 @@
   <br />
   <img src="3.png" alt="Image 2" width="1000" />
 </p>
+
+## Install Guide
+To install run the commands:
+```bash
+stow -v -t ~ .
+```
 
 ## Sway Hotkeys
 
