@@ -1,7 +1,7 @@
 # Lomarco's Dotfiles
 
 <p align="center">
-  <img src="docs/1.png" alt="Lomarco's Dotfiles preview" width="1000" />
+  <img src="1.png" alt="Lomarco's Dotfiles preview" width="1000" />
 </p>
 
 <details open>
@@ -15,25 +15,18 @@
   - [Base](#base)
     - [Sway](#sway)
     - [I3status](#i3status)
+    - [Zsh](#zsh)
     - [Foot](#foot)
-    - [Git Config](#git-config)
     - [NeoVim](#neovim)
     - [Tmux](#tmux)
     - [Vim](#vim)
-    - [Zsh](#zsh)
-  - [Extra](#extra)
-    - [Fstab](#fstab)
-    - [Pacman](#pacman)
-    - [Iwd](#iwd)
-    - [Mkinitcpio](#mkinitcpio)
-    - [Kernel](#kernel)
-    - [Makepkg](#makepkg)
+    - [Git Config](#git-config)
   - [Scripts](#scripts)
     - [auto\_backup](#auto_backup)
     - [efistub-boot](#efistub-boot)
     - [testkernel](#testkernel)
     - [aupa](#aupa)
-    - [crpt/_price](#crpt_price)
+    - [crpt\_price](#crpt_price)
 - [License](#license)
 
 </details>
@@ -41,10 +34,6 @@
 ## Toolchain
 
 <div align="center">
-
-**OS:** `Arch Linux`
-
-**Kernel:** `Linux Zen`
 
 **Window Manager:** `Sway`
 
@@ -58,30 +47,24 @@
 
 **Multiplexer:** `Tmux`
 
-**Notification Manager:** `Mako`
-
-**AUR Helper:** `Paru`
-
 **Password Manager:** `Pass`
 
-**Bootloader:** `EFI Stub`
-
-**WiFi Manager:** `Iwd`
+**WiFi Manager:** `Network Manager`
 
 **File Manager:** `Yazi`
 
 **Pdf Reader:** `Zathura`
 
-**Task Manager** `Task Warrior`
+**Bootloader:** `EFI Stub`
 
 </div>
 
 ## Gallery
 
 <p align="center">
-  <img src="docs/2.png" alt="Gallery image 1" width="1000" />
+  <img src="2.png" alt="Image 1" width="1000" />
   <br />
-  <img src="docs/3.png" alt="Gallery image 2" width="1000" />
+  <img src="3.png" alt="Image 2" width="1000" />
 </p>
 
 ## Sway Hotkeys
@@ -101,7 +84,7 @@
 | **Focus window**          | `Super + {H, J, K, L}` |
 | **Fullscreen window**     | `Super + F`         |
 
-Other hotkeys are available in the [sway config](base/config).
+Other hotkeys are available in the [sway config](.config/sway/config).
 
 ## NeoVim Config
 Neovim config is a minimalistic, single-file configuration for programming in C, ASM, and C++, working with Git, and taking notes in Markdown. It includes essential plugins and sensible defaults for a smooth coding workflow.
@@ -166,35 +149,26 @@ LSP shortcuts:
 ```
 ## Repository Structure
 
-### [packages\_list.txt](packages_list.txt) - List of all neaded packages for my system.
+### [packages\_list.md](packages_list.md) - List of all neaded packages for my system.
 
 ### Base
 
-- [Sway](base/config)
-- [I3status](base/config_i3status)
-- [Foot](base/foot.ini)
-- [Git config](base/gitconfig)
-- [NeoVim](base/init.lua)
-- [Tmux](base/tmux.conf)
-- [Vim](base/vimrc)
-- [Zsh](base/zshrc)
-
-### Extra
-
-- [Fstab](extra/fstab)
-- [Pacman](extra/pacman.conf)
-- [Iwd](extra/main.conf)
-- [Mkinitcpio](extra/mkinitcpio.conf)
-- [Kernel](extra/kernel_config)
-- [Makepkg](extra/makepkg.conf)
+- [Sway](.config/sway/config)
+- [I3status](.config/i3status/config)
+- [Foot](.config/foot/foot.ini)
+- [Zsh](.zshrc)
+- [NeoVim](.config/nvim/init.lua)
+- [Tmux](.config/tmux/tmux.conf)
+- [Vim](.vimrc)
+- [Git config](.gitconfig)
 
 ### Scripts
 
-- [auto\_backup](scr/auto_backup)
-- [efistub-boot](scr/efistub-boot)
-- [testkernel](scr/testkernel)
-- [aupa](scr/aupa)
-- [crpt/_price](scr/crpt_price)
+- [auto\_backup](bin/auto_backup)
+- [efistub-boot](bin/efistub-boot)
+- [testkernel](bin/testkernel)
+- [aupa](bin/aupa)
+- [crpt\_price](bin/crpt_price)
 
 ## License
-Flux is licensed under the Unlicense. See the LICENSE for details.
+Lomarco's Dotfiles is licensed under the Unlicense. See the [license](LICENSE) for details.
