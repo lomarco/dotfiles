@@ -14,7 +14,7 @@
 - [NeoVim Config](#Neovim-config)
 - [Repository Structure](#repository-structure)
   - [Base](#base)
-    - [Sway](#sway)
+    - [Sway](-sway)
     - [I3status](#i3status)
     - [Zsh](#zsh)
     - [Foot](#foot)
