@@ -1,6 +1,6 @@
 HOME_CONFIGS   = home
-ARCH_CONFIGS   = os-specific/arch
-NIXOS_CONFIGS  = os-specific/nixos
+ARCH_CONFIGS   = arch
+NIXOS_CONFIGS  = nixos
 HOME_TARGET    = $(HOME)
 NIXOS_TARGET   = /etc/nixos
 ARCH_TARGET    = /etc
