@@ -9,7 +9,7 @@
 
 - [Toolchain](#toolchain)
 - [Gallery](#gallery)
-- [Install Guide](#install_guide)
+- [Install Guide](#install-guide)
 - [Sway Hotkeys](#sway-hotkeys)
 - [NeoVim Config](#Neovim-config)
 - [Repository Structure](#repository-structure)
