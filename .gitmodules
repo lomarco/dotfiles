@@ -1,0 +1,6 @@
+[submodule "nixos"]
+	path = nixos
+	url = https://github.com/lomarco/dotfiles-nixos
+[submodule "arch"]
+	path = arch
+	url = https://github.com/lomarco/dotfiles-arch
