@@ -1,0 +1,3 @@
+[submodule "os-specific/arch"]
+	path = os-specific/arch
+	url = https://github.com/lomarco/dotfiles-arch
