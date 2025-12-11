@@ -79,7 +79,7 @@ Update to latest changes:
 git submodule update --remote
 ```
 
-Install and select configs(Home for example. See `./deploy --help` for information):
+Install and select configs (home config for example. See `./deploy --help` for information):
 ```bash
 ./deploy home
 ```
