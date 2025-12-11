@@ -1,3 +1,6 @@
 [submodule "os-specific/arch"]
 	path = os-specific/arch
 	url = https://github.com/lomarco/dotfiles-arch
+[submodule "os-specific/nixos"]
+	path = os-specific/nixos
+	url = https://github.com/lomarco/dotfiles-nixos
