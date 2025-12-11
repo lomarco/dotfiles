@@ -69,9 +69,19 @@
 </p>
 
 ## Install Guide
-To install run the commands:
+Init and update submodules:
 ```bash
-stow -v -t ~ .
+git submodule update --init --recursive
+```
+
+Update to latest changes:
+```bash
+git submodule update --remote
+```
+
+Install and select configs(Home for example. See `./deploy --help` for information):
+```bash
+./deploy home
 ```
 
 ## Sway Hotkeys
