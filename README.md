@@ -91,7 +91,7 @@ stow -v -t ~ .
 | **Focus window**          | `Super + {H, J, K, L}` |
 | **Fullscreen window**     | `Super + F`         |
 
-Other hotkeys are available in the [sway config](.config/sway/config).
+Other hotkeys are available in the [sway config](home/.config/sway/config).
 
 ## NeoVim Config
 Neovim config is a minimalistic, single-file configuration for programming in C, ASM, and C++, working with Git, and taking notes in Markdown. It includes essential plugins and sensible defaults for a smooth coding workflow.
@@ -160,14 +160,14 @@ LSP shortcuts:
 
 ### Base
 
-- [Sway](.config/sway/config)
-- [I3status](.config/i3status/config)
-- [Foot](.config/foot/foot.ini)
-- [Zsh](.zshrc)
-- [NeoVim](.config/nvim/init.lua)
-- [Tmux](.config/tmux/tmux.conf)
-- [Vim](.vimrc)
-- [Git config](.gitconfig)
+- [Sway](home/.config/sway/config)
+- [I3status](home/.config/i3status/config)
+- [Foot](home/.config/foot/foot.ini)
+- [Zsh](home/.zshrc)
+- [NeoVim](home/.config/nvim/init.lua)
+- [Tmux](home/.config/tmux/tmux.conf)
+- [Vim](home/.vimrc)
+- [Git config](home/.gitconfig)
 
 ### Scripts
 
