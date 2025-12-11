@@ -23,11 +23,11 @@
     - [Vim](#vim)
     - [Git Config](#git-config)
   - [Scripts](#scripts)
-    - [auto\_backup](#auto_backup)
+    - [auto\_backup](#auto-backup)
     - [efistub-boot](#efistub-boot)
     - [testkernel](#testkernel)
     - [aupa](#aupa)
-    - [crpt\_price](#crpt_price)
+    - [crpt\_price](#crpt-price)
 - [License](#license)
 
 </details>
