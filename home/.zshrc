@@ -420,7 +420,7 @@ bindkey -v
 bindkey -M viins "jk" vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
 
-alias ls='ls --color=auto'
+alias ls='ls --color=tty'
 alias c='clear'
 
 alias gco='git checkout'
