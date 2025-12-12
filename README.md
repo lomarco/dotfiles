@@ -84,6 +84,51 @@ Install and select configs (home config for example. See `make help` for informa
 make home
 ```
 
+## Instalation Nixos guide
+Become root:
+```bash
+sudo -i
+```
+
+Launch wpa_supplicant:
+```bash
+systemctl start wpa_supplicant
+wpa_cli
+```
+
+In wpa_cli:
+```plain
+add_network
+set_network 0 ssid "YOUR_SSID_NETWORK"
+set_network 0 psk "YOUR_PASSWORD"
+enable_network 0
+quit
+```
+
+Clone dotfiles repo:
+```bash
+git clone --depth 1 --recursive https://github.com/lomarco/dotfiles.git /mnt/nixos-config
+cd /mnt/nixos-config
+nix flake update
+```
+
+Create partitions on disk:
+```bash
+nix run github:nix-community/disko -- --mode disko ./disko.nix
+```
+
+Mount root:
+```bash
+mount /dev/disk/by-label/nixos-root /mnt
+```
+
+Install system:
+```bash
+nixos-install --flake .#hostname --no-root-passwd
+passwd
+reboot
+````
+
 ## Sway Hotkeys
 
 | Action                    | Shortcut            |
