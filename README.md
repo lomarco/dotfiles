@@ -108,7 +108,7 @@ quit
 Clone dotfiles repo:
 ```bash
 git clone --depth 1 --recursive https://github.com/lomarco/dotfiles.git /mnt/nixos-config
-cd /mnt/nixos-config
+cd /mnt/nixos-config/nixos
 nix flake update
 ```
 
@@ -124,8 +124,7 @@ mount /dev/disk/by-label/nixos-root /mnt
 
 Install system:
 ```bash
-nixos-install --flake .#hostname --no-root-passwd
-passwd
+nixos-install --flake .#hostname
 reboot
 ````
 
