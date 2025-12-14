@@ -109,12 +109,12 @@ Clone dotfiles repo:
 ```bash
 git clone --depth 1 --recursive https://github.com/lomarco/dotfiles.git /mnt/nixos-config
 cd /mnt/nixos-config/nixos
-nix flake update
+nix --extra-experimental-features "flakes nix-command" flake update
 ```
 
 Create partitions on disk:
 ```bash
-nix run github:nix-community/disko -- --mode disko ./disko.nix
+nix run --extra-experimental-features "flakes nix-command" github:nix-community/disko -- --mode disko ./disko.nix
 ```
 
 Mount root:
