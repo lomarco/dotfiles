@@ -85,7 +85,7 @@ make home
 ```
 
 ## Instalation Nixos guide
-Become root:
+Become an root:
 ```bash
 sudo -i
 ```
