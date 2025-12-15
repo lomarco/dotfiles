@@ -32,6 +32,7 @@ Base packages:
   iwd
   wlsunset
   grim
+  brightnessctl
   slurp
   foot
   tmux
@@ -86,6 +87,7 @@ Base packages:
   # ttf-cascadia-code-nerd
   # ttf-cascadia-code
   ttf-dejavu-nerd
+  ttf-dejavu
   gnu-free-fonts
   swayidle
   swaylock
