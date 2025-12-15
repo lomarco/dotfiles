@@ -29,7 +29,7 @@ Base packages:
   links
   vulkan-radeon
   zsh
-  iwd
+  networkmanager
   wlsunset
   grim
   brightnessctl
