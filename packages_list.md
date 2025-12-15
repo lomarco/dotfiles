@@ -1,5 +1,5 @@
 AUR packages:
-  waterfox
+  waterfox-bin
   scc
   man-pages-dev
   pacgraph
