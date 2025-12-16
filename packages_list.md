@@ -129,6 +129,7 @@ Base packages:
   yarn
   glow
   stow
+  ghc
 
 
 
