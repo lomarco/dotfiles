@@ -1,3 +1,10 @@
+# git clone --depth 1 https://github.com/tarjoilija/zgen.git $HOME/.config/zgen
+source "${HOME}/.config/zgen/zgen.zsh"
+if ! zgen saved; then
+  zgen load zsh-users/zsh-autosuggestions
+  zgen load zdharma-continuum/fast-syntax-highlighting
+fi
+
 ############################## https://github.com/woefe/git-prompt.zsh
 autoload -Uz colors
 colors
