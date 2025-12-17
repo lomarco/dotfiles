@@ -57,7 +57,7 @@ setopt PROMPT_SUBST
 
 # Use --show-stash for git versions newer than 2.35.0
 _zsh_git_prompt_git_version=$(command git version)
-if [[ "${_zsh_git_prompt_git_version:12}" == 2.<35->.<-> ]]; then
+if [[ ${_zsh_git_prompt_git_version:12} =~ '^2\.(3[5-9]|[4-9][0-9])\.' ]]; then
     _zsh_git_prompt_git_cmd() {
         GIT_OPTIONAL_LOCKS=0 command git status --show-stash --branch --porcelain=v2 2>&1 \
             || echo "fatal: git command failed"
@@ -275,26 +275,16 @@ function _zsh_git_prompt_async_request() {
     typeset -g _ZSH_GIT_PROMPT_ASYNC_FD _ZSH_GIT_PROMPT_ASYNC_PID
 
     # If we've got a pending request, cancel it
-    if [[ -n "$_ZSH_GIT_PROMPT_ASYNC_FD" ]] && { true <&$_ZSH_GIT_PROMPT_ASYNC_FD } 2>/dev/null;
-    then
-
-        # Close the file descriptor and remove the handler
-        exec {_ZSH_GIT_PROMPT_ASYNC_FD}<&-
-        zle -F $_ZSH_GIT_PROMPT_ASYNC_FD
-
-        # Zsh will make a new process group for the child process only if job
-        # control is enabled (MONITOR option)
-        if [[ -o MONITOR ]]; then
-            # Send the signal to the process group to kill any processes that may
-            # have been forked by the suggestion strategy
-            kill -TERM -$_ZSH_GIT_PROMPT_ASYNC_PID 2>/dev/null
-        else
-            # Kill just the child process since it wasn't placed in a new process
-            # group. If the suggestion strategy forked any child processes they may
-            # be orphaned and left behind.
-            kill -TERM $_ZSH_GIT_PROMPT_ASYNC_PID 2>/dev/null
-        fi
+    if [[ -n "$_ZSH_GIT_PROMPT_ASYNC_FD" && -r "$_ZSH_GIT_PROMPT_ASYNC_FD" ]] 2>/dev/null; then
+      exec {_ZSH_GIT_PROMPT_ASYNC_FD}<&-
+      zle -F $_ZSH_GIT_PROMPT_ASYNC_FD
+    
+    if [[ -o MONITOR ]]; then
+        kill -TERM -$_ZSH_GIT_PROMPT_ASYNC_PID 2>/dev/null
+    else
+        kill -TERM $_ZSH_GIT_PROMPT_ASYNC_PID 2>/dev/null
     fi
+fi
 
     # Fork a process to fetch the git status and open a pipe to read from it
     exec {_ZSH_GIT_PROMPT_ASYNC_FD}< <(
@@ -333,7 +323,7 @@ function _zsh_git_prompt_callback() {
     if [[ -z "$2" || "$2" == "hup" ]]; then
         # Read output from fd
         fd_data="$(cat <&$1)"
-        output=( ${(s:##secondary##:)fd_data} )
+        output=(${fd_data##*##secondary##} ${fd_data%%##secondary##*})
         _ZSH_GIT_PROMPT_STATUS_OUTPUT="${output[1]}"
         _ZSH_GIT_PROMPT_STATUS_SECONDARY_OUTPUT="${output[2]}"
 
