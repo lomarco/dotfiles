@@ -1,10 +1,3 @@
-# git clone --depth 1 https://github.com/tarjoilija/zgen.git $HOME/.config/zgen
-source "${HOME}/.config/zgen/zgen.zsh"
-if ! zgen saved; then
-  zgen load zsh-users/zsh-autosuggestions
-  zgen load zdharma-continuum/fast-syntax-highlighting
-fi
-
 ############################## https://github.com/woefe/git-prompt.zsh
 autoload -Uz colors
 colors
@@ -396,6 +389,22 @@ else
     function gitprompt_secondary() { }
 fi
 ############################## https://github.com/woefe/git-prompt.zsh
+# typeset -gr ZGEN_DIR=~/.cache/zgen
+# [[ -d $ZGEN_DIR ]] || git clone --depth 1 https://github.com/tarjoilija/zgen.git $ZGEN_DIR
+# source $ZGEN_DIR/zgen.zsh
+# if ! zgen saved; then
+#   zgen load zsh-users/zsh-autosuggestions
+#   zgen load zdharma-continuum/fast-syntax-highlighting
+#   zgen save
+# fi
+
+
+typeset -gr ZNAP_DIR=~/.cache/znap
+[[ -d $ZNAP_DIR ]] || git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git $ZNAP_DIR
+source $ZNAP_DIR/znap.zsh
+znap source zsh-users/zsh-autosuggestions
+znap source zdharma-continuum/fast-syntax-highlighting
+
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
   eval "$(ssh-agent -s)"
