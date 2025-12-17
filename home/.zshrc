@@ -389,15 +389,6 @@ else
     function gitprompt_secondary() { }
 fi
 ############################## https://github.com/woefe/git-prompt.zsh
-# typeset -gr ZGEN_DIR=~/.cache/zgen
-# [[ -d $ZGEN_DIR ]] || git clone --depth 1 https://github.com/tarjoilija/zgen.git $ZGEN_DIR
-# source $ZGEN_DIR/zgen.zsh
-# if ! zgen saved; then
-#   zgen load zsh-users/zsh-autosuggestions
-#   zgen load zdharma-continuum/fast-syntax-highlighting
-#   zgen save
-# fi
-
 
 typeset -gr ZNAP_DIR=~/.cache/znap
 [[ -d $ZNAP_DIR ]] || git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git $ZNAP_DIR
