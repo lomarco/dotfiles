@@ -448,6 +448,6 @@ alias mc='make clean'
 alias mi='make install'
 alias mr='make rebuild'
 
-export GPG_TTY=$TTY
+export GPG_TTY=$(tty)
 
 zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
