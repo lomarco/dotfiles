@@ -130,7 +130,6 @@ Base packages:
   glow
   stow
   ghc
-  ghc-libs
 
 
 
