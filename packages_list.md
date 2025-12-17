@@ -1,6 +1,7 @@
 AUR packages:
   waterfox-bin
   scc
+  ghcup-hs-bin
   man-pages-dev
   pacgraph
   feather-wallet
@@ -129,7 +130,6 @@ Base packages:
   yarn
   glow
   stow
-  ghc
 
 
 
