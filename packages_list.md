@@ -130,6 +130,7 @@ Base packages:
   yarn
   glow
   stow
+  pass-otp
 
 
 
