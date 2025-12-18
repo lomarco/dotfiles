@@ -143,3 +143,4 @@ Extra packages:
   wireshark-qt
   task
   electrum
+  prismlauncher
