@@ -439,5 +439,6 @@ alias mi='make install'
 alias mr='make rebuild'
 
 export GPG_TTY=$TTY
+export PATH="$PATH:$HOME/.ghcup/bin"
 
 zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
