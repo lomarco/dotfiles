@@ -131,6 +131,7 @@ Base packages:
   glow
   stow
   pass-otp
+  mutt
 
 
 
