@@ -132,6 +132,7 @@ Base packages:
   stow
   pass-otp
   mutt
+  msmtp
 
 
 
