@@ -156,7 +156,7 @@ require('lazy').setup({
         vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format() end, opts)
       end
 
-      local servers = { 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'marksman' }
+      local servers = { 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'hls' }
       for _, server in ipairs(servers) do
         vim.lsp.config[server] = vim.tbl_deep_extend("force", vim.lsp.config[server] or {}, {
           on_attach = on_attach,
@@ -203,7 +203,7 @@ require('lazy').setup({
     dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
     opts = {
       automatic_installation = true,
-      ensure_installed = { "lua_ls", "clangd", "marksman" }
+      ensure_installed = { "lua_ls", "clangd", "hls" }
     }
   },
   {
