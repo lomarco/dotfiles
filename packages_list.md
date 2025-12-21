@@ -131,8 +131,8 @@ Base packages:
   glow
   stow
   pass-otp
-  neomutt
-  msmtp
+  ninja
+  unzip
 
 
 
