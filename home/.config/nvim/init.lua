@@ -89,6 +89,26 @@ vim.keymap.set('n', '<leader>h', ':lua ToggleTerminal()<CR>', { noremap = true, 
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
 
+-- Building
+local M = {}
+
+local build_rules = {
+  haskell = { build = "cabal build", run = "cabal run" },
+  c = { build = "make", run = "make run" },
+  cpp = { build = "make", run = "make run" },
+  rust = { build = "cargo build", run = "cargo run" },
+}
+
+function M.uni_make()
+  local ft = vim.bo.filetype
+  local rule = build_rules[ft] or build_rules.c -- hallback
+  local cmd = string.format("%s && %s", rule.build, rule.run)
+  vim.cmd("!" .. cmd)
+end
+
+vim.api.nvim_create_user_command('UniMake', M.uni_make, {})
+vim.keymap.set('n', '<leader>u', '<cmd>UniMake<CR>', { desc = 'Universal build & run' })
+
 
 ------------ PLUGINS
 require('lazy').setup({
