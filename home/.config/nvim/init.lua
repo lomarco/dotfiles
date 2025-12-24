@@ -93,15 +93,15 @@ vim.keymap.set('n', '<leader>q', ':wincmd c<CR>', { noremap = true, silent = tru
 local M = {}
 
 local build_rules = {
-  haskell = { build = "cabal build", run = "cabal run" },
   c = { build = "make", run = "make run" },
+  haskell = { build = "cabal build", run = "cabal run" },
   cpp = { build = "make", run = "make run" },
   rust = { build = "cargo build", run = "cargo run" },
 }
 
 function M.uni_make()
   local ft = vim.bo.filetype
-  local rule = build_rules[ft] or build_rules.c -- hallback
+  local rule = build_rules[ft] or build_rules.c -- fallback
   local cmd = string.format("%s && %s", rule.build, rule.run)
   vim.cmd("!" .. cmd)
 end
