@@ -92,9 +92,7 @@ vim.keymap.set('n', '<leader>h', '<Cmd>ToggleTerminal<CR>', { noremap = true, si
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
 
--- Building
-local M = {}
-
+-- Universal Build & Run Command
 local build_rules = {
   c = { build = "make", run = "make run" },
   haskell = { build = "cabal build", run = "cabal run" },
@@ -102,15 +100,15 @@ local build_rules = {
   rust = { build = "cargo build", run = "cargo run" },
 }
 
-function M.uni_make()
+local function UniMake(opts)
   local ft = vim.bo.filetype
   local rule = build_rules[ft] or build_rules.c -- fallback
   local cmd = string.format("%s && %s", rule.build, rule.run)
   vim.cmd("!" .. cmd)
 end
 
-vim.api.nvim_create_user_command('UniMake', M.uni_make, {})
-vim.keymap.set('n', '<leader>u', '<cmd>UniMake<CR>', { desc = 'Universal build & run' })
+vim.api.nvim_create_user_command('UniMake', UniMake, {})
+vim.keymap.set('n', '<leader>u', '<Cmd>UniMake<CR>', { noremap = true, silent = true })
 
 
 ------------ PLUGINS
