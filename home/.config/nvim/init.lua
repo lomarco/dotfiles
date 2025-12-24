@@ -59,8 +59,8 @@ vim.keymap.set('n', 'gp', ':bprevious<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'gw', ':bdelete<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'ge', ':enew<CR>', { noremap = true, silent = true })
 
--- Terminal
-function ToggleTerminal()
+-- Terminal Toggle Command
+local function ToggleTerminal(opts)
   local terminal_bufnr = vim.g.terminal_bufnr or nil
 
   if terminal_bufnr and vim.api.nvim_buf_is_valid(terminal_bufnr) then
@@ -76,6 +76,7 @@ function ToggleTerminal()
     else
       vim.cmd("botright split")
       vim.api.nvim_win_set_buf(0, terminal_bufnr)
+      vim.cmd("startinsert")
     end
   else
     vim.cmd("botright split")
@@ -85,7 +86,9 @@ function ToggleTerminal()
   end
 end
 
-vim.keymap.set('n', '<leader>h', ':lua ToggleTerminal()<CR>', { noremap = true, silent = true })
+vim.api.nvim_create_user_command('ToggleTerminal', ToggleTerminal, {})
+
+vim.keymap.set('n', '<leader>h', '<Cmd>ToggleTerminal<CR>', { noremap = true, silent = true })
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
 
