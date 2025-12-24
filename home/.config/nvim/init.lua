@@ -102,7 +102,7 @@ local build_rules = {
 
 local function UniMake(opts)
   local ft = vim.bo.filetype
-  local rule = build_rules[ft] or build_rules.c -- fallback
+  local rule = build_rules[ft] or build_rules.c -- fallback to C
   local cmd = string.format("%s && %s", rule.build, rule.run)
   vim.cmd("!" .. cmd)
 end
