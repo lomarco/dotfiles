@@ -7,9 +7,7 @@
   pacgraph
   feather-wallet
 
-
-
-Base packages:
+# Base packages
   sudo
   vim
   neovim
@@ -118,9 +116,7 @@ Base packages:
   ninja
   unzip
 
-
-
-Extra packages:
+# Extra packages
   docker
   docker-compose
   nix
