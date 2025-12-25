@@ -18,7 +18,6 @@ Base packages:
   base-devel
   git
   make
-  # mako
   sway
   wayland
   mesa
@@ -39,7 +38,6 @@ Base packages:
   tmux
   lldb
   gdb
-  wireguard-tools
   translate-shell
   bluez
   bluez-utils
@@ -60,7 +58,6 @@ Base packages:
   mpv
   swayimg
   swaybg
-  # distcc
   lld
   wmenu
   less
@@ -82,11 +79,8 @@ Base packages:
   rustup
   dosfstools
   qemu
-  # wayvnc
   arch-audit
   pacman-contrib
-  # ttf-cascadia-code-nerd
-  # ttf-cascadia-code
   ttf-dejavu-nerd
   ttf-dejavu
   gnu-free-fonts
@@ -94,15 +88,10 @@ Base packages:
   swaylock
   pavucontrol
   valgrind
-  # qemu-system-arm
-  # qemu-system-arm-firmware
   fzf
   xorg-xwayland
-  # libnotify
   traceroute
-  apache
   tldr
-  strace
   hexer
   radare2
   ctags
@@ -114,13 +103,7 @@ Base packages:
   nftables
   yazi
   tcpdump
-  avr-binutils
-  avr-gdb
-  avr-gcc
-  avrdude
-  avr-libc
   pandoc-cli
-  mat2
   i2pd
   libvirt
   virt-manager
@@ -146,3 +129,23 @@ Extra packages:
   task
   electrum
   prismlauncher
+
+  <!-- mako -->
+  <!-- libnotify -->
+  <!-- distcc -->
+  <!-- wayvnc -->
+  <!-- ttf-cascadia-code-nerd -->
+  <!-- ttf-cascadia-code -->
+  <!-- qemu-system-arm -->
+  <!-- qemu-system-arm-firmware -->
+  <!-- wireguard-tools -->
+  <!-- apache -->
+  <!-- strace -->
+  <!-- avr-binutils -->
+  <!-- avr-gdb -->
+  <!-- avr-gcc -->
+  <!-- avrdude -->
+  <!-- avr-libc -->
+  <!-- mat2 -->
+
+  qrtool
