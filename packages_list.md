@@ -1,12 +1,3 @@
-# AUR packages
-<!-- waterfox-bin -->
-icecat-bin
-scc
-ghcup-hs-bin
-man-pages-dev
-pacgraph
-feather-wallet
-
 # Base packages
 sudo
 vim
@@ -115,6 +106,15 @@ stow
 pass-otp
 ninja
 unzip
+
+# AUR packages
+<!-- waterfox-bin -->
+icecat-bin
+scc
+ghcup-hs-bin
+man-pages-dev
+pacgraph
+feather-wallet
 
 # Extra packages
 docker
