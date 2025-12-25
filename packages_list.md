@@ -1,6 +1,6 @@
 # AUR packages
 <!-- waterfox-bin -->
-icecat
+icecat-bin
 scc
 ghcup-hs-bin
 man-pages-dev
