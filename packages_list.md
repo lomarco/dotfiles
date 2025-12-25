@@ -126,7 +126,7 @@ wireshark-qt
 task
 electrum
 prismlauncher
-
+qrtool
 <!-- mako -->
 <!-- libnotify -->
 <!-- distcc -->
@@ -144,5 +144,3 @@ prismlauncher
 <!-- avrdude -->
 <!-- avr-libc -->
 <!-- mat2 -->
-
-qrtool
