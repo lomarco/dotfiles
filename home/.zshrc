@@ -413,9 +413,9 @@ setopt auto_list
 autoload -Uz compinit
 compinit -i
 
-# bindkey -v
-# bindkey -M viins "jk" vi-cmd-mode
-# bindkey '^R' history-incremental-search-backward
+bindkey -v
+bindkey -M viins "jk" vi-cmd-mode
+bindkey '^R' history-incremental-search-backward
 
 alias ls='ls --color=tty'
 alias la='ls -la'
