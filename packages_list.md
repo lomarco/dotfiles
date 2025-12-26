@@ -108,7 +108,6 @@ ninja
 unzip
 
 # AUR packages
-<!-- waterfox-bin -->
 icecat-bin
 scc
 ghcup-hs-bin
