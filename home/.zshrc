@@ -46,7 +46,7 @@ setopt PROMPT_SUBST
 
 # Override PROMPT if it does not use the gitprompt function
 [[ "$PROMPT" != *gitprompt* && "$RPROMPT" != *gitprompt* ]] \
-  && PROMPT='%B%40<..<%~ %b$(gitprompt)' \
+  && PROMPT='%B%m@%n%b %<..<%~ $(gitprompt)' \
   && PROMPT+='%(!.%(?.%F{green}.%F{red}[%?] )#%f.%(?.%F{green}.%F{red}[%?] )$%f) '
 
 # Find an awk implementation
@@ -413,9 +413,9 @@ setopt auto_list
 autoload -Uz compinit
 compinit -i
 
-bindkey -v
-bindkey -M viins "jk" vi-cmd-mode
-bindkey '^R' history-incremental-search-backward
+# bindkey -v
+# bindkey -M viins "jk" vi-cmd-mode
+# bindkey '^R' history-incremental-search-backward
 
 alias ls='ls --color=tty'
 alias la='ls -la'
