@@ -426,7 +426,7 @@ zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
 export PATH="$PATH:$HOME/.ghcup/bin"
 
 if command -v keychain >/dev/null 2>&1; then
-  eval "$(keychain --quiet -Q --noask  --eval --confallhosts --ssh-allow-gpg)"
+  eval "$(keychain --quiet -Q --noask  --eval)"
 fi
 
 export GPG_TTY=$TTY
