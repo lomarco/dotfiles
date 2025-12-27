@@ -428,3 +428,5 @@ typeset -gr ZNAP_DIR=~/.cache/znap
 source $ZNAP_DIR/znap.zsh
 znap source zsh-users/zsh-autosuggestions
 znap source zdharma-continuum/fast-syntax-highlighting
+
+zmodload zsh/zprof
