@@ -413,6 +413,7 @@ alias ls='ls --color=tty' \
   mr='make rebuild'
 
 export PATH="$PATH:$HOME/.ghcup/bin"
+zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
 
 if ! ssh-add -l >/dev/null 2>&1; then
   eval "$(ssh-agent -s)"
