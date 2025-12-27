@@ -379,6 +379,9 @@ else
     function gitprompt_secondary() { }
 fi
 ############################## https://github.com/woefe/git-prompt.zsh
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 HISTFILE=~/.cache/zh
 HISTSIZE=1000
@@ -423,10 +426,16 @@ export GPG_TTY=$TTY
 gpg-connect-agent updatestartuptty /bye 1>/dev/null
 export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
 
-typeset -gr ZNAP_DIR=~/.cache/znap
-[[ -d $ZNAP_DIR ]] || git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git $ZNAP_DIR
-source $ZNAP_DIR/znap.zsh
-znap source zsh-users/zsh-autosuggestions
-znap source zdharma-continuum/fast-syntax-highlighting
+typeset -gr ZINIT_DIR=~/.cache/zinit
+[[ -d $ZINIT_DIR ]] || git clone --depth 1 https://github.com/zdharma-continuum/zinit $ZINIT_DIR
+source $ZINIT_DIR/zinit.zsh
+
+zinit wait lucid for \
+  zsh-users/zsh-autosuggestions \
+  zdharma-continuum/fast-syntax-highlighting
+
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 zmodload zsh/zprof
