@@ -425,9 +425,7 @@ zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
 
 export PATH="$PATH:$HOME/.ghcup/bin"
 
-eval $(keychain --quiet -Q --confallhosts --noask --eval)
-# ~/.ssh/hub ~/.ssh/berg)
-# --ignore-missing
+eval $(keychain --quiet -Q --confallhosts --ignore-missing --noask --eval)
 
 export GPG_TTY=$TTY
 gpg-connect-agent updatestartuptty /bye
