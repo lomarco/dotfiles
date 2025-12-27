@@ -387,6 +387,9 @@ znap source zsh-users/zsh-autosuggestions
 znap source zdharma-continuum/fast-syntax-highlighting
 
 
+export GPG_TTY=$TTY
+export PATH="$PATH:$HOME/.ghcup/bin"
+
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
   eval "$(ssh-agent -s)"
 fi
@@ -438,8 +441,5 @@ alias m='make'
 alias mc='make clean'
 alias mi='make install'
 alias mr='make rebuild'
-
-export GPG_TTY=$TTY
-export PATH="$PATH:$HOME/.ghcup/bin"
 
 zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
