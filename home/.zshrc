@@ -424,7 +424,7 @@ zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
 
 export PATH="$PATH:$HOME/.ghcup/bin"
 
-if [ -z "$SSH_AGENT_PID" ]; then
+if ! ssh-add -l >/dev/null 2>&1; then
   eval "$(ssh-agent -s)"
   ssh-add $(grep -h '^ *IdentityFile' ~/.ssh/config 2>/dev/null | \
     awk '{print $2}' | sed "s|^~|$HOME|" | grep -v '\.pub') 2>/dev/null
