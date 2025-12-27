@@ -106,7 +106,6 @@ stow
 pass-otp
 ninja
 unzip
-keychain
 
 # AUR packages
 waterfox-bin
