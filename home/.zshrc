@@ -426,16 +426,30 @@ export GPG_TTY=$TTY
 gpg-connect-agent updatestartuptty /bye 1>/dev/null
 export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
 
-typeset -gr ZINIT_DIR=~/.cache/zinit
-[[ -d $ZINIT_DIR ]] || git clone --depth 1 https://github.com/zdharma-continuum/zinit $ZINIT_DIR
-source $ZINIT_DIR/zinit.zsh
+zmodload zsh/zprof
 
-zinit wait lucid for \
-  zsh-users/zsh-autosuggestions \
-  zdharma-continuum/fast-syntax-highlighting
+typeset -gr ZSH_PKGS_DIR=~/.cache/ZSH_PKGS
+[[ ! -d $ZSH_PKGS_DIR ]] && mkdir -p $ZSH_PKGS_DIR
 
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+update_zsh_pkgs() {
+  local pkgs=(
+    "zsh-users/zsh-autosuggestions"
+    "zdharma-continuum/fast-syntax-highlighting" 
+    "romkatv/powerlevel10k"
+  )
+  
+  for pkg in "${pkgs[@]}"; do
+    local dir="$ZSH_PKGS_DIR/${pkg##*/}"
+    [[ -d $dir/.git ]] && (cd $dir && git pull) || git clone --depth=1 "https://github.com/$pkg.git" "$dir" &
+    zcompile -U **/*.zsh(**/)
+  done
+  wait
+}
+
+source $ZSH_PKGS_DIR/powerlevel10k/powerlevel10k.zsh-theme
+source $ZSH_PKGS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSH_PKGS_DIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+alias zsh-update="rm -rf ~/.cache/ZSH_PKGS/* && update_zsh_pkgs"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-zmodload zsh/zprof
