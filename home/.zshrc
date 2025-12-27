@@ -388,7 +388,6 @@ setopt sharehistory
 setopt hist_ignore_dups
 setopt hist_reduce_blanks
 setopt extended_glob
-
 setopt auto_menu
 setopt auto_list
 
@@ -425,12 +424,14 @@ zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
 
 export PATH="$PATH:$HOME/.ghcup/bin"
 
-if command -v keychain >/dev/null 2>&1; then
-  eval "$(keychain --quiet -Q --noask  --eval)"
+if [ -z "$SSH_AGENT_PID" ]; then
+  eval "$(ssh-agent -s)"
+  ssh-add $(grep -h '^ *IdentityFile' ~/.ssh/config 2>/dev/null | \
+    awk '{print $2}' | sed "s|^~|$HOME|" | grep -v '\.pub') 2>/dev/null
 fi
 
 export GPG_TTY=$TTY
-gpg-connect-agent updatestartuptty /bye
+gpg-connect-agent updatestartuptty /bye 1>/dev/null
 export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
 
 typeset -gr ZNAP_DIR=~/.cache/znap
