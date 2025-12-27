@@ -23,6 +23,7 @@ help:
 
 home:
 	mkdir -p $(HOME_TARGET)/.config/nvim/
+	mkdir -p $(HOME_TARGET)/.gnupg/
 	stow -v -t $(HOME_TARGET) $(HOME_CONFIGS)
 
 unhome:
