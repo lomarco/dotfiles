@@ -385,8 +385,11 @@ HISTSIZE=1000
 SAVEHIST=3000
 setopt sharehistory hist_ignore_dups hist_reduce_blanks extendedglob
 
+zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path ~/.cache/zcache
 autoload -Uz compinit
-compinit -i
+compinit -C -d ~/.cache/zcompdump
 
 bindkey -v
 bindkey -M viins "jk" vi-cmd-mode
@@ -413,7 +416,6 @@ alias ls='ls --color=tty' \
   mr='make rebuild'
 
 export PATH="$PATH:$HOME/.ghcup/bin"
-zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
 
 ssh-add -l >/dev/null 2>&1 || eval $(ssh-agent -s)
 
