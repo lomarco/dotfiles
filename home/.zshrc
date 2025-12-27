@@ -69,5 +69,6 @@ source $ZSH_PKGS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH_PKGS_DIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 alias zsh-update="rm -rf ~/.cache/ZSH_PKGS/* && update_zsh_pkgs"
+alias zsh-test="hyperfine -N -w 10 -r 50 'zsh -i -c exit'"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
