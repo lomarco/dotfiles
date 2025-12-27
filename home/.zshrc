@@ -383,8 +383,7 @@ fi
 HISTFILE=~/.cache/zh
 HISTSIZE=1000
 SAVEHIST=3000
-setopt appendhistory sharehistory hist_ignore_dups hist_reduce_blanks
-setopt extended_glob auto_menu auto_list
+setopt sharehistory hist_ignore_dups hist_reduce_blanks extendedglob
 
 autoload -Uz compinit
 compinit -i
@@ -393,11 +392,25 @@ bindkey -v
 bindkey -M viins "jk" vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
 
-alias ls='ls --color=tty' la='ls -la' c='clear'
-alias gco='git checkout' gw='git switch' gd='git diff' ga='git add'
-alias gc='git commit' gp='git push' gu='git pull' gl='git log --oneline --graph --all'
-alias gs='git status --short' gb='git branch' gcl='git clone --depth 1' gr='git remote'
-alias m='make' mc='make clean' mi='make install' mr='make rebuild'
+alias ls='ls --color=tty' \
+  la='ls -la' \
+  c='clear' \
+  gco='git checkout' \
+  gw='git switch' \
+  gd='git diff' \
+  ga='git add' \
+  gc='git commit' \
+  gp='git push' \
+  gu='git pull' \
+  gl='git log --oneline --graph --all' \
+  gs='git status --short' \
+  gb='git branch' \
+  gcl='git clone --depth 1' \
+  gr='git remote' \
+  m='make' \
+  mc='make clean' \
+  mi='make install' \
+  mr='make rebuild'
 
 export PATH="$PATH:$HOME/.ghcup/bin"
 
