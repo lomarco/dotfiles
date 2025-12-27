@@ -415,11 +415,7 @@ alias ls='ls --color=tty' \
 export PATH="$PATH:$HOME/.ghcup/bin"
 zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
 
-if ! ssh-add -l >/dev/null 2>&1; then
-  eval "$(ssh-agent -s)"
-  # ssh-add $(grep -h '^ *IdentityFile' ~/.ssh/config 2>/dev/null | \
-  #   awk '{print $2}' | sed "s|^~|$HOME|" | grep -v '\.pub') 2>/dev/null
-fi
+ssh-add -l >/dev/null 2>&1 || eval $(ssh-agent -s)
 
 export GPG_TTY=$TTY
 gpg-connect-agent updatestartuptty /bye 1>/dev/null
