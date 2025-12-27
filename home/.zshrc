@@ -38,10 +38,9 @@ alias ls='ls --color=tty' \
   mr='make rebuild'
 
 export PATH="$PATH:$HOME/.ghcup/bin"
+export GPG_TTY=$TTY
 
 ssh-add -l >/dev/null 2>&1 || eval $(ssh-agent -s)
-
-export GPG_TTY=$TTY
 gpg-connect-agent updatestartuptty /bye 1>/dev/null
 export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
 
