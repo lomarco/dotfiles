@@ -380,27 +380,6 @@ else
 fi
 ############################## https://github.com/woefe/git-prompt.zsh
 
-typeset -gr ZNAP_DIR=~/.cache/znap
-[[ -d $ZNAP_DIR ]] || git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git $ZNAP_DIR
-source $ZNAP_DIR/znap.zsh
-znap source zsh-users/zsh-autosuggestions
-znap source zdharma-continuum/fast-syntax-highlighting
-
-
-export GPG_TTY=$TTY
-export PATH="$PATH:$HOME/.ghcup/bin"
-
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-  eval "$(ssh-agent -s)"
-fi
-export SSH_AUTH_SOCK
-
-if ! pgrep -u "$USER" gpg-agent > /dev/null; then
-  eval "$(gpg-agent --daemon)"
-fi
-export GPG_AGENT_INFO
-
-
 HISTFILE=~/.cache/zh
 HISTSIZE=1000
 SAVEHIST=3000
@@ -443,3 +422,19 @@ alias mi='make install'
 alias mr='make rebuild'
 
 zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
+
+export PATH="$PATH:$HOME/.ghcup/bin"
+
+eval $(keychain --quiet -Q --confallhosts --noask --eval)
+# ~/.ssh/hub ~/.ssh/berg)
+# --ignore-missing
+
+export GPG_TTY=$TTY
+gpg-connect-agent updatestartuptty /bye
+export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
+
+typeset -gr ZNAP_DIR=~/.cache/znap
+[[ -d $ZNAP_DIR ]] || git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git $ZNAP_DIR
+source $ZNAP_DIR/znap.zsh
+znap source zsh-users/zsh-autosuggestions
+znap source zdharma-continuum/fast-syntax-highlighting
