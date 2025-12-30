@@ -42,7 +42,7 @@
 
 **Terminal:** `Foot`
 
-**Shell:** `Zsh & [Rac](https://github.com/lomarco/rac)`
+**Shell:** `Zsh & Rac`
 
 **Editor:** `NeoVim`
 
