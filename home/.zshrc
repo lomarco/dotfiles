@@ -35,7 +35,8 @@ alias ls='ls --color=tty' \
   m='make' \
   mc='make clean' \
   mi='make install' \
-  mr='make rebuild'
+  mr='make rebuild' \
+  ztest="hyperfine -N -w 10 -r 50 'zsh -i -c exit'"
 
 export PATH="$PATH:$HOME/.ghcup/bin"
 export GPG_TTY=$TTY
@@ -46,29 +47,12 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
 
 zmodload zsh/zprof
 
-typeset -gr ZSH_PKGS_DIR=~/.cache/ZSH_PKGS
-[[ ! -d $ZSH_PKGS_DIR ]] && mkdir -p $ZSH_PKGS_DIR
+typeset -gr RAC_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rac"
+[[ -d $RAC_HOME ]] || git clone --depth 1 https://github.com/lomarco/rac.git $RAC_HOME
+source $RAC_HOME/rac.zsh
 
-update_zsh_pkgs() {
-  local pkgs=(
-    "zsh-users/zsh-autosuggestions"
-    "zdharma-continuum/fast-syntax-highlighting" 
+rac "zsh-users/zsh-autosuggestions" \
+    "zdharma-continuum/fast-syntax-highlighting" \
     "romkatv/powerlevel10k"
-  )
-  
-  for pkg in "${pkgs[@]}"; do
-    local dir="$ZSH_PKGS_DIR/${pkg##*/}"
-    [[ -d $dir/.git ]] && (cd $dir && git pull) || git clone --depth=1 "https://github.com/$pkg.git" "$dir" &
-    zcompile -U **/*.zsh(**/)
-  done
-  wait
-}
-
-source $ZSH_PKGS_DIR/powerlevel10k/powerlevel10k.zsh-theme
-source $ZSH_PKGS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZSH_PKGS_DIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
-alias zsh-update="rm -rf ~/.cache/ZSH_PKGS/* && update_zsh_pkgs"
-alias zsh-test="hyperfine -N -w 10 -r 50 'zsh -i -c exit'"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
