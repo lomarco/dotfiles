@@ -106,6 +106,7 @@ stow
 pass-otp
 ninja
 unzip
+bluetui
 
 # AUR packages
 waterfox-bin
