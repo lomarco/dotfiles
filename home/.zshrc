@@ -51,8 +51,8 @@ typeset -gr RAC_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rac"
 [[ -d $RAC_HOME ]] || git clone --depth 1 https://github.com/lomarco/rac.git $RAC_HOME
 source $RAC_HOME/rac.zsh
 
-rac "zsh-users/zsh-autosuggestions" \
-    "zdharma-continuum/fast-syntax-highlighting" \
-    "romkatv/powerlevel10k"
+rac load --debug "romkatv/powerlevel10k" \
+  "zsh-users/zsh-autosuggestions" \
+  "zdharma-continuum/fast-syntax-highlighting"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
