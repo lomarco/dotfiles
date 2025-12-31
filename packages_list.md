@@ -107,6 +107,9 @@ pass-otp
 ninja
 unzip
 bluetui
+ncmpcpp
+mpc
+mpd
 
 # AUR packages
 waterfox-bin
