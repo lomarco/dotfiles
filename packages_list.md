@@ -68,7 +68,6 @@ vulkan-tools
 hyperfine
 rustup
 dosfstools
-qemu
 arch-audit
 pacman-contrib
 ttf-dejavu-nerd
@@ -95,9 +94,6 @@ yazi
 tcpdump
 pandoc-cli
 i2pd
-libvirt
-virt-manager
-tigervnc
 net-tools
 zk
 yarn
@@ -130,6 +126,10 @@ task
 electrum
 prismlauncher
 qrtool
+libvirt
+virt-manager
+tigervnc
+qemu
 <!-- mako -->
 <!-- libnotify -->
 <!-- distcc -->
