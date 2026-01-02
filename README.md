@@ -68,6 +68,30 @@
   <img src="3.png" alt="Image 2" width="1000" />
 </p>
 
+## Repository Structure
+
+### [packages\_list.md](packages_list.md) - List of all neaded packages for my system.
+
+### Base
+
+- [Sway](home/.config/sway/config)
+- [I3status](home/.config/i3status/config)
+- [Foot](home/.config/foot/foot.ini)
+- [Zsh](home/.zshrc)
+- [NeoVim](home/.config/nvim/init.lua)
+- [Tmux](home/.config/tmux/tmux.conf)
+- [Vim](home/.vimrc)
+- [Git config](home/.gitconfig)
+
+### Scripts
+
+- [auto\_backup](bin/auto_backup)
+- [efistub-boot](bin/efistub-boot)
+- [testkernel](bin/testkernel)
+- [aupa](bin/aupa)
+- [crpt\_price](bin/crpt_price)
+
+
 ## Install Guide
 Init and update submodules:
 ```bash
@@ -208,28 +232,6 @@ LSP shortcuts:
 
     <leader>f — format file
 ```
-## Repository Structure
-
-### [packages\_list.md](packages_list.md) - List of all neaded packages for my system.
-
-### Base
-
-- [Sway](home/.config/sway/config)
-- [I3status](home/.config/i3status/config)
-- [Foot](home/.config/foot/foot.ini)
-- [Zsh](home/.zshrc)
-- [NeoVim](home/.config/nvim/init.lua)
-- [Tmux](home/.config/tmux/tmux.conf)
-- [Vim](home/.vimrc)
-- [Git config](home/.gitconfig)
-
-### Scripts
-
-- [auto\_backup](bin/auto_backup)
-- [efistub-boot](bin/efistub-boot)
-- [testkernel](bin/testkernel)
-- [aupa](bin/aupa)
-- [crpt\_price](bin/crpt_price)
 
 ## License
 Lomarco's Dotfiles is licensed under the Unlicense. See the [license](LICENSE) for details.
