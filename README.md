@@ -21,27 +21,18 @@
 
 ## Toolchain
 
-- ***Window Manager***: `Sway`
-
-- ***Status Bar***: `Swaybar & I3status`
-
-- ***Terminal***: `Foot`
-
-- ***Shell***: `Zsh & Rac`
-
-- ***Editor***: `NeoVim`
-
-- ***Multiplexer***: `Tmux`
-
-- ***Password Manager***: `Pass`
-
-- ***WiFi Manager***: `Network Manager`
-
-- ***File Manager***: `Yazi`
-
-- ***Pdf Reader***: `Zathura`
-
-- ***Bootloader***: `EFI Stub`
+|----------------|----------------|
+| ***Window Manager*** | `Sway` |
+| ***Status Bar*** | `Swaybar & I3status` |
+| ***Terminal*** | `Foot` |
+| ***Shell*** | `Zsh & Rac` |
+| ***Editor*** | `NeoVim` |
+| ***Multiplexer*** | `Tmux` |
+| ***Password Manager*** | `Pass` |
+| ***WiFi Manager*** | `Network Manager` |
+| ***File Manager*** | `Yazi` |
+| ***Pdf Reader*** | `Zathura` |
+| ***Bootloader*** | `EFI Stub` |
 
 ## Gallery
 
