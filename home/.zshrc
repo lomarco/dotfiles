@@ -47,6 +47,8 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
 
 zmodload zsh/zprof
 
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 RAC_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rac"
 [[ -d $RAC_HOME ]] || git clone --depth 1 https://github.com/lomarco/rac.git $RAC_HOME; \
   zcompile -U $RAC_HOME/rac.zsh
@@ -55,5 +57,3 @@ source $RAC_HOME/rac.zsh
 rac load "romkatv/powerlevel10k" \
   "zsh-users/zsh-autosuggestions" \
   "zdharma-continuum/fast-syntax-highlighting"
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
