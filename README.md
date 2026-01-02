@@ -34,27 +34,27 @@
 
 ## Toolchain
 
-***Window Manager:*** `Sway`
+- ***Window Manager:*** `Sway`
 
-***Status Bar:*** `Swaybar & I3status`
+- ***Status Bar:*** `Swaybar & I3status`
 
-***Terminal:*** `Foot`
+- ***Terminal:*** `Foot`
 
-***Shell:*** `Zsh & Rac`
+- ***Shell:*** `Zsh & Rac`
 
-***Editor:*** `NeoVim`
+- ***Editor:*** `NeoVim`
 
-***Multiplexer:*** `Tmux`
+- ***Multiplexer:*** `Tmux`
 
-***Password Manager:*** `Pass`
+- ***Password Manager:*** `Pass`
 
-***WiFi Manager:*** `Network Manager`
+- ***WiFi Manager:*** `Network Manager`
 
-***File Manager:*** `Yazi`
+- ***File Manager:*** `Yazi`
 
-***Pdf Reader:*** `Zathura`
+- ***Pdf Reader:*** `Zathura`
 
-***Bootloader:*** `EFI Stub`
+- ***Bootloader:*** `EFI Stub`
 
 ## Gallery
 
