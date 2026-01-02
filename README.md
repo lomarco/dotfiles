@@ -126,7 +126,7 @@ Install system:
 ```bash
 nixos-install --flake .#hostname
 reboot
-````
+```
 
 ## Sway Hotkeys
 
