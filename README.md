@@ -20,7 +20,7 @@
 </details>
 
 ## Toolchain
-
+|                |                |
 |----------------|----------------|
 | ***Window Manager*** | `Sway` |
 | ***Status Bar*** | `Swaybar & I3status` |
