@@ -95,7 +95,6 @@ tcpdump
 pandoc-cli
 i2pd
 net-tools
-zk
 yarn
 glow
 stow

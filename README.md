@@ -32,6 +32,7 @@
 | ***WiFi Manager*** | `Network Manager` |
 | ***File Manager*** | `Yazi` |
 | ***Pdf Reader*** | `Zathura` |
+| ***Notes Manager*** | `Noca` |
 | ***Bootloader*** | `EFI Stub` |
 
 ## Gallery
@@ -176,8 +177,6 @@ Neovim config is a minimalistic, single-file configuration for programming in C,
 - tagbar - code structure sidebar
 
 - oil.nvim - file explorer with git status
-
-- zk-nvim - integration zk util with neovim
 
 Color schemes like kanagawa.nvim and tokyonight.nvim
 

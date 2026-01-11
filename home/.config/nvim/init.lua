@@ -391,43 +391,5 @@ require('lazy').setup({
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     end,
-  },
-  -- {
-  --   "rebelot/kanagawa.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     -- vim.cmd.colorscheme('kanagawa-wave')
-  --   end
-  -- },
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     -- vim.cmd.colorscheme('tokyonight')
-  --   end
-  -- },
-  {
-    "zk-org/zk-nvim",
-    config = function()
-      vim.keymap.set("n", "<leader>zn", "<cmd>ZkNotes<CR>", { desc = "Open notes list" })
-      vim.keymap.set("n", "<leader>znn", "<cmd>ZkNew<CR>", { desc = "Create a new note" })
-      vim.keymap.set("n", "<leader>zlk", "<cmd>ZkLinks<CR>", { desc = "Show linked notes" })
-      vim.keymap.set("n", "<leader>zbl", "<cmd>ZkBacklinks<CR>", { desc = "Show backlinks" })
-      require("zk").setup({
-        picker = "telescope",
-        lsp = {
-          config = {
-            name = "zk",
-            cmd = { "zk", "lsp" },
-            filetypes = { "markdown" },
-          },
-          auto_attach = {
-            enabled = true,
-          },
-        },
-      })
-    end,
-  },
+  }
 })
