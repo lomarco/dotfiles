@@ -129,20 +129,20 @@ libvirt
 virt-manager
 tigervnc
 qemu
-<!-- mako -->
-<!-- libnotify -->
-<!-- distcc -->
-<!-- wayvnc -->
-<!-- ttf-cascadia-code-nerd -->
-<!-- ttf-cascadia-code -->
-<!-- qemu-system-arm -->
-<!-- qemu-system-arm-firmware -->
-<!-- wireguard-tools -->
-<!-- apache -->
-<!-- strace -->
-<!-- avr-binutils -->
-<!-- avr-gdb -->
-<!-- avr-gcc -->
-<!-- avrdude -->
-<!-- avr-libc -->
-<!-- mat2 -->
+mako
+libnotify
+distcc
+wayvnc
+ttf-cascadia-code-nerd
+ttf-cascadia-code
+qemu-system-arm
+qemu-system-arm-firmware
+wireguard-tools
+apache
+strace
+avr-binutils
+avr-gdb
+avr-gcc
+avrdude
+avr-libc
+mat2
