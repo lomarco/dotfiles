@@ -96,15 +96,11 @@ pandoc-cli
 i2pd
 net-tools
 yarn
-glow
 stow
 pass-otp
 ninja
 unzip
 bluetui
-ncmpcpp
-mpc
-mpd
 
 # AUR packages
 waterfox-bin
@@ -146,3 +142,7 @@ avr-gcc
 avrdude
 avr-libc
 mat2
+ncmpcpp
+mpc
+mpd
+glow
