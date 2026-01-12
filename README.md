@@ -49,7 +49,7 @@
 ### [arch](arch) - /etc/ directory for arch.
 ### [nixos](arch) - /etc/nixos/ directory for nixos.
 
-### Base
+### Home
 
 - [Sway](home/.config/sway/config)
 - [I3status](home/.config/i3status/config)
