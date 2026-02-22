@@ -101,10 +101,10 @@ pass-otp
 ninja
 unzip
 bluetui
+tokei
 
 # AUR packages
 waterfox-bin
-scc
 ghcup-hs-bin
 man-pages-dev
 pacgraph
