@@ -102,6 +102,7 @@ ninja
 unzip
 bluetui
 tokei
+usbutils
 
 # AUR packages
 waterfox-bin
