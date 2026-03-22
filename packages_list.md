@@ -81,8 +81,6 @@ xorg-xwayland
 traceroute
 tldr
 hexer
-radare2
-ctags
 ripgrep
 zathura
 zathura-pdf-mupdf
@@ -149,3 +147,5 @@ mpc
 mpd
 glow
 lldb
+radare2
+ctags
