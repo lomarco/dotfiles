@@ -92,7 +92,6 @@ tcpdump
 pandoc-cli
 i2pd
 net-tools
-yarn
 stow
 pass-otp
 ninja
