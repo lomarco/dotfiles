@@ -110,6 +110,8 @@ ghcup-hs-bin
 man-pages-dev
 pacgraph
 feather-wallet
+geth
+bisq-bin
 
 # Extra packages
 docker
