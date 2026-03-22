@@ -26,7 +26,6 @@ brightnessctl
 slurp
 foot
 tmux
-lldb
 gdb
 translate-shell
 bluez
@@ -149,3 +148,4 @@ ncmpcpp
 mpc
 mpd
 glow
+lldb
