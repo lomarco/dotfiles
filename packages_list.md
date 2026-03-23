@@ -123,7 +123,7 @@ qrtool
 libvirt
 virt-manager
 tigervnc
-qemu
+qemu-base
 mako
 libnotify
 distcc
