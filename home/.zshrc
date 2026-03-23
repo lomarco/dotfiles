@@ -23,6 +23,7 @@ alias ls='ls --color=tty' \
   gco='git checkout' \
   gw='git switch' \
   gd='git diff' \
+  gds='git diff --staged' \
   ga='git add' \
   gc='git commit' \
   gp='git push' \
