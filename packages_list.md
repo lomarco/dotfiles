@@ -99,6 +99,8 @@ unzip
 bluetui
 tokei
 usbutils
+openbsd-netcat
+inetutils
 
 # AUR packages
 waterfox-bin
