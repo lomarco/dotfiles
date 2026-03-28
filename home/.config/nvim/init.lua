@@ -114,16 +114,6 @@ vim.keymap.set('n', '<leader>u', '<Cmd>UniMake<CR>', { noremap = true, silent = 
 ------------ PLUGINS
 require('lazy').setup({
   {
-    'github/copilot.vim',
-    lazy = true,
-    config = function()
-      vim.g.copilot_no_tab_map = true
-      vim.g.copilot_assume_mapped = true
-      vim.keymap.set('i', '<C-j>', 'copilot#Accept("<CR>")', { expr = true, silent = true, noremap = true })
-      vim.keymap.set('i', '<C-k>', 'copilot#Dismiss()', { expr = true, silent = true, noremap = true })
-    end,
-  },
-  {
     'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
