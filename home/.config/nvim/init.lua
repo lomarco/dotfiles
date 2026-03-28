@@ -149,7 +149,7 @@ require('lazy').setup({
     build = ':TSUpdate',
     event = 'BufRead',
     opts = {
-      ensure_installed = { "c", "cpp", "bash", "lua", "asm" },
+      ensure_installed = { "c", "cpp", "bash", "lua", "asm", "rust" },
       highlight = { enable = true },
       indent = { enable = true },
       auto_install = true,
