@@ -152,5 +152,4 @@ radare2
 ctags
 libreoffice-still
 rtorrent
-npm
 fastfetch
