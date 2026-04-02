@@ -153,3 +153,4 @@ ctags
 libreoffice-still
 rtorrent
 fastfetch
+powertop
