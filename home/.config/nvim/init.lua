@@ -88,7 +88,7 @@ end
 
 vim.api.nvim_create_user_command('ToggleTerminal', ToggleTerminal, {})
 
-vim.keymap.set('n', '<leader>h', '<Cmd>ToggleTerminal<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>d', '<Cmd>ToggleTerminal<CR>', { noremap = true, silent = true })
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
 
@@ -159,7 +159,7 @@ require('lazy').setup({
         vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
 
         vim.diagnostic.setloclist({ open = true })
-        vim.keymap.set('n', '<leader>t', function() vim.diagnostic.setloclist({ open = true }) end,
+        vim.keymap.set('n', '<leader>g', function() vim.diagnostic.setloclist({ open = true }) end,
           { desc = "Diagnostics List" })
         vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
