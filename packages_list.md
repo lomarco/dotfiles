@@ -101,6 +101,7 @@ tokei
 usbutils
 openbsd-netcat
 inetutils
+lsof
 
 # AUR packages
 waterfox-bin
