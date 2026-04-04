@@ -119,7 +119,6 @@ nix
 gource
 dosbox
 wireshark-qt
-task
 electrum
 prismlauncher
 qrtool
