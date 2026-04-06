@@ -37,6 +37,7 @@ input type:keyboard {
 
 ### Key bindings
 # Basics:
+bindsym $mod+n exec cliphist list | wmenu | cliphist decode | wl-copy
 bindsym $mod+c exec 'f="$HOME/screenshot-$(date +%Y%m%d-%H%M%S).png"; grim -g "$(slurp)" "$f" && wl-copy < "$f"'
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
@@ -146,3 +147,4 @@ exec swayidle -w \
   timeout 180 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
   timeout 240 'swaylock -f -c 000000' before-sleep 'swaylock -f -c 000000'
 exec wlsunset -t 2600 -T 3000
+exec wl-paste --watch cliphist store

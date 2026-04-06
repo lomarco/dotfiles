@@ -101,6 +101,7 @@ usbutils
 openbsd-netcat
 inetutils
 lsof
+cliphist
 
 # AUR packages
 waterfox-bin
