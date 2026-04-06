@@ -1,6 +1,26 @@
 ############################## https://github.com/woefe/git-prompt.zsh
-autoload -Uz colors
-colors
+# git-prompt.zsh -- a lightweight git prompt for zsh.
+# Copyright © 2024 Wolfgang Popp
+#
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the "Software"),
+# to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+# OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+# TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+# OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+autoload -U colors && colors
 
 # Settings
 : "${ZSH_GIT_PROMPT_SHOW_UPSTREAM="1"}"
@@ -46,8 +66,8 @@ setopt PROMPT_SUBST
 
 # Override PROMPT if it does not use the gitprompt function
 [[ "$PROMPT" != *gitprompt* && "$RPROMPT" != *gitprompt* ]] \
-  && PROMPT='%(!.%F{red}.)%m@%n%(!.%f.) %B%F{white}%<..<%~%f%b $(gitprompt)' \
-  && PROMPT+='%(!.%(?.%F{green}.%F{red}[%?] )#%f.%(?.%F{green}.%F{red}[%?] )$%f) '
+    && PROMPT='%(!.%F{red}.)%m@%n%(!.%f.) %B%F{white}%<..<%~%f%b $(gitprompt)' \
+    && PROMPT+='%(!.%(?.%F{green}.%F{red}[%?] )#%f.%(?.%F{green}.%F{red}[%?] )$%f) '
 
 # Find an awk implementation
 # Prefer nawk over mawk and mawk over awk
@@ -57,7 +77,7 @@ setopt PROMPT_SUBST
 
 # Use --show-stash for git versions newer than 2.35.0
 _zsh_git_prompt_git_version=$(command git version)
-if [[ ${_zsh_git_prompt_git_version:12} =~ '^2\.(3[5-9]|[4-9][0-9])\.' ]]; then
+if [[ "${_zsh_git_prompt_git_version:12}" == 2.<35->.<-> ]]; then
     _zsh_git_prompt_git_cmd() {
         GIT_OPTIONAL_LOCKS=0 command git status --show-stash --branch --porcelain=v2 2>&1 \
             || echo "fatal: git command failed"
@@ -272,19 +292,30 @@ function _zsh_git_prompt_git_status_secondary() {
 zmodload zsh/system
 
 function _zsh_git_prompt_async_request() {
+    emulate -L zsh
     typeset -g _ZSH_GIT_PROMPT_ASYNC_FD _ZSH_GIT_PROMPT_ASYNC_PID
 
     # If we've got a pending request, cancel it
-    if [[ -n "$_ZSH_GIT_PROMPT_ASYNC_FD" && -r "$_ZSH_GIT_PROMPT_ASYNC_FD" ]] 2>/dev/null; then
-      exec {_ZSH_GIT_PROMPT_ASYNC_FD}<&-
-      zle -F $_ZSH_GIT_PROMPT_ASYNC_FD
-    
-    if [[ -o MONITOR ]]; then
-        kill -TERM -$_ZSH_GIT_PROMPT_ASYNC_PID 2>/dev/null
-    else
-        kill -TERM $_ZSH_GIT_PROMPT_ASYNC_PID 2>/dev/null
+    if [[ -n "$_ZSH_GIT_PROMPT_ASYNC_FD" ]] && { true <&$_ZSH_GIT_PROMPT_ASYNC_FD } 2>/dev/null;
+    then
+
+        # Close the file descriptor and remove the handler
+        exec {_ZSH_GIT_PROMPT_ASYNC_FD}<&-
+        zle -F $_ZSH_GIT_PROMPT_ASYNC_FD
+
+        # Zsh will make a new process group for the child process only if job
+        # control is enabled (MONITOR option)
+        if [[ -o MONITOR ]]; then
+            # Send the signal to the process group to kill any processes that may
+            # have been forked by the suggestion strategy
+            kill -TERM -$_ZSH_GIT_PROMPT_ASYNC_PID 2>/dev/null
+        else
+            # Kill just the child process since it wasn't placed in a new process
+            # group. If the suggestion strategy forked any child processes they may
+            # be orphaned and left behind.
+            kill -TERM $_ZSH_GIT_PROMPT_ASYNC_PID 2>/dev/null
+        fi
     fi
-fi
 
     # Fork a process to fetch the git status and open a pipe to read from it
     exec {_ZSH_GIT_PROMPT_ASYNC_FD}< <(
@@ -322,8 +353,8 @@ function _zsh_git_prompt_callback() {
 
     if [[ -z "$2" || "$2" == "hup" ]]; then
         # Read output from fd
-        fd_data="$(cat <&$1)"
-        output=(${fd_data##*##secondary##} ${fd_data%%##secondary##*})
+        fd_data="$(command cat <&$1)"
+        output=( ${(s:##secondary##:)fd_data} )
         _ZSH_GIT_PROMPT_STATUS_OUTPUT="${output[1]}"
         _ZSH_GIT_PROMPT_STATUS_SECONDARY_OUTPUT="${output[2]}"
 
