@@ -54,8 +54,8 @@ openssh
 wl-clipboard
 ntfs-3g
 linux-firmware
-linux
-linux-headers
+linux-zen
+linux-zen-headers
 cmake
 meson
 cpio
