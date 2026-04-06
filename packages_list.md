@@ -55,7 +55,6 @@ wl-clipboard
 ntfs-3g
 linux-firmware
 linux-zen
-linux-zen-headers
 cmake
 meson
 cpio
@@ -154,3 +153,4 @@ libreoffice-still
 rtorrent
 fastfetch
 powertop
+linux-zen-headers
