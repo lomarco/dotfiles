@@ -23,7 +23,7 @@
 |                |                |
 |----------------|----------------|
 | ***Window Manager*** | [`Sway`](https://swaywm.org) |
-| ***Status Bar*** | [`Swaybar & I3status`](https://i3wm.org/docs/i3status.html) |
+| ***Status Bar*** | [`Swaybar & I3status`](https://i3wm.org/i3status/) |
 | ***Terminal*** | [`Foot`](https://codeberg.org/dnkl/foot) |
 | ***Shell*** | [`Zsh & Rac`](https://github.com/lomarco/rac) |
 | ***Editor*** | [`NeoVim`](https://neovim.io) |
