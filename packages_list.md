@@ -155,3 +155,4 @@ rtorrent
 fastfetch
 powertop
 linux-zen-headers
+chafa
