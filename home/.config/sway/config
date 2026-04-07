@@ -37,7 +37,7 @@ input type:keyboard {
 
 ### Key bindings
 # Basics:
-bindsym $mod+n exec 'cliphist list | wmenu -p "ClipBoard:" -l 10 -b | cliphist decode | wl-copy'
+bindsym $mod+n exec 'cliphist list | wmenu -p "ClipBoard:" -l 10 -b | { read -r line && echo "$line" | cliphist decode | wl-copy; }'
 bindsym $mod+c exec 'f="$HOME/screenshot-$(date +%Y%m%d-%H%M%S).png"; grim -g "$(slurp)" "$f" && wl-copy < "$f"'
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
