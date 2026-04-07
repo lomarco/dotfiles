@@ -22,18 +22,18 @@
 ## Toolchain
 |                |                |
 |----------------|----------------|
-| ***Window Manager*** | `Sway` |
-| ***Status Bar*** | `Swaybar & I3status` |
-| ***Terminal*** | `Foot` |
-| ***Shell*** | `Zsh & Rac` |
-| ***Editor*** | `NeoVim` |
-| ***Multiplexer*** | `Tmux` |
-| ***Password Manager*** | `Pass` |
-| ***WiFi Manager*** | `Network Manager` |
-| ***File Manager*** | `Yazi` |
-| ***Pdf Reader*** | `Zathura` |
-| ***Notes Manager*** | `Noca` |
-| ***Bootloader*** | `EFI Stub` |
+| ***Window Manager*** | [`Sway`](https://swaywm.org) |
+| ***Status Bar*** | [`Swaybar & I3status`](https://i3wm.org/docs/i3status.html) |
+| ***Terminal*** | [`Foot`](https://codeberg.org/dnkl/foot) |
+| ***Shell*** | [`Zsh & Rac`](https://github.com/lomarco/rac) |
+| ***Editor*** | [`NeoVim`](https://neovim.io) |
+| ***Multiplexer*** | [`Tmux`](https://github.com/tmux/tmux/wiki) |
+| ***Password Manager*** | [`Pass`](https://www.passwordstore.org) |
+| ***WiFi Manager*** | [`Network Manager`](https://networkmanager.dev) |
+| ***File Manager*** | [`Yazi`](https://yazi-rs.github.io) |
+| ***Pdf Reader*** | [`Zathura`](https://pwmt.org/projects/zathura) |
+| ***Notes Manager*** | [`Noca`](https://github.com/lomarco/noca) |
+| ***Bootloader*** | [`EFI Stub`](https://github.com/lomarco/dotfiles/blob/master/bin/efistub-boot) |
 
 ## Gallery
 
