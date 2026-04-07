@@ -11,7 +11,7 @@ set $browser "waterfox"
 set $menu "wmenu-run"
 set $zathura "zathura"
 
-set $global_font "DejaVuSansMono 8"
+set $global_font "JetBrainsMonoNerdFont 8"
 font $global_font
 
 
