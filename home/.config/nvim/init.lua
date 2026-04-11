@@ -110,6 +110,14 @@ end
 vim.api.nvim_create_user_command('UniMake', UniMake, {})
 vim.keymap.set('n', '<leader>u', '<Cmd>UniMake<CR>', { noremap = true, silent = true })
 
+-- End of line highlighting
+vim.opt.list = true
+vim.opt.listchars = {
+  trail = ".",
+  nbsp  = ".",
+  tab   = "| ",
+}
+
 
 ------------ PLUGINS
 require('lazy').setup({
