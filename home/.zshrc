@@ -439,6 +439,7 @@ alias ls='ls --color=tty' \
   gu='git pull' \
   gl='git log --oneline --graph --all' \
   gs='git status --short' \
+  gst='git stash' \
   gb='git branch' \
   gcl='git clone --depth 1' \
   gr='git remote' \
