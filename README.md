@@ -45,7 +45,7 @@
 
 ## Repository Structure
 
-### [packages\_list.md](packages_list.md) - List of all neaded packages for my system.
+### [req.md](req.md) - List of all neaded packages for my system.
 ### [arch](arch) - /etc/ directory for arch.
 ### [nixos](arch) - /etc/nixos/ directory for nixos.
 
