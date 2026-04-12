@@ -118,6 +118,12 @@ vim.opt.listchars = {
   tab   = "| ",
 }
 
+-- Setting built-in undotree.nvim
+vim.schedule(function()
+  vim.cmd("packadd nvim.undotree")
+  vim.keymap.set("n", "<leader>u", vim.cmd.Undotree)
+end)
+
 
 ------------ PLUGINS
 require('lazy').setup({
