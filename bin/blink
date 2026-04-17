@@ -19,6 +19,6 @@ mapfile -t files < <(find "$LEDS_DIR" -name brightness -type f -writable 2>/dev/
 for f in "${files[@]}"; do orig["$f"]=$(cat "$f" 2>/dev/null); done
 
 while :; do
-  for f in "${files[@]}"; do echo 1 > "$f" 2>/dev/null; done; sleep .1
-  for f in "${files[@]}"; do echo 0 > "$f" 2>/dev/null; done; sleep .1
+  for f in "${files[@]}"; do echo 1 > "$f" 2>/dev/null; sleep 0.1; done
+  for f in "${files[@]}"; do echo 0 > "$f" 2>/dev/null; sleep 0.1; done
 done
