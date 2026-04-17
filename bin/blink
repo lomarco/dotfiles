@@ -1,0 +1,40 @@
+#!/bin/bash
+
+[[ $EUID -ne 0 ]] && echo -e "\033[0;31mThis script must be run as root\033[0m" && exit 1
+
+BLK1c="/sys/class/leds/input3::capslock/brightness"
+BLK2c="/sys/class/leds/input4::capslock/brightness"
+BLK1n="/sys/class/leds/input3::numlock/brightness"
+BLK2n="/sys/class/leds/input4::numlock/brightness"
+BLK1m="/sys/class/leds/platform::micmute/brightness"
+
+restore_leds() {
+  echo $BLK1c_v > $BLK1c
+  echo $BLK2c_v > $BLK2c
+  echo $BLK1n_v > $BLK1n
+  echo $BLK2n_v > $BLK2n
+  echo $BLK1m_v > $BLK1m
+  exit
+}
+
+trap restore_leds SIGINT SIGTERM
+
+BLK1c_v=$(cat $BLK1c)
+BLK2c_v=$(cat $BLK2c)
+BLK1n_v=$(cat $BLK1n)
+BLK2n_v=$(cat $BLK2n)
+BLK1m_v=$(cat $BLK1m)
+
+while true; do
+  echo 1 > "$BLK1c"; sleep 0.1
+  echo 1 > "$BLK2n"; sleep 0.1
+  echo 1 > "$BLK2c"; sleep 0.1
+  echo 1 > "$BLK1n"; sleep 0.1
+  echo 1 > "$BLK1m"; sleep 0.1
+
+  echo 0 > "$BLK1c"; sleep 0.1
+  echo 0 > "$BLK2n"; sleep 0.1
+  echo 0 > "$BLK2c"; sleep 0.1
+  echo 0 > "$BLK1n"; sleep 0.1
+  echo 0 > "$BLK1m"; sleep 0.1
+done
