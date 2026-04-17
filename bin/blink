@@ -2,7 +2,7 @@
 
 [[ $EUID -ne 0 ]] && echo -e "\033[0;31mThis script must be run as root\033[0m" && exit 1
 
-LEDS_DIR=/sys/class/leds/
+LEDS_DIR=/sys/devices
 declare -A orig
 
 restore() {
