@@ -4,6 +4,7 @@
 
 LEDS_DIR="/sys/class/leds"
 LED_FILE="brightness"
+MAX_NUM_FILE="max_brightness"
 declare -A orig
 files=()
 
@@ -18,21 +19,29 @@ trap restore SIGINT SIGTERM
 
 for led in "$LEDS_DIR"/*; do
   f="$led/$LED_FILE"
-  [[ -f "$f" && -w "$f" ]] && files+=("$f")
+  maxf="$led/$MAX_NUM_FILE"
+  [[ -f "$f" && -w "$f" && -r "$maxf" ]] || continue
+
+  max_brightness=$(cat "$maxf")
+  files+=("$f|$max_brightness")
 done
 
 [[ ${#files[@]} -eq 0 ]] && exit 1
 
-for f in "${files[@]}"; do
+for entry in "${files[@]}"; do
+  f=$(echo "$entry" | cut -d'|' -f1)
   orig["$f"]=$(<"$f")
 done
 
 while :; do
-  for f in "${files[@]}"; do
-    echo 1 > "$f"
+  for entry in "${files[@]}"; do
+    f=$(echo "$entry" | cut -d'|' -f1)
+    max_brightness=$(echo "$entry" | cut -d'|' -f2)
+    echo "$max_brightness" > "$f"
     sleep 0.1
   done
   for f in "${files[@]}"; do
+    f=$(echo "$f" | cut -d'|' -f1)
     echo 0 > "$f"
     sleep 0.1
   done
