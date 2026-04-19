@@ -1,24 +1,39 @@
-#!/bin/bash
+#!/bin/sh
 
 [[ $EUID -ne 0 ]] && echo -e "\033[0;31mThis script must be run as root\033[0m" && exit 1
 
-LEDS_DIR=/sys/devices
+LEDS_DIR="/sys/class/leds"
+LED_FILE="brightness"
 declare -A orig
+files=()
 
 restore() {
-  for f in "${!orig[@]}"; do echo "${orig[$f]}" > "$f"; done
+  for f in "${!orig[@]}"; do
+    echo "${orig[$f]}" > "$f"
+  done
   exit
 }
 
 trap restore SIGINT SIGTERM
 
-mapfile -t files < <(find "$LEDS_DIR" -name brightness -type f -writable 2>/dev/null)
+for led in "$LEDS_DIR"/*; do
+  f="$led/$LED_FILE"
+  [[ -f "$f" && -w "$f" ]] && files+=("$f")
+done
 
 [[ ${#files[@]} -eq 0 ]] && exit 1
 
-for f in "${files[@]}"; do orig["$f"]=$(cat "$f" 2>/dev/null); done
+for f in "${files[@]}"; do
+  orig["$f"]=$(<"$f")
+done
 
 while :; do
-  for f in "${files[@]}"; do echo 1 > "$f" 2>/dev/null; sleep 0.1; done
-  for f in "${files[@]}"; do echo 0 > "$f" 2>/dev/null; sleep 0.1; done
+  for f in "${files[@]}"; do
+    echo 1 > "$f"
+    sleep 0.1
+  done
+  for f in "${files[@]}"; do
+    echo 0 > "$f"
+    sleep 0.1
+  done
 done
