@@ -3,7 +3,6 @@ set -euo pipefail
 
 disk="/dev/nvme0n1"
 efi_part_num=1
-swap_part_num=2
 root_part_num=3
 label="Linux"
 kernel_path="\\vmlinuz-linux-zen"
@@ -39,14 +38,9 @@ if ! command -v efibootmgr &>/dev/null; then
 fi
 
 root_uuid=$(blkid -s UUID -o value "${disk}p${root_part_num}" 2>/dev/null || true)
-swap_uuid=$(blkid -s UUID -o value "${disk}p${swap_part_num}" 2>/dev/null || true)
 
 if [[ -z "$root_uuid" ]]; then
   error_exit "Failed to get UUID for root partition ${disk}p${root_part_num}"
-fi
-
-if [[ -z "$swap_uuid" ]]; then
-  warn "No swap UUID found for ${disk}p${swap_part_num}, continuing without it."
 fi
 
 if ! blkid "${disk}p${efi_part_num}" &>/dev/null; then
@@ -54,12 +48,7 @@ if ! blkid "${disk}p${efi_part_num}" &>/dev/null; then
 fi
 
 root_param="root=UUID=$root_uuid"
-swap_param=""
-if [[ -n "$swap_uuid" ]]; then
-  swap_param="resume=UUID=$swap_uuid"
-fi
-
-unicode_params=("$root_param" "$swap_param" "$boot_options")
+unicode_params=("$root_param" "$boot_options")
 
 if [[ -n "$ucode_path" ]]; then
   unicode_params+=("initrd=$ucode_path")
