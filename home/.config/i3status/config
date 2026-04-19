@@ -30,7 +30,7 @@ volume master {
 }
 
 load {
-  format = "%1min %5min %15min"
+  format = "la: %1min %5min %15min"
 }
 
 wireless _first_ {
