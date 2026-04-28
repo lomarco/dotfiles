@@ -90,7 +90,6 @@ yazi
 tcpdump
 pandoc-cli
 i2pd
-net-tools
 stow
 pass-otp
 ninja
