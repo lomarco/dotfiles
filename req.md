@@ -103,6 +103,7 @@ inetutils
 lsof
 cliphist
 iw
+zk
 
 # AUR packages
 waterfox-bin

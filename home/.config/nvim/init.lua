@@ -386,6 +386,23 @@ require('lazy').setup({
     end,
   },
   {
+    "zk-org/zk-nvim",
+    name = "zk",
+    opts = {
+      picker = "select", -- Or telescope
+      lsp = {
+        config = {
+          name = "zk",
+          cmd = { "zk", "lsp" },
+          filetypes = { "markdown" },
+        },
+        auto_attach = {
+          enabled = true,
+        },
+      },
+    },
+  },
+  {
     'rafi/awesome-vim-colorschemes',
     lazy = false,
     config = function()
