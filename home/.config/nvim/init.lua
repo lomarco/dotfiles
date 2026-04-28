@@ -162,6 +162,12 @@ require('lazy').setup({
   {
     'neovim/nvim-lspconfig',
     config = function()
+      vim.diagnostic.setloclist({ open = true })
+      vim.keymap.set('n', '<leader>g', function() vim.diagnostic.setloclist({ open = true }) end,
+        { desc = "Diagnostics List" })
+      vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
       local on_attach = function(client, bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -171,13 +177,6 @@ require('lazy').setup({
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
-
-        vim.diagnostic.setloclist({ open = true })
-        vim.keymap.set('n', '<leader>g', function() vim.diagnostic.setloclist({ open = true }) end,
-          { desc = "Diagnostics List" })
-        vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
-        vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-        vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
         vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format() end, opts)
       end
 
