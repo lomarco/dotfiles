@@ -112,6 +112,7 @@ pacgraph
 feather-wallet
 geth
 bisq-bin
+ayugram-desktop-bin
 
 # Extra packages
 docker
