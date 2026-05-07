@@ -98,6 +98,7 @@ local build_rules = {
   haskell = { build = "cabal build", run = "cabal run" },
   cpp = { build = "make", run = "make run" },
   rust = { build = "cargo build", run = "cargo run" },
+  go = { build = "go build", run = "go run" }
 }
 
 local function UniMake(opts)
@@ -108,7 +109,7 @@ local function UniMake(opts)
 end
 
 vim.api.nvim_create_user_command('UniMake', UniMake, {})
-vim.keymap.set('n', '<leader>u', '<Cmd>UniMake<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>h', '<Cmd>UniMake<CR>', { noremap = true, silent = true })
 
 -- End of line highlighting
 vim.opt.list = true
