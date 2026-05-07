@@ -158,3 +158,4 @@ fastfetch
 powertop
 linux-zen-headers
 chafa
+hugo
