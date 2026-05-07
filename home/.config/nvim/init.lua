@@ -181,7 +181,7 @@ require('lazy').setup({
         vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format() end, opts)
       end
 
-      local servers = { 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'hls' }
+      local servers = { 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'hls', 'gopls' }
       for _, server in ipairs(servers) do
         vim.lsp.config[server] = vim.tbl_deep_extend("force", vim.lsp.config[server] or {}, {
           on_attach = on_attach,
