@@ -160,3 +160,4 @@ powertop
 linux-zen-headers
 chafa
 hugo
+wf-recorder
