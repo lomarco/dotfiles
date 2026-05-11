@@ -104,6 +104,7 @@ cliphist
 iw
 zk
 hyprpicker
+ffmpeg
 
 # AUR packages
 waterfox-bin
