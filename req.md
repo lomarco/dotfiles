@@ -129,7 +129,7 @@ qrtool
 libvirt
 virt-manager
 qemu-base
-mako
+fnott
 libnotify
 distcc
 ttf-cascadia-code-nerd
