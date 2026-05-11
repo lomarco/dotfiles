@@ -447,7 +447,8 @@ alias ls='ls --color=tty' \
   mc='make clean' \
   mi='make install' \
   mr='make rebuild' \
-  ztest="hyperfine -N -w 10 -r 50 'zsh -i -c exit'"
+  ztest="hyperfine -N -w 10 -r 50 'zsh -i -c exit'" \
+  ..="cd .."
 
 take() {
   mkdir -p -- "$1" && cd -- "$1"
