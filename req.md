@@ -113,6 +113,7 @@ feather-wallet
 geth
 bisq-bin
 ayugram-desktop-bin
+wlvncc
 
 # Extra packages
 docker
@@ -126,12 +127,10 @@ prismlauncher
 qrtool
 libvirt
 virt-manager
-tigervnc
 qemu-base
 mako
 libnotify
 distcc
-wayvnc
 ttf-cascadia-code-nerd
 ttf-cascadia-code
 qemu-system-arm
