@@ -449,6 +449,10 @@ alias ls='ls --color=tty' \
   mr='make rebuild' \
   ztest="hyperfine -N -w 10 -r 50 'zsh -i -c exit'"
 
+take() {
+  mkdir -p -- "$1" && cd -- "$1"
+}
+
 export PATH="$PATH:$HOME/.ghcup/bin"
 export GPG_TTY=$TTY
 
