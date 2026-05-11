@@ -116,6 +116,7 @@ geth
 bisq-bin
 ayugram-desktop-bin
 wlvncc
+woomer
 
 # Extra packages
 docker
