@@ -103,6 +103,7 @@ lsof
 cliphist
 iw
 zk
+hyprpicker
 
 # AUR packages
 waterfox-bin

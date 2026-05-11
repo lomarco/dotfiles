@@ -11,6 +11,7 @@ set $browser "waterfox"
 set $menu "wmenu-run"
 set $zathura "zathura"
 set $telegram "AyuGram"
+set $colorpicker "hyprpicker -a"
 
 set $global_font "JetBrainsMonoNerdFont 8"
 font $global_font
@@ -45,6 +46,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+Shift+b exec $browser
 bindsym $mod+Shift+z exec $zathura
 bindsym $mod+Shift+t exec $telegram
+bindsym $mod+p exec $colorpicker
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
