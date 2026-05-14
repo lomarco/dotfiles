@@ -1,4 +1,9 @@
 [[block]]
+block = "docker"
+interval = 2
+format = " $icon $running/$total "
+
+[[block]]
 block = "backlight"
 
 [[block]]
