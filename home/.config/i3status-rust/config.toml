@@ -12,7 +12,7 @@ block = "sound"
 device_kind = "sink"
 show_volume_when_muted = true
 headphones_indicator = true
-format = " $icon{$volume|} $output_description "
+format = " $icon {$volume|} $output_description "
 
 [[block]]
 block = "load"
