@@ -139,7 +139,7 @@ bar {
   position bottom
   status_command i3status-rs
   font $global_font
-  tray_output primary
+  tray_output *
   colors {
     background #000000
     statusline #bbbbbb
