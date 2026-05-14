@@ -1,0 +1,45 @@
+[[block]]
+block = "battery"
+interval = 1
+format = " $icon $percentage {$time_remaining.dur(hms:true, min_unit:m) |}"
+charging_format = " $icon $percentage {$time_remaining.dur(hms:true, min_unit:m) |}"
+full_format = " $icon $percentage"
+empty_format = " $icon Empty: $percentage"
+not_charging_format = " $icon $percentage {$time_remaining.dur(hms:true, min_unit:m) |}"
+
+[[block]]
+block = "sound"
+format = " $icon $output_description{ $volume |} "
+
+[[block]]
+block = "load"
+format = "la: {1m} {5m} {15m}"
+interval = 2
+
+[[block]]
+block = "net"
+device = "_first_"
+format = "W: ({quality} at {ssid}, {bitrate}) {ip}"
+format_down = "W: down"
+interface_type = "wireless"
+interval = 2
+
+[[block]]
+block = "net"
+device = "_first_"
+format = "E: {ip} ({speed})"
+format_down = "E: down"
+interface_type = "ethernet"
+interval = 2
+
+[[block]]
+block = "time"
+interval = 2
+format = "%a %Y-%m-%d %H:%M:%S"
+
+
+## Добавить:
+## current language layout
+## microphone
+## brightness
+## hendpodes(current output device name)
