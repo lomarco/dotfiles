@@ -33,4 +33,3 @@ full = " $timestamp.datetime(f:'%a %Y-%m-%d %H:%M:%S') "
 ## current language layout
 ## microphone
 ## brightness
-## hendpodes(current output device name)
