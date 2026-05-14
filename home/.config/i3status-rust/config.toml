@@ -52,8 +52,3 @@ block = "time"
 interval = 1
 [block.format]
 full = " $timestamp.datetime(f:'%a %Y-%m-%d %H:%M:%S') "
-
-## Добавить:
-## current language layout
-## microphone
-## brightness
