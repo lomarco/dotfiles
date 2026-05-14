@@ -14,7 +14,7 @@ mesa
 fasm
 llvm
 clang
-i3status
+i3status-rust
 wget
 links
 vulkan-radeon
