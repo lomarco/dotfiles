@@ -16,8 +16,8 @@ format = " $icon{$volume|} $output_description "
 
 [[block]]
 block = "load"
-format = "la: {1m} {5m} {15m}"
-interval = 2
+format = " $icon $1m.eng(w:4) $5m.eng(w:4) $15m.eng(w:4)"
+interval = 1
 
 [[block]]
 block = "net"
