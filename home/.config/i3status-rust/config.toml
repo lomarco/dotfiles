@@ -24,6 +24,10 @@ block = "net"
 format = " $icon {$signal_strength $ssid $frequency|Wired connection} via $device "
 
 [[block]]
+block = "keyboard_layout"
+driver = "sway"
+
+[[block]]
 block = "time"
 interval = 1
 [block.format]
