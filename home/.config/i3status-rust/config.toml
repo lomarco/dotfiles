@@ -37,9 +37,9 @@ interval = 2
 
 [[block]]
 block = "time"
-interval = 2
-format = "%a %Y-%m-%d %H:%M:%S"
-
+interval = 1
+[block.format]
+full = " $timestamp.datetime(f:'%a %Y-%m-%d %H:%M:%S') "
 
 ## Добавить:
 ## current language layout
