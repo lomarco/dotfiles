@@ -1,4 +1,18 @@
 [[block]]
+block = "docker"
+interval = 2
+format = " $icon $running/$total "
+
+[[block]]
+block = "amd_gpu"
+format = " $icon $utilization "
+format_alt = " $icon MEM: $vram_used_percents ($vram_used/$vram_total) "
+interval = 1
+
+[[block]]
+block = "backlight"
+
+[[block]]
 block = "battery"
 interval = 5
 format = " $icon $percentage {$time_remaining.dur(hms:true, min_unit:m)|} {$power|} "
@@ -12,37 +26,29 @@ block = "sound"
 device_kind = "sink"
 show_volume_when_muted = true
 headphones_indicator = true
-format = " $icon{$volume|} $output_description "
+format = " $icon {$volume|} $output_description "
+
+[[block]]
+block = "sound"
+device_kind = "source"
+show_volume_when_muted = true
+format = " $icon {$volume|} $output_description "
 
 [[block]]
 block = "load"
-format = " $icon $1m.eng(w:4) $5m.eng(w:4) $15m.eng(w:4)"
+format = " $icon $1m.eng(w:4) $5m.eng(w:4) $15m.eng(w:4) "
 interval = 1
 
 [[block]]
 block = "net"
-device = "_first_"
-format = "W: ({quality} at {ssid}, {bitrate}) {ip}"
-format_down = "W: down"
-interface_type = "wireless"
-interval = 2
+format = " $icon {$signal_strength $ssid $frequency|Wired connection} via $device "
 
 [[block]]
-block = "net"
-device = "_first_"
-format = "E: {ip} ({speed})"
-format_down = "E: down"
-interface_type = "ethernet"
-interval = 2
+block = "keyboard_layout"
+driver = "sway"
 
 [[block]]
 block = "time"
 interval = 1
 [block.format]
 full = " $timestamp.datetime(f:'%a %Y-%m-%d %H:%M:%S') "
-
-## Добавить:
-## current language layout
-## microphone
-## brightness
-## hendpodes(current output device name)
