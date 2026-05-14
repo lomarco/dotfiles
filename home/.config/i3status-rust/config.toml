@@ -41,7 +41,8 @@ interval = 1
 
 [[block]]
 block = "net"
-format = " $icon {$signal_strength $ssid $frequency|Wired connection} via $device "
+device = "."
+format = " $icon {$ssid ($signal_strength)|Wired} [$device] down: $speed_down.eng(prefix:K) $graph_up up: $speed_up.eng(prefix:K) $graph_up $bitrate $ip "
 
 [[block]]
 block = "keyboard_layout"
