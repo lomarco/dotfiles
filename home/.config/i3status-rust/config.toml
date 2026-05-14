@@ -16,7 +16,7 @@ format = " $icon {$volume|} $output_description "
 
 [[block]]
 block = "load"
-format = " $icon $1m.eng(w:4) $5m.eng(w:4) $15m.eng(w:4)"
+format = " $icon $1m.eng(w:4) $5m.eng(w:4) $15m.eng(w:4) "
 interval = 1
 
 [[block]]
