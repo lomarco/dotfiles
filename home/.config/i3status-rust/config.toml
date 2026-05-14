@@ -1,6 +1,6 @@
 [[block]]
 block = "battery"
-interval = 1
+interval = 5
 format = " $icon $percentage {$time_remaining.dur(hms:true, min_unit:m) |}{$power |}"
 charging_format = " $icon $percentage {$time_remaining.dur(hms:true, min_unit:m) |}{$power |}"
 full_format = " $icon $percentage {$power |}"
