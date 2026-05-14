@@ -9,7 +9,10 @@ not_charging_format = " $icon $percentage {$time_remaining.dur(hms:true, min_uni
 
 [[block]]
 block = "sound"
-format = " $icon $output_description{ $volume |} "
+device_kind = "sink"
+show_volume_when_muted = true
+headphones_indicator = true
+format = " $icon{$volume|} $output_description "
 
 [[block]]
 block = "load"
