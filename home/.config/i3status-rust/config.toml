@@ -21,19 +21,7 @@ interval = 1
 
 [[block]]
 block = "net"
-device = "_first_"
-format = "W: ({quality} at {ssid}, {bitrate}) {ip}"
-format_down = "W: down"
-interface_type = "wireless"
-interval = 2
-
-[[block]]
-block = "net"
-device = "_first_"
-format = "E: {ip} ({speed})"
-format_down = "E: down"
-interface_type = "ethernet"
-interval = 2
+format = " $icon {$signal_strength $ssid $frequency|Wired connection} via $device "
 
 [[block]]
 block = "time"
