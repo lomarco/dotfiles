@@ -1,4 +1,7 @@
 [[block]]
+block = "backlight"
+
+[[block]]
 block = "battery"
 interval = 5
 format = " $icon $percentage {$time_remaining.dur(hms:true, min_unit:m)|} {$power|} "
