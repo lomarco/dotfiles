@@ -413,7 +413,7 @@ fi
 
 HISTFILE=~/.cache/zh
 HISTSIZE=1000
-SAVEHIST=3000
+SAVEHIST=30000
 setopt sharehistory hist_ignore_dups hist_reduce_blanks extendedglob nobeep nonomatch
 
 zstyle ':completion:*' list-colors 'di=34:fi=0:ln=36'
