@@ -285,6 +285,7 @@ require('lazy').setup({
           vim.notify("Could not determine current branch", vim.log.levels.ERROR)
           return
         end
+        vim.notify("Pushing branch: " .. branch, vim.log.levels.INFO)
         vim.cmd(string.format("Git push origin %s", branch))
         vim.notify("Pushed branch: " .. branch, vim.log.levels.INFO)
       end, { noremap = true, desc = "Git push current branch" })
