@@ -279,7 +279,6 @@ require('lazy').setup({
     config = function()
       vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", { noremap = true, silent = true, desc = "Git commit" })
       vim.keymap.set("n", "<leader>ga", ":Git commit --amend<CR>", { noremap = true, silent = true, desc = "Git commit --amend" })
-      vim.keymap.set("n", "<leader>gf", ":Git commit --allow-empty --allow-empty-message -m ''<CR>", { noremap = true, silent = true, desc = "Git commit force" })
       vim.g.fugitive_legacy_commands = 0
     end,
   },
