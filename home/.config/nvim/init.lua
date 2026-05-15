@@ -288,7 +288,7 @@ require('lazy').setup({
         vim.notify("Pushing branch: " .. branch, vim.log.levels.INFO)
         vim.cmd(string.format("Git push origin %s", branch))
         vim.notify("Pushed branch: " .. branch, vim.log.levels.INFO)
-      end, { noremap = true, desc = "Git push current branch" })
+      end, { noremap = true, silent = true, desc = "Git push current branch" })
       vim.g.fugitive_legacy_commands = 0
     end,
   },
