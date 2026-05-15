@@ -1,9 +1,4 @@
 [[block]]
-block = "docker"
-interval = 2
-format = " $icon $running/$total "
-
-[[block]]
 block = "amd_gpu"
 format = " $icon $utilization "
 format_alt = " $icon MEM: $vram_used_percents ($vram_used/$vram_total) "
