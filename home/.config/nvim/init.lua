@@ -279,6 +279,15 @@ require('lazy').setup({
     config = function()
       vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", { noremap = true, silent = true, desc = "Git commit" })
       vim.keymap.set("n", "<leader>ga", ":Git commit --amend<CR>", { noremap = true, silent = true, desc = "Git commit --amend" })
+      vim.keymap.set("n", "<leader>gp", function()
+        local branch = vim.fn.trim(vim.fn.system("git rev-parse --abbrev-ref HEAD"))
+        if branch == "" or branch:match("fatal") then
+          vim.notify("Could not determine current branch", vim.log.levels.ERROR)
+          return
+        end
+        local cmd = string.format("Git push origin %s", branch)
+        vim.cmd(cmd)
+      end, { noremap = true, silent = true, desc = "Git push current branch" })
       vim.g.fugitive_legacy_commands = 0
     end,
   },
