@@ -280,6 +280,7 @@ require('lazy').setup({
       vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", { noremap = true, silent = true, desc = "Git commit" })
       vim.keymap.set("n", "<leader>ga", ":Git commit --amend<CR>",
         { noremap = true, silent = true, desc = "Git commit --amend" })
+      vim.keymap.set("n", "<leader>gs", ":Git status --short<CR>", { noremap = true, silent = true, desc = "Git status" })
       vim.keymap.set("n", "<leader>gp", function()
         local branch = vim.fn.trim(vim.fn.system("git rev-parse --abbrev-ref HEAD"))
         if branch == "" or branch:match("fatal") then
