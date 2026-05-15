@@ -27,11 +27,11 @@ format = " $icon {$volume|} $output_description "
 block = "sound"
 device_kind = "source"
 show_volume_when_muted = true
-format = " $icon {$volume|} $output_description "
+format = " $icon {$volume|} "
 
 [[block]]
 block = "load"
-format = " $icon $1m.eng(w:4) $5m.eng(w:4) $15m.eng(w:4) "
+format = " $1m.eng(w:4) $5m.eng(w:4) $15m.eng(w:4) "
 interval = 1
 
 [[block]]
