@@ -23,7 +23,7 @@
 |                |                |
 |----------------|----------------|
 | ***Window Manager*** | [***`Sway`***](https://swaywm.org) |
-| ***Status Bar*** | [***`Swaybar & I3status`***](https://i3wm.org/i3status/) |
+| ***Status Bar*** | [***`Swaybar & I3status-rust`***](https://github.com/greshake/i3status-rust) |
 | ***Terminal*** | [***`Foot`***](https://codeberg.org/dnkl/foot) |
 | ***Shell*** | [***`Zsh & Rac`***](https://github.com/lomarco/rac) |
 | ***Editor*** | [***`NeoVim`***](https://neovim.io) |
@@ -52,7 +52,7 @@
 ### Home
 
 - [Sway](home/.config/sway/config)
-- [I3status](home/.config/i3status/config)
+- [I3status-rust](home/.config/i3status-rust/config.toml)
 - [Foot](home/.config/foot/foot.ini)
 - [Zsh](home/.zshrc)
 - [NeoVim](home/.config/nvim/init.lua)
