@@ -131,20 +131,43 @@ reboot
 
 ## Sway Hotkeys
 
-| Action                    | Shortcut            |
-|---------------------------|---------------------|
-| **Open terminal**         | `Super + Enter`     |
-| **Launch browser**        | `Super + Shift + B` |
-| **Launch launcher**       | `Super + D`         |
-| **Launch zathura**        | `Super + Shift + Z` |
-| **Take screenshot**       | `PrintScreen`       |
-| **Take a part of screen** | `Super + C`         |
-| **Kill window**           | `Super + Shift + Q` |
-| **Exit sway**             | `Super + Shift + E` |
-| **Reload sway config**    | `Super + Shift + C` |
-| **Switch workspace**      | `Super + {1..0}`    |
-| **Focus window**          | `Super + {H, J, K, L}` |
-| **Fullscreen window**     | `Super + F`         |
+| Action                    | Shortcut                        |
+|---------------------------|----------------------------------|
+| **Open terminal**         | `Super + Enter`                 |
+| **Launch browser**        | `Super + Shift + B`             |
+| **Launch launcher**       | `Super + D`                     |
+| **Launch zathura**        | `Super + Shift + Z`             |
+| **Launch telegram**       | `Super + Shift + T`             |
+| **Open color picker**     | `Super + P`                     |
+| **Zoom/control app**      | `Super + O`                     |
+| **Take screenshot**       | `PrintScreen`                   |
+| **Take a part of screen** | `Super + C`                     |
+| **Kill window**           | `Super + Shift + Q`             |
+| **Exit sway**             | `Super + Shift + E`             |
+| **Reload sway config**    | `Super + Shift + C`             |
+| **Switch workspace**      | `Super + {1..0}`                |
+| **Move container to WS**  | `Super + Shift + {1..0}`        |
+| **Focus window**          | `Super + {H, J, K, L}`          |
+| **Move window**           | `Super + Shift + {H, J, K, L}`  |
+| **Fullscreen window**     | `Super + F`                     |
+| **Split horizontally**    | `Super + B`                     |
+| **Split vertically**      | `Super + V`                     |
+| **Stacking layout**       | `Super + S`                     |
+| **Tabbed layout**         | `Super + W`                     |
+| **Toggle split layout**   | `Super + E`                     |
+| **Toggle floating**       | `Super + Shift + Space`         |
+| **Toggle focus mode**     | `Super + Space`                 |
+| **Focus parent**          | `Super + A`                     |
+| **Resize mode**           | `Super + R`                     |
+| **Move to scratchpad**    | `Super + Shift + -`             |
+| **Show scratchpad**       | `Super + -`                     |
+| **Clipboard history**     | `Super + N`                     |
+| **Audio mute**            | `XF86AudioMute`                 |
+| **Volume down**           | `XF86AudioLowerVolume`          |
+| **Volume up**             | `XF86AudioRaiseVolume`          |
+| **Mic mute**              | `XF86AudioMicMute`              |
+| **Brightness down**       | `XF86MonBrightnessDown`         |
+| **Brightness up**         | `XF86MonBrightnessUp`           |
 
 Other hotkeys are available in the [sway config](home/.config/sway/config).
 
