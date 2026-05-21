@@ -162,3 +162,4 @@ linux-zen-headers
 chafa
 hugo
 wf-recorder
+vrms
