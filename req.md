@@ -117,6 +117,8 @@ bisq-bin
 ayugram-desktop-bin
 wlvncc
 woomer
+libnotify
+fnott
 
 # Extra packages
 docker
@@ -131,8 +133,6 @@ qrtool
 libvirt
 virt-manager
 qemu-base
-fnott
-libnotify
 distcc
 ttf-cascadia-code-nerd
 ttf-cascadia-code
