@@ -13,6 +13,7 @@ set $zathura "zathura"
 set $telegram "AyuGram"
 set $colorpicker "hyprpicker -a"
 set $zoom "woomer"
+set $locker "swaylock -f -c 000000"
 
 set $global_font "JetBrainsMonoNerdFont 8"
 font $global_font
@@ -150,6 +151,6 @@ bar {
 ### Demons
 exec --no-startup-id swayidle -w \
   timeout 180 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-  timeout 240 'swaylock -f -c 000000' before-sleep 'swaylock -f -c 000000'
+  timeout 240 '$locker' before-sleep '$locker'
 exec --no-startup-id wlsunset -t 2600 -T 3000
 exec --no-startup-id wl-paste --watch cliphist store
