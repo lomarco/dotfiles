@@ -134,7 +134,7 @@ bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-bindsym Print exec 'f="$HOME/screenshot-$(date +%Y%m%d-%H%M%S).png"; grim "$f" && wl-copy < "$f" && new="$(printf "%s" "$f" | wmenu -i -p "Full screen. Edit or press Enter to keep:" )" && [ -n "$new" ] && [ "$new" != "$f" ] && mv -- "$f" "$new" || true'
+bindsym Print exec sh -c 'tmp=$(mktemp ~/screenshot-XXXXXX.png) && grim "$tmp" || { rm -f "$tmp"; exit 1; }; new=$(printf "%s" "$tmp" | wmenu -i -p "Full screen. Edit or press Enter to keep:"); rc=$?; if [ $rc -eq 0 ]; then dest="$HOME/screenshot-$(date +%Y%m%d-%H%M%S).png"; if [ -n "$new" ] && [ "$new" != "$tmp" ]; then mv -- "$tmp" "$new" && wl-copy < "$new"; else mv -- "$tmp" "$dest" && wl-copy < "$dest"; fi; else rm -f -- "$tmp"; fi'
 
 # Status Bar:
 bar {
