@@ -106,7 +106,7 @@ zk
 hyprpicker
 ffmpeg
 
-# AUR packages
+# Base AUR packages
 waterfox-bin
 ghcup-hs-bin
 man-pages-dev
@@ -163,3 +163,5 @@ chafa
 hugo
 wf-recorder
 vrms
+
+# Extra AUR packages
