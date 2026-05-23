@@ -88,6 +88,13 @@ Install and select configs (home config for example. See `make help` for informa
 make home
 ```
 
+list packages from file
+``` bash
+pacman -S $(xargs -a base-packages)
+# or
+pacstrap -k /mnt $(xargs -a base-packages)
+```
+
 ## Instalation Nixos guide
 Become an root:
 ```bash
