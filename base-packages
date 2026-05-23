@@ -1,4 +1,3 @@
-# Base packages
 sudo
 vim
 neovim
@@ -106,62 +105,3 @@ zk
 hyprpicker
 ffmpeg
 wf-recorder
-
-# Base AUR packages
-waterfox-bin
-ayugram-desktop-bin
-wlvncc
-woomer
-libnotify
-fnott
-
-# Extra packages
-docker
-docker-compose
-nix
-gource
-dosbox
-wireshark-qt
-electrum
-prismlauncher
-qrtool
-libvirt
-virt-manager
-qemu-base
-distcc
-ttf-cascadia-code-nerd
-ttf-cascadia-code
-qemu-system-arm
-qemu-system-arm-firmware
-wireguard-tools
-apache
-strace
-avr-binutils
-avr-gdb
-avr-gcc
-avrdude
-avr-libc
-mat2
-ncmpcpp
-mpc
-mpd
-glow
-lldb
-radare2
-ctags
-libreoffice-still
-rtorrent
-fastfetch
-powertop
-linux-zen-headers
-chafa
-hugo
-vrms
-
-# Extra AUR packages
-ghcup-hs-bin
-man-pages-dev
-pacgraph
-feather-wallet
-geth
-bisq-bin
