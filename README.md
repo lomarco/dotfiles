@@ -45,7 +45,10 @@
 
 ## Repository Structure
 
-### [req.md](req.md) - List of all neaded packages for my system.
+### [base-packages](base-packages) - List of base packages.
+### [base-aur-packages](base-aur-packages) - List of base aur packages.
+### [extra-packages](extra-packages) - List of extra packages.
+### [extra-aur-packages](extra-aur-packages) - List of extra aur packages.
 ### [arch](arch) - /etc/ directory for arch.
 ### [nixos](arch) - /etc/nixos/ directory for nixos.
 
@@ -83,6 +86,13 @@ git submodule update --remote
 Install and select configs (home config for example. See `make help` for information):
 ```bash
 make home
+```
+
+list packages from file
+``` bash
+pacman -S $(xargs -a base-packages)
+# or
+pacstrap -k /mnt $(xargs -a base-packages)
 ```
 
 ## Instalation Nixos guide
