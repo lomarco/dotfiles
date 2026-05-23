@@ -108,12 +108,6 @@ ffmpeg
 
 # Base AUR packages
 waterfox-bin
-ghcup-hs-bin
-man-pages-dev
-pacgraph
-feather-wallet
-geth
-bisq-bin
 ayugram-desktop-bin
 wlvncc
 woomer
@@ -165,3 +159,9 @@ wf-recorder
 vrms
 
 # Extra AUR packages
+ghcup-hs-bin
+man-pages-dev
+pacgraph
+feather-wallet
+geth
+bisq-bin
