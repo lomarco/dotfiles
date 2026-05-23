@@ -67,7 +67,6 @@
 
 - [auto\_backup](bin/auto_backup)
 - [efistub-boot](bin/efistub-boot)
-- [testkernel](bin/testkernel)
 - [aupa](bin/aupa)
 - [crpt\_price](bin/crpt_price)
 
