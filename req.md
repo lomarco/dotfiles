@@ -105,6 +105,7 @@ iw
 zk
 hyprpicker
 ffmpeg
+wf-recorder
 
 # Base AUR packages
 waterfox-bin
@@ -155,7 +156,6 @@ powertop
 linux-zen-headers
 chafa
 hugo
-wf-recorder
 vrms
 
 # Extra AUR packages
