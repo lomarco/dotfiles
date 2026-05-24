@@ -70,6 +70,7 @@
 - [efistub-boot](bin/efistub-boot)
 - [aupa](bin/aupa)
 - [crpt\_price](bin/crpt_price)
+- [blink](bin/blink)
 
 
 ## Install Guide
