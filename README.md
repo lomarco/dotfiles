@@ -142,15 +142,15 @@ reboot
 ## Sway Hotkeys
 
 | Action                    | Shortcut                        |
-|---------------------------|----------------------------------|
-| **Open terminal**         | `Super + Enter`                 |
+|---------------------------|---------------------------------|
+| **Open terminal**         | `Super + Return`                |
 | **Launch browser**        | `Super + Shift + B`             |
 | **Launch launcher**       | `Super + D`                     |
-| **Launch zathura**        | `Super + Shift + Z`             |
+| **Launch zathura**       | `Super + Shift + Z`              |
 | **Launch telegram**       | `Super + Shift + T`             |
 | **Open color picker**     | `Super + P`                     |
 | **Zoom/control app**      | `Super + O`                     |
-| **Take screenshot**       | `PrintScreen`                   |
+| **Take full-screen shot** | `PrintScreen`                   |
 | **Take a part of screen** | `Super + C`                     |
 | **Kill window**           | `Super + Shift + Q`             |
 | **Exit sway**             | `Super + Shift + E`             |
@@ -172,6 +172,7 @@ reboot
 | **Move to scratchpad**    | `Super + Shift + -`             |
 | **Show scratchpad**       | `Super + -`                     |
 | **Clipboard history**     | `Super + N`                     |
+| **Start/stop recorder**   | `Super + Y`                     |
 | **Audio mute**            | `XF86AudioMute`                 |
 | **Volume down**           | `XF86AudioLowerVolume`          |
 | **Volume up**             | `XF86AudioRaiseVolume`          |
