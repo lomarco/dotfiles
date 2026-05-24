@@ -63,6 +63,7 @@
 - [Tmux](home/.config/tmux/tmux.conf)
 - [Vim](home/.vimrc)
 - [Git config](home/.gitconfig)
+- [Fnott](home/.config/fnott/fnott.ini)
 
 ### Scripts
 
