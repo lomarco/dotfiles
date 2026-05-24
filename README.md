@@ -182,63 +182,74 @@ reboot
 Other hotkeys are available in the [sway config](home/.config/sway/config).
 
 ## NeoVim Config
-Neovim config is a minimalistic, single-file configuration for programming in C, ASM, and C++, working with Git, and taking notes in Markdown. It includes essential plugins and sensible defaults for a smooth coding workflow.
+Neovim config — a minimal single-file configuration for development (C, C++, Rust, Go, Haskell, ASM), Git workflows, and Markdown note-taking; includes sensible defaults and essential plugins for a smooth coding workflow.
 
 #### Included Plugins and Modules
-- lazy.nvim - plugin manager
+- lazy.nvim — plugin manager (installed in stdpath("data")/lazy)
+- telescope.nvim — fuzzy finder (files, buffers, live grep, help tags, recent files)
+- nvim-treesitter — syntax highlighting and indentation (c, cpp, bash, lua, asm, rust)
+- nvim-lspconfig — LSP integration and common keymaps (clangd, pyright, lua_ls, rust_analyzer, hls, gopls)
+- mason.nvim and mason-lspconfig.nvim — LSP installer/manager (automatic installation, ensure_installed)
+- nvim-cmp + cmp-nvim-lsp, cmp-buffer, cmp-path, cmp_luasnip, LuaSnip, friendly-snippets — completion framework (manual autocomplete, source priorities)
+- gitsigns.nvim — git signs and hunk operations
+- vim-fugitive — git commands and quick push for current branch
+- Comment.nvim — easy code commenting
+- mini.tabline — tabline for buffers
+- autoclose.nvim — automatic closing of brackets and quotes
+- oil.nvim + oil-git-status.nvim — file explorer with git status
+- zk-nvim — Zettelkasten/Markdown notes integration (zk LSP)
+- rafi/awesome-vim-colorschemes — color schemes; default set to "purify" with transparent background
 
-- copilot.vim - AI code completion
-
-- telescope.nvim - fuzzy finder for files, buffers, grep
-
-- nvim-treesitter - syntax highlighting and indentation
-
-- nvim-lspconfig - language server protocol support
-
-- nvim-cmp - autocompletion framework
-
-- mason.nvim and mason-lspconfig.nvim - LSP installer and manager
-
-- gitsigns.nvim - git integration and signs
-
-- Comment.nvim - easy code commenting
-
-- mini.tabline - tabline for buffers
-
-- autoclose.nvim - automatic closing of brackets and quotes
-
-- tagbar - code structure sidebar
-
-- oil.nvim - file explorer with git status
-
-Color schemes like kanagawa.nvim and tokyonight.nvim
+Additional config features:
+- UniMake — universal build & run command per filetype (c/cpp/go/rust/haskell)
+- ToggleTerminal — terminal in a bottom split with preserved terminal buffer; use <Esc> in terminal to return to normal mode
+- Display settings: number, relativenumber, colorcolumn=80, listchars (trail/nbsp/tab)
+- Keymaps: leader = Space, jk to exit insert, buffer navigation (gn/gp/gw/ge), Telescope and LSP mappings
 
 #### Basic Keybindings
 ```
-<leader>h — toggle integrated terminal window
+<leader> — leader (space)
 
-jk (insert mode) — quickly exit insert mode
+General
+  jk (insert mode)         — exit insert mode
+  <leader>q                — close current window
+  <leader>u                — toggle Undotree
+  <leader>d (normal)       — toggle integrated terminal (opens bottom split; in terminal use <Esc> to return to normal mode)
+  <Esc> (terminal mode)    — switch from terminal to normal mode (<C-\><C-n>)
 
-Buffer navigation: gn (next), gp (previous), gw (close buffer), ge (open new empty buffer)
+Buffers
+  gn                       — next buffer (:bnext)
+  gp                       — previous buffer (:bprevious)
+  gw                       — close buffer (:bdelete)
+  ge                       — new empty buffer (:enew)
 
-Completion navigation with <Tab> and <Shift-Tab> to select suggestions
+Telescope (requires plugin)
+  <leader>ff               — Find Files
+  <leader>fg               — Live Grep
+  <leader>fb               — Find Buffers
+  <leader>fh               — Help Tags
+  <leader>fr               — Recent Files
 
-LSP shortcuts:
-    gd — go to definition
+Editor display / misc
+  <leader>h (in config)    — runs UniMake (build+run for filetype; mapped to c/cpp/go/rust/haskell rules)
+  colorcolumn              — 80
+  listchars                — shows trailing/nbsp/tab markers
 
-    gi — go to implementation
+Completion (nvim-cmp)
+  completion is manual (no auto), navigate suggestions with standard cmp mappings (Tab / Shift-Tab enabled by cmp mappings)
 
-    K — show hover information
-
-    <leader>ca — code actions
-
-    <leader>r — rename symbol
-
-    <leader>e — open diagnostics float
-
-    [d and ]d — jump between diagnostics
-
-    <leader>f — format file
+LSP (when LSP attached)
+  gd                       — go to definition
+  gr                       — references
+  gi                       — go to implementation
+  gt                       — type definition
+  K                        — show hover
+  <leader>ca               — code actions
+  <leader>r                — rename symbol
+  <leader>f                — format file
+  <leader>g                — open diagnostics list
+  <leader>e                — open diagnostics float
+  [d / ]d                  — previous / next diagnostic
 ```
 
 ## License
