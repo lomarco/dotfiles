@@ -30,6 +30,7 @@
 | ***Multiplexer*** | [***`Tmux`***](https://github.com/tmux/tmux/wiki) |
 | ***Password Manager*** | [***`Pass`***](https://www.passwordstore.org) |
 | ***WiFi Manager*** | [***`Network Manager`***](https://networkmanager.dev) |
+| ***Notification Manager*** | [***`Fnott`***](https://codeberg.org/dnkl/foot) |
 | ***File Manager*** | [***`Yazi`***](https://yazi-rs.github.io) |
 | ***Pdf Reader*** | [***`Zathura`***](https://pwmt.org/projects/zathura) |
 | ***Notes Manager*** | [***`Noca`***](https://github.com/lomarco/noca) |
