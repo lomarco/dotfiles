@@ -423,36 +423,6 @@ require('lazy').setup({
     },
   },
   {
-    'nvim-orgmode/orgmode',
-    event = 'VeryLazy',
-    ft = { 'org' },
-    config = function()
-      require('orgmode').setup({
-        org_agenda_files = { '~/org/inbox.org', '~/org/todo.org', '~/org/projects.org', '~/org/someday.org', '~/org/archive.org' },
-        org_default_notes_file = '~/org/inbox.org',
-        org_todo_keywords = { 'TODO(t)', 'NEXT(n)', 'WAITING(w/@)', 'HOLD(h)', '|', 'DONE(d)', 'CANCELLED(c)' },
-        org_agenda_start_on_weekday = 1,
-
-        org_capture_templates = {
-          t = { description = "Todo", template = "* TODO %?\n  %u\n  %a", target = '~/org/inbox.org' },
-          p = { description = "Project", template = "* PROJECT %^{Project title} :project:\n  %?\n", target = '~/org/projects.org' },
-          s = { description = "Someday", template = "* TODO %?\n  %u\n  :someday:", target = '~/org/someday.org' },
-          n = { description = "Note", template = "* %?\n  %u\n", target = '~/org/inbox.org' },
-        },
-
-        -- org_agenda_custom_commands = {
-        --   a = { description = 'Planned (agenda)', command = 'agenda' },
-        --   n = { description = 'NEXT tasks',       command = 'todo',  match = 'NEXT' },
-        --   c = { description = 'Current TODOs',    command = 'todo',  match = 'TODO|NEXT|WAITING' },
-        --   P = { description = 'Projects',         command = 'tags',  match = 'project' },
-        --   s = { description = 'Someday',          command = 'tags',  match = 'someday' },
-        --   d = { description = 'Done / Archive',   command = 'query', query = 'TODO="DONE"' },
-        -- },
-      })
-      vim.lsp.enable('org')
-    end,
-  },
-  {
     'rafi/awesome-vim-colorschemes',
     lazy = false,
     config = function()
