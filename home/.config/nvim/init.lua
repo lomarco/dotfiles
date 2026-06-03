@@ -428,7 +428,7 @@ require('lazy').setup({
     ft = { 'org' },
     config = function()
       require('orgmode').setup({
-        org_agenda_files = { '~/org/inbox.org', '~/org/todo.org', '~/org/projects.org', '~/org/someday.org' },
+        org_agenda_files = { '~/org/inbox.org', '~/org/todo.org', '~/org/projects.org', '~/org/someday.org', '~/org/archive.org' },
         org_default_notes_file = '~/org/inbox.org',
         org_todo_keywords = { 'TODO', 'NEXT', 'DONE' },
       })
