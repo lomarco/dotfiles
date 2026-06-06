@@ -67,8 +67,7 @@ rustup
 dosfstools
 arch-audit
 pacman-contrib
-ttf-dejavu-nerd
-ttf-dejavu
+ttf-iosevkaterm-nerd
 gnu-free-fonts
 swayidle
 swaylock

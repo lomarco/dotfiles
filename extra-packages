@@ -13,6 +13,8 @@ qemu-base
 distcc
 ttf-cascadia-code-nerd
 ttf-cascadia-code
+ttf-dejavu-nerd
+ttf-dejavu
 qemu-system-arm
 qemu-system-arm-firmware
 wireguard-tools

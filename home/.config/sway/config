@@ -15,7 +15,7 @@ set $colorpicker "hyprpicker -a"
 set $zoom "woomer"
 set $locker "swaylock -f -c 000000"
 
-set $global_font "DejaVuSansMono 8"
+set $global_font "IosevkaTermNerdFont 9"
 font $global_font
 
 
