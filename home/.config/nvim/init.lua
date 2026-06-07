@@ -409,7 +409,7 @@ require('lazy').setup({
     "zk-org/zk-nvim",
     name = "zk",
     opts = {
-      picker = "select", -- Or telescope
+      picker = "select",
       lsp = {
         config = {
           name = "zk",
