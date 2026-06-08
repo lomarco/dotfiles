@@ -427,6 +427,13 @@ require('lazy').setup({
     },
   },
   {
+    "ggandor/leap.nvim",
+    enabled = true,
+    config = function()
+      vim.keymap.set({ 'n', 'x', 'o' }, ';', '<Plug>(leap)')
+    end,
+  },
+  {
     'rafi/awesome-vim-colorschemes',
     lazy = false,
     config = function()
