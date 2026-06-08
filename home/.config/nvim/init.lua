@@ -434,6 +434,10 @@ require('lazy').setup({
     end,
   },
   {
+    'stevearc/aerial.nvim',
+    opts = {}
+  },
+  {
     'rafi/awesome-vim-colorschemes',
     lazy = false,
     config = function()
