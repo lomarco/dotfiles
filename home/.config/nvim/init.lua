@@ -96,25 +96,6 @@ vim.keymap.set('n', '<leader>d', '<Cmd>ToggleTerminal<CR>', { noremap = true, si
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
 
--- Universal Build & Run Command
-local build_rules = {
-  c = { build = "make", run = "make run" },
-  haskell = { build = "cabal build", run = "cabal run" },
-  cpp = { build = "make", run = "make run" },
-  rust = { build = "cargo build", run = "cargo run" },
-  go = { build = "go build", run = "go run" }
-}
-
-local function UniMake(opts)
-  local ft = vim.bo.filetype
-  local rule = build_rules[ft] or build_rules.c -- fallback to C
-  local cmd = string.format("%s && %s", rule.build, rule.run)
-  vim.cmd("!" .. cmd)
-end
-
-vim.api.nvim_create_user_command('UniMake', UniMake, {})
-vim.keymap.set('n', '<leader>h', '<Cmd>UniMake<CR>', { noremap = true, silent = true })
-
 -- End of line highlighting
 vim.opt.list = true
 vim.opt.listchars = {
@@ -441,6 +422,8 @@ require('lazy').setup({
     "ej-shafran/compile-mode.nvim",
     version = "^5.0.0",
     dependencies = { "nvim-lua/plenary.nvim" },
+    vim.keymap.set('n', '<leader>c', '<cmd>Compile<CR>', { noremap = true, silent = true }),
+    vim.keymap.set('n', '<leader>cr', '<cmd>Recompile<CR>', { noremap = true, silent = true }),
     config = function()
       vim.g.compile_mode = {
         default_command = "make -k ",
