@@ -426,7 +426,7 @@ require('lazy').setup({
     vim.keymap.set('n', '<leader>cr', '<cmd>Recompile<CR>', { noremap = true, silent = true }),
     config = function()
       vim.g.compile_mode = {
-        default_command = "make -k ",
+        default_command = "make",
         ask_about_save = true,
         ask_to_interrupt = true,
         auto_scroll = true,
