@@ -438,6 +438,21 @@ require('lazy').setup({
     opts = {}
   },
   {
+    "ej-shafran/compile-mode.nvim",
+    version = "^5.0.0",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      vim.g.compile_mode = {
+        default_command = "make -k ",
+        ask_about_save = true,
+        ask_to_interrupt = true,
+        auto_scroll = true,
+        error_threshold = require("compile-mode").level.WARNING,
+        error_locus_highlight = 500,
+      }
+    end
+  },
+  {
     'rafi/awesome-vim-colorschemes',
     lazy = false,
     config = function()
