@@ -427,7 +427,7 @@ bindkey -M viins "jk" vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
 
 alias ls='ls --color=tty' \
-  la='ls -la' \
+  la='ls -lah' \
   c='clear' \
   gco='git checkout' \
   gw='git switch' \
