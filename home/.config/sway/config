@@ -7,7 +7,7 @@ set $up k
 set $right l
 
 set $term "foot -e tmux new-session -A -s base"
-set $browser "helium-browser"
+set $browser "waterfox"
 set $menu "wmenu-run"
 set $zathura "zathura"
 set $telegram "AyuGram"
