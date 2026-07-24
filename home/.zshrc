@@ -447,6 +447,8 @@ alias ls='ls --color=tty' \
   mc='make clean' \
   mi='make install' \
   mr='make rebuild' \
+  cbr='cargo build --release' \
+  crr='cargo run --release' \
   ztest="hyperfine -N -w 10 -r 50 'zsh -i -c exit'" \
   ..="cd .."
 
