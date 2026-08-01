@@ -49,6 +49,7 @@ vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 -- Auto brackets
 vim.keymap.set('v', '<leader>"', 'c""<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', "<leader>'", "c''<Esc>P", { noremap = true, silent = true })
+vim.keymap.set('v', '<leader>`', 'c``<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>(', 'c()<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>{', 'c{}<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>[', 'c[]<Esc>P', { noremap = true, silent = true })
