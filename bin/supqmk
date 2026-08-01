@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e
+
+cd "${1:-$HOME/qmk_firmware}"
+qmk compile -j 0 -kb crkbd -km crkbd31
+
+MOUNT_POINT="/mnt"
+DEVICE=""
+
+for dev in $(lsblk -dpno NAME,TYPE | grep -E 'disk$' | awk '{print $1}'); do
+    partition="${dev}1"
+    if [ -b "$partition" ]; then
+        echo "mount $partition..."
+        if sudo mount "$partition" "$MOUNT_POINT" 2>/dev/null; then
+            DEVICE="$partition"
+            echo "succ: $DEVICE"
+            break
+        fi
+    fi
+done
+
+if [ -z "$DEVICE" ]; then
+    echo "err: not found usb"
+    echo "lsblk:"
+    lsblk
+    exit 1
+fi
+
+sudo mv crkbd_rev1_crkbd31.uf2 "$MOUNT_POINT"
+
+sudo umount "$MOUNT_POINT"
+sync
