@@ -430,7 +430,6 @@ require('lazy').setup({
         default_command = "",
         ask_about_save = true,
         ask_to_interrupt = true,
-        auto_scroll = false,
         error_threshold = require("compile-mode").level.WARNING,
         error_locus_highlight = 500,
       }
