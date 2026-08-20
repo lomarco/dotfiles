@@ -436,6 +436,10 @@ require('lazy').setup({
     end
   },
   {
+    'RaafatTurki/hex.nvim',
+    opts = {}
+  },
+  {
     'rafi/awesome-vim-colorschemes',
     lazy = false,
     config = function()
