@@ -21,6 +21,7 @@ font $global_font
 
 ### Output configuration
 output * bg #000000 solid_color
+for_window [shell=".*"] inhibit_idle fullscreen
 
 
 ### Input configuration
