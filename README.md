@@ -47,10 +47,10 @@
 
 ## Repository Structure
 
-### [base-packages](base-packages) - List of base packages.
-### [base-aur-packages](base-aur-packages) - List of base aur packages.
-### [extra-packages](extra-packages) - List of extra packages.
-### [extra-aur-packages](extra-aur-packages) - List of extra aur packages.
+### [base-packages](https://github.com/lomarco/dotfiles-arch/blob/master/base-packages) - List of base packages.
+### [base-aur-packages](https://github.com/lomarco/dotfiles-arch/blob/master/base-aur-packages) - List of base aur packages.
+### [extra-packages](https://github.com/lomarco/dotfiles-arch/blob/master/extra-packages) - List of extra packages.
+### [extra-aur-packages](https://github.com/lomarco/dotfiles-arch/blob/master/extra-aur-packages) - List of extra aur packages.
 ### [arch](arch) - /etc/ directory for arch.
 ### [nixos](arch) - /etc/nixos/ directory for nixos.
 
@@ -93,9 +93,9 @@ make home
 
 list packages from file
 ``` bash
-pacman -S $(xargs -a base-packages)
+pacman -S $(xargs -a arch/base-packages)
 # or
-pacstrap -k /mnt $(xargs -a base-packages)
+pacstrap -k /mnt $(xargs -a arch/base-packages)
 ```
 
 ## Instalation Nixos guide
