@@ -440,6 +440,12 @@ require('lazy').setup({
     opts = {}
   },
   {
+    "dhananjaylatkar/cscope_maps.nvim",
+    opts = {
+      picker = "quickfix"
+    },
+  },
+  {
     'rafi/awesome-vim-colorschemes',
     lazy = false,
     config = function()
