@@ -3,7 +3,7 @@ set -euo pipefail
 
 disk="/dev/nvme0n1"
 efi_part_num=1
-root_part_num=3
+root_part_num=2
 label="Linux"
 kernel_path="\\vmlinuz-linux-zen"
 ucode_path="" # if ucode is not needed, put ""
