@@ -55,6 +55,8 @@ lsof
 usbutils
 pipewire
 alsa-pipewire
+wireplumber
+libspa-bluetooth
 pavucontrol
 font-iosevka
 freefont-ttf
