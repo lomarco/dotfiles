@@ -35,7 +35,7 @@ vim.opt.hlsearch = true
 vim.opt.timeoutlen = 400
 vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
 vim.opt.shortmess:append("sI")
 vim.opt.fillchars = { eob = " " }
 
