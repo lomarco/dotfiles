@@ -392,23 +392,6 @@ require('lazy').setup({
     end,
   },
   {
-    "zk-org/zk-nvim",
-    name = "zk",
-    opts = {
-      picker = "select",
-      lsp = {
-        config = {
-          name = "zk",
-          cmd = { "zk", "lsp" },
-          filetypes = { "markdown" },
-        },
-        auto_attach = {
-          enabled = true,
-        },
-      },
-    },
-  },
-  {
     url = "https://codeberg.org/andyg/leap.nvim",
     enabled = true,
     config = function()

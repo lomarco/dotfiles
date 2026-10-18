@@ -201,7 +201,6 @@ Neovim config — a minimal single-file configuration for development (C, C++, R
 - mini.tabline — tabline for buffers
 - autoclose.nvim — automatic closing of brackets and quotes
 - oil.nvim + oil-git-status.nvim — file explorer with git status
-- zk-nvim — Zettelkasten/Markdown notes integration (zk LSP)
 - rafi/awesome-vim-colorschemes — color schemes; default set to "purify" with transparent background
 
 Additional config features:
