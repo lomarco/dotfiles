@@ -51,8 +51,7 @@
 ### [base-aur-packages](https://github.com/lomarco/dotfiles-arch/blob/master/base-aur-packages) - List of base aur packages.
 ### [extra-packages](https://github.com/lomarco/dotfiles-arch/blob/master/extra-packages) - List of extra packages.
 ### [extra-aur-packages](https://github.com/lomarco/dotfiles-arch/blob/master/extra-aur-packages) - List of extra aur packages.
-### [arch](arch) - /etc/ directory for arch.
-### [nixos](arch) - /etc/nixos/ directory for nixos.
+### [nixos](nixos) - /etc/nixos/ directory for nixos.
 
 ### Home
 
