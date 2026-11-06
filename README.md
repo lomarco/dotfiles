@@ -25,7 +25,7 @@
 | ***Terminal*** | [***`Foot`***](https://codeberg.org/dnkl/foot) |
 | ***Shell*** | [***`Zsh & Rac`***](https://github.com/lomarco/rac) |
 | ***Editor*** | [***`NeoVim`***](https://neovim.io) |
-| ***Web Browser*** | [***`Waterfox`***](https://www.waterfox.com/) |
+| ***Web Browser*** | [***`Firefox`***](https://www.firefox.com/) |
 | ***Multiplexer*** | [***`Tmux`***](https://github.com/tmux/tmux/wiki) |
 | ***Password Manager*** | [***`Pass`***](https://www.passwordstore.org) |
 | ***WiFi Manager*** | [***`Network Manager`***](https://networkmanager.dev) |
