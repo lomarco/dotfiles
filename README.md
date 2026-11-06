@@ -10,11 +10,9 @@
 - [Toolchain](#toolchain)
 - [Gallery](#gallery)
 - [Repository Structure](#repository-structure)
-  - [Base](#base)
+  - [Home](#home)
   - [Scripts](#scripts)
 - [Install Guide](#install-guide)
-- [Sway Hotkeys](#sway-hotkeys)
-- [NeoVim Config](#Neovim-config)
 - [License](#license)
 
 </details>
