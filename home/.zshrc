@@ -454,16 +454,9 @@ alias ls='ls --color=tty' \
   ztest="hyperfine -N -w 10 -r 50 'zsh -i -c exit'" \
   ..="cd .."
 
-take() {
-  mkdir -p -- "$1" && cd -- "$1"
-}
-
-export PATH="$PATH:$HOME/.ghcup/bin"
-export GPG_TTY=$TTY
-
-ssh-add -l >/dev/null 2>&1 || eval $(ssh-agent -s)
-gpg-connect-agent updatestartuptty /bye 1>/dev/null
-export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
+export GPG_TTY="$TTY"
+[[ -n $SSH_AUTH_SOCK ]] || eval "$(ssh-agent -s)" >/dev/null
+gpg-connect-agent updatestartuptty /bye >/dev/null
 
 zmodload zsh/zprof
 
