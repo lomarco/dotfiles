@@ -6,12 +6,12 @@ format = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi) ($mem_used_p
 block = "amd_gpu"
 format = " $icon $utilization "
 format_alt = " $icon MEM: $vram_used_percents ($vram_used/$vram_total) "
-interval = 1
+interval = 3
 
 [[block]]
 block = "load"
 format = " $1m.eng(w:4) $5m.eng(w:4) $15m.eng(w:4) "
-interval = 1
+interval = 3
 
 [[block]]
 block = "backlight"
