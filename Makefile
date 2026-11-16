@@ -22,7 +22,6 @@ help:
 	@echo "  unbin   - Uninstall bin scripts"
 
 home:
-	mkdir -p $(HOME_TARGET)/.config/nvim/
 	stow -v -t $(HOME_TARGET) $(HOME_CONFIGS)
 
 unhome:
