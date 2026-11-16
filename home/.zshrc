@@ -127,7 +127,7 @@ alias ls='ls --color=tty' \
 export GPG_TTY=$TTY
 ssh-add -l >/dev/null 2>&1 || eval $(ssh-agent -s)
 gpg-connect-agent updatestartuptty /bye 1>/dev/null
-export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
+export SSH_AUTH_SOCK="$(gpgconf --list-dir agent-ssh-socket)"
 
 RAC_DIR=${XDG_DATA_HOME:-$HOME/.local/share}/rac
 [[ -r $RAC_DIR/rac.zsh ]] || git clone -q --depth 1 https://github.com/lomarco/rac $RAC_DIR
