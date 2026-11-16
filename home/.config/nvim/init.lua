@@ -398,6 +398,7 @@ require('lazy').setup({
   },
   {
     'stevearc/aerial.nvim',
+    keys = { { '<leader>a', '<Cmd>AerialToggle!<CR>', desc = 'Outline' } },
     opts = {}
   },
   {
