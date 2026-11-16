@@ -31,7 +31,6 @@
 | ***WiFi Manager*** | [***`Network Manager`***](https://networkmanager.dev) |
 | ***Notification Manager*** | [***`Fnott`***](https://codeberg.org/dnkl/fnott) |
 | ***File Manager*** | [***`Yazi`***](https://yazi-rs.github.io) |
-| ***Pdf Reader*** | [***`Zathura`***](https://pwmt.org/projects/zathura) |
 | ***Notes Manager*** | [***`Noca`***](https://github.com/lomarco/noca) |
 | ***Bootloader*** | [***`EFI Stub`***](https://github.com/lomarco/dotfiles/blob/master/bin/efistub-boot) |
 

@@ -10,7 +10,6 @@ set $term "foot -e tmux new-session -A -s base"
 set $browser "firefox"
 set $menu "wmenu-run"
 set $bin "$HOME/.dotfiles/bin"
-set $zathura "zathura"
 set $colorpicker "hyprpicker -a"
 set $zoom "woomer"
 set $locker "swaylock -f -c 000000"
@@ -49,7 +48,6 @@ bindsym $mod+c exec $bin/screenshot
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+b exec $browser
-bindsym $mod+Shift+z exec $zathura
 bindsym $mod+p exec $colorpicker
 bindsym $mod+o exec $zoom
 
