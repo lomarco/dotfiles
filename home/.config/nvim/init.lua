@@ -205,16 +205,16 @@ require('lazy').setup({
     end,
   },
   {
-    "williamboman/mason.nvim",
+    'mason-org/mason.nvim',
     opts = {},
     lazy = false
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+    'mason-org/mason-lspconfig.nvim',
+    dependencies = { 'mason-org/mason.nvim', 'neovim/nvim-lspconfig' },
     opts = {
-      automatic_installation = true,
-      ensure_installed = { "lua_ls", "clangd" }
+      ensure_installed = { 'lua_ls', 'clangd' },
+      automatic_enable = false,
     }
   },
   {
