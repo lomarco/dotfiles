@@ -62,7 +62,7 @@
 - [Vim](home/.vimrc)
 - [Git config](home/.gitconfig)
 - [Fnott](home/.config/fnott/fnott.ini)
-- [Gnupg](home/.gnupg/gpg-agent.conf)
+- [Gnupg](gpg/gpg-agent.conf)
 
 ### Scripts
 
