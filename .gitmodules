@@ -1,6 +1,8 @@
 [submodule "nixos"]
 	path = nixos
-	url = git@github.com:lomarco/dotfiles-nixos.git
+	url = https://github.com/lomarco/dotfiles-nixos.git
+	pushurl = git@github.com:lomarco/dotfiles-nixos.git
 [submodule "arch"]
 	path = arch
-	url = git@github.com:lomarco/dotfiles-arch.git
+	url = https://github.com/lomarco/dotfiles-arch.git
+	pushurl = git@github.com:lomarco/dotfiles-arch.git
