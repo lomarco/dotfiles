@@ -1,0 +1,17 @@
+#!/bin/sh
+
+pid=$(pgrep -x wf-recorder)
+if [ -n "$pid" ]; then
+  kill -INT $pid
+  notify-send -u normal -t 3000 -a wf-recorder "Screen recording stopped and saved"
+  exit 0
+fi
+
+geo=$(slurp 2>/dev/null)
+if [ -z "$geo" ]; then
+  notify-send -u critical -t 3000 -a wf-recorder "Selection cancelled"
+  exit 1
+fi
+
+notify-send -u normal -t 3000 -a wf-recorder "Recording region started"
+wf-recorder -g "$geo" -f "$HOME/rec_$(date +%Y%m%d_%H%M%S).mkv" 2>/tmp/wfrec.err >/dev/null &

@@ -1,0 +1,46 @@
+#!/bin/sh
+
+set -u
+
+notify() { notify-send -u "$1" -t 3000 -a screenshot "Screenshot" "$2"; }
+
+fallback() {
+  out="$HOME/fallback-$(date +%Y%m%d-%H%M%S).png"
+  if grim "$out" 2>/dev/null && wl-copy < "$out" 2>/dev/null; then
+    notify normal "Saved fallback image"
+  else
+    notify critical "Failed to take screenshot"
+  fi
+  exit 1
+}
+
+case "${1:-region}" in
+  full) prompt="Full screen. Edit or press Enter to keep:" ;;
+  *)    prompt="Save as (edit) or Enter to keep:" ;;
+esac
+
+out=$(mktemp "$HOME/screenshot-XXXXXX.png") || fallback
+
+if [ "${1:-region}" = full ]; then
+  notify low "Capturing full screen..."
+  grim "$out" 2>/dev/null || { rm -f -- "$out"; fallback; }
+  notify normal "Full screen captured"
+else
+  notify low "Select region..."
+  region=$(slurp) || { rm -f -- "$out"; notify low "Selection cancelled"; exit 0; }
+  grim -g "$region" "$out" 2>/dev/null || { rm -f -- "$out"; fallback; }
+  notify normal "Region captured"
+fi
+
+new=$(printf '%s\n' "$out" | wmenu -i -p "$prompt") \
+  || { rm -f -- "$out"; notify low "Cancelled"; exit 0; }
+
+dest="$out"
+if [ -n "$new" ] && [ "$new" != "$out" ]; then
+  mv -- "$out" "$new" 2>/dev/null && dest="$new"
+else
+  ts="$HOME/screenshot-$(date +%Y%m%d-%H%M%S).png"
+  mv -- "$out" "$ts" 2>/dev/null && dest="$ts"
+fi
+wl-copy < "$dest" 2>/dev/null
+notify normal "Saved as $(basename "$dest")"
