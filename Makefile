@@ -13,13 +13,13 @@ help:
 	@echo "Dotfiles makefile usage:"
 	@echo "  home  - Install user configs to ~/"
 	@echo "  nixos - Install NixOS configs to /etc/nixos"
-	@echo "  gpg   - Install gpg configs to /.gnupg"
-	@echo "  bin   - Install Bin's sctipts to /usr/local/bin"
+	@echo "  gpg   - Install gpg configs to ~/.gnupg"
+	@echo "  bin   - Install bin scripts to /usr/local/bin"
 	@echo ""
 	@echo "  unhome  - Uninstall user configs"
 	@echo "  unnixos - Uninstall NixOS configs"
-	@echo "  ungpg     - Uninstall gpg configs"
-	@echo "  unbin   - Uninstall Bin's sctipts"
+	@echo "  ungpg   - Uninstall gpg configs"
+	@echo "  unbin   - Uninstall bin scripts"
 
 home:
 	mkdir -p $(HOME_TARGET)/.config/nvim/
