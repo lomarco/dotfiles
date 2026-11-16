@@ -1,128 +1,133 @@
 #!/bin/sh
 
-set -e
+set -u
 
-show_help() {
+TS=$(date +%F)
+
+usage() {
   echo "Usage: $0 <backup_destination_parent_path> [options]"
   echo
-  echo "This script backs up /home/\$USER, /data, /etc, and /usr/local/bin"
-  echo "to a timestamped subdirectory inside the specified destination parent directory."
+  echo "Backs up /home/\$USER and /etc to backup_$TS inside the destination."
+  echo "Run as root to include /etc."
   echo
   echo "Options:"
-  echo "  -h, --help        Show this help message and exit"
-  echo "  -c, --compress    Compress the backup directory into a .tar archive after backup"
-  echo "                    Optional: set compression algorithm via COMP_ALGO environment variable:"
-  echo "                      gzip (default), bzip2, xz, zstd"
+  echo "  -h, --help     Show this help message and exit"
+  echo "  -c, --compress Compress the backup directory into an archive."
+  echo "                 Algorithm via COMP_ALGO env: gzip (default), bzip2, xz, zstd"
   echo
   echo "Example:"
   echo "  $0 /backup/path --compress"
 }
 
 COMPRESS=0
-COMP_ALGO=${COMP_ALGO:""} # -xz
+COMP_ALGO=${COMP_ALGO:-gzip}
+DEST=""
 
-DEST_PATH=""
-while [[ "$#" -gt 0 ]]; do
+while [ $# -gt 0 ]; do
   case "$1" in
     -h|--help)
-      show_help
+      usage
       exit 0
       ;;
     -c|--compress)
       COMPRESS=1
-      shift
+      ;;
+    -*)
+      echo "Unexpected argument: $1"
+      usage
+      exit 1
       ;;
     *)
-      if [ -z "$DEST_PATH" ]; then
-        DEST_PATH="$1"
-        shift
+      if [ -z "$DEST" ]; then
+        DEST="$1"
       else
         echo "Unexpected argument: $1"
-        show_help
+        usage
         exit 1
       fi
       ;;
   esac
+  shift
 done
 
-if [ -z "$DEST_PATH" ]; then
-  echo -e "\e[1;31mError: destination path not provided.\e[0m"
+if [ -z "$DEST" ]; then
+  echo "Error: destination path not provided."
   exit 1
 fi
 
-if [ ! -d "$DEST_PATH" ]; then
-  echo -e "\e[1;31mError: destination directory does not exist.\e[0m"
+if [ ! -d "$DEST" ]; then
+  echo "Error: destination directory does not exist."
   exit 1
 fi
 
-TIMESTAMP=$(date +%Y-%m-%d)
-BACKUP_DIR="$DEST_PATH/backup_$TIMESTAMP"
+BACKUP_DIR="$DEST/backup_$TS"
+LOG_FILE="$BACKUP_DIR/backup.log"
 mkdir -p "$BACKUP_DIR"
 
-LOG_FILE="$BACKUP_DIR/backup.log"
-USER_NAME=$USER
+green() { printf '\e[1;32m%s\e[0m\n' "$1"; }
+red()   { printf '\e[1;31m%s\e[0m\n' "$1"; }
+log()   { echo "$1" | tee -a "$LOG_FILE"; }
 
-green() {
-  echo -e "\e[1;32m$1\e[0m"
-}
-
-red() {
-  echo -e "\e[1;31m$1\e[0m"
-}
-
-run_rsync() {
-  local src=$1
-  local dest=$2
-  echo "Copying $src to $dest..." | tee -a "$LOG_FILE"
-  rsync -aAXv --chown="$USER_NAME":"$USER_NAME" "$src" "$dest" >> "$LOG_FILE" 2>&1
-  if [ $? -eq 0 ]; then
-    green "Success: copied $src to $dest" | tee -a "$LOG_FILE"
+rsync_dir() { # $1 = src, $2 = dest
+  log "Copying $1 to $2..."
+  if rsync -aAX --exclude=.cache --exclude=.local/share/Trash "$1" "$2" >> "$LOG_FILE" 2>&1; then
+    green "Success: copied $1 to $2" | tee -a "$LOG_FILE"
+    return 0
   else
-    red "Error: failed to copy $src to $dest" | tee -a "$LOG_FILE"
-    exit 1
+    red "Error: failed to copy $1 to $2" | tee -a "$LOG_FILE"
+    return 1
   fi
 }
 
-green "Starting backup: $(date)" | tee -a "$LOG_FILE"
+log "Starting backup: $(date)"
 
-run_rsync /home/"$USER_NAME"/ "$BACKUP_DIR/$USER_NAME"/ &
-run_rsync /etc/ "$BACKUP_DIR/etc/" &
-wait
+status=0
+rsync_dir "$HOME/" "$BACKUP_DIR/$USER/" & p1=$!
+if [ "$(id -u)" -eq 0 ]; then
+  rsync_dir /etc/ "$BACKUP_DIR/etc/" & p2=$!
+else
+  p2=
+  log "Skipping /etc (not root)."
+fi
+wait $p1 || status=1
+[ -n "$p2" ] && { wait $p2 || status=1; }
+[ "$status" -eq 0 ] || exit 1
 
-echo "Synchronizing file system..." | tee -a "$LOG_FILE"
-sync >> "$LOG_FILE" 2>&1
-if [ $? -eq 0 ]; then
+log "Synchronizing file system..."
+if sync >> "$LOG_FILE" 2>&1; then
   green "Success: file system synchronized." | tee -a "$LOG_FILE"
 else
   red "Error: file system synchronization failed." | tee -a "$LOG_FILE"
   exit 1
 fi
 
-if [ $COMPRESS -eq 1 ]; then
-  ARCHIVE_NAME="$DEST_PATH/backup_$TIMESTAMP.tar"
+do_compress() {
   case "$COMP_ALGO" in
     gzip)
-      ARCHIVE_NAME+=".gz"
-      tar czf "$ARCHIVE_NAME" -C "$DEST_PATH" "backup_$TIMESTAMP"
+      ARCHIVE_NAME="$DEST/backup_$TS.tar.gz"
+      tar czf "$ARCHIVE_NAME" -C "$DEST" "backup_$TS"
       ;;
     bzip2)
-      ARCHIVE_NAME+=".bz2"
-      tar cjf "$ARCHIVE_NAME" -C "$DEST_PATH" "backup_$TIMESTAMP"
+      ARCHIVE_NAME="$DEST/backup_$TS.tar.bz2"
+      tar cjf "$ARCHIVE_NAME" -C "$DEST" "backup_$TS"
       ;;
     xz)
-      ARCHIVE_NAME+=".xz"
-      tar cJf "$ARCHIVE_NAME" -C "$DEST_PATH" "backup_$TIMESTAMP"
+      ARCHIVE_NAME="$DEST/backup_$TS.tar.xz"
+      tar cJf "$ARCHIVE_NAME" -C "$DEST" "backup_$TS"
       ;;
     zstd)
-      ARCHIVE_NAME+=".zst"
-      tar --zstd -cf "$ARCHIVE_NAME" -C "$DEST_PATH" "backup_$TIMESTAMP"
+      ARCHIVE_NAME="$DEST/backup_$TS.tar.zst"
+      tar --zstd -cf "$ARCHIVE_NAME" -C "$DEST" "backup_$TS"
       ;;
     *)
       red "Unknown compression algorithm: $COMP_ALGO. Supported: gzip, bzip2, xz, zstd."
-      exit 1
+      return 2
       ;;
   esac
-  if [ $? -eq 0 ]; then
+}
+
+if [ "$COMPRESS" -eq 1 ]; then
+  if do_compress; then
     green "Backup directory compressed successfully to $ARCHIVE_NAME" | tee -a "$LOG_FILE"
   else
     red "Compression failed." | tee -a "$LOG_FILE"
