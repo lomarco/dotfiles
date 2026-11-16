@@ -13,11 +13,14 @@ err() {
 clean() {
   pm "Pacman cache"
   yes | sudo pacman -Scc
-  sudo pacman -Rns $(pacman -Qtdq) --noconfirm
-  
+  local orphans
+  orphans=$(pacman -Qtdq)
+  [[ -n "$orphans" ]] && sudo pacman -Rns $orphans --noconfirm
+
   pm "Paru cache"
   yes | paru -Scc
-  paru -Rns $(paru -Qdtq) --noconfirm
+  orphans=$(paru -Qdtq)
+  [[ -n "$orphans" ]] && paru -Rns $orphans --noconfirm
   paru -c --noconfirm
 
   pm "Fc-Cache"
