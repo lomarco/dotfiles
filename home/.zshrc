@@ -40,7 +40,6 @@ _gp_precmd() {
   [[ $d == "$_gp_root" ]] || _gp=
   _gp_root=$d
   exec {_gp_fd}< <(GIT_OPTIONAL_LOCKS=0 command git status --porcelain=v2 -b --show-stash 2>/dev/null)
-  [[ $ZSH_VERSION == (5.<8->|<6->.)* ]] || command true
   zle -F $_gp_fd _gp_cb
 }
 
