@@ -66,12 +66,14 @@
 
 ### Scripts
 
-- [auto\_backup](bin/auto_backup)
+- [auto-backup](bin/auto-backup)
 - [efistub-boot](bin/efistub-boot)
 - [aupa](bin/aupa)
-- [crpt\_price](bin/crpt_price)
+- [crpt-price](bin/crpt-price)
 - [blink](bin/blink)
 - [supqmk](bin/supqmk)
+- [screenshot](bin/screenshot)
+- [record](bin/record)
 
 
 ## Install Guide
