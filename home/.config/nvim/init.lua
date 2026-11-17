@@ -45,14 +45,16 @@ opt.undofile = true
 
 vim.g.mapleader = " "
 
-vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
+local map = vim.keymap.set
 
-vim.keymap.set('v', '<leader>"', 'c""<Esc>P', { noremap = true, silent = true })
-vim.keymap.set('v', "<leader>'", "c''<Esc>P", { noremap = true, silent = true })
-vim.keymap.set('v', '<leader>`', 'c``<Esc>P', { noremap = true, silent = true })
-vim.keymap.set('v', '<leader>(', 'c()<Esc>P', { noremap = true, silent = true })
-vim.keymap.set('v', '<leader>{', 'c{}<Esc>P', { noremap = true, silent = true })
-vim.keymap.set('v', '<leader>[', 'c[]<Esc>P', { noremap = true, silent = true })
+map('i', 'jk', '<Esc>')
+
+map('v', '<leader>"', 'c""<Esc>P')
+map('v', "<leader>'", "c''<Esc>P")
+map('v', '<leader>`', 'c``<Esc>P')
+map('v', '<leader>(', 'c()<Esc>P')
+map('v', '<leader>{', 'c{}<Esc>P')
+map('v', '<leader>[', 'c[]<Esc>P')
 
 vim.keymap.set('n', 'gn', ':bnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'gp', ':bprevious<CR>', { noremap = true, silent = true })
