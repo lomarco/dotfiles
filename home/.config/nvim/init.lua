@@ -65,6 +65,7 @@ vim.pack.add({
   gh("stevearc/aerial.nvim"),
   gh("stevearc/oil.nvim"),
   gh("lambdalisue/vim-lese"),
+  gh("RaafatTurki/hex.nvim"),
 }, { confirm = false })
 
 vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
@@ -118,6 +119,7 @@ require('mason-lspconfig').setup({
 vim.lsp.enable({ 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'hls', 'gopls' })
 
 require("aerial").setup({ backends = { "lsp", "treesitter" } })
+map('<leader>a', '<Cmd>AerialToggle!<CR>')
 
 require("oil").setup({ view_options = { show_hidden = true }, skip_confirm_for_simple_edits = true })
 
@@ -125,3 +127,6 @@ map("n", "<leader>ff", "<cmd>Lese file<cr>")
 map("n", "<leader>fb", "<cmd>Lese buffer<cr>")
 map("n", "<leader>fr", "<cmd>Lese oldfiles<cr>")
 map("n", "<leader>fg", "<cmd>Lese grep<cr>")
+
+require("hex").setup()
+
