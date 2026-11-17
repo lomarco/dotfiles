@@ -61,9 +61,6 @@ map('n', 'gp', '<Cmd>bprevious<CR>')
 map('n', 'gw', '<Cmd>bdelete<CR>')
 map('n', 'ge', '<Cmd>enew<CR>')
 
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-
 local function ToggleTerminal(opts)
   local terminal_bufnr = vim.g.terminal_bufnr or nil
 
