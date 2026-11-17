@@ -40,13 +40,10 @@ vim.opt.shortmess:append("sI")
 vim.opt.fillchars = { eob = " " }
 
 
------------- KEYMAPS:
 vim.g.mapleader = " "
 
--- Escape alias
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
--- Auto brackets
 vim.keymap.set('v', '<leader>"', 'c""<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', "<leader>'", "c''<Esc>P", { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>`', 'c``<Esc>P', { noremap = true, silent = true })
@@ -54,17 +51,14 @@ vim.keymap.set('v', '<leader>(', 'c()<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>{', 'c{}<Esc>P', { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>[', 'c[]<Esc>P', { noremap = true, silent = true })
 
--- Buffers moving
 vim.keymap.set('n', 'gn', ':bnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'gp', ':bprevious<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'gw', ':bdelete<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'ge', ':enew<CR>', { noremap = true, silent = true })
 
--- Auto zz after ctrl+d/u jumps
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
--- Terminal Toggle Command
 local function ToggleTerminal(opts)
   local terminal_bufnr = vim.g.terminal_bufnr or nil
 
@@ -112,7 +106,6 @@ vim.schedule(function()
 end)
 
 
------------- PLUGINS
 require('lazy').setup({
   {
     'nvim-telescope/telescope.nvim',
