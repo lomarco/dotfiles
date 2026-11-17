@@ -59,6 +59,7 @@ vim.pack.add({
   gh('saghen/blink.lib'),
   gh("lewis6991/gitsigns.nvim"),
   gh("tpope/vim-fugitive"),
+  gh("neovim/nvim-lspconfig")
 }, { confirm = false })
 
 vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
@@ -82,3 +83,25 @@ cmp.setup({
     enabled = true,
   },
 })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local function map(lhs, rhs)
+      vim.keymap.set('n', lhs, rhs, { silent = true, buffer = ev.buf })
+    end
+    map('gd', vim.lsp.buf.definition)
+    map('gr', vim.lsp.buf.references)
+    map('gi', vim.lsp.buf.implementation)
+    map('gt', vim.lsp.buf.type_definition)
+    map('K', vim.lsp.buf.hover)
+    map('<leader>ca', vim.lsp.buf.code_action)
+    map('<leader>r', vim.lsp.buf.rename)
+    map('<leader>f', function() vim.lsp.buf.format() end)
+    map('<leader>g', vim.diagnostic.setloclist)
+    map('<leader>e', vim.diagnostic.open_float)
+    map('[d', function() vim.diagnostic.jump({ count = -1, float = true }) end)
+    map(']d', function() vim.diagnostic.jump({ count = 1, float = true }) end)
+  end,
+})
+
+vim.lsp.enable({ 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'hls', 'gopls' })
