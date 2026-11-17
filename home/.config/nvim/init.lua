@@ -57,9 +57,11 @@ vim.pack.add({
   gh('rafi/awesome-vim-colorschemes'),
   gh('saghen/blink.cmp'),
   gh('saghen/blink.lib'),
-  gh("lewis6991/gitsigns.nvim"),
-  gh("tpope/vim-fugitive"),
-  gh("neovim/nvim-lspconfig")
+  gh('lewis6991/gitsigns.nvim'),
+  gh('tpope/vim-fugitive'),
+  gh('neovim/nvim-lspconfig'),
+  gh('mason-org/mason.nvim'),
+  gh('mason-org/mason-lspconfig.nvim'),
 }, { confirm = false })
 
 vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
@@ -102,6 +104,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('[d', function() vim.diagnostic.jump({ count = -1, float = true }) end)
     map(']d', function() vim.diagnostic.jump({ count = 1, float = true }) end)
   end,
+})
+
+require('mason').setup()
+
+require('mason-lspconfig').setup({
+  automatic_enable = false,
 })
 
 vim.lsp.enable({ 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'hls', 'gopls' })
