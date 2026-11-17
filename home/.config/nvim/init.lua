@@ -54,9 +54,11 @@ local gh = function(name)
 end
 
 vim.pack.add({
-  { src = gh('rafi/awesome-vim-colorschemes') },
-  { src = gh('saghen/blink.cmp') },
-  { src = gh('saghen/blink.lib') },
+  gh('rafi/awesome-vim-colorschemes'),
+  gh('saghen/blink.cmp'),
+  gh('saghen/blink.lib'),
+  gh("lewis6991/gitsigns.nvim"),
+  gh("tpope/vim-fugitive"),
 }, { confirm = false })
 
 vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
