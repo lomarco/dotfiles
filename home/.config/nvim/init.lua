@@ -59,6 +59,8 @@ vim.pack.add({
   { src = gh('saghen/blink.lib') },
 }, { confirm = false })
 
+vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
+
 local cmp = require("blink.cmp")
 cmp.build():pwait()
 cmp.setup({
