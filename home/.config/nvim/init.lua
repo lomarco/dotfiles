@@ -66,6 +66,14 @@ vim.schedule(function()
   vim.keymap.set("n", "<leader>u", vim.cmd.Undotree)
 end)
 
+local gh = function(name)
+  return 'https://github.com/' .. name
+end
+
+vim.pack.add({
+  { src = gh('rafi/awesome-vim-colorschemes') },
+  { src = gh('nvim-mini/mini.nvim') },
+}, { confirm = false })
 
 require('lazy').setup({
   {
