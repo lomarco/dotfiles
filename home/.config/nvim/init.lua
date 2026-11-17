@@ -16,28 +16,31 @@ vim.opt.rtp:prepend(lazypath)
 
 
 vim.loader.enable()
-vim.opt.number = true
-vim.opt.numberwidth = 1
-vim.opt.relativenumber = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.wrap = true
-vim.opt.linebreak = true
-vim.opt.termguicolors = true
-vim.opt.hlsearch = true
-vim.opt.timeoutlen = 400
-vim.opt.signcolumn = "yes"
-vim.opt.clipboard = "unnamedplus"
-vim.opt.colorcolumn = "100"
-vim.opt.shortmess:append("sI")
-vim.opt.fillchars = { eob = " " }
-vim.opt.list = true
-vim.opt.listchars = { trail = '.', nbsp = '.', tab = '| ' }
-vim.opt.undofile = true
+
+local opt = vim.opt
+
+opt.number = true
+opt.numberwidth = 1
+opt.relativenumber = true
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.smartindent = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.wrap = true
+opt.linebreak = true
+opt.termguicolors = true
+opt.hlsearch = true
+opt.timeoutlen = 400
+opt.signcolumn = "yes"
+opt.clipboard = "unnamedplus"
+opt.colorcolumn = "100"
+opt.shortmess:append("sI")
+opt.fillchars = { eob = " " }
+opt.list = true
+opt.listchars = { trail = '.', nbsp = '.', tab = '| ' }
+opt.undofile = true
 
 
 vim.g.mapleader = " "
