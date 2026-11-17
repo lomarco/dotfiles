@@ -132,3 +132,17 @@ map("n", "<leader>fg", "<cmd>Lese grep<cr>")
 require("hex").setup()
 
 require('mini.tabline').setup()
+require('mini.pairs').setup()
+require('mini.comment').setup()
+
+require("gitsigns").setup({
+  on_attach = function(buf)
+    local gs, b = require("gitsigns"), { buffer = buf }
+    map('n', ']c', function() gs.next_hunk() end)
+    map('n', '[c', function() gs.prev_hunk() end)
+    map('n', '<leader>hs', gs.stage_hunk)
+    map('n', '<leader>hp', gs.preview_hunk)
+    map('n', '<leader>hr', gs.reset_hunk)
+    map('n', '<leader>hb', function() gs.blame_line { full = true } end)
+  end,
+})
