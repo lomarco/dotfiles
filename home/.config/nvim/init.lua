@@ -70,6 +70,7 @@ vim.pack.add({
   gh("nvim-mini/mini.pairs"),
   gh("nvim-mini/mini.comment"),
   gh("nvim-mini/mini.surround"),
+  gh('benomahony/oil-git.nvim'),
 }, { confirm = false })
 
 vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
@@ -130,6 +131,8 @@ map('n', '<leader>a', '<Cmd>AerialToggle!<CR>')
 
 require("oil").setup({ view_options = { show_hidden = true }, skip_confirm_for_simple_edits = true })
 map('n', '<leader>,', '<cmd>Oil<cr>')
+
+require('oil-git').setup()
 
 map("n", "<leader>ff", "<cmd>Lese file<cr>")
 map("n", "<leader>fb", "<cmd>Lese buffer<cr>")
