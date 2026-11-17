@@ -62,7 +62,8 @@ vim.pack.add({
   gh('neovim/nvim-lspconfig'),
   gh('mason-org/mason.nvim'),
   gh('mason-org/mason-lspconfig.nvim'),
-  gh("stevearc/aerial.nvim")
+  gh("stevearc/aerial.nvim"),
+  gh("stevearc/oil.nvim"),
 }, { confirm = false })
 
 vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
@@ -116,3 +117,5 @@ require('mason-lspconfig').setup({
 vim.lsp.enable({ 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'hls', 'gopls' })
 
 require("aerial").setup({ backends = { "lsp", "treesitter" } })
+
+require("oil").setup({ view_options = { show_hidden = true }, skip_confirm_for_simple_edits = true })
