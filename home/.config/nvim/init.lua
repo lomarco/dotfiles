@@ -44,9 +44,9 @@ map('n', 'gp', '<Cmd>bprevious<CR>')
 map('n', 'gw', '<Cmd>bdelete<CR>')
 map('n', 'ge', '<Cmd>enew<CR>')
 
-vim.schedule(function()
-  vim.cmd("packadd nvim.undotree")
-  vim.keymap.set("n", "<leader>u", vim.cmd.Undotree)
+map('n', '<leader>u', function()
+  vim.cmd.packadd('nvim.undotree')
+  require('undotree').open()
 end)
 
 local gh = function(name)
