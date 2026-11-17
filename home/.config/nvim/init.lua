@@ -67,6 +67,9 @@ vim.pack.add({
   gh("lambdalisue/vim-lese"),
   gh("RaafatTurki/hex.nvim"),
   gh("nvim-mini/mini.tabline"),
+  gh("nvim-mini/mini.pairs"),
+  gh("nvim-mini/mini.comment"),
+  gh("nvim-mini/mini.surround"),
 }, { confirm = false })
 
 vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
@@ -111,6 +114,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+map('n', '<leader>gc', '<cmd>Git commit<cr>')
+map('n', '<leader>ga', '<cmd>Git commit --amend<cr>')
+
 require('mason').setup()
 
 require('mason-lspconfig').setup({
@@ -123,6 +129,7 @@ require("aerial").setup({ backends = { "lsp", "treesitter" } })
 map('n', '<leader>a', '<Cmd>AerialToggle!<CR>')
 
 require("oil").setup({ view_options = { show_hidden = true }, skip_confirm_for_simple_edits = true })
+map('n', '<leader>,', '<cmd>Oil<cr>')
 
 map("n", "<leader>ff", "<cmd>Lese file<cr>")
 map("n", "<leader>fb", "<cmd>Lese buffer<cr>")
@@ -134,6 +141,7 @@ require("hex").setup()
 require('mini.tabline').setup()
 require('mini.pairs').setup()
 require('mini.comment').setup()
+require('mini.surround').setup()
 
 require("gitsigns").setup({
   on_attach = function(buf)
