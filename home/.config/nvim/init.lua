@@ -15,7 +15,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
------------- BASE SETTINGS
 vim.loader.enable()
 vim.opt.number = true
 vim.opt.numberwidth = 1
@@ -36,6 +35,9 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.colorcolumn = "100"
 vim.opt.shortmess:append("sI")
 vim.opt.fillchars = { eob = " " }
+vim.opt.list = true
+vim.opt.listchars = { trail = '.', nbsp = '.', tab = '| ' }
+vim.opt.undofile = true
 
 
 vim.g.mapleader = " "
@@ -89,15 +91,6 @@ vim.keymap.set('n', '<leader>d', '<Cmd>ToggleTerminal<CR>', { noremap = true, si
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
 
--- End of line highlighting
-vim.opt.list = true
-vim.opt.listchars = {
-  trail = ".",
-  nbsp  = ".",
-  tab   = "| ",
-}
-
--- Setting built-in undotree.nvim
 vim.schedule(function()
   vim.cmd("packadd nvim.undotree")
   vim.keymap.set("n", "<leader>u", vim.cmd.Undotree)
