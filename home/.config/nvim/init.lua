@@ -55,5 +55,26 @@ end
 
 vim.pack.add({
   { src = gh('rafi/awesome-vim-colorschemes') },
-  { src = gh('nvim-mini/mini.nvim') },
+  { src = gh('saghen/blink.cmp') },
+  { src = gh('saghen/blink.lib') },
 }, { confirm = false })
+
+local cmp = require("blink.cmp")
+cmp.build():pwait()
+cmp.setup({
+  keymap = { preset = "default" },
+  sources = {
+    default = { "lsp", "path", "snippets", "buffer" },
+  },
+
+  completion = {
+    documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 300,
+    },
+  },
+
+  signature = {
+    enabled = true,
+  },
+})
