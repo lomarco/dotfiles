@@ -66,6 +66,7 @@ vim.pack.add({
   gh("stevearc/oil.nvim"),
   gh("lambdalisue/vim-lese"),
   gh("RaafatTurki/hex.nvim"),
+  gh("nvim-mini/mini.tabline"),
 }, { confirm = false })
 
 vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
@@ -119,7 +120,7 @@ require('mason-lspconfig').setup({
 vim.lsp.enable({ 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'hls', 'gopls' })
 
 require("aerial").setup({ backends = { "lsp", "treesitter" } })
-map('<leader>a', '<Cmd>AerialToggle!<CR>')
+map('n', '<leader>a', '<Cmd>AerialToggle!<CR>')
 
 require("oil").setup({ view_options = { show_hidden = true }, skip_confirm_for_simple_edits = true })
 
@@ -130,3 +131,4 @@ map("n", "<leader>fg", "<cmd>Lese grep<cr>")
 
 require("hex").setup()
 
+require('mini.tabline').setup()

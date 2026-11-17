@@ -20,6 +20,10 @@
       "rev": "dc7698f932792a764d3db95fedee26c38e728355",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "hex.nvim": {
+      "rev": "4992bced282c4cd9d3ac7a7522a1baabbfe62a2a",
+      "src": "https://github.com/RaafatTurki/hex.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "97ccf96bb2e7adb5f82975068bd4c7307d2afa8a",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
@@ -31,6 +35,10 @@
     "mini.nvim": {
       "rev": "174eb9b9d5d66254966b9d52ea51b996317e51f6",
       "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "mini.tabline": {
+      "rev": "7062e7fa00dc76a20a043265c94bcf7b2789478f",
+      "src": "https://github.com/nvim-mini/mini.tabline"
     },
     "nvim-lspconfig": {
       "rev": "6a3ddecf60e19f164390308f502e67f3199f58e8",
