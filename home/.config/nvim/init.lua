@@ -61,38 +61,6 @@ map('n', 'gp', '<Cmd>bprevious<CR>')
 map('n', 'gw', '<Cmd>bdelete<CR>')
 map('n', 'ge', '<Cmd>enew<CR>')
 
-local function ToggleTerminal(opts)
-  local terminal_bufnr = vim.g.terminal_bufnr or nil
-
-  if terminal_bufnr and vim.api.nvim_buf_is_valid(terminal_bufnr) then
-    local terminal_win = nil
-    for _, win in ipairs(vim.api.nvim_list_wins()) do
-      if vim.api.nvim_win_get_buf(win) == terminal_bufnr then
-        terminal_win = win
-        break
-      end
-    end
-    if terminal_win then
-      vim.api.nvim_win_close(terminal_win, true)
-    else
-      vim.cmd("botright split")
-      vim.api.nvim_win_set_buf(0, terminal_bufnr)
-      vim.cmd("startinsert")
-    end
-  else
-    vim.cmd("botright split")
-    vim.cmd("terminal")
-    vim.g.terminal_bufnr = vim.api.nvim_get_current_buf()
-    vim.cmd("startinsert")
-  end
-end
-
-vim.api.nvim_create_user_command('ToggleTerminal', ToggleTerminal, {})
-
-vim.keymap.set('n', '<leader>d', '<Cmd>ToggleTerminal<CR>', { noremap = true, silent = true })
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
-
 vim.schedule(function()
   vim.cmd("packadd nvim.undotree")
   vim.keymap.set("n", "<leader>u", vim.cmd.Undotree)
