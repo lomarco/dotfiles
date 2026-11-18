@@ -125,7 +125,6 @@ alias ls='ls --color=tty' \
   ..="cd .."
 
 export GPG_TTY=$TTY
-#ssh-add -l >/dev/null 2>&1 || eval $(ssh-agent -s) MAYBE DELETE ME
 gpg-connect-agent updatestartuptty /bye 1>/dev/null
 export SSH_AUTH_SOCK="$(gpgconf --list-dir agent-ssh-socket)"
 

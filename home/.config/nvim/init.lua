@@ -1,440 +1,165 @@
-vim = vim or {}
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out,                            "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
-end
-vim.opt.rtp:prepend(lazypath)
-
-
------------- BASE SETTINGS
 vim.loader.enable()
-vim.opt.number = true
-vim.opt.numberwidth = 1
-vim.opt.relativenumber = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.wrap = true
-vim.opt.linebreak = true
-vim.opt.termguicolors = true
-vim.opt.hlsearch = true
-vim.opt.timeoutlen = 400
-vim.opt.signcolumn = "yes"
-vim.opt.clipboard = "unnamedplus"
-vim.opt.colorcolumn = "100"
-vim.opt.shortmess:append("sI")
-vim.opt.fillchars = { eob = " " }
 
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
------------- KEYMAPS:
-vim.g.mapleader = " "
+local opt = vim.opt
+local map = vim.keymap.set
 
--- Escape alias
-vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
+opt.number = true
+opt.numberwidth = 1
+opt.relativenumber = true
+opt.signcolumn = 'yes'
+opt.colorcolumn = '100'
+opt.wrap = true
+opt.linebreak = true
+opt.list = true
+opt.listchars = { trail = '.', nbsp = '.', tab = '| ' }
+opt.fillchars = { eob = ' ' }
+opt.shortmess:append('sI')
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.undofile = true
+opt.updatetime = 250
+opt.timeoutlen = 400
+opt.confirm = true
+opt.exrc = true
+opt.clipboard = 'unnamedplus'
 
--- Auto brackets
-vim.keymap.set('v', '<leader>"', 'c""<Esc>P', { noremap = true, silent = true })
-vim.keymap.set('v', "<leader>'", "c''<Esc>P", { noremap = true, silent = true })
-vim.keymap.set('v', '<leader>`', 'c``<Esc>P', { noremap = true, silent = true })
-vim.keymap.set('v', '<leader>(', 'c()<Esc>P', { noremap = true, silent = true })
-vim.keymap.set('v', '<leader>{', 'c{}<Esc>P', { noremap = true, silent = true })
-vim.keymap.set('v', '<leader>[', 'c[]<Esc>P', { noremap = true, silent = true })
+map('i', 'jk', '<Esc>')
 
--- Buffers moving
-vim.keymap.set('n', 'gn', ':bnext<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', 'gp', ':bprevious<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', 'gw', ':bdelete<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', 'ge', ':enew<CR>', { noremap = true, silent = true })
+map('v', '<leader>"', 'c""<Esc>P')
+map('v', "<leader>'", "c''<Esc>P")
+map('v', '<leader>`', 'c``<Esc>P')
+map('v', '<leader>(', 'c()<Esc>P')
+map('v', '<leader>{', 'c{}<Esc>P')
+map('v', '<leader>[', 'c[]<Esc>P')
 
--- Auto zz after ctrl+d/u jumps
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
+map('n', 'gn', '<Cmd>bnext<CR>')
+map('n', 'gp', '<Cmd>bprevious<CR>')
+map('n', 'gw', '<Cmd>bdelete<CR>')
+map('n', 'ge', '<Cmd>enew<CR>')
 
--- Terminal Toggle Command
-local function ToggleTerminal(opts)
-  local terminal_bufnr = vim.g.terminal_bufnr or nil
-
-  if terminal_bufnr and vim.api.nvim_buf_is_valid(terminal_bufnr) then
-    local terminal_win = nil
-    for _, win in ipairs(vim.api.nvim_list_wins()) do
-      if vim.api.nvim_win_get_buf(win) == terminal_bufnr then
-        terminal_win = win
-        break
-      end
-    end
-    if terminal_win then
-      vim.api.nvim_win_close(terminal_win, true)
-    else
-      vim.cmd("botright split")
-      vim.api.nvim_win_set_buf(0, terminal_bufnr)
-      vim.cmd("startinsert")
-    end
-  else
-    vim.cmd("botright split")
-    vim.cmd("terminal")
-    vim.g.terminal_bufnr = vim.api.nvim_get_current_buf()
-    vim.cmd("startinsert")
-  end
-end
-
-vim.api.nvim_create_user_command('ToggleTerminal', ToggleTerminal, {})
-
-vim.keymap.set('n', '<leader>d', '<Cmd>ToggleTerminal<CR>', { noremap = true, silent = true })
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>q', ':wincmd c<CR>', { noremap = true, silent = true })
-
--- End of line highlighting
-vim.opt.list = true
-vim.opt.listchars = {
-  trail = ".",
-  nbsp  = ".",
-  tab   = "| ",
-}
-
--- Setting built-in undotree.nvim
-vim.schedule(function()
-  vim.cmd("packadd nvim.undotree")
-  vim.keymap.set("n", "<leader>u", vim.cmd.Undotree)
+map('n', '<leader>u', function()
+  vim.cmd.packadd('nvim.undotree')
+  require('undotree').open()
 end)
 
+map('n', '<leader>d', function()
+  vim.cmd('botright 16new')
+  vim.cmd('terminal')
+  vim.cmd('startinsert')
+end)
 
------------- PLUGINS
-require('lazy').setup({
-  {
-    'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    keys = {
-      { '<leader>ff', function() require('telescope.builtin').find_files() end, desc = 'Find Files' },
-      { '<leader>fg', function() require('telescope.builtin').live_grep() end,  desc = 'Live Grep' },
-      { '<leader>fb', function() require('telescope.builtin').buffers() end,    desc = 'Find Buffers' },
-      { '<leader>fh', function() require('telescope.builtin').help_tags() end,  desc = 'Help Tags' },
-      { '<leader>fr', function() require('telescope.builtin').oldfiles() end,   desc = 'Recent Files' },
-    },
-    opts = {
-      defaults = {
-        mappings = {
-          i = {
-            ['<C-u>'] = false,
-            ['<C-d>'] = false,
-          },
-        },
-      },
-    }
-  },
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    event = 'BufRead',
-    opts = {
-      ensure_installed = { "c", "cpp", "bash", "lua", "asm", "rust" },
-      highlight = { enable = true },
-      indent = { enable = true },
-      auto_install = true,
-    },
-  },
-  {
-    'neovim/nvim-lspconfig',
-    config = function()
-      local on_attach = function(client, bufnr)
-        local opts = { noremap = true, silent = true, buffer = bufnr }
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
-        vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format() end, opts)
-        vim.keymap.set('n', '<leader>g', function() vim.diagnostic.setloclist() end, opts)
-        vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
-        vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
-        vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
-      end
+map('t', '<Esc><Esc>', [[<C-\><C-n>]])
 
-      local servers = { 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'hls', 'gopls' }
-      for _, server in ipairs(servers) do
-        vim.lsp.config[server] = vim.tbl_deep_extend("force", vim.lsp.config[server] or {}, {
-          on_attach = on_attach,
-        })
-        vim.lsp.enable(server)
-      end
-    end
-  },
-  {
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'saadparwaiz1/cmp_luasnip',
-      'L3MON4D3/LuaSnip',
-      'rafamadriz/friendly-snippets',
-    },
-    event = 'InsertEnter',
-    opts = function()
-      local cmp = require('cmp')
-      return {
-        completion = {
-          autocomplete = false,
-          max_item_count = 10,
-        },
-        sources = {
-          { name = 'nvim_lsp', priority = 1000 },
-          { name = 'luasnip',  priority = 900 },
-          { name = 'buffer',   priority = 500 },
-          { name = 'path',     priority = 250 },
-        },
-        mapping = cmp.mapping.preset.insert()
-      }
-    end,
-  },
-  {
-    'mason-org/mason.nvim',
-    opts = {},
-    lazy = false
-  },
-  {
-    'mason-org/mason-lspconfig.nvim',
-    dependencies = { 'mason-org/mason.nvim', 'neovim/nvim-lspconfig' },
-    opts = {
-      ensure_installed = { 'lua_ls', 'clangd' },
-      automatic_enable = false,
-    }
-  },
-  {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup({
-        on_attach = function(bufnr)
-          local gs = package.loaded.gitsigns
+map('t', '<C-h>', [[<C-\><C-n><C-w>h]])
+map('t', '<C-j>', [[<C-\><C-n><C-w>j]])
+map('t', '<C-k>', [[<C-\><C-n><C-w>k]])
+map('t', '<C-l>', [[<C-\><C-n><C-w>l]])
 
-          local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-          end
-
-          map('n', ']c', function()
-            if vim.wo.diff then return ']c' end
-            vim.schedule(function() gs.next_hunk() end)
-            return '<Ignore>'
-          end, { expr = true })
-
-          map('n', '[c', function()
-            if vim.wo.diff then return '[c' end
-            vim.schedule(function() gs.prev_hunk() end)
-            return '<Ignore>'
-          end, { expr = true })
-
-          map('n', '<leader>hs', gs.stage_hunk)
-          map('n', '<leader>hr', gs.reset_hunk)
-          map('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-          map('v', '<leader>hr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-          map('n', '<leader>hS', gs.stage_buffer)
-          map('n', '<leader>hu', gs.undo_stage_hunk)
-          map('n', '<leader>hR', gs.reset_buffer)
-          map('n', '<leader>hp', gs.preview_hunk)
-          map('n', '<leader>hb', function() gs.blame_line { full = true } end)
-          map('n', '<leader>tb', gs.toggle_current_line_blame)
-          map('n', '<leader>hd', gs.diffthis)
-          map('n', '<leader>hD', function() gs.diffthis('~') end)
-          map('n', '<leader>td', gs.toggle_deleted)
-        end
-      })
-    end
-  },
-  {
-    "tpope/vim-fugitive",
-    lazy = false,
-    config = function()
-      vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", { noremap = true, silent = true, desc = "Git commit" })
-      vim.keymap.set("n", "<leader>ga", ":Git commit --amend<CR>",
-        { noremap = true, silent = true, desc = "Git commit --amend" })
-      vim.keymap.set("n", "<leader>gs", ":Git status --short<CR>", { noremap = true, silent = true, desc = "Git status" })
-      vim.keymap.set("n", "<leader>gp", function()
-        local branch = vim.fn.trim(vim.fn.system("git rev-parse --abbrev-ref HEAD"))
-        if branch == "" or branch:match("fatal") then
-          vim.notify("Could not determine current branch", vim.log.levels.ERROR)
-          return
-        end
-        vim.cmd(string.format("Git push origin %s", branch))
-      end, { noremap = true, silent = true, desc = "Git push current branch" })
-      vim.g.fugitive_legacy_commands = 0
-    end,
-  },
-  {
-    'numToStr/Comment.nvim',
-    opts = {}
-  },
-  {
-    'nvim-mini/mini.tabline',
-    version = '*',
-    opts = {
-      show_icons = false,
-      format = nil,
-      tabpage_section = 'left'
-    }
-  },
-  {
-    'm4xshen/autoclose.nvim',
-    opts = {}
-  },
-  {
-    "stevearc/oil.nvim",
-    lazy = false,
-    vim.api.nvim_set_keymap('n', '<leader>,', ':Oil<CR>', { noremap = true, silent = true }),
-    opts = {
-      default_file_explorer = true,
-      columns = {
-        "permissions",
-        "size",
-      },
-      buf_options = {
-        buflisted = true,
-        bufhidden = "hide"
-      },
-      win_options = {
-        wrap = false,
-        signcolumn = "yes:2",
-        cursorcolumn = false,
-        spell = false,
-        list = true,
-        conceallevel = 3,
-        concealcursor = "nvic",
-      },
-      skip_confirm_for_simple_edits = false,
-      prompt_save_on_select_new_entry = true,
-
-      lsp_file_methods = {
-        enabled = true,
-        timeout_ms = 1000,
-        autosave_changes = false,
-      },
-      watch_for_changes = true,
-
-      view_options = {
-        show_hidden = true,
-        is_hidden_file = function(name, bufnr)
-          local m = name:match("^%.")
-          return m ~= nil
-        end,
-        is_always_hidden = function(name, bufnr)
-          return false
-        end,
-        natural_order = "fast",
-        case_insensitive = false,
-        sort = {
-          { "type", "asc" },
-          { "name", "asc" },
-        },
-        highlight_filename = function(entry, is_hidden, is_link_target, is_link_orphan)
-          return nil
-        end,
-      },
-      git = {
-        add = function(path)
-          return true
-        end,
-        mv = function(src_path, dest_path)
-          return true
-        end,
-        rm = function(path)
-          return true
-        end,
-      },
-    },
-  },
-  {
-    'refractalize/oil-git-status.nvim',
-    dependencies = { 'stevearc/oil.nvim' },
-    config = function()
-      require('oil-git-status').setup({
-        show_ignored = true,
-        symbols = {
-          index = {
-            ["M"] = "M",
-            ["A"] = "A",
-            ["D"] = "D",
-            ["R"] = "R",
-            ["C"] = "C",
-            ["U"] = "U",
-            ["?"] = "?",
-            ["!"] = "!",
-          },
-          working_tree = {
-            ["M"] = "M",
-            ["A"] = "A",
-            ["D"] = "D",
-            ["R"] = "R",
-            ["C"] = "C",
-            ["U"] = "U",
-            ["?"] = "?",
-            ["!"] = "!",
-          },
-        },
-      })
-    end,
-  },
-  {
-    url = "https://codeberg.org/andyg/leap.nvim",
-    enabled = true,
-    config = function()
-      vim.keymap.set({ 'n', 'x', 'o' }, ';', '<Plug>(leap)')
-    end,
-  },
-  {
-    'stevearc/aerial.nvim',
-    keys = { { '<leader>a', '<Cmd>AerialToggle!<CR>', desc = 'Outline' } },
-    opts = {}
-  },
-  {
-    "ej-shafran/compile-mode.nvim",
-    version = "^5.0.0",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    vim.keymap.set('n', '<leader>c', '<cmd>Compile<CR>', { noremap = true, silent = true }),
-    vim.keymap.set('n', '<leader>cr', '<cmd>Recompile<CR>', { noremap = true, silent = true }),
-    config = function()
-      vim.g.compile_mode = {
-        default_command = "",
-        ask_about_save = true,
-        ask_to_interrupt = true,
-        error_threshold = require("compile-mode").level.WARNING,
-        error_locus_highlight = 500,
-      }
-    end
-  },
-  {
-    'RaafatTurki/hex.nvim',
-    opts = {}
-  },
-  {
-    "dhananjaylatkar/cscope_maps.nvim",
-    opts = {
-      picker = "quickfix"
-    },
-  },
-  {
-    'rafi/awesome-vim-colorschemes',
-    lazy = false,
-    config = function()
-      vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
-      vim.opt.background = 'dark'
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-    end,
-  }
+vim.api.nvim_create_autocmd('TermOpen', {
+  callback = function(ev)
+    map({ 'n', 't' }, '<leader>q', function()
+      vim.api.nvim_buf_delete(ev.buf, { force = true })
+    end, { buffer = ev.buf, desc = 'Убить терминал' })
+  end,
 })
+
+local gh = function(name)
+  return 'https://github.com/' .. name
+end
+
+vim.pack.add({
+  gh('rafi/awesome-vim-colorschemes'),
+  gh('nvim-mini/mini.completion'),
+  gh('lewis6991/gitsigns.nvim'),
+  gh('tpope/vim-fugitive'),
+  gh('neovim/nvim-lspconfig'),
+  gh('mason-org/mason.nvim'),
+  gh('mason-org/mason-lspconfig.nvim'),
+  gh("stevearc/oil.nvim"),
+  gh("RaafatTurki/hex.nvim"),
+  gh("nvim-mini/mini.tabline"),
+  gh("nvim-mini/mini.pairs"),
+  gh('benomahony/oil-git.nvim'),
+  gh('ibhagwan/fzf-lua'),
+}, { confirm = false })
+
+vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local function bmap(lhs, rhs)
+      map('n', lhs, rhs, { buffer = ev.buf, silent = true })
+    end
+    bmap('gd', vim.lsp.buf.definition)
+    bmap('gr', vim.lsp.buf.references)
+    bmap('gi', vim.lsp.buf.implementation)
+    bmap('gt', vim.lsp.buf.type_definition)
+    bmap('K', vim.lsp.buf.hover)
+    bmap('<leader>ca', vim.lsp.buf.code_action)
+    bmap('<leader>r', vim.lsp.buf.rename)
+    bmap('<leader>f', function() vim.lsp.buf.format() end)
+    bmap('<leader>g', vim.diagnostic.setloclist)
+    bmap('<leader>e', vim.diagnostic.open_float)
+    bmap('[d', function() vim.diagnostic.jump({ count = -1, float = true }) end)
+    bmap(']d', function() vim.diagnostic.jump({ count = 1, float = true }) end)
+  end,
+})
+
+map('n', '<leader>gc', '<cmd>Git commit<cr>')
+map('n', '<leader>ga', '<cmd>Git commit --amend<cr>')
+
+require('mason').setup({ PATH = "append" })
+
+require('mason-lspconfig').setup({
+  automatic_enable = false,
+})
+
+vim.lsp.enable({ 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'hls', 'gopls' })
+
+require("oil").setup({ view_options = { show_hidden = true }, skip_confirm_for_simple_edits = true })
+map('n', '<leader>,', '<cmd>Oil<cr>')
+
+require('oil-git').setup()
+require("hex").setup()
+
+require('mini.tabline').setup()
+require('mini.pairs').setup()
+require('mini.completion').setup({
+  delay = {
+    completion = 10^7,
+    signature = 10^7,
+  },
+})
+
+require("gitsigns").setup({
+  on_attach = function(buf)
+    local gs = require("gitsigns")
+    local function bmap(lhs, rhs) vim.keymap.set("n", lhs, rhs, { buffer = buf }) end
+    bmap("]j", function() gs.nav_hunk("next") end)
+    bmap("[j", function() gs.nav_hunk("prev") end)
+    bmap("<leader>hs", gs.stage_hunk)
+    bmap("<leader>hp", gs.preview_hunk)
+    bmap("<leader>hr", gs.reset_hunk)
+    bmap("<leader>hb", function() gs.blame_line({ full = true }) end)
+  end,
+})
+
+local fzf = require('fzf-lua')
+fzf.setup({ 'default-title' })
+
+map('n', '<leader>ff', fzf.files)
+map('n', '<leader>fg', fzf.live_grep)
+map('n', '<leader>fb', fzf.buffers)
+map('n', '<leader>fr', fzf.oldfiles)
+map('n', '<leader>fh', fzf.helptags)
+map('n', '<leader>fs', fzf.lsp_document_symbols)
+map('n', '<leader>fS', fzf.lsp_live_workspace_symbols)
+map('n', '<leader>f.', fzf.resume)
+map('n', '<leader>*', fzf.grep_cword)
+map('v', '<leader>*', fzf.grep_visual)
