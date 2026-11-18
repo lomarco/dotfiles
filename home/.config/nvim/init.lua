@@ -60,7 +60,6 @@ vim.pack.add({
   gh('neovim/nvim-lspconfig'),
   gh('mason-org/mason.nvim'),
   gh('mason-org/mason-lspconfig.nvim'),
-  gh("stevearc/aerial.nvim"),
   gh("stevearc/oil.nvim"),
   gh("RaafatTurki/hex.nvim"),
   gh("nvim-mini/mini.tabline"),
@@ -101,9 +100,6 @@ require('mason-lspconfig').setup({
 })
 
 vim.lsp.enable({ 'clangd', 'pyright', 'lua_ls', 'rust_analyzer', 'hls', 'gopls' })
-
-require("aerial").setup({ backends = { "lsp", "treesitter" } })
-map('n', '<leader>a', '<Cmd>AerialToggle!<CR>')
 
 require("oil").setup({ view_options = { show_hidden = true }, skip_confirm_for_simple_edits = true })
 map('n', '<leader>,', '<cmd>Oil<cr>')
