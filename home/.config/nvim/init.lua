@@ -55,22 +55,6 @@ local gh = function(name)
   return 'https://github.com/' .. name
 end
 
-vim.api.nvim_create_autocmd('PackChanged', {
-  callback = function(ev)
-    local d = ev.data
-    if d.kind == 'delete' then
-      return
-    end
-    if d.spec.name == 'blink.cmp' then
-      if not d.active then vim.cmd.packadd(d.spec.name) end
-      require('blink.cmp').build():pwait()
-    elseif d.spec.name == 'nvim-treesitter' then
-      if not d.active then vim.cmd.packadd(d.spec.name) end
-      vim.cmd('TSUpdate')
-    end
-  end,
-})
-
 vim.pack.add({
   gh('rafi/awesome-vim-colorschemes'),
   gh('saghen/blink.cmp'),
