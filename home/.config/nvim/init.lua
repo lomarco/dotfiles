@@ -61,6 +61,14 @@ map('t', '<C-j>', [[<C-\><C-n><C-w>j]])
 map('t', '<C-k>', [[<C-\><C-n><C-w>k]])
 map('t', '<C-l>', [[<C-\><C-n><C-w>l]])
 
+vim.api.nvim_create_autocmd('TermOpen', {
+  callback = function(ev)
+    map({ 'n', 't' }, '<leader>q', function()
+      vim.api.nvim_buf_delete(ev.buf, { force = true })
+    end, { buffer = ev.buf, desc = 'Убить терминал' })
+  end,
+})
+
 local gh = function(name)
   return 'https://github.com/' .. name
 end
