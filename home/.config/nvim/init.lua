@@ -8,13 +8,10 @@ opt.relativenumber = true
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
-opt.smartindent = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.wrap = true
 opt.linebreak = true
-opt.termguicolors = true
-opt.hlsearch = true
 opt.timeoutlen = 400
 opt.signcolumn = "yes"
 opt.clipboard = "unnamedplus"
@@ -68,8 +65,6 @@ vim.pack.add({
   gh("RaafatTurki/hex.nvim"),
   gh("nvim-mini/mini.tabline"),
   gh("nvim-mini/mini.pairs"),
-  gh("nvim-mini/mini.comment"),
-  gh("nvim-mini/mini.surround"),
   gh('benomahony/oil-git.nvim'),
 }, { confirm = false })
 
@@ -118,7 +113,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 map('n', '<leader>gc', '<cmd>Git commit<cr>')
 map('n', '<leader>ga', '<cmd>Git commit --amend<cr>')
 
-require('mason').setup()
+require('mason').setup({ PATH = "append" })
 
 require('mason-lspconfig').setup({
   automatic_enable = false,
@@ -143,17 +138,16 @@ require("hex").setup()
 
 require('mini.tabline').setup()
 require('mini.pairs').setup()
-require('mini.comment').setup()
-require('mini.surround').setup()
 
 require("gitsigns").setup({
   on_attach = function(buf)
-    local gs, b = require("gitsigns"), { buffer = buf }
-    map('n', ']c', function() gs.next_hunk() end)
-    map('n', '[c', function() gs.prev_hunk() end)
-    map('n', '<leader>hs', gs.stage_hunk)
-    map('n', '<leader>hp', gs.preview_hunk)
-    map('n', '<leader>hr', gs.reset_hunk)
-    map('n', '<leader>hb', function() gs.blame_line { full = true } end)
+    local gs = require("gitsigns")
+    local function bmap(lhs, rhs) vim.keymap.set("n", lhs, rhs, { buffer = buf }) end
+    bmap("]j", function() gs.nav_hunk("next") end)
+    bmap("[j", function() gs.nav_hunk("prev") end)
+    bmap("<leader>hs", gs.stage_hunk)
+    bmap("<leader>hp", gs.preview_hunk)
+    bmap("<leader>hr", gs.reset_hunk)
+    bmap("<leader>hb", function() gs.blame_line({ full = true }) end)
   end,
 })
