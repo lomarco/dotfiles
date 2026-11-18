@@ -32,11 +32,6 @@ opt.confirm = true
 opt.exrc = true
 opt.clipboard = 'unnamedplus'
 
-
-vim.g.mapleader = " "
-
-local map = vim.keymap.set
-
 map('i', 'jk', '<Esc>')
 
 map('v', '<leader>"', 'c""<Esc>P')
