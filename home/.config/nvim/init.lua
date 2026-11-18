@@ -66,6 +66,7 @@ vim.pack.add({
   gh("nvim-mini/mini.tabline"),
   gh("nvim-mini/mini.pairs"),
   gh('benomahony/oil-git.nvim'),
+  gh('ibhagwan/fzf-lua'),
 }, { confirm = false })
 
 vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
@@ -151,3 +152,17 @@ require("gitsigns").setup({
     bmap("<leader>hb", function() gs.blame_line({ full = true }) end)
   end,
 })
+
+local fzf = require('fzf-lua')
+fzf.setup({ 'default-title' })
+
+map('n', '<leader>ff', fzf.files)
+map('n', '<leader>fg', fzf.live_grep)
+map('n', '<leader>fb', fzf.buffers)
+map('n', '<leader>fr', fzf.oldfiles)
+map('n', '<leader>fh', fzf.helptags)
+map('n', '<leader>fs', fzf.lsp_document_symbols)
+map('n', '<leader>fS', fzf.lsp_live_workspace_symbols)
+map('n', '<leader>f.', fzf.resume)
+map('n', '<leader>*', fzf.grep_cword)
+map('v', '<leader>*', fzf.grep_visual)
