@@ -1,26 +1,36 @@
 vim.loader.enable()
 
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 local opt = vim.opt
+local map = vim.keymap.set
 
 opt.number = true
 opt.numberwidth = 1
 opt.relativenumber = true
+opt.signcolumn = 'yes'
+opt.colorcolumn = '100'
+opt.scrolloff = 8
+opt.wrap = true
+opt.linebreak = true
+opt.splitright = true
+opt.splitbelow = true
+opt.list = true
+opt.listchars = { trail = '.', nbsp = '.', tab = '| ' }
+opt.fillchars = { eob = ' ' }
+opt.shortmess:append('sI')
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.ignorecase = true
 opt.smartcase = true
-opt.wrap = true
-opt.linebreak = true
-opt.timeoutlen = 400
-opt.signcolumn = "yes"
-opt.clipboard = "unnamedplus"
-opt.colorcolumn = "100"
-opt.shortmess:append("sI")
-opt.fillchars = { eob = " " }
-opt.list = true
-opt.listchars = { trail = '.', nbsp = '.', tab = '| ' }
 opt.undofile = true
+opt.updatetime = 250
+opt.timeoutlen = 400
+opt.confirm = true
+opt.exrc = true
+opt.clipboard = 'unnamedplus'
 
 
 vim.g.mapleader = " "
