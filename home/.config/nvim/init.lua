@@ -48,6 +48,19 @@ map('n', '<leader>u', function()
   require('undotree').open()
 end)
 
+map('n', '<leader>d', function()
+  vim.cmd('botright 16new')
+  vim.cmd('terminal')
+  vim.cmd('startinsert')
+end)
+
+map('t', '<Esc><Esc>', [[<C-\><C-n>]])
+
+map('t', '<C-h>', [[<C-\><C-n><C-w>h]])
+map('t', '<C-j>', [[<C-\><C-n><C-w>j]])
+map('t', '<C-k>', [[<C-\><C-n><C-w>k]])
+map('t', '<C-l>', [[<C-\><C-n><C-w>l]])
+
 local gh = function(name)
   return 'https://github.com/' .. name
 end
