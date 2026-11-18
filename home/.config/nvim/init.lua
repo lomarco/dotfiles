@@ -91,30 +91,19 @@ vim.pack.add({
 
 vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
 
-local cmp = require("blink.cmp")
-cmp.build():pwait()
-cmp.setup({
-  keymap = { preset = "default" },
-  sources = {
-    default = { "lsp", "path", "snippets", "buffer" },
-  },
-
+require('blink.cmp').setup({
+  keymap = { preset = 'default' },
+  sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
   completion = {
-    documentation = {
-      auto_show = true,
-      auto_show_delay_ms = 300,
-    },
+    documentation = { auto_show = true, auto_show_delay_ms = 300 },
   },
-
-  signature = {
-    enabled = true,
-  },
+  signature = { enabled = true },
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
-    local function map(lhs, rhs)
-      vim.keymap.set('n', lhs, rhs, { silent = true, buffer = ev.buf })
+    local function bmap(lhs, rhs, desc)
+      map('n', lhs, rhs, { buffer = ev.buf, silent = true, desc = desc })
     end
     map('gd', vim.lsp.buf.definition)
     map('gr', vim.lsp.buf.references)
