@@ -54,8 +54,7 @@ end
 
 vim.pack.add({
   gh('rafi/awesome-vim-colorschemes'),
-  gh('saghen/blink.cmp'),
-  gh('saghen/blink.lib'),
+  gh('nvim-mini/mini.completion'),
   gh('lewis6991/gitsigns.nvim'),
   gh('tpope/vim-fugitive'),
   gh('neovim/nvim-lspconfig'),
@@ -71,15 +70,6 @@ vim.pack.add({
 }, { confirm = false })
 
 vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,desert,yellow-moon,challenger_deep,industry,gruvbox,retrobox,nord,onedark,pablo,darkblue,blue,PaperColor
-
-require('blink.cmp').setup({
-  keymap = { preset = 'default' },
-  sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
-  completion = {
-    documentation = { auto_show = true, auto_show_delay_ms = 300 },
-  },
-  signature = { enabled = true },
-})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
@@ -123,6 +113,7 @@ require("hex").setup()
 
 require('mini.tabline').setup()
 require('mini.pairs').setup()
+require('mini.completion').setup()
 
 require("gitsigns").setup({
   on_attach = function(buf)
