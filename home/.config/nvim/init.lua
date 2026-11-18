@@ -11,11 +11,8 @@ opt.numberwidth = 1
 opt.relativenumber = true
 opt.signcolumn = 'yes'
 opt.colorcolumn = '100'
-opt.scrolloff = 8
 opt.wrap = true
 opt.linebreak = true
-opt.splitright = true
-opt.splitbelow = true
 opt.list = true
 opt.listchars = { trail = '.', nbsp = '.', tab = '| ' }
 opt.fillchars = { eob = ' ' }
