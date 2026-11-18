@@ -61,7 +61,6 @@ vim.pack.add({
   gh('mason-org/mason-lspconfig.nvim'),
   gh("stevearc/aerial.nvim"),
   gh("stevearc/oil.nvim"),
-  gh("lambdalisue/vim-lese"),
   gh("RaafatTurki/hex.nvim"),
   gh("nvim-mini/mini.tabline"),
   gh("nvim-mini/mini.pairs"),
@@ -129,12 +128,6 @@ require("oil").setup({ view_options = { show_hidden = true }, skip_confirm_for_s
 map('n', '<leader>,', '<cmd>Oil<cr>')
 
 require('oil-git').setup()
-
-map("n", "<leader>ff", "<cmd>Lese file<cr>")
-map("n", "<leader>fb", "<cmd>Lese buffer<cr>")
-map("n", "<leader>fr", "<cmd>Lese oldfiles<cr>")
-map("n", "<leader>fg", "<cmd>Lese grep<cr>")
-
 require("hex").setup()
 
 require('mini.tabline').setup()
