@@ -85,8 +85,8 @@ vim.cmd.colorscheme('purify') -- quiet,OceanicNext,purify,molokai,one,elflord,de
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
-    local function bmap(lhs, rhs, desc)
-      map('n', lhs, rhs, { buffer = ev.buf, silent = true, desc = desc })
+    local function bmap(lhs, rhs)
+      map('n', lhs, rhs, { buffer = ev.buf, silent = true })
     end
     bmap('gd', vim.lsp.buf.definition)
     bmap('gr', vim.lsp.buf.references)
