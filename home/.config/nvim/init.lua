@@ -109,7 +109,12 @@ require("hex").setup()
 
 require('mini.tabline').setup()
 require('mini.pairs').setup()
-require('mini.completion').setup()
+require('mini.completion').setup({
+  delay = {
+    completion = 10^7,
+    signature = 10^7,
+  },
+})
 
 require("gitsigns").setup({
   on_attach = function(buf)
