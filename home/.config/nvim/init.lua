@@ -27,6 +27,8 @@ opt.updatetime = 250
 opt.timeoutlen = 400
 opt.confirm = true
 opt.exrc = true
+opt.autowrite = true
+opt.autowriteall = true
 opt.clipboard = 'unnamedplus'
 
 map('i', 'jk', '<Esc>')
@@ -66,6 +68,13 @@ vim.api.nvim_create_autocmd('TermOpen', {
     map({ 'n', 't' }, '<leader>q', function()
       vim.api.nvim_buf_delete(ev.buf, { force = true })
     end, { buffer = ev.buf, desc = 'Убить терминал' })
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "InsertLeave", "FocusLost" }, {
+  pattern = "*",
+  callback = function()
+    vim.cmd("silent! update")
   end,
 })
 
