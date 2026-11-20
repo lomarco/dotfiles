@@ -140,13 +140,17 @@ require('mini.completion').setup({
 require("gitsigns").setup({
   on_attach = function(buf)
     local gs = require("gitsigns")
-    local function bmap(lhs, rhs) vim.keymap.set("n", lhs, rhs, { buffer = buf }) end
-    bmap("]j", function() gs.nav_hunk("next") end)
-    bmap("[j", function() gs.nav_hunk("prev") end)
-    bmap("<leader>hs", gs.stage_hunk)
-    bmap("<leader>hp", gs.preview_hunk)
-    bmap("<leader>hr", gs.reset_hunk)
-    bmap("<leader>hb", function() gs.blame_line({ full = true }) end)
+    local function bmap(modes, lhs, rhs)vim.keymap.set(modes, lhs, rhs, { buffer = buf }) end
+    bmap('n', "]j", function() gs.nav_hunk("next") end)
+    bmap('n', "[j", function() gs.nav_hunk("prev") end)
+    bmap('n', "<leader>hs", gs.stage_hunk)
+    bmap('n', "<leader>hp", gs.preview_hunk)
+    bmap('n', "<leader>hr", gs.reset_hunk)
+    bmap('n', "<leader>hb", function() gs.blame_line({ full = true }) end)
+    bmap('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+    bmap('v', '<leader>hr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+    bmap('n', '<leader>hu', gs.undo_stage_hunk)
+    bmap('n', '<leader>hd', gs.diffthis)
   end,
 })
 
