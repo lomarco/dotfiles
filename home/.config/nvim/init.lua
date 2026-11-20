@@ -78,6 +78,61 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "FocusLost" }, {
   end,
 })
 
+-- Delete me
+local function show_big_message(text)
+  local buf = vim.api.nvim_create_buf(false, true)
+
+  local lines = vim.split(text, "\n")
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+
+  local width = math.min(
+    80,
+    math.max(unpack(vim.tbl_map(function(line)
+      return #line
+    end, lines))) + 4
+  )
+  local height = #lines + 2
+
+  local win = vim.api.nvim_open_win(buf, false, {
+    relative = "editor",
+    row = math.floor((vim.o.lines - height) / 2),
+    col = math.floor((vim.o.columns - width) / 2),
+    width = width,
+    height = height,
+    style = "minimal",
+    border = "rounded",
+    focusable = false,
+    noautocmd = true,
+  })
+
+  vim.api.nvim_buf_set_keymap(buf, "n", "<Esc>", "", {
+    callback = function()
+      pcall(vim.api.nvim_win_close, win, true)
+    end,
+  })
+
+  vim.defer_fn(function()
+    pcall(vim.api.nvim_win_close, win, true)
+  end, 3000)
+end
+
+vim.api.nvim_create_user_command("Wa", function()
+  show_big_message([[
+    What are you doing man??
+
+    File is already saved.
+    Do your shit, not :wa.
+  ]])
+end, {
+  desc = "Big reminder not to use :wa",
+})
+
+vim.cmd([[
+  cnoreabbrev <expr> wa
+    \ getcmdtype() == ':' && getcmdline() ==# 'wa' ? 'Wa' : 'wa'
+]])
+-- Delete me
+
 local gh = function(name)
   return 'https://github.com/' .. name
 end
