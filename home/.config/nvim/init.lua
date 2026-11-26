@@ -74,7 +74,9 @@ vim.api.nvim_create_autocmd('TermOpen', {
 vim.api.nvim_create_autocmd({ "InsertLeave", "FocusLost" }, {
   pattern = "*",
   callback = function()
-    vim.cmd("silent! update")
+    if vim.bo.filetype ~= "gitcommit" then
+      vim.cmd("silent! update")
+    end
   end,
 })
 
